@@ -22,11 +22,20 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ProductDto
     extends AbstractDto
 {
+
+    private final String sku;
     private final String description;
 
-    private ProductDto(final Builder _builder) {
+    private ProductDto(final Builder _builder)
+    {
         super(_builder);
+        this.sku = _builder.sku;
         this.description = _builder.description;
+    }
+
+    public String getSKU()
+    {
+        return this.sku;
     }
 
     public String getDescription()
@@ -36,26 +45,40 @@ public class ProductDto
 
     /**
      * Creates builder to build {@link AgendaDto}.
+     *
      * @return created builder
      */
-    public static Builder builder() {
-      return new Builder();
+    public static Builder builder()
+    {
+        return new Builder();
     }
 
     /**
      * Builder to build {@link AgendaDto}.
      */
-    public static final class Builder extends AbstractDto.Builder<ProductDto> {
+    public static final class Builder
+        extends AbstractDto.Builder<ProductDto>
+    {
+
+        private String sku;
         private String description;
 
-        public Builder withDescription(final String _description) {
+        public Builder withSKU(final String _sku)
+        {
+            this.sku = _sku;
+            return this;
+        }
+
+        public Builder withDescription(final String _description)
+        {
             this.description = _description;
             return this;
         }
 
         @Override
-        public ProductDto build() {
+        public ProductDto build()
+        {
             return new ProductDto(this);
-          }
+        }
     }
 }
