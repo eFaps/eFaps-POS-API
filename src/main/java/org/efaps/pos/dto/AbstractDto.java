@@ -24,7 +24,7 @@ public abstract class AbstractDto
 
     private final String oid;
 
-    protected AbstractDto(final Builder<?> _builder)
+    protected AbstractDto(final Builder<?, ?> _builder)
     {
         this.oid = _builder.oid;
     }
@@ -34,15 +34,16 @@ public abstract class AbstractDto
         return this.oid;
     }
 
-    public static abstract class Builder<T extends AbstractDto>
+    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
     {
 
         private String oid;
 
-        public Builder<T> withOID(final String _oid)
+        @SuppressWarnings("unchecked")
+        public S withOID(final String _oid)
         {
             this.oid = _oid;
-            return this;
+            return (S) this;
         }
 
         public abstract T build();

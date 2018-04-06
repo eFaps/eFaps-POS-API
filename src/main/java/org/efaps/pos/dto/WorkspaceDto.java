@@ -18,36 +18,28 @@ package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = ProductDto.Builder.class)
-public class ProductDto
+@JsonDeserialize(builder = WorkspaceDto.Builder.class)
+public class WorkspaceDto
     extends AbstractDto
 {
+    private final String name;
+    private final String posOid;
 
-    private final String sku;
-    private final String description;
-    private final String imageOid;
-
-    private ProductDto(final Builder _builder)
+    public WorkspaceDto(final Builder _builder)
     {
         super(_builder);
-        this.sku = _builder.sku;
-        this.description = _builder.description;
-        this.imageOid = _builder.imageOid;
+        this.name = _builder.name;
+        this.posOid = _builder.posOid;
     }
 
-    public String getSKU()
+    public String getName()
     {
-        return this.sku;
+        return this.name;
     }
 
-    public String getDescription()
+    public String getPosOid()
     {
-        return this.description;
-    }
-
-    public String getImageOid()
-    {
-        return this.imageOid;
+        return this.posOid;
     }
 
     /**
@@ -64,35 +56,27 @@ public class ProductDto
      * Builder to build {@link AgendaDto}.
      */
     public static final class Builder
-        extends AbstractDto.Builder<Builder, ProductDto>
+        extends AbstractDto.Builder<Builder, WorkspaceDto>
     {
+        private String name;
+        private String posOid;
 
-        private String sku;
-        private String description;
-        private String imageOid;
-
-        public Builder withSKU(final String _sku)
+        public Builder withName(final String _name)
         {
-            this.sku = _sku;
+            this.name = _name;
             return this;
         }
 
-        public Builder withDescription(final String _description)
+        public Builder withPosOid(final String _posOid)
         {
-            this.description = _description;
-            return this;
-        }
-
-        public Builder withImageOid(final String _imageOid)
-        {
-            this.imageOid = _imageOid;
+            this.posOid = _posOid;
             return this;
         }
 
         @Override
-        public ProductDto build()
+        public WorkspaceDto build()
         {
-            return new ProductDto(this);
+            return new WorkspaceDto(this);
         }
     }
 }
