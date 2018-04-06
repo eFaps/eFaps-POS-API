@@ -25,12 +25,14 @@ public class ProductDto
 
     private final String sku;
     private final String description;
+    private final String imageOid;
 
     private ProductDto(final Builder _builder)
     {
         super(_builder);
         this.sku = _builder.sku;
         this.description = _builder.description;
+        this.imageOid = _builder.imageOid;
     }
 
     public String getSKU()
@@ -41,6 +43,11 @@ public class ProductDto
     public String getDescription()
     {
         return this.description;
+    }
+
+    public String getImageOid()
+    {
+        return this.imageOid;
     }
 
     /**
@@ -62,6 +69,7 @@ public class ProductDto
 
         private String sku;
         private String description;
+        private String imageOid;
 
         public Builder withSKU(final String _sku)
         {
@@ -72,6 +80,12 @@ public class ProductDto
         public Builder withDescription(final String _description)
         {
             this.description = _description;
+            return this;
+        }
+
+        public Builder withImageOid(final String _imageOid)
+        {
+            this.imageOid = _imageOid;
             return this;
         }
 
