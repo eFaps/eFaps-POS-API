@@ -19,6 +19,9 @@ package org.efaps.pos.dto;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @JsonDeserialize(builder = ProductDto.Builder.class)
 public class ProductDto
@@ -30,6 +33,7 @@ public class ProductDto
     private final String imageOid;
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
+    private final Set<String> categoryOids;
 
     private ProductDto(final Builder _builder)
     {
@@ -39,6 +43,7 @@ public class ProductDto
         this.imageOid = _builder.imageOid;
         this.netPrice = _builder.netPrice;
         this.crossPrice = _builder.crossPrice;
+        this.categoryOids = Collections.unmodifiableSet(_builder.categoryOids);
     }
 
     public String getDescription()
@@ -66,6 +71,11 @@ public class ProductDto
         return this.crossPrice;
     }
 
+    public Set<String> getCategoryOids()
+    {
+        return this.categoryOids;
+    }
+
     /**
      * Creates builder to build {@link AgendaDto}.
      *
@@ -88,6 +98,7 @@ public class ProductDto
         private String imageOid;
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
+        private Set<String> categoryOids = new HashSet<>();
 
         public Builder withSKU(final String _sku)
         {
@@ -116,6 +127,12 @@ public class ProductDto
         public Builder withCrossPrice(final BigDecimal _crossPrice)
         {
             this.crossPrice = _crossPrice;
+            return this;
+        }
+
+        public Builder withCategoryOids(final Set<String> _categoryOids)
+        {
+            this.categoryOids = _categoryOids;
             return this;
         }
 
