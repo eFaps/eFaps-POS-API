@@ -18,6 +18,8 @@ package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.math.BigDecimal;
+
 @JsonDeserialize(builder = ProductDto.Builder.class)
 public class ProductDto
     extends AbstractDto
@@ -26,6 +28,8 @@ public class ProductDto
     private final String sku;
     private final String description;
     private final String imageOid;
+    private final BigDecimal netPrice;
+    private final BigDecimal crossPrice;
 
     private ProductDto(final Builder _builder)
     {
@@ -33,11 +37,8 @@ public class ProductDto
         this.sku = _builder.sku;
         this.description = _builder.description;
         this.imageOid = _builder.imageOid;
-    }
-
-    public String getSKU()
-    {
-        return this.sku;
+        this.netPrice = _builder.netPrice;
+        this.crossPrice = _builder.crossPrice;
     }
 
     public String getDescription()
@@ -48,6 +49,21 @@ public class ProductDto
     public String getImageOid()
     {
         return this.imageOid;
+    }
+
+    public String getSku()
+    {
+        return this.sku;
+    }
+
+    public BigDecimal getNetPrice()
+    {
+        return this.netPrice;
+    }
+
+    public BigDecimal getCrossPrice()
+    {
+        return this.crossPrice;
     }
 
     /**
@@ -70,6 +86,8 @@ public class ProductDto
         private String sku;
         private String description;
         private String imageOid;
+        private BigDecimal netPrice;
+        private BigDecimal crossPrice;
 
         public Builder withSKU(final String _sku)
         {
@@ -86,6 +104,18 @@ public class ProductDto
         public Builder withImageOid(final String _imageOid)
         {
             this.imageOid = _imageOid;
+            return this;
+        }
+
+        public Builder withNetPrice(final BigDecimal _netPrice)
+        {
+            this.netPrice = _netPrice;
+            return this;
+        }
+
+        public Builder withCrossPrice(final BigDecimal _crossPrice)
+        {
+            this.crossPrice = _crossPrice;
             return this;
         }
 
