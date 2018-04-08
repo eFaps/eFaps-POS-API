@@ -17,30 +17,20 @@
 
 package org.efaps.pos.dto;
 
-import java.util.Set;
-
-public abstract class AbstractDocumentDto
+public abstract class AbstractDocItemDto
     extends AbstractDto
 {
-    private final String number;
+    private final Integer index;
 
-    private final Set<? extends AbstractDocItemDto> items;
-
-    protected AbstractDocumentDto(final Builder<?, ?> _builder)
+    protected AbstractDocItemDto(final Builder<?, ?> _builder)
     {
         super(_builder);
-        this.number = _builder.number;
-        this.items = _builder.getItems();
+        this.index = _builder.index;
     }
 
-    public String getNumber()
+    public Integer getIndex()
     {
-        return this.number;
-    }
-
-    public Set<? extends AbstractDocItemDto> getItems()
-    {
-        return this.items;
+        return this.index;
     }
 
     /**
@@ -49,16 +39,14 @@ public abstract class AbstractDocumentDto
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
         extends AbstractDto.Builder<S, T>
     {
-        private String number;
+        private Integer index;
 
         @SuppressWarnings("unchecked")
-        public S withNumber(final String _number)
+        public S withIndex(final Integer _index)
         {
-            this.number = _number;
+            this.index = _index;
             return (S) this;
         }
-
-        protected abstract Set<? extends AbstractDocItemDto> getItems();
     }
 
 }

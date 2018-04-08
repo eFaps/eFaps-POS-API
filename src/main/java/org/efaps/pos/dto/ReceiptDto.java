@@ -18,6 +18,8 @@ package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.util.Set;
+
 @JsonDeserialize(builder = ReceiptDto.Builder.class)
 public class ReceiptDto
     extends AbstractDocumentDto
@@ -49,6 +51,13 @@ public class ReceiptDto
         public ReceiptDto build()
         {
             return new ReceiptDto(this);
+        }
+
+        @Override
+        protected Set<? extends AbstractDocItemDto> getItems()
+        {
+            // TODO Auto-generated method stub
+            return null;
         }
     }
 }

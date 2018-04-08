@@ -18,14 +18,12 @@ package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.util.Set;
-
-@JsonDeserialize(builder = OrderDto.Builder.class)
-public class OrderDto
-    extends AbstractDocumentDto
+@JsonDeserialize(builder = DocItemDto.Builder.class)
+public class DocItemDto
+    extends AbstractDocItemDto
 {
 
-    public OrderDto(final Builder _builder)
+    public DocItemDto(final Builder _builder)
     {
         super(_builder);
     }
@@ -44,26 +42,13 @@ public class OrderDto
      * Builder to build {@link AgendaDto}.
      */
     public static final class Builder
-        extends AbstractDocumentDto.Builder<Builder, OrderDto>
+        extends AbstractDocItemDto.Builder<Builder, DocItemDto>
     {
-        private Set<DocItemDto> items;
 
         @Override
-        protected Set<? extends AbstractDocItemDto> getItems()
+        public DocItemDto build()
         {
-            return this.items;
-        }
-
-        public Builder withItems(final Set<DocItemDto> _items)
-        {
-            this.items = _items;
-            return this;
-        }
-
-        @Override
-        public OrderDto build()
-        {
-            return new OrderDto(this);
+            return new DocItemDto(this);
         }
     }
 }
