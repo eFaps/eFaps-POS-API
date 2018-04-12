@@ -46,18 +46,24 @@ public class ReceiptDto
     public static final class Builder
         extends AbstractDocumentDto.Builder<Builder, ReceiptDto>
     {
+        private Set<DocItemDto> items;
 
-        @Override
-        public ReceiptDto build()
+        public Builder withItems(final Set<DocItemDto> _items)
         {
-            return new ReceiptDto(this);
+            this.items = _items;
+            return this;
         }
 
         @Override
         protected Set<? extends AbstractDocItemDto> getItems()
         {
-            // TODO Auto-generated method stub
-            return null;
+            return this.items;
+        }
+
+        @Override
+        public ReceiptDto build()
+        {
+            return new ReceiptDto(this);
         }
     }
 }
