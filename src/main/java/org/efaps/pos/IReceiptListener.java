@@ -19,6 +19,7 @@ package org.efaps.pos;
 
 import java.util.ServiceLoader;
 
+import org.efaps.pos.dto.PosDto;
 import org.efaps.pos.dto.ReceiptDto;
 
 /**
@@ -30,5 +31,12 @@ import org.efaps.pos.dto.ReceiptDto;
  */
 public interface IReceiptListener
 {
-    ReceiptDto onCreate(ReceiptDto _receiptDto);
+    /**
+     * On create.
+     *
+     * @param _posDto the pos dto
+     * @param _receiptDto the receipt dto
+     * @return the receipt dto
+     */
+    ReceiptDto onCreate(PosDto _posDto, ReceiptDto _receiptDto);
 }

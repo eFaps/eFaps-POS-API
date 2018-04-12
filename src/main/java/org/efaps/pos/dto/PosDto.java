@@ -22,17 +22,26 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class PosDto
     extends AbstractDto
 {
+
     private final String name;
+
+    private final CompanyDto company;
 
     public PosDto(final Builder _builder)
     {
         super(_builder);
         this.name = _builder.name;
+        this.company = _builder.company;
     }
 
     public String getName()
     {
         return this.name;
+    }
+
+    public CompanyDto getCompany()
+    {
+        return this.company;
     }
 
     /**
@@ -51,11 +60,19 @@ public class PosDto
     public static final class Builder
         extends AbstractDto.Builder<Builder, PosDto>
     {
+
         private String name;
+        private CompanyDto company;
 
         public Builder withName(final String _name)
         {
             this.name = _name;
+            return this;
+        }
+
+        public Builder withCompany(final CompanyDto _company)
+        {
+            this.company = _company;
             return this;
         }
 
