@@ -17,6 +17,7 @@
 
 package org.efaps.pos.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public abstract class AbstractDocumentDto
@@ -68,7 +69,7 @@ public abstract class AbstractDocumentDto
         private String id;
         private String number;
         private DocStatus status;
-        private Set<DocItemDto> items;
+        private Set<DocItemDto> items = new HashSet<>();
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)

@@ -17,6 +17,7 @@
 
 package org.efaps.pos.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public abstract class AbstractPayableDocumentDto
@@ -42,7 +43,7 @@ public abstract class AbstractPayableDocumentDto
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDocumentDto>
         extends AbstractDocumentDto.Builder<S, T>
     {
-        private Set<PaymentDto> payments;
+        private Set<PaymentDto> payments = new HashSet<>();
 
         protected void setPayments(final Set<PaymentDto> _payments)
         {
