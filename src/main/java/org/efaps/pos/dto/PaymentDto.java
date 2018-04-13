@@ -14,55 +14,64 @@
  * limitations under the License.
  *
  */
+
 package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.util.Set;
+import java.math.BigDecimal;
 
-@JsonDeserialize(builder = ReceiptDto.Builder.class)
-public class ReceiptDto
-    extends AbstractPayableDocumentDto
+@JsonDeserialize(builder = PaymentDto.Builder.class)
+public class PaymentDto
+    extends AbstractDto
 {
 
-    public ReceiptDto(final Builder _builder)
+    private final PaymentType type;
+    private final BigDecimal amount;
+
+    private PaymentDto(final Builder _builder)
     {
         super(_builder);
+        this.type = _builder.type;
+        this.amount = _builder.amount;
     }
 
-    /**
-     * Creates builder to build {@link AgendaDto}.
-     *
-     * @return created builder
-     */
-    public static Builder builder()
+    public PaymentType getType()
     {
-        return new Builder();
+        return this.type;
+    }
+
+    public BigDecimal getAmount()
+    {
+        return this.amount;
     }
 
     /**
      * Builder to build {@link AgendaDto}.
      */
-    public static final class Builder
-        extends AbstractPayableDocumentDto.Builder<Builder, ReceiptDto>
+    public static class Builder
+        extends AbstractDto.Builder<Builder, PaymentDto>
     {
 
-        public Builder withItems(final Set<DocItemDto> _items)
+        private PaymentType type;
+        private BigDecimal amount;
+
+        public Builder withType(final PaymentType _type)
         {
-            setItems(_items);
+            this.type = _type;
             return this;
         }
 
-        public Builder withPayments(final Set<PaymentDto> _payments)
+        public Builder withAmount(final BigDecimal _amount)
         {
-            setPayments(_payments);
+            this.amount = _amount;
             return this;
         }
 
         @Override
-        public ReceiptDto build()
+        public PaymentDto build()
         {
-            return new ReceiptDto(this);
+            return new PaymentDto(this);
         }
     }
 }

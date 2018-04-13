@@ -35,7 +35,7 @@ public abstract class AbstractDocumentDto
         super(_builder);
         this.id = _builder.id;
         this.number = _builder.number;
-        this.items = _builder.getItems();
+        this.items = _builder.items;
         this.status = _builder.status;
     }
 
@@ -68,6 +68,7 @@ public abstract class AbstractDocumentDto
         private String id;
         private String number;
         private DocStatus status;
+        private Set<DocItemDto> items;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -90,6 +91,9 @@ public abstract class AbstractDocumentDto
             return (S) this;
         }
 
-        protected abstract Set<? extends AbstractDocItemDto> getItems();
+        protected void setItems(final Set<DocItemDto> _items)
+        {
+            this.items = _items;
+        }
     }
 }

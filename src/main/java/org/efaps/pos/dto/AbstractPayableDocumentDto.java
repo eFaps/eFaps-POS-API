@@ -14,48 +14,39 @@
  * limitations under the License.
  *
  */
-package org.efaps.pos.dto;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+package org.efaps.pos.dto;
 
 import java.util.Set;
 
-@JsonDeserialize(builder = OrderDto.Builder.class)
-public class OrderDto
+public abstract class AbstractPayableDocumentDto
     extends AbstractDocumentDto
 {
 
-    public OrderDto(final Builder _builder)
+    private final Set<PaymentDto> payments;
+
+    protected AbstractPayableDocumentDto(final Builder<?, ?> _builder)
     {
         super(_builder);
+        this.payments = _builder.payments;
     }
 
-    /**
-     * Creates builder to build {@link AgendaDto}.
-     *
-     * @return created builder
-     */
-    public static Builder builder()
+    public Set<PaymentDto> getPayments()
     {
-        return new Builder();
+        return this.payments;
     }
 
     /**
      * Builder to build {@link AgendaDto}.
      */
-    public static final class Builder
-        extends AbstractDocumentDto.Builder<Builder, OrderDto>
+    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDocumentDto>
+        extends AbstractDocumentDto.Builder<S, T>
     {
-        public Builder withItems(final Set<DocItemDto> _items)
-        {
-            setItems(_items);
-            return this;
-        }
+        private Set<PaymentDto> payments;
 
-        @Override
-        public OrderDto build()
+        protected void setPayments(final Set<PaymentDto> _payments)
         {
-            return new OrderDto(this);
+            this.payments = _payments;
         }
     }
 }
