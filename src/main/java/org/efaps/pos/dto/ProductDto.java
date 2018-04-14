@@ -43,7 +43,7 @@ public class ProductDto
         this.imageOid = _builder.imageOid;
         this.netPrice = _builder.netPrice;
         this.crossPrice = _builder.crossPrice;
-        this.categoryOids = Collections.unmodifiableSet(_builder.categoryOids);
+        this.categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
     }
 
     public String getDescription()
@@ -73,7 +73,7 @@ public class ProductDto
 
     public Set<String> getCategoryOids()
     {
-        return this.categoryOids;
+        return Collections.unmodifiableSet(this.categoryOids);
     }
 
     public static Builder builder()
