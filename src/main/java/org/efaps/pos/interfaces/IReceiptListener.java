@@ -15,12 +15,11 @@
  *
  */
 
-package org.efaps.pos;
+package org.efaps.pos.interfaces;
 
 import java.util.ServiceLoader;
 
 import org.efaps.pos.dto.PosDto;
-import org.efaps.pos.dto.ReceiptDto;
 
 /**
  * Providers can be configured via {@link ServiceLoader}, i.e. by having a file
@@ -35,8 +34,8 @@ public interface IReceiptListener
      * On create.
      *
      * @param _posDto the pos dto
-     * @param _receiptDto the receipt dto
+     * @param _receipt the receipt
      * @return the receipt dto
      */
-    ReceiptDto onCreate(PosDto _posDto, ReceiptDto _receiptDto);
+    IReceipt onCreate(PosDto _posDto, IReceipt _receipt);
 }

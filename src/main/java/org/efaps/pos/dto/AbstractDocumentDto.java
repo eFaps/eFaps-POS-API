@@ -68,7 +68,7 @@ public abstract class AbstractDocumentDto
         private String id;
         private String number;
         private DocStatus status;
-        private Set<DocItemDto> items = new HashSet<>();
+        private Set<? extends AbstractDocItemDto> items = new HashSet<>();
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -91,7 +91,7 @@ public abstract class AbstractDocumentDto
             return (S) this;
         }
 
-        protected void setItems(final Set<DocItemDto> _items)
+        protected void setItems(final Set<? extends AbstractDocItemDto> _items)
         {
             this.items = _items;
         }
