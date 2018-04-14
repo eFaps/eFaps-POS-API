@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 public abstract class AbstractDocItemDto
     extends AbstractDto
 {
+
     private final Integer index;
     private final String productOid;
     private final BigDecimal quantity;
@@ -77,12 +78,10 @@ public abstract class AbstractDocItemDto
         return this.crossPrice;
     }
 
-    /**
-     * Builder to build {@link AgendaDto}.
-     */
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
         extends AbstractDto.Builder<S, T>
     {
+
         private Integer index;
         private String productOid;
         private BigDecimal quantity;

@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class WorkspaceDto
     extends AbstractDto
 {
+
     private final String name;
     private final String posOid;
 
@@ -58,6 +59,7 @@ public class WorkspaceDto
     public static final class Builder
         extends AbstractDto.Builder<Builder, WorkspaceDto>
     {
+
         private String name;
         private String posOid;
 

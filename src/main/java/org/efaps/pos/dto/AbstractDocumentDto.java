@@ -23,6 +23,7 @@ import java.util.Set;
 public abstract class AbstractDocumentDto
     extends AbstractDto
 {
+
     private final String id;
 
     private final String number;
@@ -60,12 +61,10 @@ public abstract class AbstractDocumentDto
         return this.status;
     }
 
-    /**
-     * Builder to build {@link AgendaDto}.
-     */
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
         extends AbstractDto.Builder<S, T>
     {
+
         private String id;
         private String number;
         private DocStatus status;

@@ -46,19 +46,11 @@ public class PaymentDto
         return this.amount;
     }
 
-    /**
-     * Creates builder to build {@link AgendaDto}.
-     *
-     * @return created builder
-     */
     public static Builder builder()
     {
         return new Builder();
     }
 
-    /**
-     * Builder to build {@link AgendaDto}.
-     */
     public static class Builder
         extends AbstractDto.Builder<Builder, PaymentDto>
     {

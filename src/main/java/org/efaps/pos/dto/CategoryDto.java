@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class CategoryDto
     extends AbstractDto
 {
+
     private final String name;
 
     public CategoryDto(final Builder _builder)
@@ -35,22 +36,15 @@ public class CategoryDto
         return this.name;
     }
 
-    /**
-     * Creates builder to build {@link AgendaDto}.
-     *
-     * @return created builder
-     */
     public static Builder builder()
     {
         return new Builder();
     }
 
-    /**
-     * Builder to build {@link AgendaDto}.
-     */
     public static final class Builder
         extends AbstractDto.Builder<Builder, CategoryDto>
     {
+
         private String name;
 
         public Builder withName(final String _name)

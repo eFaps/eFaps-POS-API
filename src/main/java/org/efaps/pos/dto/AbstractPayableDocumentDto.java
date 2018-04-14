@@ -37,12 +37,10 @@ public abstract class AbstractPayableDocumentDto
         return this.payments;
     }
 
-    /**
-     * Builder to build {@link AgendaDto}.
-     */
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDocumentDto>
         extends AbstractDocumentDto.Builder<S, T>
     {
+
         private Set<PaymentDto> payments = new HashSet<>();
 
         protected void setPayments(final Set<PaymentDto> _payments)

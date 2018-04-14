@@ -30,22 +30,15 @@ public class OrderDto
         super(_builder);
     }
 
-    /**
-     * Creates builder to build {@link AgendaDto}.
-     *
-     * @return created builder
-     */
     public static Builder builder()
     {
         return new Builder();
     }
 
-    /**
-     * Builder to build {@link AgendaDto}.
-     */
-    public static final class Builder
+    public static class Builder
         extends AbstractDocumentDto.Builder<Builder, OrderDto>
     {
+
         public Builder withItems(final Set<DocItemDto> _items)
         {
             setItems(_items);
