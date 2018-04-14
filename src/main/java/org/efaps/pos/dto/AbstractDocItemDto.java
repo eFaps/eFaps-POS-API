@@ -17,20 +17,64 @@
 
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+
 public abstract class AbstractDocItemDto
     extends AbstractDto
 {
     private final Integer index;
+    private final String productOid;
+    private final BigDecimal quantity;
+    private final BigDecimal netUnitPrice;
+    private final BigDecimal crossUnitPrice;
+    private final BigDecimal netPrice;
+    private final BigDecimal crossPrice;
 
     protected AbstractDocItemDto(final Builder<?, ?> _builder)
     {
         super(_builder);
         this.index = _builder.index;
+        this.productOid = _builder.productOid;
+        this.quantity = _builder.quantity;
+        this.netUnitPrice = _builder.netUnitPrice;
+        this.crossUnitPrice = _builder.crossUnitPrice;
+        this.netPrice = _builder.netPrice;
+        this.crossPrice = _builder.crossPrice;
     }
 
     public Integer getIndex()
     {
         return this.index;
+    }
+
+    public String getProductOid()
+    {
+        return this.productOid;
+    }
+
+    public BigDecimal getQuantity()
+    {
+        return this.quantity;
+    }
+
+    public BigDecimal getNetUnitPrice()
+    {
+        return this.netUnitPrice;
+    }
+
+    public BigDecimal getCrossUnitPrice()
+    {
+        return this.crossUnitPrice;
+    }
+
+    public BigDecimal getNetPrice()
+    {
+        return this.netPrice;
+    }
+
+    public BigDecimal getCrossPrice()
+    {
+        return this.crossPrice;
     }
 
     /**
@@ -40,6 +84,12 @@ public abstract class AbstractDocItemDto
         extends AbstractDto.Builder<S, T>
     {
         private Integer index;
+        private String productOid;
+        private BigDecimal quantity;
+        private BigDecimal netUnitPrice;
+        private BigDecimal crossUnitPrice;
+        private BigDecimal netPrice;
+        private BigDecimal crossPrice;
 
         @SuppressWarnings("unchecked")
         public S withIndex(final Integer _index)
@@ -47,6 +97,47 @@ public abstract class AbstractDocItemDto
             this.index = _index;
             return (S) this;
         }
-    }
 
+        @SuppressWarnings("unchecked")
+        public S withProductOid(final String _productOid)
+        {
+            this.productOid = _productOid;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withQuantity(final BigDecimal _quantity)
+        {
+            this.quantity = _quantity;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withNetUnitPrice(final BigDecimal _netUnitPrice)
+        {
+            this.netUnitPrice = _netUnitPrice;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withCrossUnitPrice(final BigDecimal _crossUnitPrice)
+        {
+            this.crossUnitPrice = _crossUnitPrice;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withNetPrice(final BigDecimal _netPrice)
+        {
+            this.netPrice = _netPrice;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withCrossPrice(final BigDecimal _crossPrice)
+        {
+            this.crossPrice = _crossPrice;
+            return (S) this;
+        }
+    }
 }

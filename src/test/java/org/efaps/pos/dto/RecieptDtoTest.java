@@ -18,21 +18,32 @@ package org.efaps.pos.dto;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.Collections;
+
 import org.testng.annotations.Test;
 
 public class RecieptDtoTest
 {
     @Test
     public void testBuilder() {
+        final String id = "absgctagd";
         final String oid = "1234.555";
         final String number = "001-001651";
 
         final ReceiptDto dto = ReceiptDto.builder()
+            .withId(id)
             .withOID(oid)
             .withNumber(number)
+            .withStatus(DocStatus.OPEN)
+            .withItems(Collections.singleton(DocItemDto.builder().build()))
+            .withPayments(Collections.singleton(PaymentDto.builder().build()))
             .build();
 
+        assertEquals(dto.getId(), id);
         assertEquals(dto.getOid(), oid);
         assertEquals(dto.getNumber(), number);
+        assertEquals(dto.getStatus(), DocStatus.OPEN);
+        assertEquals(dto.getItems().size(), 1) ;
+        assertEquals(dto.getPayments().size(), 1);
     }
 }
