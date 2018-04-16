@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+    xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1"
+    xmlns:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 ..\xsd\maindoc\UBLPE-Invoice-2.0.xsd"
+    xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ext:UBLExtensions>
+        <ext:UBLExtension>
+            <ext:ExtensionContent>
+                <ds:Signature Id="#SF001-005497" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:SignedInfo>
+                        <ds:CanonicalizationMethod
+                            Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+                        <ds:Reference URI="">
+                            <ds:Transforms>
+                                <ds:Transform
+                                    Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            </ds:Transforms>
+                            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                            <ds:DigestValue>EWYY4a6zLOT50GZ/dGMIlAznGW8=</ds:DigestValue>
+                        </ds:Reference>
+                    </ds:SignedInfo>
+                    <ds:SignatureValue>El72lqLeWiduisp2nQ6Ij1tgNHqXGqWb4pqJyb688MUFikozJBBon5fTFvw0C1C1cLziZVlt/ZzJ
+                        xfcq4X+x5E/57x8hDkPqhoBTcGBi/hrQayFSzm691qoY9WuEDPDTvLPSwn/SR8fCBxcIS05xP+VT
+                        efpSbDrx2cin8K+9CiOzqC7Ezbesilq6s6EZbOAxa+FStJOKQIyo5Q24C+G8rbaNBmIChXxNGwn3
+                        m+fIv60mTF6kw944NQqOonrBdfehBTV+9QzonIIrrZlhc2+sfyaG3Flj70UBK8yAIi4KQ/TO22Jp
+                        1ailEr30znjxGf0y/nEwJpmZ3qvrRapfGywi4A==</ds:SignatureValue>
+                    <ds:KeyInfo>
+                        <ds:X509Data>
+                            <ds:X509SubjectName>1.2.840.113549.1.9.1=#161b6163616c6465726f6e407275646f6c667265696d7361632e636f6d,CN=DANTE
+                                ANDRE CALDERON ARRIARAN,OU=44686304,OU=20266539321,OU=Validated by ZyTrust Sociedad
+                                Anónima,O=RUDOLF REIMSAC SOCIEDAD ANONIMA CERRADA,L=LIMA,C=PE</ds:X509SubjectName>
+                            <ds:X509Certificate>MIIFoDCCBIigAwIBAgIKGE8oCQAAAAAa+DANBgkqhkiG9w0BAQsFADCBkjELMAkGA1UEBhMCQ0gx
+                                EDAOBgNVBAoTB1dJU2VLZXkxJjAkBgNVBAsTHUNvcHlyaWdodCAoYykgMjAxNiBXSVNlS2V5IFNB
+                                MRYwFAYDVQQLEw1JbnRlcm5hdGlvbmFsMTEwLwYDVQQDEyhXSVNlS2V5IENlcnRpZnlJRCBBZHZh
+                                bmNlZCBTZXJ2aWNlcyBDQSA0MB4XDTE3MTEyOTIwNDExM1oXDTE5MTEzMDIwNDExM1owgfwxCzAJ
+                                BgNVBAYTAlBFMQ0wCwYDVQQHEwRMSU1BMTAwLgYDVQQKEydSVURPTEYgUkVJTVNBQyBTT0NJRURB
+                                RCBBTk9OSU1BIENFUlJBREExLzAtBgNVBAsMJlZhbGlkYXRlZCBieSBaeVRydXN0IFNvY2llZGFk
+                                IEFuw7NuaW1hMRQwEgYDVQQLEwsyMDI2NjUzOTMyMTERMA8GA1UECxMINDQ2ODYzMDQxJjAkBgNV
+                                BAMTHURBTlRFIEFORFJFIENBTERFUk9OIEFSUklBUkFOMSowKAYJKoZIhvcNAQkBFhthY2FsZGVy
+                                b25AcnVkb2xmcmVpbXNhYy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDt/Oo9
+                                BE9f7VXhcViKjn7KT0dH8fZIjyhYkhFBX2qljlYOSr/5L9kqr7zeUm8sK17ehZkqKLGcFsd9ZngX
+                                +QPmOo4WfH9FpvIJaVUpEpww0AIi3D3AEm3dG/rLRFImp0D2tnEDGgpJZTh4K2DciI4RaWrCd374
+                                UhRdRuL63+Lnl4c7piKgrqlQB4cpIRebwo9BJx5QuUD193woVMyY28qfs9lq3LOBh3mW7q4S0k6V
+                                evOHIR/fRJgAkv41Z4kPylx5NPjgBQRvYylnFrLxUOVZPm3yeJ5CnrC8PiqrvV63MAg1MuA9qVgE
+                                z+b2jn/EeZr8rt/2MYnMGsIvbZtrwhQBAgMBAAGjggGKMIIBhjAOBgNVHQ8BAf8EBAMCBLAwHwYD
+                                VR0jBBgwFoAU9OSbV9Kuwp6ITQC6K69lyWOph5swPAYDVR0fBDUwMzAxoC+gLYYraHR0cDovL3B1
+                                YmxpYy53aXNla2V5LmNvbS9jcmwvd2NpZGFzY2E0LmNybDBtBggrBgEFBQcBAQRhMF8wNwYIKwYB
+                                BQUHMAKGK2h0dHA6Ly9wdWJsaWMud2lzZWtleS5jb20vY3J0L3djaWRhc2NhNC5jcnQwJAYIKwYB
+                                BQUHMAGGGGh0dHA6Ly9vY3NwLndpc2VrZXkuY29tLzApBgNVHSUEIjAgBggrBgEFBQcDAgYKKwYB
+                                BAGCNwoDDAYIKwYBBQUHAwQwNQYJKwYBBAGCNxUKBCgwJjAKBggrBgEFBQcDAjAMBgorBgEEAYI3
+                                CgMMMAoGCCsGAQUFBwMEMEQGCSqGSIb3DQEJDwQ3MDUwDgYIKoZIhvcNAwICAgCAMA4GCCqGSIb3
+                                DQMEAgIAgDAHBgUrDgMCBzAKBggqhkiG9w0DBzANBgkqhkiG9w0BAQsFAAOCAQEAI2Bqi1n1xhVn
+                                yM5fUSi5o35JMizkneAlSoVrEFRTIQobuRGyq31YnjxU1JJQL8mby2QgskmQ9Y4qib58E6rOyIOa
+                                X9eF63a2xgQU0OeqychOahRUsQCMJRZo0eaoaULp9zSjLgd7vchaDHAs8aBHZuy5WR0o162ewj2e
+                                D788g5wC/esisikBhFjgk54185IxCESBdSoM3Qhh186eqECpiuP70JcKrhT6NWmyvUT7fRQfOTNq
+                                RLPg1KjVUonosRblN41pYgjC5QdGSJYhXrMe4oTPepfNsRMdTWWLU8FIbyKDSG+lz852LBcUrNVM
+                                Kdx51wvy6fHBd7f0ivBL22TBxg==</ds:X509Certificate>
+                        </ds:X509Data>
+                    </ds:KeyInfo>
+                </ds:Signature>
+            </ext:ExtensionContent>
+        </ext:UBLExtension>
+        <ext:UBLExtension>
+            <ext:ExtensionContent>
+                <sac:AdditionalInformation>
+                    <sac:AdditionalMonetaryTotal>
+                        <cbc:ID>1001</cbc:ID>
+                        <cbc:Name>1001</cbc:Name>
+                        <cbc:PayableAmount currencyID="USD">9.44</cbc:PayableAmount>
+                    </sac:AdditionalMonetaryTotal>
+                    <sac:AdditionalProperty>
+                        <cbc:ID>1000</cbc:ID>
+                        <cbc:Value><![CDATA[NUEVE Y 44/100 ]]></cbc:Value>
+                    </sac:AdditionalProperty>
+                </sac:AdditionalInformation>
+            </ext:ExtensionContent>
+        </ext:UBLExtension>
+    </ext:UBLExtensions>
+    <cbc:UBLVersionID>2.0</cbc:UBLVersionID>
+    <cbc:CustomizationID>1.0</cbc:CustomizationID>
+    <cbc:ID>F001-005497</cbc:ID>
+    <cbc:IssueDate>2018-04-12</cbc:IssueDate>
+    <cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+    <cbc:DocumentCurrencyCode>USD</cbc:DocumentCurrencyCode>
+    <cac:Signature>
+        <cbc:ID>SF001-005497</cbc:ID>
+        <cac:SignatoryParty>
+            <cac:PartyIdentification>
+                <cbc:ID>20266539321</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyName>
+                <cbc:Name><![CDATA[SUNAT]]></cbc:Name>
+            </cac:PartyName>
+        </cac:SignatoryParty>
+        <cac:DigitalSignatureAttachment>
+            <cac:ExternalReference>
+                <cbc:URI>#SF001-005497</cbc:URI>
+            </cac:ExternalReference>
+        </cac:DigitalSignatureAttachment>
+    </cac:Signature>
+    <cac:AccountingSupplierParty>
+        <cbc:CustomerAssignedAccountID>20266539321</cbc:CustomerAssignedAccountID>
+        <cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+        <cac:Party>
+            <cac:PartyName>
+                <cbc:Name><![CDATA[RUDOLF REIMSAC S.A.C.]]></cbc:Name>
+            </cac:PartyName>
+            <cac:PostalAddress>
+                <cbc:ID>150101</cbc:ID>
+                <cbc:StreetName><![CDATA[$cp.Emisor.Direccion]]></cbc:StreetName>
+                <cbc:CitySubdivisionName />
+                <cbc:CityName>$cp.Emisor.Provincia</cbc:CityName>
+                <cbc:CountrySubentity>$cp.Emisor.Departamento</cbc:CountrySubentity>
+                <cbc:District>$cp.Emisor.Distrito</cbc:District>
+                <cac:Country>
+                    <cbc:IdentificationCode>PE</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName><![CDATA[RUDOLF REIMSAC S.A.C.]]></cbc:RegistrationName>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+    <cac:AccountingCustomerParty>
+        <cbc:CustomerAssignedAccountID>20549511750</cbc:CustomerAssignedAccountID>
+        <cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+        <cac:Party>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName><![CDATA[TEXTIL LA MERCED S.A.C.]]></cbc:RegistrationName>
+                <cac:RegistrationAddress>
+                    <cbc:StreetName><![CDATA[CAL. 2 MZA. C LOTE. 11 URB. LA MERCED Lima - Lima - Ate]]></cbc:StreetName>
+                </cac:RegistrationAddress>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:AccountingCustomerParty>
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="USD">1.44</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxAmount currencyID="USD">1.44</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cac:TaxScheme>
+                    <cbc:ID>1000</cbc:ID>
+                    <cbc:Name>IGV</cbc:Name>
+                    <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:LegalMonetaryTotal>
+        <cbc:TaxExclusiveAmount currencyID="USD">8</cbc:TaxExclusiveAmount>
+        <cbc:AllowanceTotalAmount currencyID="USD">0</cbc:AllowanceTotalAmount>
+        <cbc:ChargeTotalAmount currencyID="USD">0</cbc:ChargeTotalAmount>
+        <cbc:PayableAmount currencyID="USD">9.44</cbc:PayableAmount>
+    </cac:LegalMonetaryTotal>
+    <cac:InvoiceLine>
+        <cbc:ID>1</cbc:ID>
+        <cbc:InvoicedQuantity unitCode="KGM">8</cbc:InvoicedQuantity>
+        <cbc:LineExtensionAmount currencyID="USD">8</cbc:LineExtensionAmount>
+        <cac:PricingReference>
+            <cac:AlternativeConditionPrice>
+                <cbc:PriceAmount currencyID="USD">9.44</cbc:PriceAmount>
+                <cbc:PriceTypeCode>01</cbc:PriceTypeCode>
+            </cac:AlternativeConditionPrice>
+        </cac:PricingReference>
+        <cac:TaxTotal>
+            <cbc:TaxAmount currencyID="USD">1.44</cbc:TaxAmount>
+            <cac:TaxSubtotal>
+                <cbc:TaxableAmount currencyID="USD">8</cbc:TaxableAmount>
+                <cbc:TaxAmount currencyID="USD">1.44</cbc:TaxAmount>
+                <cbc:Percent>19.0</cbc:Percent>
+                <cac:TaxCategory>
+                    <cbc:ID>VAT</cbc:ID>
+                    <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+                    <cbc:TierRange />
+                    <cac:TaxScheme>
+                        <cbc:ID>1000</cbc:ID>
+                        <cbc:Name>IGV</cbc:Name>
+                        <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+                    </cac:TaxScheme>
+                </cac:TaxCategory>
+            </cac:TaxSubtotal>
+        </cac:TaxTotal>
+        <cac:Item>
+            <cbc:Description><![CDATA[RUCO-PUR SLR - Nº: 0302057.001-RD5637]]></cbc:Description>
+            <cac:SellersItemIdentification>
+                <cbc:ID>0302057.001</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="USD">1</cbc:PriceAmount>
+        </cac:Price>
+    </cac:InvoiceLine>
+</Invoice>

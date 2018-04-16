@@ -35,6 +35,7 @@ public class ProductDtoTest
         final BigDecimal netPrice = new BigDecimal("14.26");
         final String sku = "12222.0001";
         final String imageOid = "8234.555";
+        final Set<TaxDto> taxes = Collections.singleton(TaxDto.builder().build());
 
         final ProductDto dto = ProductDto.builder()
             .withOID(oid)
@@ -44,6 +45,7 @@ public class ProductDtoTest
             .withCrossPrice(crossPrice)
             .withNetPrice(netPrice)
             .withSKU(sku)
+            .withTaxes(taxes)
             .build();
 
         assertEquals(dto.getOid(), oid);
@@ -53,6 +55,17 @@ public class ProductDtoTest
         assertEquals(dto.getCrossPrice(), crossPrice);
         assertEquals(dto.getNetPrice(), netPrice);
         assertEquals(dto.getSku(), sku);
+        assertEquals(dto.getTaxes(), taxes);
+    }
 
+    @Test
+    public void testBuilderEmptyCollections() {
+        final ProductDto dto = ProductDto.builder()
+                        .withCategoryOids(null)
+                        .withTaxes(null)
+                        .build();
+
+        assertEquals(dto.getCategoryOids().size(), 0);
+        assertEquals(dto.getTaxes().size(), 0);
     }
 }

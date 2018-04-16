@@ -34,6 +34,7 @@ public class ProductDto
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
     private final Set<String> categoryOids;
+    private final Set<TaxDto> taxes;
 
     private ProductDto(final Builder _builder)
     {
@@ -44,6 +45,7 @@ public class ProductDto
         this.netPrice = _builder.netPrice;
         this.crossPrice = _builder.crossPrice;
         this.categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
+        this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
     }
 
     public String getDescription()
@@ -76,6 +78,11 @@ public class ProductDto
         return Collections.unmodifiableSet(this.categoryOids);
     }
 
+    public Set<TaxDto> getTaxes()
+    {
+        return Collections.unmodifiableSet(this.taxes);
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -91,6 +98,7 @@ public class ProductDto
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
         private Set<String> categoryOids = new HashSet<>();
+        private Set<TaxDto> taxes = new HashSet<>();
 
         public Builder withSKU(final String _sku)
         {
@@ -125,6 +133,12 @@ public class ProductDto
         public Builder withCategoryOids(final Set<String> _categoryOids)
         {
             this.categoryOids = _categoryOids;
+            return this;
+        }
+
+        public Builder withTaxes(final Set<TaxDto> _taxes)
+        {
+            this.taxes = _taxes;
             return this;
         }
 
