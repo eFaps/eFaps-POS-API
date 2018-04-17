@@ -17,6 +17,8 @@
 
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,13 +34,21 @@ public abstract class AbstractDocumentDto
 
     private final DocStatus status;
 
+    private final BigDecimal netTotal;
+    private final BigDecimal crossTotal;
+    private final Set<TaxEntryDto> taxes;
+
     protected AbstractDocumentDto(final Builder<?, ?> _builder)
     {
         super(_builder);
         this.id = _builder.id;
         this.number = _builder.number;
-        this.items = _builder.items;
+        this.items = _builder.items == null ? Collections.emptySet() : _builder.items;
         this.status = _builder.status;
+        this.netTotal = _builder.netTotal;
+        this.crossTotal = _builder.crossTotal;
+        this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
+        ;
     }
 
     public String getId()
@@ -53,12 +63,27 @@ public abstract class AbstractDocumentDto
 
     public Set<? extends AbstractDocItemDto> getItems()
     {
-        return this.items;
+        return Collections.unmodifiableSet(this.items);
     }
 
     public DocStatus getStatus()
     {
         return this.status;
+    }
+
+    public BigDecimal getNetTotal()
+    {
+        return this.netTotal;
+    }
+
+    public BigDecimal getCrossTotal()
+    {
+        return this.crossTotal;
+    }
+
+    public Set<TaxEntryDto> getTaxes()
+    {
+        return Collections.unmodifiableSet(this.taxes);
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
@@ -68,6 +93,9 @@ public abstract class AbstractDocumentDto
         private String id;
         private String number;
         private DocStatus status;
+        private BigDecimal netTotal;
+        private BigDecimal crossTotal;
+        private Set<TaxEntryDto> taxes;
         private Set<? extends AbstractDocItemDto> items = new HashSet<>();
 
         @SuppressWarnings("unchecked")
@@ -88,6 +116,27 @@ public abstract class AbstractDocumentDto
         public S withStatus(final DocStatus _status)
         {
             this.status = _status;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withNetTotal(final BigDecimal _netTotal)
+        {
+            this.netTotal = _netTotal;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withCrossTotal(final BigDecimal _crossTotal)
+        {
+            this.crossTotal = _crossTotal;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withTaxes(final Set<TaxEntryDto> _taxes)
+        {
+            this.taxes = _taxes;
             return (S) this;
         }
 

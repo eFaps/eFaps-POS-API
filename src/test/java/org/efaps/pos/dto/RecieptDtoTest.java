@@ -18,6 +18,7 @@ package org.efaps.pos.dto;
 
 import static org.testng.Assert.assertEquals;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 
 import org.testng.annotations.Test;
@@ -29,6 +30,8 @@ public class RecieptDtoTest
         final String id = "absgctagd";
         final String oid = "1234.555";
         final String number = "001-001651";
+        final BigDecimal netTotal = new BigDecimal("11.2");
+        final BigDecimal crossTotal = new BigDecimal("11.2");
 
         final ReceiptDto dto = ReceiptDto.builder()
             .withId(id)
@@ -37,13 +40,34 @@ public class RecieptDtoTest
             .withStatus(DocStatus.OPEN)
             .withItems(Collections.singleton(DocItemDto.builder().build()))
             .withPayments(Collections.singleton(PaymentDto.builder().build()))
+            .withNetTotal(netTotal)
+            .withCrossTotal(crossTotal)
+            .withTaxes(Collections.singleton(TaxEntryDto.builder().build()))
             .build();
 
         assertEquals(dto.getId(), id);
         assertEquals(dto.getOid(), oid);
         assertEquals(dto.getNumber(), number);
         assertEquals(dto.getStatus(), DocStatus.OPEN);
+        assertEquals(dto.getNetTotal(), netTotal);
+        assertEquals(dto.getCrossTotal(), crossTotal);
         assertEquals(dto.getItems().size(), 1) ;
         assertEquals(dto.getPayments().size(), 1);
+        assertEquals(dto.getTaxes().size(), 1);
+
+    }
+
+    @Test
+    public void testBuilderNUll() {
+
+        final ReceiptDto dto = ReceiptDto.builder()
+            .withItems(null)
+            .withPayments(null)
+            .withTaxes(null)
+            .build();
+
+        assertEquals(dto.getItems().size(), 0) ;
+        assertEquals(dto.getPayments().size(), 0);
+        assertEquals(dto.getTaxes().size(), 0);
     }
 }
