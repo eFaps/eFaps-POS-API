@@ -18,6 +18,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 public abstract class AbstractDocItemDto
     extends AbstractDto
@@ -30,6 +31,7 @@ public abstract class AbstractDocItemDto
     private final BigDecimal crossUnitPrice;
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
+    private final Set<TaxEntryDto> taxes;
 
     protected AbstractDocItemDto(final Builder<?, ?> _builder)
     {
@@ -41,6 +43,7 @@ public abstract class AbstractDocItemDto
         this.crossUnitPrice = _builder.crossUnitPrice;
         this.netPrice = _builder.netPrice;
         this.crossPrice = _builder.crossPrice;
+        this.taxes = _builder.taxes;
     }
 
     public Integer getIndex()
@@ -78,6 +81,11 @@ public abstract class AbstractDocItemDto
         return this.crossPrice;
     }
 
+    public Set<TaxEntryDto> getTaxes()
+    {
+        return this.taxes;
+    }
+
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
         extends AbstractDto.Builder<S, T>
     {
@@ -89,6 +97,7 @@ public abstract class AbstractDocItemDto
         private BigDecimal crossUnitPrice;
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
+        private Set<TaxEntryDto> taxes;
 
         @SuppressWarnings("unchecked")
         public S withIndex(final Integer _index)
@@ -136,6 +145,13 @@ public abstract class AbstractDocItemDto
         public S withCrossPrice(final BigDecimal _crossPrice)
         {
             this.crossPrice = _crossPrice;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withTaxes(final Set<TaxEntryDto> _taxes)
+        {
+            this.taxes = _taxes;
             return (S) this;
         }
     }
