@@ -18,6 +18,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -34,6 +35,8 @@ public abstract class AbstractDocumentDto
 
     private final DocStatus status;
 
+    private final LocalDate date;
+
     private final BigDecimal netTotal;
     private final BigDecimal crossTotal;
     private final Set<TaxEntryDto> taxes;
@@ -45,10 +48,10 @@ public abstract class AbstractDocumentDto
         this.number = _builder.number;
         this.items = _builder.items == null ? Collections.emptySet() : _builder.items;
         this.status = _builder.status;
+        this.date = _builder.date;
         this.netTotal = _builder.netTotal;
         this.crossTotal = _builder.crossTotal;
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
-        ;
     }
 
     public String getId()
@@ -69,6 +72,11 @@ public abstract class AbstractDocumentDto
     public DocStatus getStatus()
     {
         return this.status;
+    }
+
+    public LocalDate getDate()
+    {
+        return this.date;
     }
 
     public BigDecimal getNetTotal()
@@ -93,6 +101,7 @@ public abstract class AbstractDocumentDto
         private String id;
         private String number;
         private DocStatus status;
+        private LocalDate date = LocalDate.now();
         private BigDecimal netTotal;
         private BigDecimal crossTotal;
         private Set<TaxEntryDto> taxes;
@@ -116,6 +125,13 @@ public abstract class AbstractDocumentDto
         public S withStatus(final DocStatus _status)
         {
             this.status = _status;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withDate(final LocalDate _date)
+        {
+            this.date = _date;
             return (S) this;
         }
 
