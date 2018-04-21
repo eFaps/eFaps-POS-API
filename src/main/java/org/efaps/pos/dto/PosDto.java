@@ -27,16 +27,24 @@ public class PosDto
 
     private final CompanyDto company;
 
+    private final String currency;
+
     public PosDto(final Builder _builder)
     {
         super(_builder);
         this.name = _builder.name;
+        this.currency = _builder.currency;
         this.company = _builder.company;
     }
 
     public String getName()
     {
         return this.name;
+    }
+
+    public String getCurrency()
+    {
+        return this.currency;
     }
 
     public CompanyDto getCompany()
@@ -52,13 +60,19 @@ public class PosDto
     public static final class Builder
         extends AbstractDto.Builder<Builder, PosDto>
     {
-
         private String name;
+        private String currency;
         private CompanyDto company;
 
         public Builder withName(final String _name)
         {
             this.name = _name;
+            return this;
+        }
+
+        public Builder withCurrency(final String _currency)
+        {
+            this.currency = _currency;
             return this;
         }
 

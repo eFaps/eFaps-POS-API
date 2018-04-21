@@ -36,7 +36,7 @@ public abstract class AbstractDocumentDto
     private final DocStatus status;
 
     private final LocalDate date;
-
+    private final String currency;
     private final BigDecimal netTotal;
     private final BigDecimal crossTotal;
     private final Set<TaxEntryDto> taxes;
@@ -52,6 +52,7 @@ public abstract class AbstractDocumentDto
         this.netTotal = _builder.netTotal;
         this.crossTotal = _builder.crossTotal;
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
+        this.currency = _builder.currency;
     }
 
     public String getId()
@@ -79,6 +80,11 @@ public abstract class AbstractDocumentDto
         return this.date;
     }
 
+    public String getCurrency()
+    {
+        return this.currency;
+    }
+
     public BigDecimal getNetTotal()
     {
         return this.netTotal;
@@ -102,6 +108,7 @@ public abstract class AbstractDocumentDto
         private String number;
         private DocStatus status;
         private LocalDate date = LocalDate.now();
+        private String currency;
         private BigDecimal netTotal;
         private BigDecimal crossTotal;
         private Set<TaxEntryDto> taxes;
@@ -132,6 +139,13 @@ public abstract class AbstractDocumentDto
         public S withDate(final LocalDate _date)
         {
             this.date = _date;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withCurrency(final String _currency)
+        {
+            this.currency = _currency;
             return (S) this;
         }
 

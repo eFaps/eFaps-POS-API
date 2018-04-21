@@ -37,4 +37,6 @@ public interface IReceipt
     BigDecimal getNetTotal();
 
     Set<TaxEntryDto> getTaxes();
+
+    String getCurrency();
 }
