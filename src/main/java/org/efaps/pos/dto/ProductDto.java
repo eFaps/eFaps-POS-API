@@ -35,6 +35,7 @@ public class ProductDto
     private final BigDecimal crossPrice;
     private final Set<String> categoryOids;
     private final Set<TaxDto> taxes;
+    private final String uoM;
 
     private ProductDto(final Builder _builder)
     {
@@ -46,6 +47,7 @@ public class ProductDto
         this.crossPrice = _builder.crossPrice;
         this.categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
+        this.uoM = _builder.uoM;
     }
 
     public String getDescription()
@@ -83,6 +85,11 @@ public class ProductDto
         return Collections.unmodifiableSet(this.taxes);
     }
 
+    public String getUoM()
+    {
+        return this.uoM;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -99,7 +106,7 @@ public class ProductDto
         private BigDecimal crossPrice;
         private Set<String> categoryOids = new HashSet<>();
         private Set<TaxDto> taxes = new HashSet<>();
-
+        private String uoM;
         public Builder withSKU(final String _sku)
         {
             this.sku = _sku;
@@ -139,6 +146,12 @@ public class ProductDto
         public Builder withTaxes(final Set<TaxDto> _taxes)
         {
             this.taxes = _taxes;
+            return this;
+        }
+
+        public Builder withUoM(final String _uoM)
+        {
+            this.uoM = _uoM;
             return this;
         }
 

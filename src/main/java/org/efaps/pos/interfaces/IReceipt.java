@@ -20,8 +20,6 @@ package org.efaps.pos.interfaces;
 import java.time.LocalDate;
 import java.util.Set;
 
-import org.efaps.pos.dto.AbstractDocItemDto;
-
 public interface IReceipt
 {
 
@@ -29,6 +27,6 @@ public interface IReceipt
 
     LocalDate getDate();
 
-    Set<? extends AbstractDocItemDto> getItems();
+    Set<IReceiptItem> getReceiptItems();
 
 }
