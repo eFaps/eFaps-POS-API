@@ -29,7 +29,7 @@ public class PosDto
 
     private final CompanyDto company;
 
-    private final ContactDto defaultContact;
+    private final String defaultContactOid;
 
     public PosDto(final Builder _builder)
     {
@@ -37,7 +37,7 @@ public class PosDto
         this.name = _builder.name;
         this.currency = _builder.currency;
         this.company = _builder.company;
-        this.defaultContact = _builder.defaultContact;
+        this.defaultContactOid = _builder.defaultContactOid;
     }
 
     public String getName()
@@ -55,9 +55,9 @@ public class PosDto
         return this.company;
     }
 
-    public ContactDto getDefaultContact()
+    public String getDefaultContactOid()
     {
-        return this.defaultContact;
+        return this.defaultContactOid;
     }
 
     public static Builder builder()
@@ -72,7 +72,7 @@ public class PosDto
         private String name;
         private String currency;
         private CompanyDto company;
-        private ContactDto defaultContact;
+        private String defaultContactOid;
 
         public Builder withName(final String _name)
         {
@@ -92,9 +92,9 @@ public class PosDto
             return this;
         }
 
-        public Builder withDefaultContact(final ContactDto _defaultContact)
+        public Builder withDefaultContactOid(final String _defaultContactOid)
         {
-            this.defaultContact = _defaultContact;
+            this.defaultContactOid = _defaultContactOid;
             return this;
         }
 
