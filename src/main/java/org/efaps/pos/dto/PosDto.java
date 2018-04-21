@@ -25,9 +25,11 @@ public class PosDto
 
     private final String name;
 
+    private final String currency;
+
     private final CompanyDto company;
 
-    private final String currency;
+    private final ContactDto defaultContact;
 
     public PosDto(final Builder _builder)
     {
@@ -35,6 +37,7 @@ public class PosDto
         this.name = _builder.name;
         this.currency = _builder.currency;
         this.company = _builder.company;
+        this.defaultContact = _builder.defaultContact;
     }
 
     public String getName()
@@ -52,6 +55,11 @@ public class PosDto
         return this.company;
     }
 
+    public ContactDto getDefaultContact()
+    {
+        return this.defaultContact;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -60,9 +68,11 @@ public class PosDto
     public static final class Builder
         extends AbstractDto.Builder<Builder, PosDto>
     {
+
         private String name;
         private String currency;
         private CompanyDto company;
+        private ContactDto defaultContact;
 
         public Builder withName(final String _name)
         {
@@ -79,6 +89,12 @@ public class PosDto
         public Builder withCompany(final CompanyDto _company)
         {
             this.company = _company;
+            return this;
+        }
+
+        public Builder withDefaultContact(final ContactDto _defaultContact)
+        {
+            this.defaultContact = _defaultContact;
             return this;
         }
 
