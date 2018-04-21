@@ -17,8 +17,11 @@
 
 package org.efaps.pos.interfaces;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
+
+import org.efaps.pos.dto.TaxEntryDto;
 
 public interface IReceipt
 {
@@ -29,4 +32,9 @@ public interface IReceipt
 
     Set<IReceiptItem> getReceiptItems();
 
+    BigDecimal getCrossTotal();
+
+    BigDecimal getNetTotal();
+
+    Set<TaxEntryDto> getTaxes();
 }
