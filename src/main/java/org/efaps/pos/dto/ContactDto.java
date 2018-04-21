@@ -14,23 +14,24 @@
  * limitations under the License.
  *
  */
+
 package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = WorkspaceDto.Builder.class)
-public class WorkspaceDto
+@JsonDeserialize(builder = ContactDto.Builder.class)
+public class ContactDto
     extends AbstractDto
 {
 
     private final String name;
-    private final String posOid;
+    private final String taxNumber;
 
-    public WorkspaceDto(final Builder _builder)
+    private ContactDto(final Builder _builder)
     {
         super(_builder);
         this.name = _builder.name;
-        this.posOid = _builder.posOid;
+        this.taxNumber = _builder.taxNumber;
     }
 
     public String getName()
@@ -38,9 +39,9 @@ public class WorkspaceDto
         return this.name;
     }
 
-    public String getPosOid()
+    public String getTaxNumber()
     {
-        return this.posOid;
+        return this.taxNumber;
     }
 
     public static Builder builder()
@@ -49,11 +50,11 @@ public class WorkspaceDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, WorkspaceDto>
+        extends AbstractDto.Builder<Builder, ContactDto>
     {
 
         private String name;
-        private String posOid;
+        private String taxNumber;
 
         public Builder withName(final String _name)
         {
@@ -61,16 +62,16 @@ public class WorkspaceDto
             return this;
         }
 
-        public Builder withPosOid(final String _posOid)
+        public Builder withTaxNumber(final String _taxNumber)
         {
-            this.posOid = _posOid;
+            this.taxNumber = _taxNumber;
             return this;
         }
 
         @Override
-        public WorkspaceDto build()
+        public ContactDto build()
         {
-            return new WorkspaceDto(this);
+            return new ContactDto(this);
         }
     }
 }
