@@ -14,26 +14,20 @@
  * limitations under the License.
  *
  */
-
 package org.efaps.pos.interfaces;
 
-import java.util.ServiceLoader;
+import org.efaps.pos.dto.CompanyDto;
+import org.efaps.pos.dto.ContactDto;
 
-/**
- * Providers can be configured via {@link ServiceLoader}, i.e. by having a file
- * /META-INF/services/org.efaps.api.ui.ILogin in the class path root, with each line containing the
- * full class name of an {@link IReceiptListener}.
- *
- * The Interface IReceiptListener.
- */
-public interface IReceiptListener
+public interface IPos
 {
-    /**
-     * On create.
-     *
-     * @param _pos the pos
-     * @param _receipt the receipt
-     * @return the receipt
-     */
-    IReceipt onCreate(IPos _pos, IReceipt _receipt);
+
+    String getName();
+
+    String getCurrency();
+
+    CompanyDto getCompany();
+
+    ContactDto getDefaultContact();
+
 }
