@@ -14,31 +14,32 @@
  * limitations under the License.
  *
  */
+
 package org.efaps.pos.dto;
 
 import static org.testng.Assert.assertEquals;
 
+import java.math.BigDecimal;
+
 import org.testng.annotations.Test;
 
-public class PosDtoTest
+public class PaymentDtoTest
 {
+
     @Test
     public void testBuilder() {
-        final String oid = "1234.555";
-        final String name = "This is the name of this object";
-        final String currency = "PEN";
-        final CompanyDto company = CompanyDto.builder().build();
+        final String oid = "2235.656";
+        final PaymentType type = PaymentType.FREE;
+        final BigDecimal amount = new BigDecimal("22.30");
 
-        final PosDto dto = PosDto.builder()
+        final PaymentDto dto = PaymentDto.builder()
             .withOID(oid)
-            .withName(name)
-            .withCurrency(currency)
-            .withCompany(company)
+            .withType(type)
+            .withAmount(amount)
             .build();
 
+        assertEquals(dto.getType(), type);
         assertEquals(dto.getOid(), oid);
-        assertEquals(dto.getName(), name);
-        assertEquals(dto.getCurrency(), currency);
-        assertEquals(dto.getCompany(), company);
+        assertEquals(dto.getType(), type);
     }
 }
