@@ -14,13 +14,10 @@
  * limitations under the License.
  *
  */
-
 package org.efaps.pos.interfaces;
 
-import java.util.Set;
-
-public interface IReceipt
-    extends IDocument
+public interface IInvoiceItem
+    extends IItem
 {
-    Set<IReceiptItem> getReceiptItems();
+
 }

@@ -17,10 +17,23 @@
 
 package org.efaps.pos.interfaces;
 
-import java.util.Set;
+import java.util.ServiceLoader;
 
-public interface IReceipt
-    extends IDocument
+/**
+ * Providers can be configured via {@link ServiceLoader}, i.e. by having a file
+ * /META-INF/services/org.efaps.api.ui.ILogin in the class path root, with each line containing the
+ * full class name of an {@link IInvoiceListener}.
+ *
+ * The Interface IReceiptListener.
+ */
+public interface IInvoiceListener
 {
-    Set<IReceiptItem> getReceiptItems();
+    /**
+     * On create.
+     *
+     * @param _pos the pos
+     * @param _invoice the invoice
+     * @return the receipt
+     */
+    IInvoice onCreate(IPos _pos, IInvoice _invoice);
 }

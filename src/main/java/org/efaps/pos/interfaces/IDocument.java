@@ -17,10 +17,24 @@
 
 package org.efaps.pos.interfaces;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Set;
 
-public interface IReceipt
-    extends IDocument
+import org.efaps.pos.dto.TaxEntryDto;
+
+public interface IDocument
 {
-    Set<IReceiptItem> getReceiptItems();
+    String getNumber();
+
+    LocalDate getDate();
+
+    BigDecimal getCrossTotal();
+
+    BigDecimal getNetTotal();
+
+    Set<TaxEntryDto> getTaxes();
+
+    String getCurrency();
+
 }

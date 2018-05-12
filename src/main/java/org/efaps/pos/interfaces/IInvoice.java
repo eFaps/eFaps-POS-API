@@ -19,8 +19,8 @@ package org.efaps.pos.interfaces;
 
 import java.util.Set;
 
-public interface IReceipt
+public interface IInvoice
     extends IDocument
 {
-    Set<IReceiptItem> getReceiptItems();
+    Set<IInvoiceItem> getInvoiceItems();
 }
