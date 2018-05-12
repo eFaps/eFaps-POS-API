@@ -24,12 +24,12 @@ public class PosDto
 {
 
     private final String name;
-
     private final String currency;
-
     private final CompanyDto company;
-
     private final String defaultContactOid;
+    private final String receiptSeqOid;
+    private final String invoiceSeqOid;
+    private final String ticketSeqOid;
 
     public PosDto(final Builder _builder)
     {
@@ -38,6 +38,9 @@ public class PosDto
         this.currency = _builder.currency;
         this.company = _builder.company;
         this.defaultContactOid = _builder.defaultContactOid;
+        this.receiptSeqOid = _builder.receiptSeqOid;
+        this.invoiceSeqOid = _builder.invoiceSeqOid;
+        this.ticketSeqOid = _builder.ticketSeqOid;
     }
 
     public String getName()
@@ -60,6 +63,21 @@ public class PosDto
         return this.defaultContactOid;
     }
 
+    public String getReceiptSeqOid()
+    {
+        return this.receiptSeqOid;
+    }
+
+    public String getInvoiceSeqOid()
+    {
+        return this.invoiceSeqOid;
+    }
+
+    public String getTicketSeqOid()
+    {
+        return this.ticketSeqOid;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -73,6 +91,9 @@ public class PosDto
         private String currency;
         private CompanyDto company;
         private String defaultContactOid;
+        private String receiptSeqOid;
+        private String invoiceSeqOid;
+        private String ticketSeqOid;
 
         public Builder withName(final String _name)
         {
@@ -95,6 +116,24 @@ public class PosDto
         public Builder withDefaultContactOid(final String _defaultContactOid)
         {
             this.defaultContactOid = _defaultContactOid;
+            return this;
+        }
+
+        public Builder withReceiptSeqOid(final String _receiptSeqOid)
+        {
+            this.receiptSeqOid = _receiptSeqOid;
+            return this;
+        }
+
+        public Builder withInvoiceSeqOid(final String _invoiceSeqOid)
+        {
+            this.invoiceSeqOid = _invoiceSeqOid;
+            return this;
+        }
+
+        public Builder withTicketSeqOid(final String _ticketSeqOid)
+        {
+            this.ticketSeqOid = _ticketSeqOid;
             return this;
         }
 
