@@ -18,6 +18,9 @@ package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.util.Collections;
+import java.util.Set;
+
 @JsonDeserialize(builder = WorkspaceDto.Builder.class)
 public class WorkspaceDto
     extends AbstractDto
@@ -25,12 +28,15 @@ public class WorkspaceDto
 
     private final String name;
     private final String posOid;
+    private final Set<DocType> docTypes;
 
     public WorkspaceDto(final Builder _builder)
     {
         super(_builder);
         this.name = _builder.name;
         this.posOid = _builder.posOid;
+        this.docTypes = _builder.docTypes == null ? Collections.emptySet()
+                        : Collections.unmodifiableSet(_builder.docTypes);
     }
 
     public String getName()
@@ -41,6 +47,11 @@ public class WorkspaceDto
     public String getPosOid()
     {
         return this.posOid;
+    }
+
+    public Set<DocType> getDocTypes()
+    {
+        return this.docTypes;
     }
 
     public static Builder builder()
@@ -54,6 +65,7 @@ public class WorkspaceDto
 
         private String name;
         private String posOid;
+        private Set<DocType> docTypes;
 
         public Builder withName(final String _name)
         {
@@ -64,6 +76,12 @@ public class WorkspaceDto
         public Builder withPosOid(final String _posOid)
         {
             this.posOid = _posOid;
+            return this;
+        }
+
+        public Builder withDocTypes(final Set<DocType> _docTypes)
+        {
+            this.docTypes = _docTypes;
             return this;
         }
 
