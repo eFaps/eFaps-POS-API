@@ -17,6 +17,9 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder = SequenceDto.Builder.class)
 public class SequenceDto
     extends AbstractDto
 {
