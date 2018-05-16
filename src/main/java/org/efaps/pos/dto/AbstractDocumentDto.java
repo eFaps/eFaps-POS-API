@@ -28,18 +28,15 @@ public abstract class AbstractDocumentDto
 {
 
     private final String id;
-
     private final String number;
-
     private final Set<? extends AbstractDocItemDto> items;
-
     private final DocStatus status;
-
     private final LocalDate date;
     private final String currency;
     private final BigDecimal netTotal;
     private final BigDecimal crossTotal;
     private final Set<TaxEntryDto> taxes;
+    private final String contactOid;
 
     protected AbstractDocumentDto(final Builder<?, ?> _builder)
     {
@@ -53,6 +50,7 @@ public abstract class AbstractDocumentDto
         this.crossTotal = _builder.crossTotal;
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         this.currency = _builder.currency;
+        this.contactOid = _builder.contactOid;
     }
 
     public String getId()
@@ -100,6 +98,11 @@ public abstract class AbstractDocumentDto
         return Collections.unmodifiableSet(this.taxes);
     }
 
+    public String getContactOid()
+    {
+        return this.contactOid;
+    }
+
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
         extends AbstractDto.Builder<S, T>
     {
@@ -113,6 +116,7 @@ public abstract class AbstractDocumentDto
         private BigDecimal crossTotal;
         private Set<TaxEntryDto> taxes;
         private Set<? extends AbstractDocItemDto> items = new HashSet<>();
+        private String contactOid;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -160,6 +164,13 @@ public abstract class AbstractDocumentDto
         public S withCrossTotal(final BigDecimal _crossTotal)
         {
             this.crossTotal = _crossTotal;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withContactOid(final String _contactOid)
+        {
+            this.contactOid = _contactOid;
             return (S) this;
         }
 
