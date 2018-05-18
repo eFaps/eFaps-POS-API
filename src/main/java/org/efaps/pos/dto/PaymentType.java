@@ -21,5 +21,8 @@ package org.efaps.pos.dto;
 public enum PaymentType
 {
     CASH,
-    FREE
+    FREE,
+    CREDITCARD,
+    DEBITCARD,
+    CHANGE
 }
