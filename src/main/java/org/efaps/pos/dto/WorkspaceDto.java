@@ -29,6 +29,7 @@ public class WorkspaceDto
     private final String name;
     private final String posOid;
     private final Set<DocType> docTypes;
+    private final SpotConfig spotConfig;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -37,6 +38,7 @@ public class WorkspaceDto
         this.posOid = _builder.posOid;
         this.docTypes = _builder.docTypes == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.docTypes);
+        this.spotConfig = _builder.spotConfig;
     }
 
     public String getName()
@@ -54,6 +56,11 @@ public class WorkspaceDto
         return this.docTypes;
     }
 
+    public SpotConfig getSpotConfig()
+    {
+        return this.spotConfig;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -66,6 +73,7 @@ public class WorkspaceDto
         private String name;
         private String posOid;
         private Set<DocType> docTypes;
+        private SpotConfig spotConfig;
 
         public Builder withName(final String _name)
         {
@@ -82,6 +90,12 @@ public class WorkspaceDto
         public Builder withDocTypes(final Set<DocType> _docTypes)
         {
             this.docTypes = _docTypes;
+            return this;
+        }
+
+        public Builder withSpotConfig(final SpotConfig _spotConfig)
+        {
+            this.spotConfig = _spotConfig;
             return this;
         }
 
