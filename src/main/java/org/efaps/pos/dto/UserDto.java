@@ -9,6 +9,7 @@ import java.util.Set;
 public class UserDto
     extends AbstractDto
 {
+
     private final String username;
 
     private final String password;
@@ -19,6 +20,8 @@ public class UserDto
 
     private final Set<Roles> roles;
 
+    private final Set<String> workspaceOids;
+
     private UserDto(final Builder _builder)
     {
         super(_builder);
@@ -27,6 +30,8 @@ public class UserDto
         this.firstName = _builder.firstName;
         this.surName = _builder.surName;
         this.roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableSet(_builder.roles);
+        this.workspaceOids = _builder.workspaceOids == null ? Collections.emptySet()
+                        : Collections.unmodifiableSet(_builder.workspaceOids);
     }
 
     public String getUsername()
@@ -54,6 +59,11 @@ public class UserDto
         return this.roles;
     }
 
+    public Set<String> getWorkspaceOids()
+    {
+        return this.workspaceOids;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -62,6 +72,7 @@ public class UserDto
     public static final class Builder
         extends AbstractDto.Builder<Builder, UserDto>
     {
+
         private String username;
 
         private String password;
@@ -71,6 +82,8 @@ public class UserDto
         private String surName;
 
         private Set<Roles> roles;
+
+        private Set<String> workspaceOids;
 
         public Builder withUsername(final String _username)
         {
@@ -99,6 +112,12 @@ public class UserDto
         public Builder withRoles(final Set<Roles> _roles)
         {
             this.roles = _roles;
+            return this;
+        }
+
+        public Builder withWorkspaceOids(final Set<String> _workspaceOids)
+        {
+            this.workspaceOids = _workspaceOids;
             return this;
         }
 
