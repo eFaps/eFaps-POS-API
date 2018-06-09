@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 public class InventoryEntryDto
 {
 
-    private final String id;
     private final String oid;
     private final BigDecimal quantity;
     private final String warehouseOid;
@@ -16,16 +15,10 @@ public class InventoryEntryDto
 
     private InventoryEntryDto(final Builder _builder)
     {
-        this.id = _builder.id;
         this.oid = _builder.oid;
         this.quantity = _builder.quantity;
         this.warehouseOid = _builder.warehouseOid;
         this.productOid = _builder.productOid;
-    }
-
-    public String getId()
-    {
-        return this.id;
     }
 
     public String getOid()
@@ -55,18 +48,10 @@ public class InventoryEntryDto
 
     public static final class Builder
     {
-
         public String productOid;
         public String warehouseOid;
         public BigDecimal quantity;
-        private String id;
         private String oid;
-
-        public Builder withId(final String _id)
-        {
-            this.id = _id;
-            return this;
-        }
 
         public Builder withOID(final String _oid)
         {
@@ -86,7 +71,7 @@ public class InventoryEntryDto
             return this;
         }
 
-        public Builder withWarehouse(final String _warehouseOid)
+        public Builder withWarehouseOid(final String _warehouseOid)
         {
             this.warehouseOid = _warehouseOid;
             return this;
