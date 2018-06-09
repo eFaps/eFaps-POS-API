@@ -30,6 +30,7 @@ public class WorkspaceDto
     private final String posOid;
     private final Set<DocType> docTypes;
     private final SpotConfig spotConfig;
+    private final String warehouseOid;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -39,6 +40,7 @@ public class WorkspaceDto
         this.docTypes = _builder.docTypes == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.docTypes);
         this.spotConfig = _builder.spotConfig;
+        this.warehouseOid = _builder.warehouseOid;
     }
 
     public String getName()
@@ -61,6 +63,11 @@ public class WorkspaceDto
         return this.spotConfig;
     }
 
+    public String getWarehouseOid()
+    {
+        return this.warehouseOid;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -70,6 +77,7 @@ public class WorkspaceDto
         extends AbstractDto.Builder<Builder, WorkspaceDto>
     {
 
+        public String warehouseOid;
         private String name;
         private String posOid;
         private Set<DocType> docTypes;
@@ -96,6 +104,12 @@ public class WorkspaceDto
         public Builder withSpotConfig(final SpotConfig _spotConfig)
         {
             this.spotConfig = _spotConfig;
+            return this;
+        }
+
+        public Builder withWarehouseOid(final String _warehouseOid)
+        {
+            this.warehouseOid = _warehouseOid;
             return this;
         }
 
