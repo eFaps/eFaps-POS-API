@@ -37,7 +37,7 @@ public abstract class AbstractDocumentDto
     private final BigDecimal crossTotal;
     private final Set<TaxEntryDto> taxes;
     private final String contactOid;
-    private final String posOid;
+    private final String workspaceOid;
 
     protected AbstractDocumentDto(final Builder<?, ?> _builder)
     {
@@ -52,7 +52,7 @@ public abstract class AbstractDocumentDto
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         this.currency = _builder.currency;
         this.contactOid = _builder.contactOid;
-        this.posOid = _builder.posOid;
+        this.workspaceOid = _builder.workspaceOid;
     }
 
     public String getId()
@@ -105,9 +105,9 @@ public abstract class AbstractDocumentDto
         return this.contactOid;
     }
 
-    public String getPosOid()
+    public String getWorkspaceOid()
     {
-        return this.posOid;
+        return this.workspaceOid;
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
@@ -124,7 +124,7 @@ public abstract class AbstractDocumentDto
         private Set<TaxEntryDto> taxes;
         private Set<? extends AbstractDocItemDto> items = new HashSet<>();
         private String contactOid;
-        private String posOid;
+        private String workspaceOid;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -183,9 +183,9 @@ public abstract class AbstractDocumentDto
         }
 
         @SuppressWarnings("unchecked")
-        public S withPosOid(final String _posOid)
+        public S withWorkspaceOid(final String _workspaceOid)
         {
-            this.posOid = _posOid;
+            this.workspaceOid = _workspaceOid;
             return (S) this;
         }
 
