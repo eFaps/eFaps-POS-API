@@ -31,6 +31,7 @@ public class WorkspaceDto
     private final Set<DocType> docTypes;
     private final SpotConfig spotConfig;
     private final String warehouseOid;
+    private final Set<PrintCmdDto> printCmds;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -41,6 +42,7 @@ public class WorkspaceDto
                         : Collections.unmodifiableSet(_builder.docTypes);
         this.spotConfig = _builder.spotConfig;
         this.warehouseOid = _builder.warehouseOid;
+        this.printCmds = _builder.printCmds;
     }
 
     public String getName()
@@ -68,6 +70,11 @@ public class WorkspaceDto
         return this.warehouseOid;
     }
 
+    public Set<PrintCmdDto> getPrintCmds()
+    {
+        return this.printCmds;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -82,6 +89,7 @@ public class WorkspaceDto
         private String posOid;
         private Set<DocType> docTypes;
         private SpotConfig spotConfig;
+        private Set<PrintCmdDto> printCmds;
 
         public Builder withName(final String _name)
         {
@@ -110,6 +118,12 @@ public class WorkspaceDto
         public Builder withWarehouseOid(final String _warehouseOid)
         {
             this.warehouseOid = _warehouseOid;
+            return this;
+        }
+
+        public Builder withPrintCmds(final Set<PrintCmdDto> _printCmds)
+        {
+            this.printCmds = _printCmds;
             return this;
         }
 
