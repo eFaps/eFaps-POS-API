@@ -19,7 +19,7 @@ package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = WarehouseDto.Builder.class)
+@JsonDeserialize(builder = PrinterDto.Builder.class)
 public class PrinterDto
     extends AbstractDto
 {
@@ -37,6 +37,11 @@ public class PrinterDto
     public String getName()
     {
         return this.name;
+    }
+
+    public PrinterType getType()
+    {
+        return this.type;
     }
 
     public static Builder builder()
@@ -68,10 +73,5 @@ public class PrinterDto
         {
             return new PrinterDto(this);
         }
-    }
-
-    public PrinterType getType()
-    {
-        return this.type;
     }
 }
