@@ -25,12 +25,14 @@ public class PrintCmdDto
     private final String printerOid;
     private final PrintTarget target;
     private final String targetOid;
+    private final String reportOid;
 
     private PrintCmdDto(final Builder _builder)
     {
         this.printerOid = _builder.printerOid;
         this.target = _builder.target;
         this.targetOid = _builder.targetOid;
+        this.reportOid = _builder.reportOid;
     }
 
     public String getPrinterOid()
@@ -49,6 +51,11 @@ public class PrintCmdDto
     }
 
 
+    public String getReportOid()
+    {
+        return this.reportOid;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -60,6 +67,7 @@ public class PrintCmdDto
         private String printerOid;
         private PrintTarget target;
         private String targetOid;
+        private String reportOid;
 
         public Builder withPrinterOid(final String _printerOid)
         {
@@ -76,6 +84,12 @@ public class PrintCmdDto
         public Builder withTargetOid(final String _targetOid)
         {
             this.targetOid = _targetOid;
+            return this;
+        }
+
+        public Builder withReportOid(final String _reportOid)
+        {
+            this.reportOid = _reportOid;
             return this;
         }
 
