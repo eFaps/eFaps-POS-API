@@ -33,6 +33,7 @@ public class WorkspaceDto
     private final int spotCount;
     private final String warehouseOid;
     private final Set<PrintCmdDto> printCmds;
+    private final PosLayout posLayout;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -45,6 +46,7 @@ public class WorkspaceDto
         this.warehouseOid = _builder.warehouseOid;
         this.printCmds = _builder.printCmds;
         this.spotCount = _builder.spotCount;
+        this.posLayout = _builder.posLayout;
     }
 
     public String getName()
@@ -82,6 +84,11 @@ public class WorkspaceDto
         return this.printCmds;
     }
 
+    public PosLayout getPosLayout()
+    {
+        return this.posLayout;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -98,6 +105,7 @@ public class WorkspaceDto
         private SpotConfig spotConfig;
         private int spotCount;
         private Set<PrintCmdDto> printCmds;
+        private PosLayout posLayout;
 
         public Builder withName(final String _name)
         {
@@ -138,6 +146,12 @@ public class WorkspaceDto
         public Builder withPrintCmds(final Set<PrintCmdDto> _printCmds)
         {
             this.printCmds = _printCmds;
+            return this;
+        }
+
+        public Builder withPosLayout(final PosLayout _posLayout)
+        {
+            this.posLayout = _posLayout;
             return this;
         }
 
