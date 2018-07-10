@@ -36,6 +36,7 @@ public class ProductDto
     private final Set<String> categoryOids;
     private final Set<TaxDto> taxes;
     private final String uoM;
+    private final String uoMCode;
 
     private ProductDto(final Builder _builder)
     {
@@ -48,6 +49,7 @@ public class ProductDto
         this.categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         this.uoM = _builder.uoM;
+        this.uoMCode = _builder.uoMCode;
     }
 
     public String getDescription()
@@ -90,6 +92,11 @@ public class ProductDto
         return this.uoM;
     }
 
+    public String getUoMCode()
+    {
+        return this.uoMCode;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -107,6 +114,8 @@ public class ProductDto
         private Set<String> categoryOids = new HashSet<>();
         private Set<TaxDto> taxes = new HashSet<>();
         private String uoM;
+        private String uoMCode;
+
         public Builder withSKU(final String _sku)
         {
             this.sku = _sku;
@@ -152,6 +161,12 @@ public class ProductDto
         public Builder withUoM(final String _uoM)
         {
             this.uoM = _uoM;
+            return this;
+        }
+
+        public Builder withUoMCode(final String _uoMCode)
+        {
+            this.uoMCode = _uoMCode;
             return this;
         }
 
