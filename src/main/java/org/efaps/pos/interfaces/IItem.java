@@ -43,6 +43,6 @@ public interface IItem
 
     String getDescription();
 
-    String getUoM();
+    String getUoMCode();
 
 }
