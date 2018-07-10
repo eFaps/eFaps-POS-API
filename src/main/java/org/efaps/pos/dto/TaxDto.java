@@ -25,15 +25,21 @@ import java.math.BigDecimal;
 public class TaxDto
     extends AbstractDto
 {
-
+    private final String key;
     private final String name;
     private final BigDecimal percent;
 
     private TaxDto(final Builder _builder)
     {
         super(_builder);
+        this.key = _builder.key;
         this.name = _builder.name;
         this.percent = _builder.percent;
+    }
+
+    public String getKey()
+    {
+        return this.key;
     }
 
     public String getName()
@@ -54,9 +60,15 @@ public class TaxDto
     public static final class Builder
         extends AbstractDto.Builder<Builder, TaxDto>
     {
-
+        private String key;
         private String name;
         private BigDecimal percent;
+
+        public Builder withKey(final String _key)
+        {
+            this.key = _key;
+            return this;
+        }
 
         public Builder withName(final String _name)
         {
