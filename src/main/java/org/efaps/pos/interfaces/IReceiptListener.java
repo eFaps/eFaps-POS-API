@@ -17,6 +17,7 @@
 
 package org.efaps.pos.interfaces;
 
+import java.util.Map;
 import java.util.ServiceLoader;
 
 /**
@@ -33,7 +34,8 @@ public interface IReceiptListener
      *
      * @param _pos the pos
      * @param _receipt the receipt
+     * @param _map properties Map
      * @return the receipt
      */
-    IReceipt onCreate(IPos _pos, IReceipt _receipt);
+    IReceipt onCreate(IPos _pos, IReceipt _receipt, Map<String, String> _map);
 }
