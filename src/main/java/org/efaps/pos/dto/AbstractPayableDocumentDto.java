@@ -24,13 +24,20 @@ import java.util.Set;
 public abstract class AbstractPayableDocumentDto
     extends AbstractDocumentDto
 {
+    private final String balanceOid;
 
     private final Set<PaymentDto> payments;
 
     protected AbstractPayableDocumentDto(final Builder<?, ?> _builder)
     {
         super(_builder);
+        this.balanceOid =  _builder.balanceOid;
         this.payments = _builder.payments == null ? Collections.emptySet() : _builder.payments;
+    }
+
+    public String getBalanceOid()
+    {
+        return this.balanceOid;
     }
 
     public Set<PaymentDto> getPayments()
@@ -41,8 +48,15 @@ public abstract class AbstractPayableDocumentDto
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDocumentDto>
         extends AbstractDocumentDto.Builder<S, T>
     {
-
+        private String balanceOid;
         private Set<PaymentDto> payments = new HashSet<>();
+
+        @SuppressWarnings("unchecked")
+        public S withBalanceOid(final String _balanceOid)
+        {
+            this.balanceOid = _balanceOid;
+            return (S) this;
+        }
 
         protected void setPayments(final Set<PaymentDto> _payments)
         {
