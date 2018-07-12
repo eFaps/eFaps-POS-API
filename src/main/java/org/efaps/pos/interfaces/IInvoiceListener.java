@@ -17,6 +17,7 @@
 
 package org.efaps.pos.interfaces;
 
+import java.util.Map;
 import java.util.ServiceLoader;
 
 /**
@@ -35,5 +36,5 @@ public interface IInvoiceListener
      * @param _invoice the invoice
      * @return the receipt
      */
-    IInvoice onCreate(IPos _pos, IInvoice _invoice);
+    IInvoice onCreate(IPos _pos, IInvoice _invoice, Map<String, String> _map);
 }
