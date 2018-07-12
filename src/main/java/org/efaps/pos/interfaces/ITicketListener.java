@@ -17,6 +17,7 @@
 
 package org.efaps.pos.interfaces;
 
+import java.util.Map;
 import java.util.ServiceLoader;
 
 /**
@@ -35,5 +36,5 @@ public interface ITicketListener
      * @param _invoice the invoice
      * @return the receipt
      */
-    ITicket onCreate(IPos _pos, ITicket _ticket);
+    ITicket onCreate(IPos _pos, ITicket _ticket,  Map<String, String> _map);
 }
