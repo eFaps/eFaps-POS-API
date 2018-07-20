@@ -16,6 +16,7 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
@@ -23,6 +24,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(builder = ProductDto.Builder.class)
 public class ProductDto
     extends AbstractDto
@@ -37,6 +39,7 @@ public class ProductDto
     private final Set<TaxDto> taxes;
     private final String uoM;
     private final String uoMCode;
+    private final Set<ProductRelationDto> relations;
 
     private ProductDto(final Builder _builder)
     {
@@ -50,6 +53,7 @@ public class ProductDto
         this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         this.uoM = _builder.uoM;
         this.uoMCode = _builder.uoMCode;
+        this.relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
     }
 
     public String getDescription()
@@ -97,6 +101,11 @@ public class ProductDto
         return this.uoMCode;
     }
 
+    public Set<ProductRelationDto> getRelations()
+    {
+        return this.relations;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -115,6 +124,7 @@ public class ProductDto
         private Set<TaxDto> taxes = new HashSet<>();
         private String uoM;
         private String uoMCode;
+        private Set<ProductRelationDto> relations;
 
         public Builder withSKU(final String _sku)
         {
@@ -167,6 +177,12 @@ public class ProductDto
         public Builder withUoMCode(final String _uoMCode)
         {
             this.uoMCode = _uoMCode;
+            return this;
+        }
+
+        public Builder withRelations(final Set<ProductRelationDto> _relations)
+        {
+            this.relations = _relations;
             return this;
         }
 
