@@ -32,6 +32,7 @@ public class ProductDto
 
     private final String sku;
     private final String description;
+    private final String note;
     private final String imageOid;
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
@@ -46,6 +47,7 @@ public class ProductDto
         super(_builder);
         this.sku = _builder.sku;
         this.description = _builder.description;
+        this.note = _builder.note;
         this.imageOid = _builder.imageOid;
         this.netPrice = _builder.netPrice;
         this.crossPrice = _builder.crossPrice;
@@ -59,6 +61,11 @@ public class ProductDto
     public String getDescription()
     {
         return this.description;
+    }
+
+    public String getNote()
+    {
+        return this.note;
     }
 
     public String getImageOid()
@@ -117,6 +124,7 @@ public class ProductDto
 
         private String sku;
         private String description;
+        private String note;
         private String imageOid;
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
@@ -135,6 +143,12 @@ public class ProductDto
         public Builder withDescription(final String _description)
         {
             this.description = _description;
+            return this;
+        }
+
+        public Builder withNote(final String _note)
+        {
+            this.note = _note;
             return this;
         }
 
