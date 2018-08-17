@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = CategoryDto.Builder.class)
 public class CategoryDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String name;
@@ -42,7 +42,7 @@ public class CategoryDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, CategoryDto>
+        extends AbstractObjectDto.Builder<Builder, CategoryDto>
     {
 
         private String name;

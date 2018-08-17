@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 
 @JsonDeserialize(builder = BalanceDto.Builder.class)
 public class BalanceDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String id;
@@ -79,7 +79,7 @@ public class BalanceDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, BalanceDto>
+        extends AbstractObjectDto.Builder<Builder, BalanceDto>
     {
 
         private String id;

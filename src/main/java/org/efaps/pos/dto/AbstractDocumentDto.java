@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class AbstractDocumentDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String id;
@@ -110,8 +110,8 @@ public abstract class AbstractDocumentDto
         return this.workspaceOid;
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
-        extends AbstractDto.Builder<S, T>
+    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
+        extends AbstractObjectDto.Builder<S, T>
     {
 
         private String id;

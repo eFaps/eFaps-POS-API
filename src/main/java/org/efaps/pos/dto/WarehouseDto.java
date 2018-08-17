@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = WarehouseDto.Builder.class)
 public class WarehouseDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String name;
@@ -26,7 +26,7 @@ public class WarehouseDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, WarehouseDto>
+        extends AbstractObjectDto.Builder<Builder, WarehouseDto>
     {
 
         private String name;

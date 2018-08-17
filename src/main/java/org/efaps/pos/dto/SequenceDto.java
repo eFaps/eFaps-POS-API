@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = SequenceDto.Builder.class)
 public class SequenceDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final long seq;
@@ -50,7 +50,7 @@ public class SequenceDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, SequenceDto>
+        extends AbstractObjectDto.Builder<Builder, SequenceDto>
     {
 
         private long seq;

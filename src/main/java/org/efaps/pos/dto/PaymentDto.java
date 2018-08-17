@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 
 @JsonDeserialize(builder = PaymentDto.Builder.class)
 public class PaymentDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final PaymentType type;
@@ -52,7 +52,7 @@ public class PaymentDto
     }
 
     public static class Builder
-        extends AbstractDto.Builder<Builder, PaymentDto>
+        extends AbstractObjectDto.Builder<Builder, PaymentDto>
     {
 
         private PaymentType type;

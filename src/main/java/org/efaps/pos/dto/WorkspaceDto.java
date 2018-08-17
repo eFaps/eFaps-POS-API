@@ -23,7 +23,7 @@ import java.util.Set;
 
 @JsonDeserialize(builder = WorkspaceDto.Builder.class)
 public class WorkspaceDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String name;
@@ -95,7 +95,7 @@ public class WorkspaceDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, WorkspaceDto>
+        extends AbstractObjectDto.Builder<Builder, WorkspaceDto>
     {
 
         public String warehouseOid;

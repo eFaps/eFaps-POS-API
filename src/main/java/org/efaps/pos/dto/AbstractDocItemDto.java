@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 public abstract class AbstractDocItemDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final Integer index;
@@ -86,8 +86,8 @@ public abstract class AbstractDocItemDto
         return this.taxes;
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
-        extends AbstractDto.Builder<S, T>
+    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
+        extends AbstractObjectDto.Builder<S, T>
     {
 
         private Integer index;

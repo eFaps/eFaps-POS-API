@@ -19,12 +19,12 @@ package org.efaps.pos.dto;
 /**
  * The Class AbstractDto.
  */
-public abstract class AbstractDto
+public abstract class AbstractObjectDto
 {
 
     private final String oid;
 
-    protected AbstractDto(final Builder<?, ?> _builder)
+    protected AbstractObjectDto(final Builder<?, ?> _builder)
     {
         this.oid = _builder.oid;
     }
@@ -34,7 +34,7 @@ public abstract class AbstractDto
         return this.oid;
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDto>
+    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
     {
 
         private String oid;

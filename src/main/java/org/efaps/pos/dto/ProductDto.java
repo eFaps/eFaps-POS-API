@@ -27,7 +27,7 @@ import java.util.Set;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(builder = ProductDto.Builder.class)
 public class ProductDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String sku;
@@ -119,7 +119,7 @@ public class ProductDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, ProductDto>
+        extends AbstractObjectDto.Builder<Builder, ProductDto>
     {
 
         private String sku;

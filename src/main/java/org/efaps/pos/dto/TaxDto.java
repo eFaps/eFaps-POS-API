@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 
 @JsonDeserialize(builder = TaxDto.Builder.class)
 public class TaxDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
     private final String key;
     private final String name;
@@ -58,7 +58,7 @@ public class TaxDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, TaxDto>
+        extends AbstractObjectDto.Builder<Builder, TaxDto>
     {
         private String key;
         private String name;

@@ -7,7 +7,7 @@ import java.util.Set;
 
 @JsonDeserialize(builder = UserDto.Builder.class)
 public class UserDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String username;
@@ -70,7 +70,7 @@ public class UserDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, UserDto>
+        extends AbstractObjectDto.Builder<Builder, UserDto>
     {
 
         private String username;

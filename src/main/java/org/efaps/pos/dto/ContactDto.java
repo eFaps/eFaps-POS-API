@@ -21,17 +21,25 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = ContactDto.Builder.class)
 public class ContactDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
-
+    private final String id;
     private final String name;
-    private final String taxNumber;
+    private final IdentificationType idType;
+    private final String idNumber;
 
     private ContactDto(final Builder _builder)
     {
         super(_builder);
+        this.id = _builder.id;
         this.name = _builder.name;
-        this.taxNumber = _builder.taxNumber;
+        this.idType = _builder.idType;
+        this.idNumber = _builder.idNumber;
+    }
+
+    public String getId()
+    {
+        return this.id;
     }
 
     public String getName()
@@ -39,9 +47,14 @@ public class ContactDto
         return this.name;
     }
 
-    public String getTaxNumber()
+    public IdentificationType getIdType()
     {
-        return this.taxNumber;
+        return this.idType;
+    }
+
+    public String getIdNumber()
+    {
+        return this.idNumber;
     }
 
     public static Builder builder()
@@ -50,11 +63,18 @@ public class ContactDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, ContactDto>
+        extends AbstractObjectDto.Builder<Builder, ContactDto>
     {
-
+        private String id;
         private String name;
-        private String taxNumber;
+        private IdentificationType idType;
+        private String idNumber;
+
+        public Builder withId(final String _id)
+        {
+            this.id = _id;
+            return this;
+        }
 
         public Builder withName(final String _name)
         {
@@ -62,9 +82,15 @@ public class ContactDto
             return this;
         }
 
-        public Builder withTaxNumber(final String _taxNumber)
+        public Builder withIdType(final IdentificationType _idType)
         {
-            this.taxNumber = _taxNumber;
+            this.idType = _idType;
+            return this;
+        }
+
+        public Builder withIdNumber(final String _idNumber)
+        {
+            this.idNumber = _idNumber;
             return this;
         }
 

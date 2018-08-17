@@ -25,15 +25,20 @@ public class ContactDtoTest
 {
     @Test
     public void testBuilder() {
-        final String taxnumber = "12345678901";
+        final String id = "auasbdjndfsds";
+        final String idNumber = "12345678901";
         final String name = "This is the name of this object";
 
         final ContactDto dto = ContactDto.builder()
+            .withId(id)
             .withName(name)
-            .withTaxNumber(taxnumber)
+            .withIdType(IdentificationType.DNI)
+            .withIdNumber(idNumber)
             .build();
 
+        assertEquals(dto.getId(), id);
         assertEquals(dto.getName(), name);
-        assertEquals(dto.getTaxNumber(), taxnumber);
+        assertEquals(dto.getIdType(), IdentificationType.DNI);
+        assertEquals(dto.getIdNumber(), idNumber);
     }
 }

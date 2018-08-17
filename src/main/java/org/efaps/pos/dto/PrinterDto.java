@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = PrinterDto.Builder.class)
 public class PrinterDto
-    extends AbstractDto
+    extends AbstractObjectDto
 {
 
     private final String name;
@@ -50,7 +50,7 @@ public class PrinterDto
     }
 
     public static final class Builder
-        extends AbstractDto.Builder<Builder, PrinterDto>
+        extends AbstractObjectDto.Builder<Builder, PrinterDto>
     {
 
         private String name;
