@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
+import org.efaps.pos.dto.ContactDto;
 import org.efaps.pos.dto.TaxEntryDto;
 
 public interface IDocument
@@ -36,5 +37,7 @@ public interface IDocument
     Set<TaxEntryDto> getTaxes();
 
     String getCurrency();
+
+    ContactDto getContact();
 
 }
