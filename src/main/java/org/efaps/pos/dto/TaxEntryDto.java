@@ -26,17 +26,24 @@ public class TaxEntryDto
 {
 
     private final TaxDto tax;
+    private final BigDecimal base;
     private final BigDecimal amount;
 
     private TaxEntryDto(final Builder _builder)
     {
         this.tax = _builder.tax;
         this.amount = _builder.amount;
+        this.base = _builder.base;
     }
 
     public TaxDto getTax()
     {
         return this.tax;
+    }
+
+    public BigDecimal getBase()
+    {
+        return this.base;
     }
 
     public BigDecimal getAmount()
@@ -52,11 +59,18 @@ public class TaxEntryDto
     public static final class Builder
     {
         private TaxDto tax;
+        private BigDecimal base;
         private BigDecimal amount;
 
         public Builder withTax(final TaxDto _tax)
         {
             this.tax = _tax;
+            return this;
+        }
+
+        public Builder withBase(final BigDecimal _base)
+        {
+            this.base = _base;
             return this;
         }
 
