@@ -22,6 +22,8 @@ public class UserDto
 
     private final Set<String> workspaceOids;
 
+    private final boolean visible;
+
     private UserDto(final Builder _builder)
     {
         super(_builder);
@@ -32,6 +34,7 @@ public class UserDto
         this.roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableSet(_builder.roles);
         this.workspaceOids = _builder.workspaceOids == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.workspaceOids);
+        this.visible = _builder.visible;
     }
 
     public String getUsername()
@@ -64,6 +67,11 @@ public class UserDto
         return this.workspaceOids;
     }
 
+    public boolean isVisible()
+    {
+        return this.visible;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -84,6 +92,8 @@ public class UserDto
         private Set<Roles> roles;
 
         private Set<String> workspaceOids;
+
+        private boolean visible;
 
         public Builder withUsername(final String _username)
         {
@@ -118,6 +128,12 @@ public class UserDto
         public Builder withWorkspaceOids(final Set<String> _workspaceOids)
         {
             this.workspaceOids = _workspaceOids;
+            return this;
+        }
+
+        public Builder withVisible(final boolean _visible)
+        {
+            this.visible = _visible;
             return this;
         }
 
