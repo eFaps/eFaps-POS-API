@@ -19,5 +19,7 @@ package org.efaps.pos.dto;
 
 public enum PrintTarget
 {
-    JOB
+    JOB,
+    PREVIEW,
+    TICKET
 }
