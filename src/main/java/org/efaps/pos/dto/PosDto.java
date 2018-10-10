@@ -25,7 +25,6 @@ public class PosDto
 
     private final String name;
     private final String currency;
-    private final CompanyDto company;
     private final String defaultContactOid;
     private final String receiptSeqOid;
     private final String invoiceSeqOid;
@@ -36,7 +35,6 @@ public class PosDto
         super(_builder);
         this.name = _builder.name;
         this.currency = _builder.currency;
-        this.company = _builder.company;
         this.defaultContactOid = _builder.defaultContactOid;
         this.receiptSeqOid = _builder.receiptSeqOid;
         this.invoiceSeqOid = _builder.invoiceSeqOid;
@@ -51,11 +49,6 @@ public class PosDto
     public String getCurrency()
     {
         return this.currency;
-    }
-
-    public CompanyDto getCompany()
-    {
-        return this.company;
     }
 
     public String getDefaultContactOid()
@@ -89,7 +82,6 @@ public class PosDto
 
         private String name;
         private String currency;
-        private CompanyDto company;
         private String defaultContactOid;
         private String receiptSeqOid;
         private String invoiceSeqOid;
@@ -104,12 +96,6 @@ public class PosDto
         public Builder withCurrency(final String _currency)
         {
             this.currency = _currency;
-            return this;
-        }
-
-        public Builder withCompany(final CompanyDto _company)
-        {
-            this.company = _company;
             return this;
         }
 

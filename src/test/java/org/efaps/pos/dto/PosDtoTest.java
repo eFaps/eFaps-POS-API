@@ -27,21 +27,18 @@ public class PosDtoTest
         final String oid = "1234.555";
         final String name = "This is the name of this object";
         final String currency = "PEN";
-        final CompanyDto company = CompanyDto.builder().build();
         final String defaultContactOid = "5512.23";
 
         final PosDto dto = PosDto.builder()
             .withOID(oid)
             .withName(name)
             .withCurrency(currency)
-            .withCompany(company)
             .withDefaultContactOid(defaultContactOid)
             .build();
 
         assertEquals(dto.getOid(), oid);
         assertEquals(dto.getName(), name);
         assertEquals(dto.getCurrency(), currency);
-        assertEquals(dto.getCompany(), company);
         assertEquals(dto.getDefaultContactOid(), defaultContactOid);
     }
 }
