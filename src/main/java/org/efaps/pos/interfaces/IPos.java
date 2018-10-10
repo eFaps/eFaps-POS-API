@@ -16,7 +16,6 @@
  */
 package org.efaps.pos.interfaces;
 
-import org.efaps.pos.dto.CompanyDto;
 import org.efaps.pos.dto.ContactDto;
 
 public interface IPos
@@ -25,8 +24,6 @@ public interface IPos
     String getName();
 
     String getCurrency();
-
-    CompanyDto getCompany();
 
     ContactDto getDefaultContact();
 
