@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,15 +25,23 @@ public class CategoryDto
 
     private final String name;
 
+    private final int weight;
+
+    public int getWeight()
+    {
+        return weight;
+    }
+
     public CategoryDto(final Builder _builder)
     {
         super(_builder);
-        this.name = _builder.name;
+        name = _builder.name;
+        weight = _builder.weight;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public static Builder builder()
@@ -46,10 +54,17 @@ public class CategoryDto
     {
 
         private String name;
+        private int weight = 0;
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
+            return this;
+        }
+
+        public Builder withWeight(final int _weight)
+        {
+            weight = _weight;
             return this;
         }
 
