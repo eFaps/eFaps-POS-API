@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,30 +26,37 @@ public class TaxDto
     extends AbstractObjectDto
 {
     private final String key;
+    private final String catKey;
     private final String name;
     private final BigDecimal percent;
 
     private TaxDto(final Builder _builder)
     {
         super(_builder);
-        this.key = _builder.key;
-        this.name = _builder.name;
-        this.percent = _builder.percent;
+        key = _builder.key;
+        catKey =_builder.catKey;
+        name = _builder.name;
+        percent = _builder.percent;
     }
 
     public String getKey()
     {
-        return this.key;
+        return key;
+    }
+
+    public String getCatKey()
+    {
+        return catKey;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public BigDecimal getPercent()
     {
-        return this.percent;
+        return percent;
     }
 
     public static Builder builder()
@@ -61,24 +68,31 @@ public class TaxDto
         extends AbstractObjectDto.Builder<Builder, TaxDto>
     {
         private String key;
+        private String catKey;
         private String name;
         private BigDecimal percent;
 
         public Builder withKey(final String _key)
         {
-            this.key = _key;
+            key = _key;
+            return this;
+        }
+
+        public Builder withCatKey(final String _catKey)
+        {
+            catKey = _catKey;
             return this;
         }
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 
         public Builder withPercent(final BigDecimal _percent)
         {
-            this.percent = _percent;
+            percent = _percent;
             return this;
         }
 
