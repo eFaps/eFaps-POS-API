@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,59 +34,68 @@ public class WorkspaceDto
     private final String warehouseOid;
     private final Set<PrintCmdDto> printCmds;
     private final PosLayout posLayout;
+    private final Set<DiscountDto> discounts;
 
     public WorkspaceDto(final Builder _builder)
     {
         super(_builder);
-        this.name = _builder.name;
-        this.posOid = _builder.posOid;
-        this.docTypes = _builder.docTypes == null ? Collections.emptySet()
+        name = _builder.name;
+        posOid = _builder.posOid;
+        docTypes = _builder.docTypes == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.docTypes);
-        this.spotConfig = _builder.spotConfig;
-        this.warehouseOid = _builder.warehouseOid;
-        this.printCmds = _builder.printCmds;
-        this.spotCount = _builder.spotCount;
-        this.posLayout = _builder.posLayout;
+        spotConfig = _builder.spotConfig;
+        warehouseOid = _builder.warehouseOid;
+        printCmds = _builder.printCmds == null ? Collections.emptySet()
+                        : Collections.unmodifiableSet(_builder.printCmds);
+        spotCount = _builder.spotCount;
+        posLayout = _builder.posLayout;
+        discounts = _builder.discounts == null ? Collections.emptySet()
+                        : Collections.unmodifiableSet(_builder.discounts);
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public String getPosOid()
     {
-        return this.posOid;
+        return posOid;
     }
 
     public Set<DocType> getDocTypes()
     {
-        return this.docTypes;
+        return docTypes;
     }
 
     public SpotConfig getSpotConfig()
     {
-        return this.spotConfig;
+        return spotConfig;
     }
 
     public int getSpotCount()
     {
-        return this.spotCount;
+        return spotCount;
     }
 
     public String getWarehouseOid()
     {
-        return this.warehouseOid;
+        return warehouseOid;
     }
 
     public Set<PrintCmdDto> getPrintCmds()
     {
-        return this.printCmds;
+        return printCmds;
     }
 
     public PosLayout getPosLayout()
     {
-        return this.posLayout;
+        return posLayout;
+    }
+
+    public Set<DiscountDto> getDiscounts()
+    {
+        return discounts;
     }
 
     public static Builder builder()
@@ -98,7 +107,7 @@ public class WorkspaceDto
         extends AbstractObjectDto.Builder<Builder, WorkspaceDto>
     {
 
-        public String warehouseOid;
+        private String warehouseOid;
         private String name;
         private String posOid;
         private Set<DocType> docTypes;
@@ -106,52 +115,60 @@ public class WorkspaceDto
         private int spotCount;
         private Set<PrintCmdDto> printCmds;
         private PosLayout posLayout;
+        private Set<DiscountDto> discounts;
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 
         public Builder withPosOid(final String _posOid)
         {
-            this.posOid = _posOid;
+            posOid = _posOid;
             return this;
         }
 
         public Builder withDocTypes(final Set<DocType> _docTypes)
         {
-            this.docTypes = _docTypes;
+            docTypes = _docTypes;
             return this;
         }
 
         public Builder withSpotConfig(final SpotConfig _spotConfig)
         {
-            this.spotConfig = _spotConfig;
+            spotConfig = _spotConfig;
             return this;
         }
 
         public Builder withSpotCount(final int _spotCount)
         {
-            this.spotCount = _spotCount;
+            spotCount = _spotCount;
             return this;
         }
 
         public Builder withWarehouseOid(final String _warehouseOid)
         {
-            this.warehouseOid = _warehouseOid;
+            warehouseOid = _warehouseOid;
             return this;
         }
 
         public Builder withPrintCmds(final Set<PrintCmdDto> _printCmds)
         {
-            this.printCmds = _printCmds;
+            printCmds = _printCmds;
             return this;
         }
 
         public Builder withPosLayout(final PosLayout _posLayout)
         {
-            this.posLayout = _posLayout;
+            posLayout = _posLayout;
+            return this;
+        }
+
+
+        public Builder withDiscounts(final Set<DiscountDto> _discounts)
+        {
+            discounts = _discounts;
             return this;
         }
 
