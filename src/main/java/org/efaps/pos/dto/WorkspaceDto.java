@@ -35,6 +35,7 @@ public class WorkspaceDto
     private final Set<PrintCmdDto> printCmds;
     private final PosLayout posLayout;
     private final Set<DiscountDto> discounts;
+    private final Set<CardDto> cards;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -51,6 +52,8 @@ public class WorkspaceDto
         posLayout = _builder.posLayout;
         discounts = _builder.discounts == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.discounts);
+        cards = _builder.cards == null ? Collections.emptySet()
+                        : Collections.unmodifiableSet(_builder.cards);
     }
 
     public String getName()
@@ -98,6 +101,11 @@ public class WorkspaceDto
         return discounts;
     }
 
+    public Set<CardDto> getCards()
+    {
+        return cards;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -116,6 +124,7 @@ public class WorkspaceDto
         private Set<PrintCmdDto> printCmds;
         private PosLayout posLayout;
         private Set<DiscountDto> discounts;
+        private Set<CardDto> cards;
 
         public Builder withName(final String _name)
         {
@@ -165,10 +174,15 @@ public class WorkspaceDto
             return this;
         }
 
-
         public Builder withDiscounts(final Set<DiscountDto> _discounts)
         {
             discounts = _discounts;
+            return this;
+        }
+
+        public Builder withCards(final Set<CardDto> _cards)
+        {
+            cards = _cards;
             return this;
         }
 

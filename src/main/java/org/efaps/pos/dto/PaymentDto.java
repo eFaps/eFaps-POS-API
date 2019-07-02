@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,22 +28,29 @@ public class PaymentDto
 
     private final PaymentType type;
     private final BigDecimal amount;
+    private final Long cardTypeId;
 
     private PaymentDto(final Builder _builder)
     {
         super(_builder);
-        this.type = _builder.type;
-        this.amount = _builder.amount;
+        type = _builder.type;
+        amount = _builder.amount;
+        cardTypeId = _builder.cardTypeId;
     }
 
     public PaymentType getType()
     {
-        return this.type;
+        return type;
     }
 
     public BigDecimal getAmount()
     {
-        return this.amount;
+        return amount;
+    }
+
+    public Long getCardTypeId()
+    {
+        return cardTypeId;
     }
 
     public static Builder builder()
@@ -57,16 +64,23 @@ public class PaymentDto
 
         private PaymentType type;
         private BigDecimal amount;
+        private Long cardTypeId;
 
         public Builder withType(final PaymentType _type)
         {
-            this.type = _type;
+            type = _type;
             return this;
         }
 
         public Builder withAmount(final BigDecimal _amount)
         {
-            this.amount = _amount;
+            amount = _amount;
+            return this;
+        }
+
+        public Builder withCardTypeId(final Long _cardTypeId)
+        {
+            cardTypeId = _cardTypeId;
             return this;
         }
 
