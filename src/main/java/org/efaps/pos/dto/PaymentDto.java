@@ -29,6 +29,7 @@ public class PaymentDto
     private final PaymentType type;
     private final BigDecimal amount;
     private final Long cardTypeId;
+    private final String cardLabel;
 
     private PaymentDto(final Builder _builder)
     {
@@ -36,6 +37,7 @@ public class PaymentDto
         type = _builder.type;
         amount = _builder.amount;
         cardTypeId = _builder.cardTypeId;
+        cardLabel = _builder.cardLabel;
     }
 
     public PaymentType getType()
@@ -53,6 +55,11 @@ public class PaymentDto
         return cardTypeId;
     }
 
+    public String getCardLabel()
+    {
+        return cardLabel;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -65,6 +72,7 @@ public class PaymentDto
         private PaymentType type;
         private BigDecimal amount;
         private Long cardTypeId;
+        private String cardLabel;
 
         public Builder withType(final PaymentType _type)
         {
@@ -81,6 +89,12 @@ public class PaymentDto
         public Builder withCardTypeId(final Long _cardTypeId)
         {
             cardTypeId = _cardTypeId;
+            return this;
+        }
+
+        public Builder withCardLabel(final String _cardLabel)
+        {
+            cardLabel = _cardLabel;
             return this;
         }
 
