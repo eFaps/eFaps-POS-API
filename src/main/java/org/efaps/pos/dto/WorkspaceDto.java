@@ -36,6 +36,8 @@ public class WorkspaceDto
     private final PosLayout posLayout;
     private final Set<DiscountDto> discounts;
     private final Set<CardDto> cards;
+    private final PosGridSize gridSize;
+    private final boolean gridShowPrice;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -54,6 +56,8 @@ public class WorkspaceDto
                         : Collections.unmodifiableSet(_builder.discounts);
         cards = _builder.cards == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.cards);
+        gridSize = _builder.gridSize;
+        gridShowPrice = _builder.gridShowPrice;
     }
 
     public String getName()
@@ -106,6 +110,18 @@ public class WorkspaceDto
         return cards;
     }
 
+    public PosGridSize getGridSize()
+    {
+        return gridSize;
+    }
+
+
+    public boolean isGridShowPrice()
+    {
+        return gridShowPrice;
+    }
+
+
     public static Builder builder()
     {
         return new Builder();
@@ -125,6 +141,8 @@ public class WorkspaceDto
         private PosLayout posLayout;
         private Set<DiscountDto> discounts;
         private Set<CardDto> cards;
+        private PosGridSize gridSize;
+        private boolean gridShowPrice;
 
         public Builder withName(final String _name)
         {
@@ -183,6 +201,18 @@ public class WorkspaceDto
         public Builder withCards(final Set<CardDto> _cards)
         {
             cards = _cards;
+            return this;
+        }
+
+        public Builder withGridSize(final PosGridSize _gridSize)
+        {
+            gridSize = _gridSize;
+            return this;
+        }
+
+        public Builder withGridShowPrice(final boolean _gridShowPrice)
+        {
+            gridShowPrice = _gridShowPrice;
             return this;
         }
 
