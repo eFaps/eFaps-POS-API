@@ -19,6 +19,7 @@ package org.efaps.pos.dto;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 @JsonDeserialize(builder = WorkspaceDto.Builder.class)
@@ -38,6 +39,7 @@ public class WorkspaceDto
     private final Set<CardDto> cards;
     private final PosGridSize gridSize;
     private final boolean gridShowPrice;
+    private final List<FloorDto> floors;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -58,6 +60,8 @@ public class WorkspaceDto
                         : Collections.unmodifiableSet(_builder.cards);
         gridSize = _builder.gridSize;
         gridShowPrice = _builder.gridShowPrice;
+        floors = _builder.floors == null ? Collections.emptyList()
+                        : Collections.unmodifiableList(_builder.floors);
     }
 
     public String getName()
@@ -115,12 +119,15 @@ public class WorkspaceDto
         return gridSize;
     }
 
-
     public boolean isGridShowPrice()
     {
         return gridShowPrice;
     }
 
+    public List<FloorDto> getFloors()
+    {
+        return floors;
+    }
 
     public static Builder builder()
     {
@@ -143,6 +150,7 @@ public class WorkspaceDto
         private Set<CardDto> cards;
         private PosGridSize gridSize;
         private boolean gridShowPrice;
+        private List<FloorDto> floors;
 
         public Builder withName(final String _name)
         {
@@ -213,6 +221,12 @@ public class WorkspaceDto
         public Builder withGridShowPrice(final boolean _gridShowPrice)
         {
             gridShowPrice = _gridShowPrice;
+            return this;
+        }
+
+        public Builder withFloors(final List<FloorDto> _floors)
+        {
+            floors = _floors;
             return this;
         }
 
