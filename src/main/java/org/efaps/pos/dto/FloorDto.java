@@ -25,16 +25,32 @@ import java.util.List;
 public class FloorDto
 {
 
+    private final String name;
+
     private final List<SpotDto> spots;
+
+    private final String imageOid;
 
     private FloorDto(final Builder _builder)
     {
+        name = _builder.name;
         spots = _builder.spots == null ? Collections.emptyList() : Collections.unmodifiableList(_builder.spots);
+        imageOid = _builder.imageOid;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 
     public List<SpotDto> getSpots()
     {
         return spots;
+    }
+
+    public String getImageOid()
+    {
+        return imageOid;
     }
 
     public static Builder builder()
@@ -45,11 +61,25 @@ public class FloorDto
     public static class Builder
     {
 
+        private String name;
         private List<SpotDto> spots;
+        private String imageOid;
+
+        public Builder withName(final String _name)
+        {
+            name = _name;
+            return this;
+        }
 
         public Builder withSpots(final List<SpotDto> _spots)
         {
             spots = _spots;
+            return this;
+        }
+
+        public Builder withImageOid(final String _imageOid)
+        {
+            imageOid = _imageOid;
             return this;
         }
 
