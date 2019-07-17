@@ -23,6 +23,7 @@ import java.util.List;
 
 @JsonDeserialize(builder = FloorDto.Builder.class)
 public class FloorDto
+    extends AbstractObjectDto
 {
 
     private final String name;
@@ -33,6 +34,7 @@ public class FloorDto
 
     private FloorDto(final Builder _builder)
     {
+        super(_builder);
         name = _builder.name;
         spots = _builder.spots == null ? Collections.emptyList() : Collections.unmodifiableList(_builder.spots);
         imageOid = _builder.imageOid;
@@ -59,6 +61,7 @@ public class FloorDto
     }
 
     public static class Builder
+        extends AbstractObjectDto.Builder<Builder, FloorDto>
     {
 
         private String name;
@@ -83,6 +86,7 @@ public class FloorDto
             return this;
         }
 
+        @Override
         public FloorDto build()
         {
             return new FloorDto(this);

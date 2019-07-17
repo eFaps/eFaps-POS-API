@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = SpotDto.Builder.class)
 public class SpotDto
+    extends AbstractObjectDto
 {
 
     private final String label;
@@ -31,6 +32,7 @@ public class SpotDto
 
     private SpotDto(final Builder _builder)
     {
+        super(_builder);
         label = _builder.label;
     }
 
@@ -40,6 +42,7 @@ public class SpotDto
     }
 
     public static class Builder
+        extends AbstractObjectDto.Builder<Builder, SpotDto>
     {
 
         private String label;
@@ -50,6 +53,7 @@ public class SpotDto
             return this;
         }
 
+        @Override
         public SpotDto build()
         {
             return new SpotDto(this);
