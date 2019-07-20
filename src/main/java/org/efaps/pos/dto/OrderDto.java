@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,17 @@ public class OrderDto
     extends AbstractDocumentDto
 {
 
+    private final String payableOid;
+
     public OrderDto(final Builder _builder)
     {
         super(_builder);
+        payableOid = _builder.payableOid;
+    }
+
+    public String getPayableOid()
+    {
+        return payableOid;
     }
 
     public static Builder builder()
@@ -38,6 +46,14 @@ public class OrderDto
     public static class Builder
         extends AbstractDocumentDto.Builder<Builder, OrderDto>
     {
+
+        private String payableOid;
+
+        public Builder withPayableOid(final String _payableOid)
+        {
+            payableOid = _payableOid;
+            return this;
+        }
 
         public Builder withItems(final Set<DocItemDto> _items)
         {
