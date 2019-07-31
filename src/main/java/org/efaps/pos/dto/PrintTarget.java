@@ -22,5 +22,6 @@ public enum PrintTarget
     JOB,
     PRELIMINARY,
     TICKET,
-    COPY
+    COPY,
+    BALANCE
 }
