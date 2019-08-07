@@ -25,18 +25,23 @@ import java.math.BigDecimal;
 public class TaxDto
     extends AbstractObjectDto
 {
+
     private final String key;
     private final String catKey;
     private final String name;
     private final BigDecimal percent;
+    private final TaxType type;
+    private final BigDecimal amount;
 
     private TaxDto(final Builder _builder)
     {
         super(_builder);
         key = _builder.key;
-        catKey =_builder.catKey;
+        catKey = _builder.catKey;
         name = _builder.name;
         percent = _builder.percent;
+        type = _builder.type;
+        amount = _builder.amount;
     }
 
     public String getKey()
@@ -49,6 +54,11 @@ public class TaxDto
         return catKey;
     }
 
+    public TaxType getType()
+    {
+        return type;
+    }
+
     public String getName()
     {
         return name;
@@ -59,6 +69,11 @@ public class TaxDto
         return percent;
     }
 
+    public BigDecimal getAmount()
+    {
+        return amount;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -67,10 +82,13 @@ public class TaxDto
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, TaxDto>
     {
+
         private String key;
         private String catKey;
         private String name;
+        private TaxType type;
         private BigDecimal percent;
+        private BigDecimal amount;
 
         public Builder withKey(final String _key)
         {
@@ -84,6 +102,12 @@ public class TaxDto
             return this;
         }
 
+        public Builder withType(final TaxType _type)
+        {
+            type = _type;
+            return this;
+        }
+
         public Builder withName(final String _name)
         {
             name = _name;
@@ -93,6 +117,12 @@ public class TaxDto
         public Builder withPercent(final BigDecimal _percent)
         {
             percent = _percent;
+            return this;
+        }
+
+        public Builder withAmount(final BigDecimal _amount)
+        {
+            amount = _amount;
             return this;
         }
 
