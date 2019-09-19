@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,11 +17,13 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
 
 @JsonDeserialize(builder = TaxEntryDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxEntryDto
 {
 
@@ -31,24 +33,24 @@ public class TaxEntryDto
 
     private TaxEntryDto(final Builder _builder)
     {
-        this.tax = _builder.tax;
-        this.amount = _builder.amount;
-        this.base = _builder.base;
+        tax = _builder.tax;
+        amount = _builder.amount;
+        base = _builder.base;
     }
 
     public TaxDto getTax()
     {
-        return this.tax;
+        return tax;
     }
 
     public BigDecimal getBase()
     {
-        return this.base;
+        return base;
     }
 
     public BigDecimal getAmount()
     {
-        return this.amount;
+        return amount;
     }
 
     public static Builder builder()
@@ -64,19 +66,19 @@ public class TaxEntryDto
 
         public Builder withTax(final TaxDto _tax)
         {
-            this.tax = _tax;
+            tax = _tax;
             return this;
         }
 
         public Builder withBase(final BigDecimal _base)
         {
-            this.base = _base;
+            base = _base;
             return this;
         }
 
         public Builder withAmount(final BigDecimal _amount)
         {
-            this.amount = _amount;
+            amount = _amount;
             return this;
         }
 

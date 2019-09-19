@@ -1,10 +1,28 @@
+/*
+ * Copyright 2003 - 2019 The eFaps Team
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
 
 @JsonDeserialize(builder = InventoryEntryDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InventoryEntryDto
 {
 
@@ -15,30 +33,30 @@ public class InventoryEntryDto
 
     private InventoryEntryDto(final Builder _builder)
     {
-        this.oid = _builder.oid;
-        this.quantity = _builder.quantity;
-        this.warehouseOid = _builder.warehouseOid;
-        this.productOid = _builder.productOid;
+        oid = _builder.oid;
+        quantity = _builder.quantity;
+        warehouseOid = _builder.warehouseOid;
+        productOid = _builder.productOid;
     }
 
     public String getOid()
     {
-        return this.oid;
+        return oid;
     }
 
     public BigDecimal getQuantity()
     {
-        return this.quantity;
+        return quantity;
     }
 
     public String getWarehouseOid()
     {
-        return this.warehouseOid;
+        return warehouseOid;
     }
 
     public String getProductOid()
     {
-        return this.productOid;
+        return productOid;
     }
 
     public static Builder builder()
@@ -55,25 +73,25 @@ public class InventoryEntryDto
 
         public Builder withOID(final String _oid)
         {
-            this.oid = _oid;
+            oid = _oid;
             return this;
         }
 
         public Builder withQuantity(final BigDecimal _quantity)
         {
-            this.quantity = _quantity;
+            quantity = _quantity;
             return this;
         }
 
         public Builder withProductOid(final String _productOid)
         {
-            this.productOid = _productOid;
+            productOid = _productOid;
             return this;
         }
 
         public Builder withWarehouseOid(final String _warehouseOid)
         {
-            this.warehouseOid = _warehouseOid;
+            warehouseOid = _warehouseOid;
             return this;
         }
 

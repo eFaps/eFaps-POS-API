@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,13 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.Set;
 
 @JsonDeserialize(builder = TicketDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TicketDto
     extends AbstractPayableDocumentDto
 {

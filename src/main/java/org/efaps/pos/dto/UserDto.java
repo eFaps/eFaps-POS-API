@@ -1,11 +1,13 @@
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.Collections;
 import java.util.Set;
 
 @JsonDeserialize(builder = UserDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto
     extends AbstractObjectDto
 {
@@ -27,49 +29,49 @@ public class UserDto
     private UserDto(final Builder _builder)
     {
         super(_builder);
-        this.username = _builder.username;
-        this.password = _builder.password;
-        this.firstName = _builder.firstName;
-        this.surName = _builder.surName;
-        this.roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableSet(_builder.roles);
-        this.workspaceOids = _builder.workspaceOids == null ? Collections.emptySet()
+        username = _builder.username;
+        password = _builder.password;
+        firstName = _builder.firstName;
+        surName = _builder.surName;
+        roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableSet(_builder.roles);
+        workspaceOids = _builder.workspaceOids == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.workspaceOids);
-        this.visible = _builder.visible;
+        visible = _builder.visible;
     }
 
     public String getUsername()
     {
-        return this.username;
+        return username;
     }
 
     public String getPassword()
     {
-        return this.password;
+        return password;
     }
 
     public String getFirstName()
     {
-        return this.firstName;
+        return firstName;
     }
 
     public String getSurName()
     {
-        return this.surName;
+        return surName;
     }
 
     public Set<Roles> getRoles()
     {
-        return this.roles;
+        return roles;
     }
 
     public Set<String> getWorkspaceOids()
     {
-        return this.workspaceOids;
+        return workspaceOids;
     }
 
     public boolean isVisible()
     {
-        return this.visible;
+        return visible;
     }
 
     public static Builder builder()
@@ -97,43 +99,43 @@ public class UserDto
 
         public Builder withUsername(final String _username)
         {
-            this.username = _username;
+            username = _username;
             return this;
         }
 
         public Builder withPassword(final String _password)
         {
-            this.password = _password;
+            password = _password;
             return this;
         }
 
         public Builder withFirstName(final String _firstName)
         {
-            this.firstName = _firstName;
+            firstName = _firstName;
             return this;
         }
 
         public Builder withSurName(final String _surName)
         {
-            this.surName = _surName;
+            surName = _surName;
             return this;
         }
 
         public Builder withRoles(final Set<Roles> _roles)
         {
-            this.roles = _roles;
+            roles = _roles;
             return this;
         }
 
         public Builder withWorkspaceOids(final Set<String> _workspaceOids)
         {
-            this.workspaceOids = _workspaceOids;
+            workspaceOids = _workspaceOids;
             return this;
         }
 
         public Builder withVisible(final boolean _visible)
         {
-            this.visible = _visible;
+            visible = _visible;
             return this;
         }
 

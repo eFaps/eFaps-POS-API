@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,11 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = SequenceDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SequenceDto
     extends AbstractObjectDto
 {
@@ -30,18 +32,18 @@ public class SequenceDto
     public SequenceDto(final Builder _builder)
     {
         super(_builder);
-        this.seq = _builder.seq;
-        this.format = _builder.format;
+        seq = _builder.seq;
+        format = _builder.format;
     }
 
     public long getSeq()
     {
-        return this.seq;
+        return seq;
     }
 
     public String getFormat()
     {
-        return this.format;
+        return format;
     }
 
     public static Builder builder()
@@ -59,13 +61,13 @@ public class SequenceDto
 
         public Builder withSeq(final long _seq)
         {
-            this.seq = _seq;
+            seq = _seq;
             return this;
         }
 
         public Builder withFormat(final String _format)
         {
-            this.format = _format;
+            format = _format;
             return this;
         }
 

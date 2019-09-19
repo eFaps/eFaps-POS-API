@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,58 +32,66 @@ public abstract class AbstractDocItemDto
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
     private final Set<TaxEntryDto> taxes;
+    private final String remark;
+
 
     protected AbstractDocItemDto(final Builder<?, ?> _builder)
     {
         super(_builder);
-        this.index = _builder.index;
-        this.productOid = _builder.productOid;
-        this.quantity = _builder.quantity;
-        this.netUnitPrice = _builder.netUnitPrice;
-        this.crossUnitPrice = _builder.crossUnitPrice;
-        this.netPrice = _builder.netPrice;
-        this.crossPrice = _builder.crossPrice;
-        this.taxes = _builder.taxes;
+        index = _builder.index;
+        productOid = _builder.productOid;
+        quantity = _builder.quantity;
+        netUnitPrice = _builder.netUnitPrice;
+        crossUnitPrice = _builder.crossUnitPrice;
+        netPrice = _builder.netPrice;
+        crossPrice = _builder.crossPrice;
+        taxes = _builder.taxes;
+        remark = _builder.remark;
     }
 
     public Integer getIndex()
     {
-        return this.index;
+        return index;
     }
 
     public String getProductOid()
     {
-        return this.productOid;
+        return productOid;
     }
 
     public BigDecimal getQuantity()
     {
-        return this.quantity;
+        return quantity;
     }
 
     public BigDecimal getNetUnitPrice()
     {
-        return this.netUnitPrice;
+        return netUnitPrice;
     }
 
     public BigDecimal getCrossUnitPrice()
     {
-        return this.crossUnitPrice;
+        return crossUnitPrice;
     }
 
     public BigDecimal getNetPrice()
     {
-        return this.netPrice;
+        return netPrice;
     }
 
     public BigDecimal getCrossPrice()
     {
-        return this.crossPrice;
+        return crossPrice;
     }
 
     public Set<TaxEntryDto> getTaxes()
     {
-        return this.taxes;
+        return taxes;
+    }
+
+    public String getRemark()
+    {
+        return remark;
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
@@ -98,6 +106,7 @@ public abstract class AbstractDocItemDto
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
         private Set<TaxEntryDto> taxes;
+        private String remark;
 
         @SuppressWarnings("unchecked")
         public S withIndex(final Integer _index)
@@ -152,6 +161,13 @@ public abstract class AbstractDocItemDto
         public S withTaxes(final Set<TaxEntryDto> _taxes)
         {
             this.taxes = _taxes;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withRemark(final String _remark)
+        {
+            this.remark = _remark;
             return (S) this;
         }
     }

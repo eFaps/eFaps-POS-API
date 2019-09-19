@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@ package org.efaps.pos.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(builder = ProductRelationDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductRelationDto
 {
     private final String label;
@@ -29,18 +29,18 @@ public class ProductRelationDto
 
     protected ProductRelationDto(final Builder _builder)
     {
-        this.label = _builder.label;
-        this.productOid = _builder.productOid;
+        label = _builder.label;
+        productOid = _builder.productOid;
     }
 
     public String getLabel()
     {
-        return this.label;
+        return label;
     }
 
     public String getProductOid()
     {
-        return this.productOid;
+        return productOid;
     }
 
     public static Builder builder()
@@ -54,12 +54,12 @@ public class ProductRelationDto
         private String productOid;
 
         public Builder withLabel(final String _label) {
-            this.label = _label;
+            label = _label;
             return this;
         }
 
         public Builder withProductOid(final String _productOid) {
-            this.productOid = _productOid;
+            productOid = _productOid;
             return this;
         }
 

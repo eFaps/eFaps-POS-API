@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,11 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = PosDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PosDto
     extends AbstractObjectDto
 {
@@ -33,42 +35,42 @@ public class PosDto
     public PosDto(final Builder _builder)
     {
         super(_builder);
-        this.name = _builder.name;
-        this.currency = _builder.currency;
-        this.defaultContactOid = _builder.defaultContactOid;
-        this.receiptSeqOid = _builder.receiptSeqOid;
-        this.invoiceSeqOid = _builder.invoiceSeqOid;
-        this.ticketSeqOid = _builder.ticketSeqOid;
+        name = _builder.name;
+        currency = _builder.currency;
+        defaultContactOid = _builder.defaultContactOid;
+        receiptSeqOid = _builder.receiptSeqOid;
+        invoiceSeqOid = _builder.invoiceSeqOid;
+        ticketSeqOid = _builder.ticketSeqOid;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public String getCurrency()
     {
-        return this.currency;
+        return currency;
     }
 
     public String getDefaultContactOid()
     {
-        return this.defaultContactOid;
+        return defaultContactOid;
     }
 
     public String getReceiptSeqOid()
     {
-        return this.receiptSeqOid;
+        return receiptSeqOid;
     }
 
     public String getInvoiceSeqOid()
     {
-        return this.invoiceSeqOid;
+        return invoiceSeqOid;
     }
 
     public String getTicketSeqOid()
     {
-        return this.ticketSeqOid;
+        return ticketSeqOid;
     }
 
     public static Builder builder()
@@ -89,37 +91,37 @@ public class PosDto
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 
         public Builder withCurrency(final String _currency)
         {
-            this.currency = _currency;
+            currency = _currency;
             return this;
         }
 
         public Builder withDefaultContactOid(final String _defaultContactOid)
         {
-            this.defaultContactOid = _defaultContactOid;
+            defaultContactOid = _defaultContactOid;
             return this;
         }
 
         public Builder withReceiptSeqOid(final String _receiptSeqOid)
         {
-            this.receiptSeqOid = _receiptSeqOid;
+            receiptSeqOid = _receiptSeqOid;
             return this;
         }
 
         public Builder withInvoiceSeqOid(final String _invoiceSeqOid)
         {
-            this.invoiceSeqOid = _invoiceSeqOid;
+            invoiceSeqOid = _invoiceSeqOid;
             return this;
         }
 
         public Builder withTicketSeqOid(final String _ticketSeqOid)
         {
-            this.ticketSeqOid = _ticketSeqOid;
+            ticketSeqOid = _ticketSeqOid;
             return this;
         }
 

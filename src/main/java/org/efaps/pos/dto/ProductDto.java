@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonDeserialize(builder = ProductDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductDto
     extends AbstractObjectDto
 {
@@ -45,72 +45,72 @@ public class ProductDto
     private ProductDto(final Builder _builder)
     {
         super(_builder);
-        this.sku = _builder.sku;
-        this.description = _builder.description;
-        this.note = _builder.note;
-        this.imageOid = _builder.imageOid;
-        this.netPrice = _builder.netPrice;
-        this.crossPrice = _builder.crossPrice;
-        this.categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
-        this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
-        this.uoM = _builder.uoM;
-        this.uoMCode = _builder.uoMCode;
-        this.relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
+        sku = _builder.sku;
+        description = _builder.description;
+        note = _builder.note;
+        imageOid = _builder.imageOid;
+        netPrice = _builder.netPrice;
+        crossPrice = _builder.crossPrice;
+        categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
+        taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
+        uoM = _builder.uoM;
+        uoMCode = _builder.uoMCode;
+        relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
     }
 
     public String getDescription()
     {
-        return this.description;
+        return description;
     }
 
     public String getNote()
     {
-        return this.note;
+        return note;
     }
 
     public String getImageOid()
     {
-        return this.imageOid;
+        return imageOid;
     }
 
     public String getSku()
     {
-        return this.sku;
+        return sku;
     }
 
     public BigDecimal getNetPrice()
     {
-        return this.netPrice;
+        return netPrice;
     }
 
     public BigDecimal getCrossPrice()
     {
-        return this.crossPrice;
+        return crossPrice;
     }
 
     public Set<String> getCategoryOids()
     {
-        return Collections.unmodifiableSet(this.categoryOids);
+        return Collections.unmodifiableSet(categoryOids);
     }
 
     public Set<TaxDto> getTaxes()
     {
-        return Collections.unmodifiableSet(this.taxes);
+        return Collections.unmodifiableSet(taxes);
     }
 
     public String getUoM()
     {
-        return this.uoM;
+        return uoM;
     }
 
     public String getUoMCode()
     {
-        return this.uoMCode;
+        return uoMCode;
     }
 
     public Set<ProductRelationDto> getRelations()
     {
-        return this.relations;
+        return relations;
     }
 
     public static Builder builder()
@@ -136,67 +136,67 @@ public class ProductDto
 
         public Builder withSKU(final String _sku)
         {
-            this.sku = _sku;
+            sku = _sku;
             return this;
         }
 
         public Builder withDescription(final String _description)
         {
-            this.description = _description;
+            description = _description;
             return this;
         }
 
         public Builder withNote(final String _note)
         {
-            this.note = _note;
+            note = _note;
             return this;
         }
 
         public Builder withImageOid(final String _imageOid)
         {
-            this.imageOid = _imageOid;
+            imageOid = _imageOid;
             return this;
         }
 
         public Builder withNetPrice(final BigDecimal _netPrice)
         {
-            this.netPrice = _netPrice;
+            netPrice = _netPrice;
             return this;
         }
 
         public Builder withCrossPrice(final BigDecimal _crossPrice)
         {
-            this.crossPrice = _crossPrice;
+            crossPrice = _crossPrice;
             return this;
         }
 
         public Builder withCategoryOids(final Set<String> _categoryOids)
         {
-            this.categoryOids = _categoryOids;
+            categoryOids = _categoryOids;
             return this;
         }
 
         public Builder withTaxes(final Set<TaxDto> _taxes)
         {
-            this.taxes = _taxes;
+            taxes = _taxes;
             return this;
         }
 
         public Builder withUoM(final String _uoM)
         {
-            this.uoM = _uoM;
+            uoM = _uoM;
             return this;
         }
 
         public Builder withUoMCode(final String _uoMCode)
         {
-            this.uoMCode = _uoMCode;
+            uoMCode = _uoMCode;
             return this;
         }
 
         public Builder withRelations(final Set<ProductRelationDto> _relations)
         {
-            this.relations = _relations;
+            relations = _relations;
             return this;
         }
 

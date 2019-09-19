@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,11 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = ContactDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ContactDto
     extends AbstractObjectDto
 {
@@ -31,30 +33,30 @@ public class ContactDto
     private ContactDto(final Builder _builder)
     {
         super(_builder);
-        this.id = _builder.id;
-        this.name = _builder.name;
-        this.idType = _builder.idType;
-        this.idNumber = _builder.idNumber;
+        id = _builder.id;
+        name = _builder.name;
+        idType = _builder.idType;
+        idNumber = _builder.idNumber;
     }
 
     public String getId()
     {
-        return this.id;
+        return id;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public IdentificationType getIdType()
     {
-        return this.idType;
+        return idType;
     }
 
     public String getIdNumber()
     {
-        return this.idNumber;
+        return idNumber;
     }
 
     public static Builder builder()
@@ -72,25 +74,25 @@ public class ContactDto
 
         public Builder withId(final String _id)
         {
-            this.id = _id;
+            id = _id;
             return this;
         }
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 
         public Builder withIdType(final IdentificationType _idType)
         {
-            this.idType = _idType;
+            idType = _idType;
             return this;
         }
 
         public Builder withIdNumber(final String _idNumber)
         {
-            this.idNumber = _idNumber;
+            idNumber = _idNumber;
             return this;
         }
 

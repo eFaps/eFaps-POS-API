@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,9 +17,11 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = PrinterDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PrinterDto
     extends AbstractObjectDto
 {
@@ -30,18 +32,18 @@ public class PrinterDto
     private PrinterDto(final Builder _builder)
     {
         super(_builder);
-        this.name = _builder.name;
-        this.type = _builder.type;
+        name = _builder.name;
+        type = _builder.type;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public PrinterType getType()
     {
-        return this.type;
+        return type;
     }
 
     public static Builder builder()
@@ -58,13 +60,13 @@ public class PrinterDto
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 
         public Builder withType(final PrinterType _type)
         {
-            this.type = _type;
+            type = _type;
             return this;
         }
 

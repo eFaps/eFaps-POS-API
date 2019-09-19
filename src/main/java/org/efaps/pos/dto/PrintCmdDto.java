@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,11 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = PrintCmdDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PrintCmdDto
 {
 
@@ -29,31 +31,31 @@ public class PrintCmdDto
 
     private PrintCmdDto(final Builder _builder)
     {
-        this.printerOid = _builder.printerOid;
-        this.target = _builder.target;
-        this.targetOid = _builder.targetOid;
-        this.reportOid = _builder.reportOid;
+        printerOid = _builder.printerOid;
+        target = _builder.target;
+        targetOid = _builder.targetOid;
+        reportOid = _builder.reportOid;
     }
 
     public String getPrinterOid()
     {
-        return this.printerOid;
+        return printerOid;
     }
 
     public PrintTarget getTarget()
     {
-        return this.target;
+        return target;
     }
 
     public String getTargetOid()
     {
-        return this.targetOid;
+        return targetOid;
     }
 
 
     public String getReportOid()
     {
-        return this.reportOid;
+        return reportOid;
     }
 
     public static Builder builder()
@@ -71,25 +73,25 @@ public class PrintCmdDto
 
         public Builder withPrinterOid(final String _printerOid)
         {
-            this.printerOid = _printerOid;
+            printerOid = _printerOid;
             return this;
         }
 
         public Builder withTarget(final PrintTarget _target)
         {
-            this.target = _target;
+            target = _target;
             return this;
         }
 
         public Builder withTargetOid(final String _targetOid)
         {
-            this.targetOid = _targetOid;
+            targetOid = _targetOid;
             return this;
         }
 
         public Builder withReportOid(final String _reportOid)
         {
-            this.reportOid = _reportOid;
+            reportOid = _reportOid;
             return this;
         }
 

@@ -16,9 +16,11 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = CategoryDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryDto
     extends AbstractObjectDto
 {

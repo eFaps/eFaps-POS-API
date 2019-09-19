@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2019 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,13 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDateTime;
 
 @JsonDeserialize(builder = BalanceDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BalanceDto
     extends AbstractObjectDto
 {
@@ -35,42 +37,42 @@ public class BalanceDto
     private BalanceDto(final Builder _builder)
     {
         super(_builder);
-        this.id = _builder.id;
-        this.number = _builder.number;
-        this.userOid = _builder.userOid;
-        this.startAt = _builder.startAt;
-        this.endAt = _builder.endAt;
-        this.status = _builder.status;
+        id = _builder.id;
+        number = _builder.number;
+        userOid = _builder.userOid;
+        startAt = _builder.startAt;
+        endAt = _builder.endAt;
+        status = _builder.status;
     }
 
     public String getId()
     {
-        return this.id;
+        return id;
     }
 
     public String getNumber()
     {
-        return this.number;
+        return number;
     }
 
     public String getUserOid()
     {
-        return this.userOid;
+        return userOid;
     }
 
     public LocalDateTime getStartAt()
     {
-        return this.startAt;
+        return startAt;
     }
 
     public LocalDateTime getEndAt()
     {
-        return this.endAt;
+        return endAt;
     }
 
     public BalanceStatus getStatus()
     {
-        return this.status;
+        return status;
     }
 
     public static Builder builder()
@@ -91,37 +93,37 @@ public class BalanceDto
 
         public Builder withId(final String _id)
         {
-            this.id = _id;
+            id = _id;
             return this;
         }
 
         public Builder withNumber(final String _number)
         {
-            this.number = _number;
+            number = _number;
             return this;
         }
 
         public Builder withUserOid(final String _userOid)
         {
-            this.userOid = _userOid;
+            userOid = _userOid;
             return this;
         }
 
         public Builder withStartAt(final LocalDateTime _startAt)
         {
-            this.startAt = _startAt;
+            startAt = _startAt;
             return this;
         }
 
         public Builder withEndAt(final LocalDateTime _endAt)
         {
-            this.endAt = _endAt;
+            endAt = _endAt;
             return this;
         }
 
         public Builder withStatus(final BalanceStatus _status)
         {
-            this.status = _status;
+            status = _status;
             return this;
         }
 

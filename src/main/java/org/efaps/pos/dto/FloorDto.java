@@ -16,12 +16,14 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.Collections;
 import java.util.List;
 
 @JsonDeserialize(builder = FloorDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FloorDto
     extends AbstractObjectDto
 {

@@ -17,9 +17,11 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = CardDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CardDto
 {
 

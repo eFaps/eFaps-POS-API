@@ -1,8 +1,10 @@
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = WarehouseDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WarehouseDto
     extends AbstractObjectDto
 {
@@ -12,12 +14,12 @@ public class WarehouseDto
     private WarehouseDto(final Builder _builder)
     {
         super(_builder);
-        this.name = _builder.name;
+        name = _builder.name;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public static Builder builder()
@@ -33,7 +35,7 @@ public class WarehouseDto
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 

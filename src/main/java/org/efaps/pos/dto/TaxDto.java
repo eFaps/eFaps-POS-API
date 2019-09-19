@@ -17,11 +17,13 @@
 
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
 
 @JsonDeserialize(builder = TaxDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxDto
     extends AbstractObjectDto
 {
