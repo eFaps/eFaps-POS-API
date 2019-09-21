@@ -16,13 +16,13 @@
  */
 package org.efaps.pos.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = ProductDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -41,6 +41,7 @@ public class ProductDto
     private final String uoM;
     private final String uoMCode;
     private final Set<ProductRelationDto> relations;
+    private final Set<IndicationDto> indications;
 
     private ProductDto(final Builder _builder)
     {
@@ -56,6 +57,7 @@ public class ProductDto
         uoM = _builder.uoM;
         uoMCode = _builder.uoMCode;
         relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
+        indications =  _builder.indications == null ? Collections.emptySet() : _builder.indications;
     }
 
     public String getDescription()
@@ -113,6 +115,11 @@ public class ProductDto
         return relations;
     }
 
+    public Set<IndicationDto> getIndications()
+    {
+        return indications;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -133,6 +140,7 @@ public class ProductDto
         private String uoM;
         private String uoMCode;
         private Set<ProductRelationDto> relations;
+        private Set<IndicationDto> indications;
 
         public Builder withSKU(final String _sku)
         {
@@ -197,6 +205,12 @@ public class ProductDto
         public Builder withRelations(final Set<ProductRelationDto> _relations)
         {
             relations = _relations;
+            return this;
+        }
+
+        public Builder withIndications(final Set<IndicationDto> _indications)
+        {
+            indications = _indications;
             return this;
         }
 
