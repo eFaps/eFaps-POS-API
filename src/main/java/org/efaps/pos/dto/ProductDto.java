@@ -41,7 +41,7 @@ public class ProductDto
     private final String uoM;
     private final String uoMCode;
     private final Set<ProductRelationDto> relations;
-    private final Set<IndicationDto> indications;
+    private final Set<IndicationSetDto> indicationSets;
 
     private ProductDto(final Builder _builder)
     {
@@ -57,7 +57,7 @@ public class ProductDto
         uoM = _builder.uoM;
         uoMCode = _builder.uoMCode;
         relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
-        indications =  _builder.indications == null ? Collections.emptySet() : _builder.indications;
+        indicationSets =  _builder.indicationSets == null ? Collections.emptySet() : _builder.indicationSets;
     }
 
     public String getDescription()
@@ -115,9 +115,9 @@ public class ProductDto
         return relations;
     }
 
-    public Set<IndicationDto> getIndications()
+    public Set<IndicationSetDto> getIndicationSets()
     {
-        return indications;
+        return indicationSets;
     }
 
     public static Builder builder()
@@ -140,7 +140,7 @@ public class ProductDto
         private String uoM;
         private String uoMCode;
         private Set<ProductRelationDto> relations;
-        private Set<IndicationDto> indications;
+        private Set<IndicationSetDto> indicationSets;
 
         public Builder withSKU(final String _sku)
         {
@@ -208,9 +208,9 @@ public class ProductDto
             return this;
         }
 
-        public Builder withIndications(final Set<IndicationDto> _indications)
+        public Builder withIndicationSets(final Set<IndicationSetDto> _indicationSets)
         {
-            indications = _indications;
+            indicationSets = _indicationSets;
             return this;
         }
 
