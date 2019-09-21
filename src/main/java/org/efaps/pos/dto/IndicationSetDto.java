@@ -83,9 +83,9 @@ public class IndicationSetDto
             return this;
         }
 
-        public Builder withRequired(final boolean _required)
+        public Builder withRequired(final Boolean _required)
         {
-            required = _required;
+            required = _required == null ? false : _required;
             return this;
         }
 
