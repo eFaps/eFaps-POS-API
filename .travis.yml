@@ -13,7 +13,6 @@ install:
 
 script:
   - mvn test -s mySettings.xml -B
-  - mvn cobertura:cobertura -s mySettings.xml
 
 after_success:
   - "[[ $TRAVIS_BRANCH == \"master\" || $TRAVIS_BRANCH == \"java-11\" ]] && [[ ${TRAVIS_PULL_REQUEST} == 'false' ]] && [[ ${TRAVIS_TAG} == '' ]] && mvn deploy -DskipTests -s mySettings.xml"
