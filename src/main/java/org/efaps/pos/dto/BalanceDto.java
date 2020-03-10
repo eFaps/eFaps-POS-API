@@ -16,10 +16,10 @@
  */
 package org.efaps.pos.dto;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.time.LocalDateTime;
 
 @JsonDeserialize(builder = BalanceDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -30,6 +30,7 @@ public class BalanceDto
     private final String id;
     private final String number;
     private final String userOid;
+    private final String key;
     private final LocalDateTime startAt;
     private final LocalDateTime endAt;
     private final BalanceStatus status;
@@ -39,6 +40,7 @@ public class BalanceDto
         super(_builder);
         id = _builder.id;
         number = _builder.number;
+        key = _builder.key;
         userOid = _builder.userOid;
         startAt = _builder.startAt;
         endAt = _builder.endAt;
@@ -53,6 +55,11 @@ public class BalanceDto
     public String getNumber()
     {
         return number;
+    }
+
+    public String getKey()
+    {
+        return key;
     }
 
     public String getUserOid()
@@ -87,6 +94,7 @@ public class BalanceDto
         private String id;
         private String number;
         private String userOid;
+        private String key;
         private LocalDateTime startAt;
         private LocalDateTime endAt;
         private BalanceStatus status;
@@ -106,6 +114,12 @@ public class BalanceDto
         public Builder withUserOid(final String _userOid)
         {
             userOid = _userOid;
+            return this;
+        }
+
+        public Builder withKey(final String _key)
+        {
+            key = _key;
             return this;
         }
 
