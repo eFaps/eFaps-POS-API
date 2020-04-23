@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public class ProductDto
 {
 
     private final String sku;
+    private final ProductType type;
     private final String description;
     private final String note;
     private final String imageOid;
@@ -47,6 +48,7 @@ public class ProductDto
     {
         super(_builder);
         sku = _builder.sku;
+        type = _builder.type;
         description = _builder.description;
         note = _builder.note;
         imageOid = _builder.imageOid;
@@ -58,6 +60,16 @@ public class ProductDto
         uoMCode = _builder.uoMCode;
         relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
         indicationSets =  _builder.indicationSets == null ? Collections.emptySet() : _builder.indicationSets;
+    }
+
+    public String getSku()
+    {
+        return sku;
+    }
+
+    public ProductType getType()
+    {
+        return type;
     }
 
     public String getDescription()
@@ -73,11 +85,6 @@ public class ProductDto
     public String getImageOid()
     {
         return imageOid;
-    }
-
-    public String getSku()
-    {
-        return sku;
     }
 
     public BigDecimal getNetPrice()
@@ -130,6 +137,7 @@ public class ProductDto
     {
 
         private String sku;
+        private ProductType type;
         private String description;
         private String note;
         private String imageOid;
@@ -145,6 +153,12 @@ public class ProductDto
         public Builder withSKU(final String _sku)
         {
             sku = _sku;
+            return this;
+        }
+
+        public Builder withType(final ProductType _type)
+        {
+            type = _type;
             return this;
         }
 
