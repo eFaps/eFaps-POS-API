@@ -25,10 +25,12 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ContactDto
     extends AbstractObjectDto
 {
+
     private final String id;
     private final String name;
     private final IdentificationType idType;
     private final String idNumber;
+    private final String email;
 
     private ContactDto(final Builder _builder)
     {
@@ -37,6 +39,7 @@ public class ContactDto
         name = _builder.name;
         idType = _builder.idType;
         idNumber = _builder.idNumber;
+        email = _builder.email;
     }
 
     public String getId()
@@ -59,6 +62,11 @@ public class ContactDto
         return idNumber;
     }
 
+    public String getEmail()
+    {
+        return email;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -67,10 +75,12 @@ public class ContactDto
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, ContactDto>
     {
+
         private String id;
         private String name;
         private IdentificationType idType;
         private String idNumber;
+        private String email;
 
         public Builder withId(final String _id)
         {
@@ -93,6 +103,12 @@ public class ContactDto
         public Builder withIdNumber(final String _idNumber)
         {
             idNumber = _idNumber;
+            return this;
+        }
+
+        public Builder withEmail(final String _email)
+        {
+            email = _email;
             return this;
         }
 
