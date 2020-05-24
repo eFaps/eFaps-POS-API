@@ -63,6 +63,7 @@ public class IndicationSetDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, IndicationSetDto>
     {
@@ -73,13 +74,13 @@ public class IndicationSetDto
 
         public Builder withName(final String _name)
         {
-            this.name = _name;
+            name = _name;
             return this;
         }
 
         public Builder withIndications(final Set<IndicationDto> _indications)
         {
-            this.indications = _indications;
+            indications = _indications;
             return this;
         }
 

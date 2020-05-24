@@ -16,10 +16,10 @@
  */
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.math.BigDecimal;
 
 @JsonDeserialize(builder = InventoryEntryDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -64,6 +64,7 @@ public class InventoryEntryDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
         public String productOid;

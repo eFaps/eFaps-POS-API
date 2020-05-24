@@ -87,6 +87,7 @@ public class BalanceDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, BalanceDto>
     {

@@ -16,10 +16,10 @@
  */
 package org.efaps.pos.dto;
 
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.util.Set;
 
 @JsonDeserialize(builder = ReceiptDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -37,6 +37,7 @@ public class ReceiptDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
         extends AbstractPayableDocumentDto.Builder<Builder, ReceiptDto>
     {

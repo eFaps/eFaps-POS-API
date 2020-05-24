@@ -48,6 +48,7 @@ public class ProductRelationDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
         private String label;

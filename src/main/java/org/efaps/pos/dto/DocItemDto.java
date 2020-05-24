@@ -35,6 +35,7 @@ public class DocItemDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
         extends AbstractDocItemDto.Builder<Builder, DocItemDto>
     {

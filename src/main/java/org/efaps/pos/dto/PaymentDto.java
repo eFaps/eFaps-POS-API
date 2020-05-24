@@ -17,10 +17,10 @@
 
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.math.BigDecimal;
 
 @JsonDeserialize(builder = PaymentDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -67,6 +67,7 @@ public class PaymentDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Builder
         extends AbstractObjectDto.Builder<Builder, PaymentDto>
     {

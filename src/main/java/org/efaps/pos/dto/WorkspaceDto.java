@@ -16,12 +16,12 @@
  */
 package org.efaps.pos.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = WorkspaceDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -136,6 +136,7 @@ public class WorkspaceDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, WorkspaceDto>
     {

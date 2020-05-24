@@ -63,6 +63,7 @@ public class PrintCmdDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
