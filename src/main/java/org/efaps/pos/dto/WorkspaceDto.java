@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ public class WorkspaceDto
     private final PosGridSize gridSize;
     private final boolean gridShowPrice;
     private final List<FloorDto> floors;
+    private final List<String> categoryOids;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -64,6 +65,8 @@ public class WorkspaceDto
         gridShowPrice = _builder.gridShowPrice;
         floors = _builder.floors == null ? Collections.emptyList()
                         : Collections.unmodifiableList(_builder.floors);
+        categoryOids = _builder.categoryOids == null ? Collections.emptyList()
+                        : Collections.unmodifiableList(_builder.categoryOids);
     }
 
     public String getName()
@@ -131,6 +134,11 @@ public class WorkspaceDto
         return floors;
     }
 
+    public List<String> getCategoryOids()
+    {
+        return categoryOids;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -154,6 +162,7 @@ public class WorkspaceDto
         private PosGridSize gridSize;
         private boolean gridShowPrice;
         private List<FloorDto> floors;
+        private List<String> categoryOids;
 
         public Builder withName(final String _name)
         {
@@ -230,6 +239,12 @@ public class WorkspaceDto
         public Builder withFloors(final List<FloorDto> _floors)
         {
             floors = _floors;
+            return this;
+        }
+
+        public Builder withCategoryOids(final List<String> _categoryOids)
+        {
+            categoryOids = _categoryOids;
             return this;
         }
 
