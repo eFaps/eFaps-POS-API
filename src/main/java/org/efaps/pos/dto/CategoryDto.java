@@ -54,6 +54,12 @@ public class CategoryDto
         return imageOid;
     }
 
+    @Override
+    public String toString()
+    {
+        return "name=" + name + ", weight=" + weight + ", imageOid" + imageOid;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -80,9 +86,9 @@ public class CategoryDto
             return this;
         }
 
-        public Builder withImageOid(final String _name)
+        public Builder withImageOid(final String _imageOid)
         {
-            name = _name;
+            imageOid = _imageOid;
             return this;
         }
 
