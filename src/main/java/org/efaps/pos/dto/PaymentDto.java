@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ public class PaymentDto
     private final BigDecimal amount;
     private final Long cardTypeId;
     private final String cardLabel;
+    private final String mappingKey;
 
     private PaymentDto(final Builder _builder)
     {
@@ -40,6 +41,7 @@ public class PaymentDto
         amount = _builder.amount;
         cardTypeId = _builder.cardTypeId;
         cardLabel = _builder.cardLabel;
+        mappingKey = _builder.mappingKey;
     }
 
     public PaymentType getType()
@@ -62,6 +64,11 @@ public class PaymentDto
         return cardLabel;
     }
 
+    public String getMappingKey()
+    {
+        return mappingKey;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -76,6 +83,7 @@ public class PaymentDto
         private BigDecimal amount;
         private Long cardTypeId;
         private String cardLabel;
+        private String mappingKey;
 
         public Builder withType(final PaymentType _type)
         {
@@ -98,6 +106,12 @@ public class PaymentDto
         public Builder withCardLabel(final String _cardLabel)
         {
             cardLabel = _cardLabel;
+            return this;
+        }
+
+        public Builder withMappingKey(final String _mappingKey)
+        {
+            mappingKey = _mappingKey;
             return this;
         }
 
