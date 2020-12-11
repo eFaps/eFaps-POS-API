@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,76 +38,83 @@ public abstract class AbstractDocumentDto
     private final Set<TaxEntryDto> taxes;
     private final String contactOid;
     private final String workspaceOid;
+    private final String note;
 
     protected AbstractDocumentDto(final Builder<?, ?> _builder)
     {
         super(_builder);
-        this.id = _builder.id;
-        this.number = _builder.number;
-        this.items = _builder.items == null ? Collections.emptySet() : _builder.items;
-        this.status = _builder.status;
-        this.date = _builder.date;
-        this.netTotal = _builder.netTotal;
-        this.crossTotal = _builder.crossTotal;
-        this.taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
-        this.currency = _builder.currency;
-        this.contactOid = _builder.contactOid;
-        this.workspaceOid = _builder.workspaceOid;
+        id = _builder.id;
+        number = _builder.number;
+        items = _builder.items == null ? Collections.emptySet() : _builder.items;
+        status = _builder.status;
+        date = _builder.date;
+        netTotal = _builder.netTotal;
+        crossTotal = _builder.crossTotal;
+        taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
+        currency = _builder.currency;
+        contactOid = _builder.contactOid;
+        workspaceOid = _builder.workspaceOid;
+        note = _builder.note;
     }
 
     public String getId()
     {
-        return this.id;
+        return id;
     }
 
     public String getNumber()
     {
-        return this.number;
+        return number;
     }
 
     public Set<? extends AbstractDocItemDto> getItems()
     {
-        return Collections.unmodifiableSet(this.items);
+        return Collections.unmodifiableSet(items);
     }
 
     public DocStatus getStatus()
     {
-        return this.status;
+        return status;
     }
 
     public LocalDate getDate()
     {
-        return this.date;
+        return date;
     }
 
     public String getCurrency()
     {
-        return this.currency;
+        return currency;
     }
 
     public BigDecimal getNetTotal()
     {
-        return this.netTotal;
+        return netTotal;
     }
 
     public BigDecimal getCrossTotal()
     {
-        return this.crossTotal;
+        return crossTotal;
     }
 
     public Set<TaxEntryDto> getTaxes()
     {
-        return Collections.unmodifiableSet(this.taxes);
+        return Collections.unmodifiableSet(taxes);
     }
 
     public String getContactOid()
     {
-        return this.contactOid;
+        return contactOid;
     }
 
     public String getWorkspaceOid()
     {
-        return this.workspaceOid;
+        return workspaceOid;
+    }
+
+    public String getNote()
+    {
+        return note;
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
@@ -125,6 +132,7 @@ public abstract class AbstractDocumentDto
         private Set<? extends AbstractDocItemDto> items = new HashSet<>();
         private String contactOid;
         private String workspaceOid;
+        private String note;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -186,6 +194,13 @@ public abstract class AbstractDocumentDto
         public S withWorkspaceOid(final String _workspaceOid)
         {
             this.workspaceOid = _workspaceOid;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withNote(final String _note)
+        {
+            this.note = _note;
             return (S) this;
         }
 
