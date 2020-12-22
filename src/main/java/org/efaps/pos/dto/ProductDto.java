@@ -43,6 +43,7 @@ public class ProductDto
     private final String uoMCode;
     private final Set<ProductRelationDto> relations;
     private final Set<IndicationSetDto> indicationSets;
+    private final Set<String> barcodes;
 
     private ProductDto(final Builder _builder)
     {
@@ -58,8 +59,9 @@ public class ProductDto
         taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         uoM = _builder.uoM;
         uoMCode = _builder.uoMCode;
-        relations =  _builder.relations == null ? Collections.emptySet() : _builder.relations;
-        indicationSets =  _builder.indicationSets == null ? Collections.emptySet() : _builder.indicationSets;
+        relations = _builder.relations == null ? Collections.emptySet() : _builder.relations;
+        indicationSets = _builder.indicationSets == null ? Collections.emptySet() : _builder.indicationSets;
+        barcodes = _builder.barcodes == null ? Collections.emptySet() : _builder.barcodes;
     }
 
     public String getSku()
@@ -127,6 +129,11 @@ public class ProductDto
         return indicationSets;
     }
 
+    public Set<String> getBarcodes()
+    {
+        return barcodes;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -150,6 +157,7 @@ public class ProductDto
         private String uoMCode;
         private Set<ProductRelationDto> relations;
         private Set<IndicationSetDto> indicationSets;
+        private Set<String> barcodes;
 
         public Builder withSKU(final String _sku)
         {
@@ -226,6 +234,12 @@ public class ProductDto
         public Builder withIndicationSets(final Set<IndicationSetDto> _indicationSets)
         {
             indicationSets = _indicationSets;
+            return this;
+        }
+
+        public Builder withBarcodes(final Set<String> _barcodes)
+        {
+            barcodes = _barcodes;
             return this;
         }
 
