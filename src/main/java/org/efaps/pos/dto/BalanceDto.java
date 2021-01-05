@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  */
 package org.efaps.pos.dto;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -31,8 +31,8 @@ public class BalanceDto
     private final String number;
     private final String userOid;
     private final String key;
-    private final LocalDateTime startAt;
-    private final LocalDateTime endAt;
+    private final OffsetDateTime startAt;
+    private final OffsetDateTime endAt;
     private final BalanceStatus status;
 
     private BalanceDto(final Builder _builder)
@@ -67,12 +67,12 @@ public class BalanceDto
         return userOid;
     }
 
-    public LocalDateTime getStartAt()
+    public OffsetDateTime getStartAt()
     {
         return startAt;
     }
 
-    public LocalDateTime getEndAt()
+    public OffsetDateTime getEndAt()
     {
         return endAt;
     }
@@ -96,8 +96,8 @@ public class BalanceDto
         private String number;
         private String userOid;
         private String key;
-        private LocalDateTime startAt;
-        private LocalDateTime endAt;
+        private OffsetDateTime startAt;
+        private OffsetDateTime endAt;
         private BalanceStatus status;
 
         public Builder withId(final String _id)
@@ -124,13 +124,13 @@ public class BalanceDto
             return this;
         }
 
-        public Builder withStartAt(final LocalDateTime _startAt)
+        public Builder withStartAt(final OffsetDateTime _startAt)
         {
             startAt = _startAt;
             return this;
         }
 
-        public Builder withEndAt(final LocalDateTime _endAt)
+        public Builder withEndAt(final OffsetDateTime _endAt)
         {
             endAt = _endAt;
             return this;
