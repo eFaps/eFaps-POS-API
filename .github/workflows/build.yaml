@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      USER_ID: ${{ secrets.SONATYPE_USERNAME }}
+      USER_PWD: ${{ secrets.SONATYPE_PWD }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
