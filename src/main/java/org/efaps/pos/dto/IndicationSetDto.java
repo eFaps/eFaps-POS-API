@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2020 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,6 +56,15 @@ public class IndicationSetDto
     public boolean isRequired()
     {
         return required;
+    }
+
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("IndicationSetDto [name=").append(name).append(", indications=").append(indications)
+                        .append(", required=").append(required).append("]");
+        return builder2.toString();
     }
 
     public static Builder builder()

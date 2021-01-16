@@ -38,6 +38,14 @@ public class IndicationDto
         return value;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("IndicationDto [value=").append(value).append("]");
+        return builder2.toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();
