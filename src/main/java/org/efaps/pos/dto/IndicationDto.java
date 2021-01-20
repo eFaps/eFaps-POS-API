@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,11 +26,16 @@ public class IndicationDto
 {
 
     private final String value;
+    private final String description;
+
+    private final String imageOid;
 
     protected IndicationDto(final Builder _builder)
     {
         super(_builder);
         value = _builder.value;
+        description = _builder.description;
+        imageOid = _builder.imageOid;
     }
 
     public String getValue()
@@ -38,12 +43,20 @@ public class IndicationDto
         return value;
     }
 
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public String getImageOid()
+    {
+        return imageOid;
+    }
+
     @Override
     public String toString()
     {
-        final StringBuilder builder2 = new StringBuilder();
-        builder2.append("IndicationDto [value=").append(value).append("]");
-        return builder2.toString();
+        return "IndicationDto [value=" + value + ", description=" + description + ", imageOid=" + imageOid + "]";
     }
 
     public static Builder builder()
@@ -57,10 +70,24 @@ public class IndicationDto
     {
 
         private String value;
+        private String description;
+        private String imageOid;
 
         public Builder withValue(final String _value)
         {
             value = _value;
+            return this;
+        }
+
+        public Builder withDescription(final String _description)
+        {
+            description = _description;
+            return this;
+        }
+
+        public Builder withImageOid(final String _imageOid)
+        {
+            imageOid = _imageOid;
             return this;
         }
 
