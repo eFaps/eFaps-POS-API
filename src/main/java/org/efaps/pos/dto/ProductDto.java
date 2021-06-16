@@ -43,7 +43,7 @@ public class ProductDto
     private final String uoMCode;
     private final Set<ProductRelationDto> relations;
     private final Set<IndicationSetDto> indicationSets;
-    private final Set<String> barcodes;
+    private final Set<BarcodeDto> barcodes;
 
     private ProductDto(final Builder _builder)
     {
@@ -129,7 +129,7 @@ public class ProductDto
         return indicationSets;
     }
 
-    public Set<String> getBarcodes()
+    public Set<BarcodeDto> getBarcodes()
     {
         return barcodes;
     }
@@ -171,7 +171,7 @@ public class ProductDto
         private String uoMCode;
         private Set<ProductRelationDto> relations;
         private Set<IndicationSetDto> indicationSets;
-        private Set<String> barcodes;
+        private Set<BarcodeDto> barcodes;
 
         public Builder withSKU(final String _sku)
         {
@@ -251,7 +251,7 @@ public class ProductDto
             return this;
         }
 
-        public Builder withBarcodes(final Set<String> _barcodes)
+        public Builder withBarcodes(final Set<BarcodeDto> _barcodes)
         {
             barcodes = _barcodes;
             return this;
