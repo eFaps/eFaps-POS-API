@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,16 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductRelationDto
 {
+
     private final String label;
     private final String productOid;
+    private final ProductRelationType type;
 
     protected ProductRelationDto(final Builder _builder)
     {
         label = _builder.label;
         productOid = _builder.productOid;
+        type = _builder.type;
     }
 
     public String getLabel()
@@ -43,6 +46,11 @@ public class ProductRelationDto
         return productOid;
     }
 
+    public ProductRelationType getType()
+    {
+        return type;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -51,16 +59,26 @@ public class ProductRelationDto
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
+
         private String label;
         private String productOid;
+        private ProductRelationType type;
 
-        public Builder withLabel(final String _label) {
+        public Builder withLabel(final String _label)
+        {
             label = _label;
             return this;
         }
 
-        public Builder withProductOid(final String _productOid) {
+        public Builder withProductOid(final String _productOid)
+        {
             productOid = _productOid;
+            return this;
+        }
+
+        public Builder withType(final ProductRelationType _type)
+        {
+            type = _type;
             return this;
         }
 

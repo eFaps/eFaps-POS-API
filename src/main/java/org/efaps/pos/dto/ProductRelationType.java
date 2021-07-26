@@ -17,11 +17,8 @@
 package org.efaps.pos.dto;
 
 
-public enum ProductType
+public enum ProductRelationType
 {
-    STANDART,
-    SERVICE,
-    TEXT,
-    OTHER,
-    PARTLIST
+    ALTERNATIVE,
+    SALESBOM
 }
