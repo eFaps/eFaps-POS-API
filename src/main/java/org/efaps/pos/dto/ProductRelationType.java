@@ -20,5 +20,6 @@ package org.efaps.pos.dto;
 public enum ProductRelationType
 {
     ALTERNATIVE,
-    SALESBOM
+    SALESBOM,
+    OTHER
 }
