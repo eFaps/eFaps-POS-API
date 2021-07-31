@@ -17,6 +17,8 @@
 
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -27,11 +29,14 @@ public class ProductRelationDto
 
     private final String label;
     private final String productOid;
+    private final BigDecimal quantity;
+
     private final ProductRelationType type;
 
     protected ProductRelationDto(final Builder _builder)
     {
         label = _builder.label;
+        quantity = _builder.quantity;
         productOid = _builder.productOid;
         type = _builder.type;
     }
@@ -39,6 +44,11 @@ public class ProductRelationDto
     public String getLabel()
     {
         return label;
+    }
+
+    public BigDecimal getQuantity()
+    {
+        return quantity;
     }
 
     public String getProductOid()
@@ -61,12 +71,19 @@ public class ProductRelationDto
     {
 
         private String label;
+        private  BigDecimal quantity;
         private String productOid;
         private ProductRelationType type;
 
         public Builder withLabel(final String _label)
         {
             label = _label;
+            return this;
+        }
+
+        public Builder withQuantity(final BigDecimal _quantity)
+        {
+            quantity = _quantity;
             return this;
         }
 
