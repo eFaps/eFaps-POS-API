@@ -46,8 +46,8 @@ public abstract class AbstractDocItemDto
         crossUnitPrice = _builder.crossUnitPrice;
         netPrice = _builder.netPrice;
         crossPrice = _builder.crossPrice;
-        currency = _builder.currency;
-        exchangeRate = _builder.exchangeRate;
+        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
+        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
         taxes = _builder.taxes;
         remark = _builder.remark;
     }

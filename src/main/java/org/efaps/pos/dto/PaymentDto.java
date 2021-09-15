@@ -41,8 +41,8 @@ public class PaymentDto
         super(_builder);
         type = _builder.type;
         amount = _builder.amount;
-        currency = _builder.currency;
-        exchangeRate = _builder.exchangeRate;
+        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
+        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
         cardTypeId = _builder.cardTypeId;
         cardLabel = _builder.cardLabel;
         mappingKey = _builder.mappingKey;

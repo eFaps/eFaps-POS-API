@@ -38,8 +38,8 @@ public class TaxEntryDto
         tax = _builder.tax;
         amount = _builder.amount;
         base = _builder.base;
-        currency = _builder.currency;
-        exchangeRate = _builder.exchangeRate;
+        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
+        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
     }
 
     public TaxDto getTax()

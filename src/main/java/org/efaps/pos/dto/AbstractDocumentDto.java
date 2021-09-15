@@ -51,8 +51,8 @@ public abstract class AbstractDocumentDto
         date = _builder.date;
         netTotal = _builder.netTotal;
         crossTotal = _builder.crossTotal;
-        currency = _builder.currency;
-        exchangeRate = _builder.exchangeRate;
+        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
+        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
         taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         contactOid = _builder.contactOid;
         workspaceOid = _builder.workspaceOid;

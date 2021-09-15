@@ -38,8 +38,8 @@ public class DiscountDto
     {
         type = _builder.type;
         value = _builder.value;
-        currency = _builder.currency;
-        exchangeRate = _builder.exchangeRate;
+        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
+        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
         productOid = _builder.productOid;
         label = _builder.label;
     }

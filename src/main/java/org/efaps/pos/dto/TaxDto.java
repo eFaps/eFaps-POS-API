@@ -46,8 +46,8 @@ public class TaxDto
         percent = _builder.percent;
         type = _builder.type;
         amount = _builder.amount;
-        currency = _builder.currency;
-        exchangeRate = _builder.exchangeRate;
+        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
+        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
     }
 
     public String getKey()
