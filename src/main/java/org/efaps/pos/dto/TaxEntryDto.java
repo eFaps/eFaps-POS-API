@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,12 +30,16 @@ public class TaxEntryDto
     private final TaxDto tax;
     private final BigDecimal base;
     private final BigDecimal amount;
+    private final Currency currency;
+    private final BigDecimal exchangeRate;
 
     private TaxEntryDto(final Builder _builder)
     {
         tax = _builder.tax;
         amount = _builder.amount;
         base = _builder.base;
+        currency = _builder.currency;
+        exchangeRate = _builder.exchangeRate;
     }
 
     public TaxDto getTax()
@@ -53,13 +57,25 @@ public class TaxEntryDto
         return amount;
     }
 
+    public Currency getCurrency()
+    {
+        return currency;
+    }
+
+    public BigDecimal getExchangeRate()
+    {
+        return exchangeRate;
+    }
+
     @Override
     public String toString()
     {
-        final StringBuilder builder2 = new StringBuilder();
-        builder2.append("TaxEntryDto [tax=").append(tax).append(", base=").append(base).append(", amount=")
-                        .append(amount).append("]");
-        return builder2.toString();
+        return new StringBuilder().append("TaxEntryDto [tax=").append(tax)
+                        .append(", base=").append(base)
+                        .append(", amount=").append(amount)
+                        .append(", currency=").append(currency)
+                        .append(", exchangeRate=").append(exchangeRate)
+                        .append("]").toString();
     }
 
     public static Builder builder()
@@ -74,6 +90,8 @@ public class TaxEntryDto
         private TaxDto tax;
         private BigDecimal base;
         private BigDecimal amount;
+        private Currency currency;
+        private BigDecimal exchangeRate;
 
         public Builder withTax(final TaxDto _tax)
         {
@@ -90,6 +108,18 @@ public class TaxEntryDto
         public Builder withAmount(final BigDecimal _amount)
         {
             amount = _amount;
+            return this;
+        }
+
+        public Builder withCurrency(final Currency _currency)
+        {
+            currency = _currency;
+            return this;
+        }
+
+        public Builder withExchangeRate(final BigDecimal exchangeRate)
+        {
+            this.exchangeRate = exchangeRate;
             return this;
         }
 

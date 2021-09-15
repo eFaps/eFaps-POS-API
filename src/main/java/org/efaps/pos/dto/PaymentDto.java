@@ -30,6 +30,8 @@ public class PaymentDto
 
     private final PaymentType type;
     private final BigDecimal amount;
+    private final Currency currency;
+    private final BigDecimal exchangeRate;
     private final Long cardTypeId;
     private final String cardLabel;
     private final String mappingKey;
@@ -39,6 +41,8 @@ public class PaymentDto
         super(_builder);
         type = _builder.type;
         amount = _builder.amount;
+        currency = _builder.currency;
+        exchangeRate = _builder.exchangeRate;
         cardTypeId = _builder.cardTypeId;
         cardLabel = _builder.cardLabel;
         mappingKey = _builder.mappingKey;
@@ -52,6 +56,16 @@ public class PaymentDto
     public BigDecimal getAmount()
     {
         return amount;
+    }
+
+    public Currency getCurrency()
+    {
+        return currency;
+    }
+
+    public BigDecimal getExchangeRate()
+    {
+        return exchangeRate;
     }
 
     public Long getCardTypeId()
@@ -68,6 +82,7 @@ public class PaymentDto
     {
         return mappingKey;
     }
+
     @Override
     public String toString()
     {
@@ -75,11 +90,14 @@ public class PaymentDto
                         .append(super.toString())
                         .append(", type=").append(type)
                         .append(", amount=").append(amount)
+                        .append(", currency=").append(currency)
+                        .append(", exchangeRate=").append(exchangeRate)
                         .append(", cardTypeId=").append(cardTypeId)
                         .append(", cardLabel=").append(cardLabel)
                         .append(", mappingKey=").append(mappingKey)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
@@ -92,6 +110,8 @@ public class PaymentDto
 
         private PaymentType type;
         private BigDecimal amount;
+        private Currency currency;
+        private BigDecimal exchangeRate;
         private Long cardTypeId;
         private String cardLabel;
         private String mappingKey;
@@ -105,6 +125,18 @@ public class PaymentDto
         public Builder withAmount(final BigDecimal _amount)
         {
             amount = _amount;
+            return this;
+        }
+
+        public Builder withCurrency(final Currency currency)
+        {
+            this.currency = currency;
+            return this;
+        }
+
+        public Builder withExchangeRate(final BigDecimal exchangeRate)
+        {
+            this.exchangeRate = exchangeRate;
             return this;
         }
 

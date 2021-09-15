@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,17 +28,18 @@ public class DiscountDto
 {
 
     private final DiscountType type;
-
     private final BigDecimal value;
-
+    private final Currency currency;
+    private final BigDecimal exchangeRate;
     private final String productOid;
-
     private final String label;
 
     private DiscountDto(final Builder _builder)
     {
         type = _builder.type;
         value = _builder.value;
+        currency = _builder.currency;
+        exchangeRate = _builder.exchangeRate;
         productOid = _builder.productOid;
         label = _builder.label;
     }
@@ -63,13 +64,27 @@ public class DiscountDto
         return label;
     }
 
+    public Currency getCurrency()
+    {
+        return currency;
+    }
+
+    public BigDecimal getExchangeRate()
+    {
+        return exchangeRate;
+    }
+
     @Override
     public String toString()
     {
-        final StringBuilder builder2 = new StringBuilder();
-        builder2.append("DiscountDto [type=").append(type).append(", value=").append(value).append(", productOid=")
-                        .append(productOid).append(", label=").append(label).append("]");
-        return builder2.toString();
+        return new StringBuilder()
+                        .append("DiscountDto [type=").append(type)
+                        .append(", value=").append(value)
+                        .append(", currency=").append(currency)
+                        .append(", exchangeRate=").append(exchangeRate)
+                        .append(", productOid=").append(productOid)
+                        .append(", label=").append(label)
+                        .append("]").toString();
     }
 
     public static Builder builder()
@@ -83,6 +98,8 @@ public class DiscountDto
 
         private DiscountType type;
         private BigDecimal value;
+        private Currency currency;
+        private BigDecimal exchangeRate;
         private String productOid;
         private String label;
 
@@ -95,6 +112,18 @@ public class DiscountDto
         public Builder withValue(final BigDecimal _value)
         {
             value = _value;
+            return this;
+        }
+
+        public Builder withCurrency(final Currency currency)
+        {
+            this.currency = currency;
+            return this;
+        }
+
+        public Builder withExchangeRate(final BigDecimal exchangeRate)
+        {
+            this.exchangeRate = exchangeRate;
             return this;
         }
 

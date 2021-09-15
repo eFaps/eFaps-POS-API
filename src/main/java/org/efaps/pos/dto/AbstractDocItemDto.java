@@ -31,9 +31,10 @@ public abstract class AbstractDocItemDto
     private final BigDecimal crossUnitPrice;
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
+    private final Currency currency;
+    private final BigDecimal exchangeRate;
     private final Set<TaxEntryDto> taxes;
     private final String remark;
-
 
     protected AbstractDocItemDto(final Builder<?, ?> _builder)
     {
@@ -45,6 +46,8 @@ public abstract class AbstractDocItemDto
         crossUnitPrice = _builder.crossUnitPrice;
         netPrice = _builder.netPrice;
         crossPrice = _builder.crossPrice;
+        currency = _builder.currency;
+        exchangeRate = _builder.exchangeRate;
         taxes = _builder.taxes;
         remark = _builder.remark;
     }
@@ -94,6 +97,16 @@ public abstract class AbstractDocItemDto
         return remark;
     }
 
+    public Currency getCurrency()
+    {
+        return currency;
+    }
+
+    public BigDecimal getExchangeRate()
+    {
+        return exchangeRate;
+    }
+
     @Override
     public String toString()
     {
@@ -106,9 +119,12 @@ public abstract class AbstractDocItemDto
                         .append(", crossUnitPrice=").append(crossUnitPrice)
                         .append(", netPrice=").append(netPrice)
                         .append(", crossPrice=").append(crossPrice)
+                        .append(", currency=").append(currency)
+                        .append(", exchangeRate=").append(exchangeRate)
                         .append(", taxes=").append(taxes)
                         .append(", remark=").append(remark).toString();
     }
+
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
         extends AbstractObjectDto.Builder<S, T>
     {
@@ -120,6 +136,8 @@ public abstract class AbstractDocItemDto
         private BigDecimal crossUnitPrice;
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
+        private Currency currency;
+        private BigDecimal exchangeRate;
         private Set<TaxEntryDto> taxes;
         private String remark;
 
@@ -169,6 +187,20 @@ public abstract class AbstractDocItemDto
         public S withCrossPrice(final BigDecimal _crossPrice)
         {
             this.crossPrice = _crossPrice;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withCurrency(final Currency _currency)
+        {
+            this.currency = _currency;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withExchangeRate(final BigDecimal exchangeRate)
+        {
+            this.exchangeRate = exchangeRate;
             return (S) this;
         }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,6 +34,8 @@ public class TaxDto
     private final BigDecimal percent;
     private final TaxType type;
     private final BigDecimal amount;
+    private final Currency currency;
+    private final BigDecimal exchangeRate;
 
     private TaxDto(final Builder _builder)
     {
@@ -44,6 +46,8 @@ public class TaxDto
         percent = _builder.percent;
         type = _builder.type;
         amount = _builder.amount;
+        currency = _builder.currency;
+        exchangeRate = _builder.exchangeRate;
     }
 
     public String getKey()
@@ -75,6 +79,17 @@ public class TaxDto
     {
         return amount;
     }
+
+    public Currency getCurrency()
+    {
+        return currency;
+    }
+
+    public BigDecimal getExchangeRate()
+    {
+        return exchangeRate;
+    }
+
     @Override
     public String toString()
     {
@@ -86,8 +101,11 @@ public class TaxDto
                         .append(", percent=").append(percent)
                         .append(", type=").append(type)
                         .append(", amount=").append(amount)
+                        .append(", currency=").append(currency)
+                        .append(", exchangeRate=").append(exchangeRate)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
@@ -104,6 +122,8 @@ public class TaxDto
         private TaxType type;
         private BigDecimal percent;
         private BigDecimal amount;
+        private Currency currency;
+        private BigDecimal exchangeRate;
 
         public Builder withKey(final String _key)
         {
@@ -138,6 +158,18 @@ public class TaxDto
         public Builder withAmount(final BigDecimal _amount)
         {
             amount = _amount;
+            return this;
+        }
+
+        public Builder withCurrency(final Currency _currency)
+        {
+            currency = _currency;
+            return this;
+        }
+
+        public Builder withExchangeRate(final BigDecimal exchangeRate)
+        {
+            this.exchangeRate = exchangeRate;
             return this;
         }
 
