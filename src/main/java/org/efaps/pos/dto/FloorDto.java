@@ -56,7 +56,16 @@ public class FloorDto
     {
         return imageOid;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", name=").append(name)
+                        .append(", spots=").append(spots)
+                        .append(", imageOid=").append(imageOid)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

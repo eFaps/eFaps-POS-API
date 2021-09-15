@@ -59,6 +59,16 @@ public class InventoryEntryDto
         return productOid;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("InventoryEntryDto [oid=").append(oid).append(", quantity=").append(quantity)
+                        .append(", warehouseOid=").append(warehouseOid).append(", productOid=").append(productOid)
+                        .append("]");
+        return builder2.toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -67,6 +77,7 @@ public class InventoryEntryDto
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
+
         public String productOid;
         public String warehouseOid;
         public BigDecimal quantity;

@@ -40,6 +40,15 @@ public class OrderDto
         return payableOid;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", payableOid=").append(payableOid)
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

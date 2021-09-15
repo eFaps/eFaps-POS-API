@@ -45,6 +45,13 @@ public class CardDto
         return cardTypeId;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder().append("CardDto [label=").append(label).append(", cardTypeId=").append(cardTypeId)
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

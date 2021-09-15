@@ -37,6 +37,14 @@ public class SpotDto
         super(_builder);
         label = _builder.label;
     }
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", label=").append(label)
+                        .append("]").toString();
+    }
 
     public static Builder builder()
     {

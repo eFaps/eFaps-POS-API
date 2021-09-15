@@ -45,7 +45,15 @@ public class PrinterDto
     {
         return type;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", name=").append(name)
+                        .append(", type=").append(type)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

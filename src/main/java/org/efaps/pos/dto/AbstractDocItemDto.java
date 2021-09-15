@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2019 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -94,6 +94,21 @@ public abstract class AbstractDocItemDto
         return remark;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", index=").append(index)
+                        .append(", productOid=").append(productOid)
+                        .append(", quantity=").append(quantity)
+                        .append(", netUnitPrice=").append(netUnitPrice)
+                        .append(", crossUnitPrice=").append(crossUnitPrice)
+                        .append(", netPrice=").append(netPrice)
+                        .append(", crossPrice=").append(crossPrice)
+                        .append(", taxes=").append(taxes)
+                        .append(", remark=").append(remark).toString();
+    }
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
         extends AbstractObjectDto.Builder<S, T>
     {

@@ -137,15 +137,24 @@ public class ProductDto
     @Override
     public String toString()
     {
-        final StringBuilder builder2 = new StringBuilder();
-        builder2.append("ProductDto [sku=").append(sku).append(", type=").append(type).append(", description=")
-                        .append(description).append(", note=").append(note).append(", imageOid=").append(imageOid)
-                        .append(", netPrice=").append(netPrice).append(", crossPrice=").append(crossPrice)
-                        .append(", categoryOids=").append(categoryOids).append(", taxes=").append(taxes)
-                        .append(", uoM=").append(uoM).append(", uoMCode=").append(uoMCode).append(", relations=")
-                        .append(relations).append(", indicationSets=").append(indicationSets).append(", barcodes=")
-                        .append(barcodes).append("]");
-        return builder2.toString();
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", sku=").append(sku)
+                        .append(", type=").append(type)
+                        .append(", description=").append(description)
+                        .append(", note=").append(note)
+                        .append(", imageOid=").append(imageOid)
+                        .append(", netPrice=").append(netPrice)
+                        .append(", crossPrice=").append(crossPrice)
+                        .append(", categoryOids=").append(categoryOids)
+                        .append(", taxes=").append(taxes)
+                        .append(", uoM=").append(uoM)
+                        .append(", uoMCode=").append(uoMCode)
+                        .append(", relations=").append(relations)
+                        .append(", indicationSets=").append(indicationSets)
+                        .append(", barcodes=").append(barcodes)
+                        .append("]").toString();
+
     }
 
     public static Builder builder()

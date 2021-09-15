@@ -82,6 +82,21 @@ public class BalanceDto
         return status;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", id=").append(id)
+                        .append(", number=").append(number)
+                        .append(", userOid=").append(userOid)
+                        .append(", key=").append(key)
+                        .append(", startAt=").append(startAt)
+                        .append(", endAt=").append(endAt)
+                        .append(", status=").append(status)
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

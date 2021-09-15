@@ -30,6 +30,14 @@ public class DocItemDto
         super(_builder);
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

@@ -144,6 +144,28 @@ public class WorkspaceDto
         return new Builder();
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", name=").append(name)
+                        .append(", posOid=").append(posOid)
+                        .append(", docTypes=").append(docTypes)
+                        .append(", spotConfig=").append(spotConfig)
+                        .append(", spotCount=").append(spotCount)
+                        .append(", warehouseOid=").append(warehouseOid)
+                        .append(", printCmds=").append(printCmds)
+                        .append(", posLayout=").append(posLayout)
+                        .append(", discounts=").append(discounts)
+                        .append(", cards=").append(cards)
+                        .append(", gridSize=").append(gridSize)
+                        .append(", gridShowPrice=").append(gridShowPrice)
+                        .append(", floors=").append(floors)
+                        .append(", categoryOids=").append(categoryOids)
+                        .append("]").toString();
+    }
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, WorkspaceDto>

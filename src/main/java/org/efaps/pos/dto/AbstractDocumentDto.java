@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2020 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,10 @@ public abstract class AbstractDocumentDto
     private final Set<? extends AbstractDocItemDto> items;
     private final DocStatus status;
     private final LocalDate date;
-    private final String currency;
+    private final Currency currency;
     private final BigDecimal netTotal;
     private final BigDecimal crossTotal;
+    private final BigDecimal exchangeRate;
     private final Set<TaxEntryDto> taxes;
     private final String contactOid;
     private final String workspaceOid;
@@ -50,8 +51,9 @@ public abstract class AbstractDocumentDto
         date = _builder.date;
         netTotal = _builder.netTotal;
         crossTotal = _builder.crossTotal;
-        taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         currency = _builder.currency;
+        exchangeRate = _builder.exchangeRate;
+        taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         contactOid = _builder.contactOid;
         workspaceOid = _builder.workspaceOid;
         note = _builder.note;
@@ -82,7 +84,7 @@ public abstract class AbstractDocumentDto
         return date;
     }
 
-    public String getCurrency()
+    public Currency getCurrency()
     {
         return currency;
     }
@@ -117,6 +119,31 @@ public abstract class AbstractDocumentDto
         return note;
     }
 
+    public BigDecimal getExchangeRate()
+    {
+        return exchangeRate;
+    }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(",id=").append(id)
+                        .append(", number=").append(number)
+                        .append(", items=").append(items)
+                        .append(", status=").append(status)
+                        .append(", date=").append(date)
+                        .append(", currency=").append(currency)
+                        .append(", netTotal=").append(netTotal)
+                        .append(", crossTotal=").append(crossTotal)
+                        .append(", exchangeRate=").append(exchangeRate)
+                        .append(", taxes=").append(taxes)
+                        .append(", contactOid=").append(contactOid)
+                        .append(", workspaceOid=").append(workspaceOid)
+                        .append(", note=").append(note).toString();
+    }
+
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
         extends AbstractObjectDto.Builder<S, T>
     {
@@ -125,9 +152,10 @@ public abstract class AbstractDocumentDto
         private String number;
         private DocStatus status;
         private LocalDate date = LocalDate.now();
-        private String currency;
+        private Currency currency;
         private BigDecimal netTotal;
         private BigDecimal crossTotal;
+        private BigDecimal exchangeRate;
         private Set<TaxEntryDto> taxes;
         private Set<? extends AbstractDocItemDto> items = new HashSet<>();
         private String contactOid;
@@ -163,7 +191,7 @@ public abstract class AbstractDocumentDto
         }
 
         @SuppressWarnings("unchecked")
-        public S withCurrency(final String _currency)
+        public S withCurrency(final Currency _currency)
         {
             this.currency = _currency;
             return (S) this;
@@ -180,6 +208,13 @@ public abstract class AbstractDocumentDto
         public S withCrossTotal(final BigDecimal _crossTotal)
         {
             this.crossTotal = _crossTotal;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withExchangeRate(final BigDecimal exchangeRate)
+        {
+            this.exchangeRate = exchangeRate;
             return (S) this;
         }
 

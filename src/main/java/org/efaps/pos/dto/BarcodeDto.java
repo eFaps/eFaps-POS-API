@@ -43,6 +43,13 @@ public class BarcodeDto
         return code;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder().append("BarcodeDto [type=").append(type)
+                        .append(", code=").append(code).append("]").toString();
+    }
+
     /**
      * Creates builder to build {@link BarcodeDto}.
      *

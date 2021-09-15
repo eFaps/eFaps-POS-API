@@ -61,6 +61,15 @@ public class ProductRelationDto
         return type;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("ProductRelationDto [label=").append(label).append(", productOid=").append(productOid)
+                        .append(", quantity=").append(quantity).append(", type=").append(type).append("]");
+        return builder2.toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -71,7 +80,7 @@ public class ProductRelationDto
     {
 
         private String label;
-        private  BigDecimal quantity;
+        private BigDecimal quantity;
         private String productOid;
         private ProductRelationType type;
 

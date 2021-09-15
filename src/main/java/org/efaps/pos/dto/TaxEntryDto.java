@@ -53,6 +53,15 @@ public class TaxEntryDto
         return amount;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("TaxEntryDto [tax=").append(tax).append(", base=").append(base).append(", amount=")
+                        .append(amount).append("]");
+        return builder2.toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -61,6 +70,7 @@ public class TaxEntryDto
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
+
         private TaxDto tax;
         private BigDecimal base;
         private BigDecimal amount;

@@ -73,7 +73,20 @@ public class UserDto
     {
         return visible;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", username=").append(username)
+                        .append(", password=").append("****")
+                        .append(", firstName=").append(firstName)
+                        .append(", surName=").append(surName)
+                        .append(", roles=").append(roles)
+                        .append(", workspaceOids=").append(workspaceOids)
+                        .append(", visible=").append(visible)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

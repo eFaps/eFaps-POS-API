@@ -45,7 +45,15 @@ public class SequenceDto
     {
         return format;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", seq=").append(seq)
+                        .append(", format=").append(format)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

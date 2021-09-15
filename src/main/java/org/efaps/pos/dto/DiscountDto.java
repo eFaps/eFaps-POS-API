@@ -63,6 +63,15 @@ public class DiscountDto
         return label;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("DiscountDto [type=").append(type).append(", value=").append(value).append(", productOid=")
+                        .append(productOid).append(", label=").append(label).append("]");
+        return builder2.toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -77,22 +86,26 @@ public class DiscountDto
         private String productOid;
         private String label;
 
-        public Builder withType(final DiscountType _type) {
+        public Builder withType(final DiscountType _type)
+        {
             type = _type;
             return this;
         }
 
-        public Builder withValue(final BigDecimal _value) {
+        public Builder withValue(final BigDecimal _value)
+        {
             value = _value;
             return this;
         }
 
-        public Builder withProductOid(final String _productOid) {
+        public Builder withProductOid(final String _productOid)
+        {
             productOid = _productOid;
             return this;
         }
 
-        public Builder withLabel(final String _label) {
+        public Builder withLabel(final String _label)
+        {
             label = _label;
             return this;
         }

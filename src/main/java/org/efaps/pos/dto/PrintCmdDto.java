@@ -58,6 +58,15 @@ public class PrintCmdDto
         return reportOid;
     }
 
+    @Override
+    public String toString()
+    {
+        final StringBuilder builder2 = new StringBuilder();
+        builder2.append("PrintCmdDto [printerOid=").append(printerOid).append(", target=").append(target)
+                        .append(", targetOid=").append(targetOid).append(", reportOid=").append(reportOid).append("]");
+        return builder2.toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

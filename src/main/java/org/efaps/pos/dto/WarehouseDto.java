@@ -21,7 +21,14 @@ public class WarehouseDto
     {
         return name;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", name=").append(name)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

@@ -57,7 +57,12 @@ public class CategoryDto
     @Override
     public String toString()
     {
-        return "name=" + name + ", weight=" + weight + ", imageOid" + imageOid;
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", name=").append(name)
+                        .append(", weight=").append(weight)
+                        .append(", imageOid=").append(imageOid)
+                        .append("]").toString();
     }
 
     public static Builder builder()

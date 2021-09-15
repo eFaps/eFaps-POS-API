@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,12 +26,19 @@ public abstract class AbstractObjectDto
 
     protected AbstractObjectDto(final Builder<?, ?> _builder)
     {
-        this.oid = _builder.oid;
+        oid = _builder.oid;
     }
 
     public String getOid()
     {
-        return this.oid;
+        return oid;
+    }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuilder().append(this.getClass().getName())
+                        .append(" [oid=").append(oid).toString();
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
@@ -48,4 +55,5 @@ public abstract class AbstractObjectDto
 
         public abstract T build();
     }
+
 }

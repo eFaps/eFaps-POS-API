@@ -66,7 +66,18 @@ public class ContactDto
     {
         return email;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", id=").append(id)
+                        .append(", name=").append(name)
+                        .append(", idType=").append(idType)
+                        .append(", idNumber=").append(idNumber)
+                        .append(", email=").append(email)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

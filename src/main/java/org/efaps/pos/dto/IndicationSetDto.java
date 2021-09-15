@@ -85,8 +85,15 @@ public class IndicationSetDto
     @Override
     public String toString()
     {
-        return "IndicationSetDto [name=" + name + ", description=" + description + ", required=" + required
-                        + ", multiple=" + multiple + ", imageOid=" + imageOid + ", indications=" + indications + "]";
+         return new StringBuilder()
+                        .append(super.toString())
+                        .append(", name=").append(name)
+                        .append(", description=").append(description)
+                        .append(", required=").append(required)
+                        .append(", multiple=").append(multiple)
+                        .append(", imageOid=").append(imageOid)
+                        .append(", indications=").append(indications)
+                        .append("]").toString();
     }
 
     public static Builder builder()

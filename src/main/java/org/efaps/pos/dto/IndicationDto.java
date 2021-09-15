@@ -27,7 +27,6 @@ public class IndicationDto
 
     private final String value;
     private final String description;
-
     private final String imageOid;
 
     protected IndicationDto(final Builder _builder)
@@ -56,9 +55,13 @@ public class IndicationDto
     @Override
     public String toString()
     {
-        return "IndicationDto [value=" + value + ", description=" + description + ", imageOid=" + imageOid + "]";
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", value=").append(value)
+                        .append(", description=").append(description)
+                        .append(", imageOid=").append(imageOid)
+                        .append("]").toString();
     }
-
     public static Builder builder()
     {
         return new Builder();

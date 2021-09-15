@@ -75,7 +75,19 @@ public class TaxDto
     {
         return amount;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", key=").append(key)
+                        .append(", catKey=").append(catKey)
+                        .append(", name=").append(name)
+                        .append(", percent=").append(percent)
+                        .append(", type=").append(type)
+                        .append(", amount=").append(amount)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();

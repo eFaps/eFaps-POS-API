@@ -31,18 +31,28 @@ public abstract class AbstractPayableDocumentDto
     protected AbstractPayableDocumentDto(final Builder<?, ?> _builder)
     {
         super(_builder);
-        this.balanceOid =  _builder.balanceOid;
-        this.payments = _builder.payments == null ? Collections.emptySet() : _builder.payments;
+        balanceOid =  _builder.balanceOid;
+        payments = _builder.payments == null ? Collections.emptySet() : _builder.payments;
     }
 
     public String getBalanceOid()
     {
-        return this.balanceOid;
+        return balanceOid;
     }
 
     public Set<PaymentDto> getPayments()
     {
-        return Collections.unmodifiableSet(this.payments);
+        return Collections.unmodifiableSet(payments);
+    }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", balanceOid=").append(balanceOid)
+                        .append(", payments=").append(payments)
+                        .append("]").toString();
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDocumentDto>

@@ -73,6 +73,19 @@ public class PosDto
         return ticketSeqOid;
     }
 
+    public String toString2()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(",name=").append(name)
+                        .append(", currency=").append(currency)
+                        .append(", defaultContactOid=").append(defaultContactOid)
+                        .append(", receiptSeqOid=").append(receiptSeqOid)
+                        .append(", invoiceSeqOid=").append(invoiceSeqOid)
+                        .append(", ticketSeqOid=").append(ticketSeqOid)
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

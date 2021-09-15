@@ -68,7 +68,18 @@ public class PaymentDto
     {
         return mappingKey;
     }
-
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", type=").append(type)
+                        .append(", amount=").append(amount)
+                        .append(", cardTypeId=").append(cardTypeId)
+                        .append(", cardLabel=").append(cardLabel)
+                        .append(", mappingKey=").append(mappingKey)
+                        .append("]").toString();
+    }
     public static Builder builder()
     {
         return new Builder();
