@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2021 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import org.efaps.pos.dto.ContactDto;
+import org.efaps.pos.dto.Currency;
 import org.efaps.pos.dto.TaxEntryDto;
 
 public interface IDocument
@@ -34,9 +35,11 @@ public interface IDocument
 
     BigDecimal getNetTotal();
 
+    BigDecimal getExchangeRate();
+
     Set<TaxEntryDto> getTaxes();
 
-    String getCurrency();
+    Currency getCurrency();
 
     ContactDto getContact();
 
