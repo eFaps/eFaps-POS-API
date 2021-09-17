@@ -56,6 +56,7 @@ public class FloorDto
     {
         return imageOid;
     }
+
     @Override
     public String toString()
     {
@@ -66,6 +67,7 @@ public class FloorDto
                         .append(", imageOid=").append(imageOid)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
