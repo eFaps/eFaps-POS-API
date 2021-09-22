@@ -37,6 +37,7 @@ public class ProductDto
     private final String imageOid;
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
+    private final Currency currency;
     private final Set<String> categoryOids;
     private final Set<TaxDto> taxes;
     private final String uoM;
@@ -55,6 +56,7 @@ public class ProductDto
         imageOid = _builder.imageOid;
         netPrice = _builder.netPrice;
         crossPrice = _builder.crossPrice;
+        currency = _builder.currency;
         categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
         taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         uoM = _builder.uoM;
@@ -97,6 +99,11 @@ public class ProductDto
     public BigDecimal getCrossPrice()
     {
         return crossPrice;
+    }
+
+    public Currency getCurrency()
+    {
+        return currency;
     }
 
     public Set<String> getCategoryOids()
@@ -174,6 +181,7 @@ public class ProductDto
         private String imageOid;
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
+        private Currency currency;
         private Set<String> categoryOids = new HashSet<>();
         private Set<TaxDto> taxes = new HashSet<>();
         private String uoM;
@@ -221,6 +229,12 @@ public class ProductDto
         public Builder withCrossPrice(final BigDecimal _crossPrice)
         {
             crossPrice = _crossPrice;
+            return this;
+        }
+
+        public Builder withCurrency(final Currency _currency)
+        {
+            currency = _currency;
             return this;
         }
 
