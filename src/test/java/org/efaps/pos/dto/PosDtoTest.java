@@ -26,7 +26,7 @@ public class PosDtoTest
     public void testBuilder() {
         final String oid = "1234.555";
         final String name = "This is the name of this object";
-        final String currency = "PEN";
+        final Currency currency = Currency.PEN;
         final String defaultContactOid = "5512.23";
 
         final PosDto dto = PosDto.builder()

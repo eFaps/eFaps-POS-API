@@ -26,7 +26,7 @@ public class PosDto
 {
 
     private final String name;
-    private final String currency;
+    private final Currency currency;
     private final String defaultContactOid;
     private final String receiptSeqOid;
     private final String invoiceSeqOid;
@@ -48,7 +48,7 @@ public class PosDto
         return name;
     }
 
-    public String getCurrency()
+    public Currency getCurrency()
     {
         return currency;
     }
@@ -97,7 +97,7 @@ public class PosDto
     {
 
         private String name;
-        private String currency;
+        private Currency currency;
         private String defaultContactOid;
         private String receiptSeqOid;
         private String invoiceSeqOid;
@@ -109,7 +109,7 @@ public class PosDto
             return this;
         }
 
-        public Builder withCurrency(final String _currency)
+        public Builder withCurrency(final Currency _currency)
         {
             currency = _currency;
             return this;

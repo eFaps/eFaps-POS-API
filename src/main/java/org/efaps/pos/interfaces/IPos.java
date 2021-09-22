@@ -17,13 +17,14 @@
 package org.efaps.pos.interfaces;
 
 import org.efaps.pos.dto.ContactDto;
+import org.efaps.pos.dto.Currency;
 
 public interface IPos
 {
 
     String getName();
 
-    String getCurrency();
+    Currency getCurrency();
 
     ContactDto getDefaultContact();
 
