@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2022 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,13 @@
  * limitations under the License.
  *
  */
-package org.efaps.pos.dto;
 
-public enum DocType
+package org.efaps.pos.interfaces;
+
+import java.util.Set;
+
+public interface ICreditNote
+    extends IDocument
 {
-    RECEIPT,
-    INVOICE,
-    TICKET,
-    CREDITNOTE
+    Set<ICreditNoteItem> getCreditNoteItems();
 }
