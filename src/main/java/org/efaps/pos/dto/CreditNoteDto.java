@@ -27,9 +27,17 @@ public class CreditNoteDto
     extends AbstractPayableDocumentDto
 {
 
+    private final String sourceDocOid;
+
     public CreditNoteDto(final Builder _builder)
     {
         super(_builder);
+        sourceDocOid = _builder.sourceDocOid;
+    }
+
+    public String getSourceDocOid()
+    {
+        return sourceDocOid;
     }
 
     @Override
@@ -37,6 +45,7 @@ public class CreditNoteDto
     {
         return new StringBuilder()
                         .append(super.toString())
+                        .append(", sourceDocOid=").append(sourceDocOid)
                         .append("]").toString();
     }
 
@@ -50,6 +59,8 @@ public class CreditNoteDto
         extends AbstractPayableDocumentDto.Builder<Builder, CreditNoteDto>
     {
 
+        private String sourceDocOid;
+
         public Builder withItems(final Set<DocItemDto> _items)
         {
             setItems(_items);
@@ -59,6 +70,11 @@ public class CreditNoteDto
         public Builder withPayments(final Set<PaymentDto> _payments)
         {
             setPayments(_payments);
+            return this;
+        }
+
+        public Builder withSourceDocOid( final String _sourceDocOid) {
+            sourceDocOid = _sourceDocOid;
             return this;
         }
 
