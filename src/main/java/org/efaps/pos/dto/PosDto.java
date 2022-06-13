@@ -31,8 +31,8 @@ public class PosDto
     private final String receiptSeqOid;
     private final String invoiceSeqOid;
     private final String ticketSeqOid;
-    private final String creditNoteInvSeqOid;
-    private final String creditNoteRecSeqOid;
+    private final String creditNote4InvoiceSeqOid;
+    private final String creditNote4ReceiptSeqOid;
 
     public PosDto(final Builder _builder)
     {
@@ -43,8 +43,8 @@ public class PosDto
         receiptSeqOid = _builder.receiptSeqOid;
         invoiceSeqOid = _builder.invoiceSeqOid;
         ticketSeqOid = _builder.ticketSeqOid;
-        creditNoteInvSeqOid = _builder.creditNoteInvSeqOid;
-        creditNoteRecSeqOid = _builder.creditNoteRecSeqOid;
+        creditNote4InvoiceSeqOid = _builder.creditNote4InvoiceSeqOid;
+        creditNote4ReceiptSeqOid = _builder.creditNote4ReceiptSeqOid;
     }
 
     public String getName()
@@ -78,14 +78,15 @@ public class PosDto
     }
 
 
-    public String getCreditNoteInvSeqOid()
+
+    public String getCreditNote4InvoiceSeqOid()
     {
-        return creditNoteInvSeqOid;
+        return creditNote4InvoiceSeqOid;
     }
 
-    public String getCreditNoteRecSeqOid()
+    public String getCreditNote4ReceiptSeqOid()
     {
-        return creditNoteRecSeqOid;
+        return creditNote4ReceiptSeqOid;
     }
 
     @Override
@@ -99,8 +100,8 @@ public class PosDto
                         .append(", receiptSeqOid=").append(receiptSeqOid)
                         .append(", invoiceSeqOid=").append(invoiceSeqOid)
                         .append(", ticketSeqOid=").append(ticketSeqOid)
-                        .append(", creditNoteInvSeqOid=").append(creditNoteInvSeqOid)
-                        .append(", creditNoteRecSeqOid=").append(creditNoteRecSeqOid)
+                        .append(", creditNote4InvoiceSeqOid=").append(creditNote4InvoiceSeqOid)
+                        .append(", creditNote4ReceiptSeqOid=").append(creditNote4ReceiptSeqOid)
                         .append("]").toString();
     }
 
@@ -120,8 +121,8 @@ public class PosDto
         private String receiptSeqOid;
         private String invoiceSeqOid;
         private String ticketSeqOid;
-        private String creditNoteInvSeqOid;
-        private String creditNoteRecSeqOid;
+        private String creditNote4InvoiceSeqOid;
+        private String creditNote4ReceiptSeqOid;
 
         public Builder withName(final String _name)
         {
@@ -159,15 +160,15 @@ public class PosDto
             return this;
         }
 
-        public Builder withCreditNoteInvSeqOid(final String _creditNoteInvSeqOid)
+        public Builder withCreditNote4InvoiceSeqOid(final String _creditNote4InvoiceSeqOid)
         {
-            creditNoteInvSeqOid = _creditNoteInvSeqOid;
+            creditNote4InvoiceSeqOid = _creditNote4InvoiceSeqOid;
             return this;
         }
 
-        public Builder withCreditNoteRecSeqOid(final String _creditNoteRecSeqOid)
+        public Builder withCreditNote4ReceiptSeqOid(final String _creditNote4ReceiptSeqOid)
         {
-            creditNoteRecSeqOid = _creditNoteRecSeqOid;
+            creditNote4ReceiptSeqOid = _creditNote4ReceiptSeqOid;
             return this;
         }
 
