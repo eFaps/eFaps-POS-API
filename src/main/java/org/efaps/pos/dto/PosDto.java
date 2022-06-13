@@ -159,13 +159,13 @@ public class PosDto
             return this;
         }
 
-        public Builder creditNoteInvSeqOid(final String _creditNoteInvSeqOid)
+        public Builder withCreditNoteInvSeqOid(final String _creditNoteInvSeqOid)
         {
             creditNoteInvSeqOid = _creditNoteInvSeqOid;
             return this;
         }
 
-        public Builder creditNoteRecSeqOid(final String _creditNoteRecSeqOid)
+        public Builder withCreditNoteRecSeqOid(final String _creditNoteRecSeqOid)
         {
             creditNoteRecSeqOid = _creditNoteRecSeqOid;
             return this;
