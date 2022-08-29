@@ -31,12 +31,15 @@ public class CategoryDto
 
     private final String imageOid;
 
+    private final String parentOid;
+
     public CategoryDto(final Builder _builder)
     {
         super(_builder);
         name = _builder.name;
         weight = _builder.weight;
         imageOid = _builder.imageOid;
+        parentOid = _builder.parentOid;
     }
 
     public String getName()
@@ -54,6 +57,11 @@ public class CategoryDto
         return imageOid;
     }
 
+    public String getParentOid()
+    {
+        return parentOid;
+    }
+
     @Override
     public String toString()
     {
@@ -62,6 +70,7 @@ public class CategoryDto
                         .append(", name=").append(name)
                         .append(", weight=").append(weight)
                         .append(", imageOid=").append(imageOid)
+                        .append(", parentOid=").append(parentOid)
                         .append("]").toString();
     }
 
@@ -78,6 +87,7 @@ public class CategoryDto
         private String name;
         private int weight = 0;
         private String imageOid;
+        private String parentOid;
 
         public Builder withName(final String _name)
         {
@@ -94,6 +104,12 @@ public class CategoryDto
         public Builder withImageOid(final String _imageOid)
         {
             imageOid = _imageOid;
+            return this;
+        }
+
+        public Builder withParentOid(final String _parentOid)
+        {
+            parentOid = _parentOid;
             return this;
         }
 
