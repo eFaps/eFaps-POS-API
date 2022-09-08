@@ -19,7 +19,7 @@ package org.efaps.pos.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = ProductRelationDto.Builder.class)
+@JsonDeserialize(builder = Product2CategoryDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product2CategoryDto
 {
