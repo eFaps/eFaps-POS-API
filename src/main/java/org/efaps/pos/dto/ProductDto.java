@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2020 The eFaps Team
+ * Copyright 2003 - 2022 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ public class ProductDto
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
     private final Currency currency;
-    private final Set<String> categoryOids;
+    private final Set<Product2CategoryDto> categories;
     private final Set<TaxDto> taxes;
     private final String uoM;
     private final String uoMCode;
@@ -57,7 +57,7 @@ public class ProductDto
         netPrice = _builder.netPrice;
         crossPrice = _builder.crossPrice;
         currency = _builder.currency;
-        categoryOids = _builder.categoryOids == null ? Collections.emptySet() : _builder.categoryOids;
+        categories = _builder.categories == null ? Collections.emptySet() : _builder.categories;
         taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
         uoM = _builder.uoM;
         uoMCode = _builder.uoMCode;
@@ -106,9 +106,9 @@ public class ProductDto
         return currency;
     }
 
-    public Set<String> getCategoryOids()
+    public Set<Product2CategoryDto> getCategories()
     {
-        return Collections.unmodifiableSet(categoryOids);
+        return Collections.unmodifiableSet(categories);
     }
 
     public Set<TaxDto> getTaxes()
@@ -153,7 +153,7 @@ public class ProductDto
                         .append(", imageOid=").append(imageOid)
                         .append(", netPrice=").append(netPrice)
                         .append(", crossPrice=").append(crossPrice)
-                        .append(", categoryOids=").append(categoryOids)
+                        .append(", categories=").append(categories)
                         .append(", taxes=").append(taxes)
                         .append(", uoM=").append(uoM)
                         .append(", uoMCode=").append(uoMCode)
@@ -182,7 +182,7 @@ public class ProductDto
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
         private Currency currency;
-        private Set<String> categoryOids = new HashSet<>();
+        private Set<Product2CategoryDto> categories;
         private Set<TaxDto> taxes = new HashSet<>();
         private String uoM;
         private String uoMCode;
@@ -238,9 +238,9 @@ public class ProductDto
             return this;
         }
 
-        public Builder withCategoryOids(final Set<String> _categoryOids)
+        public Builder withCategories(final Set<Product2CategoryDto> _categories)
         {
-            categoryOids = _categoryOids;
+            categories = _categories;
             return this;
         }
 

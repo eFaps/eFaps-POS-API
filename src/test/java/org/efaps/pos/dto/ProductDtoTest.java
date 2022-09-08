@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2018 The eFaps Team
+ * Copyright 2003 - 2022 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ public class ProductDtoTest
     public void testBuilder() {
         final String oid = "1234.555";
         final String description = "This is the name of this object";
-        final Set<String> categoryOids = Collections.singleton("565.25");
+        final Set<Product2CategoryDto> categories = Collections.singleton(Product2CategoryDto.builder().build());
         final BigDecimal crossPrice = new BigDecimal("12.26");
         final BigDecimal netPrice = new BigDecimal("14.26");
         final String sku = "12222.0001";
@@ -41,7 +41,7 @@ public class ProductDtoTest
             .withOID(oid)
             .withDescription(description)
             .withImageOid(imageOid)
-            .withCategoryOids(categoryOids)
+            .withCategories(categories)
             .withCrossPrice(crossPrice)
             .withNetPrice(netPrice)
             .withSKU(sku)
@@ -51,7 +51,7 @@ public class ProductDtoTest
         assertEquals(dto.getOid(), oid);
         assertEquals(dto.getDescription(), description);
         assertEquals(dto.getImageOid(), imageOid);
-        assertEquals(dto.getCategoryOids(), categoryOids);
+        assertEquals(dto.getCategories(), categories);
         assertEquals(dto.getCrossPrice(), crossPrice);
         assertEquals(dto.getNetPrice(), netPrice);
         assertEquals(dto.getSku(), sku);
@@ -61,11 +61,11 @@ public class ProductDtoTest
     @Test
     public void testBuilderEmptyCollections() {
         final ProductDto dto = ProductDto.builder()
-                        .withCategoryOids(null)
+                        .withCategories(null)
                         .withTaxes(null)
                         .build();
 
-        assertEquals(dto.getCategoryOids().size(), 0);
+        assertEquals(dto.getCategories().size(), 0);
         assertEquals(dto.getTaxes().size(), 0);
     }
 }
