@@ -40,9 +40,9 @@ public class WorkspaceDto
     private final Set<DiscountDto> discounts;
     private final Set<CardDto> cards;
     private final PosGridSize gridSize;
-    private final boolean gridShowPrice;
     private final List<FloorDto> floors;
     private final List<String> categoryOids;
+    private final int flags;
 
     public WorkspaceDto(final Builder _builder)
     {
@@ -62,11 +62,11 @@ public class WorkspaceDto
         cards = _builder.cards == null ? Collections.emptySet()
                         : Collections.unmodifiableSet(_builder.cards);
         gridSize = _builder.gridSize;
-        gridShowPrice = _builder.gridShowPrice;
         floors = _builder.floors == null ? Collections.emptyList()
                         : Collections.unmodifiableList(_builder.floors);
         categoryOids = _builder.categoryOids == null ? Collections.emptyList()
                         : Collections.unmodifiableList(_builder.categoryOids);
+        flags = _builder.flags;
     }
 
     public String getName()
@@ -124,11 +124,6 @@ public class WorkspaceDto
         return gridSize;
     }
 
-    public boolean isGridShowPrice()
-    {
-        return gridShowPrice;
-    }
-
     public List<FloorDto> getFloors()
     {
         return floors;
@@ -137,6 +132,11 @@ public class WorkspaceDto
     public List<String> getCategoryOids()
     {
         return categoryOids;
+    }
+
+    public int getFlags()
+    {
+        return flags;
     }
 
     public static Builder builder()
@@ -160,9 +160,9 @@ public class WorkspaceDto
                         .append(", discounts=").append(discounts)
                         .append(", cards=").append(cards)
                         .append(", gridSize=").append(gridSize)
-                        .append(", gridShowPrice=").append(gridShowPrice)
                         .append(", floors=").append(floors)
                         .append(", categoryOids=").append(categoryOids)
+                        .append(", flags=").append(flags)
                         .append("]").toString();
     }
 
@@ -182,9 +182,9 @@ public class WorkspaceDto
         private Set<DiscountDto> discounts;
         private Set<CardDto> cards;
         private PosGridSize gridSize;
-        private boolean gridShowPrice;
         private List<FloorDto> floors;
         private List<String> categoryOids;
+        private int flags;
 
         public Builder withName(final String _name)
         {
@@ -252,12 +252,6 @@ public class WorkspaceDto
             return this;
         }
 
-        public Builder withGridShowPrice(final boolean _gridShowPrice)
-        {
-            gridShowPrice = _gridShowPrice;
-            return this;
-        }
-
         public Builder withFloors(final List<FloorDto> _floors)
         {
             floors = _floors;
@@ -267,6 +261,12 @@ public class WorkspaceDto
         public Builder withCategoryOids(final List<String> _categoryOids)
         {
             categoryOids = _categoryOids;
+            return this;
+        }
+
+        public Builder withFlags(final int flags)
+        {
+            this.flags = flags;
             return this;
         }
 
