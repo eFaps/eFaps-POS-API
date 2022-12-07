@@ -40,6 +40,7 @@ public abstract class AbstractDocumentDto
     private final String contactOid;
     private final String workspaceOid;
     private final String note;
+    private final Set<EmployeeRelationDto> employeeRelations;
 
     protected AbstractDocumentDto(final Builder<?, ?> _builder)
     {
@@ -57,6 +58,7 @@ public abstract class AbstractDocumentDto
         contactOid = _builder.contactOid;
         workspaceOid = _builder.workspaceOid;
         note = _builder.note;
+        employeeRelations = _builder.employeeRelations  == null ? Collections.emptySet() : _builder.employeeRelations;
     }
 
     public String getId()
@@ -124,6 +126,11 @@ public abstract class AbstractDocumentDto
         return exchangeRate;
     }
 
+    public Set<EmployeeRelationDto> getEmployeeRelations()
+    {
+        return employeeRelations;
+    }
+
     @Override
     public String toString()
     {
@@ -141,7 +148,9 @@ public abstract class AbstractDocumentDto
                         .append(", taxes=").append(taxes)
                         .append(", contactOid=").append(contactOid)
                         .append(", workspaceOid=").append(workspaceOid)
-                        .append(", note=").append(note).toString();
+                        .append(", note=").append(note)
+                        .append(", employeeRelations=").append(employeeRelations)
+                        .toString();
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
@@ -161,6 +170,7 @@ public abstract class AbstractDocumentDto
         private String contactOid;
         private String workspaceOid;
         private String note;
+        private Set<EmployeeRelationDto> employeeRelations;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -243,6 +253,13 @@ public abstract class AbstractDocumentDto
         public S withTaxes(final Set<TaxEntryDto> _taxes)
         {
             this.taxes = _taxes;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withEmployeeRelations(final Set<EmployeeRelationDto> employeeRelations)
+        {
+            this.employeeRelations = employeeRelations;
             return (S) this;
         }
 
