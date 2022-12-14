@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2021 The eFaps Team
+ * Copyright 2003 - 2022 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ public abstract class AbstractDocumentDto
     private final BigDecimal netTotal;
     private final BigDecimal crossTotal;
     private final BigDecimal exchangeRate;
+    private final BigDecimal payableAmount;
     private final Set<TaxEntryDto> taxes;
     private final String contactOid;
     private final String workspaceOid;
@@ -52,6 +53,7 @@ public abstract class AbstractDocumentDto
         date = _builder.date;
         netTotal = _builder.netTotal;
         crossTotal = _builder.crossTotal;
+        payableAmount = _builder.payableAmount;
         currency = _builder.currency == null ? Currency.PEN : _builder.currency;
         exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
         taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
@@ -99,6 +101,11 @@ public abstract class AbstractDocumentDto
     public BigDecimal getCrossTotal()
     {
         return crossTotal;
+    }
+
+    public BigDecimal getPayableAmount()
+    {
+        return payableAmount;
     }
 
     public Set<TaxEntryDto> getTaxes()
@@ -165,6 +172,7 @@ public abstract class AbstractDocumentDto
         private BigDecimal netTotal;
         private BigDecimal crossTotal;
         private BigDecimal exchangeRate;
+        private BigDecimal payableAmount;
         private Set<TaxEntryDto> taxes;
         private Set<? extends AbstractDocItemDto> items = new HashSet<>();
         private String contactOid;
@@ -225,6 +233,13 @@ public abstract class AbstractDocumentDto
         public S withExchangeRate(final BigDecimal exchangeRate)
         {
             this.exchangeRate = exchangeRate;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withPayableAmount(final BigDecimal payableAmount)
+        {
+            this.payableAmount = payableAmount;
             return (S) this;
         }
 
