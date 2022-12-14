@@ -37,7 +37,7 @@ public interface IDocument
 
     BigDecimal getExchangeRate();
 
-    BigDecimal getPaymentAmount();
+    BigDecimal getPayableAmount();
 
     Set<TaxEntryDto> getTaxes();
 
