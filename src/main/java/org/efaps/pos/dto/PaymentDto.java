@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2020 The eFaps Team
+ * Copyright 2003 - 2023 The eFaps Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -35,6 +36,12 @@ public class PaymentDto
     private final Long cardTypeId;
     private final String cardLabel;
     private final String mappingKey;
+    private final String serviceProvider;
+    private final String authorization;
+    private final OffsetDateTime operationDateTime;
+    private final String operationId;
+    private final String info;
+    private final String cardNumber;
 
     private PaymentDto(final Builder _builder)
     {
@@ -46,6 +53,12 @@ public class PaymentDto
         cardTypeId = _builder.cardTypeId;
         cardLabel = _builder.cardLabel;
         mappingKey = _builder.mappingKey;
+        serviceProvider = _builder.serviceProvider;
+        authorization = _builder.authorization;
+        operationDateTime = _builder.operationDateTime;
+        operationId = _builder.operationId;
+        info = _builder.info;
+        cardNumber = _builder.cardNumber;
     }
 
     public PaymentType getType()
@@ -83,6 +96,36 @@ public class PaymentDto
         return mappingKey;
     }
 
+    public String getServiceProvider()
+    {
+        return serviceProvider;
+    }
+
+    public String getAuthorization()
+    {
+        return authorization;
+    }
+
+    public OffsetDateTime getOperationDateTime()
+    {
+        return operationDateTime;
+    }
+
+    public String getOperationId()
+    {
+        return operationId;
+    }
+
+    public String getInfo()
+    {
+        return info;
+    }
+
+    public String getCardNumber()
+    {
+        return cardNumber;
+    }
+
     @Override
     public String toString()
     {
@@ -95,6 +138,12 @@ public class PaymentDto
                         .append(", cardTypeId=").append(cardTypeId)
                         .append(", cardLabel=").append(cardLabel)
                         .append(", mappingKey=").append(mappingKey)
+                        .append(", serviceProvider=").append(serviceProvider)
+                        .append(", authorization=").append(authorization)
+                        .append(", operationDateTime=").append(operationDateTime)
+                        .append(", operationId=").append(operationId)
+                        .append(", info=").append(info)
+                        .append(", cardNumber=").append(cardNumber)
                         .append("]").toString();
     }
 
@@ -115,6 +164,12 @@ public class PaymentDto
         private Long cardTypeId;
         private String cardLabel;
         private String mappingKey;
+        private String serviceProvider;
+        private String authorization;
+        private OffsetDateTime operationDateTime;
+        private String operationId;
+        private String info;
+        private String cardNumber;
 
         public Builder withType(final PaymentType _type)
         {
@@ -155,6 +210,42 @@ public class PaymentDto
         public Builder withMappingKey(final String _mappingKey)
         {
             mappingKey = _mappingKey;
+            return this;
+        }
+
+        public Builder withServiceProvider(final String serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+            return this;
+        }
+
+        public Builder withAuthorization(final String authorization)
+        {
+            this.authorization = authorization;
+            return this;
+        }
+
+        public Builder withOperationDateTime(final OffsetDateTime operationDateTime)
+        {
+            this.operationDateTime = operationDateTime;
+            return this;
+        }
+
+        public Builder withOperationId(final String operationId)
+        {
+            this.operationId = operationId;
+            return this;
+        }
+
+        public Builder withInfo(final String info)
+        {
+            this.info = info;
+            return this;
+        }
+
+        public Builder withCardNumber(final String cardNumber)
+        {
+            this.cardNumber = cardNumber;
             return this;
         }
 
