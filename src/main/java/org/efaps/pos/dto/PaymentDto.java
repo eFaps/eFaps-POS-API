@@ -43,7 +43,7 @@ public class PaymentDto
     private final String info;
     private final String cardNumber;
 
-    private PaymentDto(final Builder _builder)
+    protected PaymentDto(final Builder _builder)
     {
         super(_builder);
         type = _builder.type;
