@@ -26,18 +26,26 @@ public class ConfigurationBOMDto
     extends AbstractObjectDto
 {
 
+    private final String toProductOid;
     private final String bomGroupOid;
     private final int position;
+
     private final BigDecimal quantity;
     private final String uoM;
 
     private ConfigurationBOMDto(Builder builder)
     {
         super(builder);
+        this.toProductOid = builder.toProductOid;
         this.bomGroupOid = builder.bomGroupOid;
         this.position = builder.position;
         this.quantity = builder.quantity;
         this.uoM = builder.uoM;
+    }
+
+    public String getToProductOid()
+    {
+        return toProductOid;
     }
 
     public String getBomGroupOid()
@@ -65,6 +73,7 @@ public class ConfigurationBOMDto
     {
         return new StringBuilder()
                         .append(super.toString())
+                        .append(", toProductOid=").append(toProductOid)
                         .append(", bomGroupOid=").append(bomGroupOid)
                         .append(", position=").append(position)
                         .append(", quantity=").append(quantity)
@@ -81,7 +90,7 @@ public class ConfigurationBOMDto
     public static final class Builder
         extends AbstractObjectDto.Builder<Builder, ConfigurationBOMDto>
     {
-
+        private String toProductOid;
         private String bomGroupOid;
         private int position;
         private BigDecimal quantity;
@@ -89,6 +98,12 @@ public class ConfigurationBOMDto
 
         private Builder()
         {
+        }
+
+        public Builder withToProductOid(String toProductOid)
+        {
+            this.toProductOid = toProductOid;
+            return this;
         }
 
         public Builder withBomGroupOid(String bomGroupOid)
