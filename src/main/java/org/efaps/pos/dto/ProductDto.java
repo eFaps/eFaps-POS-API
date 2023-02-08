@@ -45,6 +45,8 @@ public class ProductDto
     private final Set<ProductRelationDto> relations;
     private final Set<IndicationSetDto> indicationSets;
     private final Set<BarcodeDto> barcodes;
+    private final Set<BOMGroupConfigDto> bomGroupConfigs;
+    private final Set<ConfigurationBOM> configurationBOMs;
 
     private ProductDto(final Builder _builder)
     {
@@ -64,7 +66,10 @@ public class ProductDto
         relations = _builder.relations == null ? Collections.emptySet() : _builder.relations;
         indicationSets = _builder.indicationSets == null ? Collections.emptySet() : _builder.indicationSets;
         barcodes = _builder.barcodes == null ? Collections.emptySet() : _builder.barcodes;
+        bomGroupConfigs = _builder.bomGroupConfigs == null ? Collections.emptySet() : _builder.bomGroupConfigs;
+        configurationBOMs = _builder.configurationBOMs == null ? Collections.emptySet() : _builder.configurationBOMs;
     }
+
 
     public String getSku()
     {
@@ -141,6 +146,17 @@ public class ProductDto
         return barcodes;
     }
 
+    public Set<BOMGroupConfigDto> getBomGroupConfigs()
+    {
+        return bomGroupConfigs;
+    }
+
+    public Set<ConfigurationBOM> getConfigurationBOMs()
+    {
+        return configurationBOMs;
+    }
+
+
     @Override
     public String toString()
     {
@@ -160,8 +176,9 @@ public class ProductDto
                         .append(", relations=").append(relations)
                         .append(", indicationSets=").append(indicationSets)
                         .append(", barcodes=").append(barcodes)
+                        .append(", bomGroupConfigs=").append(bomGroupConfigs)
+                        .append(", configurationBOMs=").append(configurationBOMs)
                         .append("]").toString();
-
     }
 
     public static Builder builder()
@@ -189,6 +206,8 @@ public class ProductDto
         private Set<ProductRelationDto> relations;
         private Set<IndicationSetDto> indicationSets;
         private Set<BarcodeDto> barcodes;
+        private Set<BOMGroupConfigDto> bomGroupConfigs;
+        private Set<ConfigurationBOM> configurationBOMs;
 
         public Builder withSKU(final String _sku)
         {
@@ -277,6 +296,18 @@ public class ProductDto
         public Builder withBarcodes(final Set<BarcodeDto> _barcodes)
         {
             barcodes = _barcodes;
+            return this;
+        }
+
+        public Builder withBOMGroupConfigs(final Set<BOMGroupConfigDto> bomGroupConfigs)
+        {
+            this.bomGroupConfigs = bomGroupConfigs;
+            return this;
+        }
+
+        public Builder withConfigurationBOMs(final Set<ConfigurationBOM> configurationBOMs)
+        {
+            this.configurationBOMs = configurationBOMs;
             return this;
         }
 
