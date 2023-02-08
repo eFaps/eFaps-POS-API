@@ -299,7 +299,7 @@ public class ProductDto
             return this;
         }
 
-        public Builder withBOMGroupConfigs(final Set<BOMGroupConfigDto> bomGroupConfigs)
+        public Builder withBomGroupConfigs(final Set<BOMGroupConfigDto> bomGroupConfigs)
         {
             this.bomGroupConfigs = bomGroupConfigs;
             return this;
