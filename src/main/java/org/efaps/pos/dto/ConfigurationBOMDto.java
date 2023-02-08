@@ -21,18 +21,17 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = ConfigurationBOM.Builder.class)
-public class ConfigurationBOM
+@JsonDeserialize(builder = ConfigurationBOMDto.Builder.class)
+public class ConfigurationBOMDto
     extends AbstractObjectDto
 {
 
     private final String bomGroupOid;
-
     private final int position;
     private final BigDecimal quantity;
     private final String uoM;
 
-    private ConfigurationBOM(Builder builder)
+    private ConfigurationBOMDto(Builder builder)
     {
         super(builder);
         this.bomGroupOid = builder.bomGroupOid;
@@ -80,7 +79,7 @@ public class ConfigurationBOM
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, ConfigurationBOM>
+        extends AbstractObjectDto.Builder<Builder, ConfigurationBOMDto>
     {
 
         private String bomGroupOid;
@@ -117,9 +116,9 @@ public class ConfigurationBOM
         }
 
         @Override
-        public ConfigurationBOM build()
+        public ConfigurationBOMDto build()
         {
-            return new ConfigurationBOM(this);
+            return new ConfigurationBOMDto(this);
         }
     }
 }

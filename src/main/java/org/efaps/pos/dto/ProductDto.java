@@ -46,7 +46,7 @@ public class ProductDto
     private final Set<IndicationSetDto> indicationSets;
     private final Set<BarcodeDto> barcodes;
     private final Set<BOMGroupConfigDto> bomGroupConfigs;
-    private final Set<ConfigurationBOM> configurationBOMs;
+    private final Set<ConfigurationBOMDto> configurationBOMs;
 
     private ProductDto(final Builder _builder)
     {
@@ -151,7 +151,7 @@ public class ProductDto
         return bomGroupConfigs;
     }
 
-    public Set<ConfigurationBOM> getConfigurationBOMs()
+    public Set<ConfigurationBOMDto> getConfigurationBOMs()
     {
         return configurationBOMs;
     }
@@ -207,7 +207,7 @@ public class ProductDto
         private Set<IndicationSetDto> indicationSets;
         private Set<BarcodeDto> barcodes;
         private Set<BOMGroupConfigDto> bomGroupConfigs;
-        private Set<ConfigurationBOM> configurationBOMs;
+        private Set<ConfigurationBOMDto> configurationBOMs;
 
         public Builder withSKU(final String _sku)
         {
@@ -305,7 +305,7 @@ public class ProductDto
             return this;
         }
 
-        public Builder withConfigurationBOMs(final Set<ConfigurationBOM> configurationBOMs)
+        public Builder withConfigurationBOMs(final Set<ConfigurationBOMDto> configurationBOMs)
         {
             this.configurationBOMs = configurationBOMs;
             return this;
