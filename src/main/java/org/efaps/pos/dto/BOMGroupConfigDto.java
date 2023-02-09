@@ -27,7 +27,7 @@ public class BOMGroupConfigDto
     private final String productOid;
     private final String name;
     private final String description;
-    private final int config;
+    private final int flags;
 
     private BOMGroupConfigDto(Builder builder)
     {
@@ -35,7 +35,7 @@ public class BOMGroupConfigDto
         this.productOid = builder.productOid;
         this.name = builder.name;
         this.description = builder.description;
-        this.config = builder.config;
+        this.flags = builder.flags;
     }
 
     public String getProductOid()
@@ -53,9 +53,9 @@ public class BOMGroupConfigDto
         return description;
     }
 
-    public int getConfig()
+    public int getFlags()
     {
-        return config;
+        return flags;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class BOMGroupConfigDto
                         .append(", productOid=").append(productOid)
                         .append(", name=").append(name)
                         .append(", description=").append(description)
-                        .append(", config=").append(config)
+                        .append(", flags=").append(flags)
                         .append("]").toString();
     }
 
@@ -83,7 +83,7 @@ public class BOMGroupConfigDto
         private String productOid;
         private String name;
         private String description;
-        private int config;
+        private int flags;
 
         public Builder withProductOid(String productOid)
         {
@@ -103,9 +103,9 @@ public class BOMGroupConfigDto
             return this;
         }
 
-        public Builder withConfig(int config)
+        public Builder withFlags(int flags)
         {
-            this.config = config;
+            this.flags = flags;
             return this;
         }
 
