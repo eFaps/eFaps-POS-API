@@ -25,6 +25,7 @@ public abstract class AbstractDocItemDto
 {
 
     private final Integer index;
+    private final Integer parentIdx;
     private final String productOid;
     private final BigDecimal quantity;
     private final BigDecimal netUnitPrice;
@@ -40,6 +41,7 @@ public abstract class AbstractDocItemDto
     {
         super(_builder);
         index = _builder.index;
+        parentIdx = _builder.parentIdx;
         productOid = _builder.productOid;
         quantity = _builder.quantity;
         netUnitPrice = _builder.netUnitPrice;
@@ -55,6 +57,11 @@ public abstract class AbstractDocItemDto
     public Integer getIndex()
     {
         return index;
+    }
+
+    public Integer getParentIdx()
+    {
+        return parentIdx;
     }
 
     public String getProductOid()
@@ -113,6 +120,7 @@ public abstract class AbstractDocItemDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", index=").append(index)
+                        .append(", parentIdx=").append(parentIdx)
                         .append(", productOid=").append(productOid)
                         .append(", quantity=").append(quantity)
                         .append(", netUnitPrice=").append(netUnitPrice)
@@ -130,6 +138,7 @@ public abstract class AbstractDocItemDto
     {
 
         private Integer index;
+        private Integer parentIdx;
         private String productOid;
         private BigDecimal quantity;
         private BigDecimal netUnitPrice;
@@ -145,6 +154,13 @@ public abstract class AbstractDocItemDto
         public S withIndex(final Integer _index)
         {
             this.index = _index;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withParentIdx(final Integer parentIdx)
+        {
+            this.parentIdx = parentIdx;
             return (S) this;
         }
 
