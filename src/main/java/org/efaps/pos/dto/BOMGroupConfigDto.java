@@ -27,6 +27,7 @@ public class BOMGroupConfigDto
     private final String productOid;
     private final String name;
     private final String description;
+    private final int weight;
     private final int flags;
 
     private BOMGroupConfigDto(Builder builder)
@@ -35,6 +36,7 @@ public class BOMGroupConfigDto
         this.productOid = builder.productOid;
         this.name = builder.name;
         this.description = builder.description;
+        this.weight = builder.weight;
         this.flags = builder.flags;
     }
 
@@ -83,6 +85,7 @@ public class BOMGroupConfigDto
         private String productOid;
         private String name;
         private String description;
+        private int weight;
         private int flags;
 
         public Builder withProductOid(String productOid)
@@ -106,6 +109,12 @@ public class BOMGroupConfigDto
         public Builder withFlags(int flags)
         {
             this.flags = flags;
+            return this;
+        }
+
+        public Builder withWeight(Integer weight)
+        {
+            this.weight = weight == null ? 0 : weight;
             return this;
         }
 
