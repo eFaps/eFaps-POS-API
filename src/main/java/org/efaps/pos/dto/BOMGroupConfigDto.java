@@ -28,6 +28,7 @@ public class BOMGroupConfigDto
     private final String name;
     private final String description;
     private final int weight;
+
     private final int flags;
 
     private BOMGroupConfigDto(Builder builder)
@@ -53,6 +54,11 @@ public class BOMGroupConfigDto
     public String getDescription()
     {
         return description;
+    }
+
+    public int getWeight()
+    {
+        return weight;
     }
 
     public int getFlags()
