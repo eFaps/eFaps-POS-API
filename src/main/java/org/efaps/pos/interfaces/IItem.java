@@ -27,6 +27,8 @@ public interface IItem
 
     Integer getIndex();
 
+    Integer getParentIdx();
+
     BigDecimal getQuantity();
 
     BigDecimal getNetUnitPrice();
@@ -45,4 +47,8 @@ public interface IItem
 
     String getUoMCode();
 
+    default boolean isChild()
+    {
+        return getParentIdx() != null;
+    }
 }
