@@ -51,4 +51,9 @@ public interface IItem
     {
         return getParentIdx() != null;
     }
+
+    default boolean isParent()
+    {
+        return !isChild();
+    }
 }
