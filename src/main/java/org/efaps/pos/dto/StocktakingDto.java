@@ -28,8 +28,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class StocktakingDto
     extends AbstractObjectDto
 {
+
     private final String number;
     private final String userOid;
+    private final String warehouseOid;
+
     private final OffsetDateTime startAt;
     private final OffsetDateTime endAt;
     private final StocktakingStatus status;
@@ -40,6 +43,7 @@ public class StocktakingDto
         super(builder);
         this.number = builder.number;
         this.userOid = builder.userOid;
+        this.warehouseOid = builder.warehouseOid;
         this.startAt = builder.startAt;
         this.endAt = builder.endAt;
         this.status = builder.status;
@@ -54,6 +58,11 @@ public class StocktakingDto
     public String getUserOid()
     {
         return userOid;
+    }
+
+    public String getWarehouseOid()
+    {
+        return warehouseOid;
     }
 
     public OffsetDateTime getStartAt()
@@ -83,6 +92,7 @@ public class StocktakingDto
                         .append(super.toString())
                         .append(", number=").append(number)
                         .append(", userOid=").append(userOid)
+                        .append(", warehouseOid=").append(warehouseOid)
                         .append(", startAt=").append(startAt)
                         .append(", endAt=").append(endAt)
                         .append(", status=").append(status)
@@ -102,6 +112,7 @@ public class StocktakingDto
 
         private String number;
         private String userOid;
+        private String warehouseOid;
         private OffsetDateTime startAt;
         private OffsetDateTime endAt;
         private StocktakingStatus status;
@@ -120,6 +131,12 @@ public class StocktakingDto
         public Builder withUserOid(String userOid)
         {
             this.userOid = userOid;
+            return this;
+        }
+
+        public Builder withWarehouseOid(String warehouseOid)
+        {
+            this.warehouseOid = warehouseOid;
             return this;
         }
 
