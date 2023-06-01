@@ -16,6 +16,8 @@ public class UserDto
 
     private final String password;
 
+    private final String employeeOid;
+
     private final String firstName;
 
     private final String surName;
@@ -31,6 +33,7 @@ public class UserDto
         super(_builder);
         username = _builder.username;
         password = _builder.password;
+        employeeOid = _builder.employeeOid;
         firstName = _builder.firstName;
         surName = _builder.surName;
         roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableSet(_builder.roles);
@@ -42,6 +45,11 @@ public class UserDto
     public String getUsername()
     {
         return username;
+    }
+
+    public String getEmployeeOid()
+    {
+        return employeeOid;
     }
 
     public String getPassword()
@@ -73,6 +81,7 @@ public class UserDto
     {
         return visible;
     }
+
     @Override
     public String toString()
     {
@@ -87,6 +96,7 @@ public class UserDto
                         .append(", visible=").append(visible)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
@@ -100,6 +110,8 @@ public class UserDto
         private String username;
 
         private String password;
+
+        private String employeeOid;
 
         private String firstName;
 
@@ -120,6 +132,12 @@ public class UserDto
         public Builder withPassword(final String _password)
         {
             password = _password;
+            return this;
+        }
+
+        public Builder withEmployeeOid(final String employeeOid)
+        {
+            this.employeeOid = employeeOid;
             return this;
         }
 
