@@ -19,5 +19,6 @@ package org.efaps.pos.dto;
 public enum PrinterType
 {
     PREVIEW,
-    PHYSICAL
+    PHYSICAL,
+    EXTENSION
 }
