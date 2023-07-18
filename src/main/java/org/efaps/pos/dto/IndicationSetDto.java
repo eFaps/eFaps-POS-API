@@ -16,8 +16,8 @@
  */
 package org.efaps.pos.dto;
 
+import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -38,7 +38,7 @@ public class IndicationSetDto
 
     private final String imageOid;
 
-    private final Set<IndicationDto> indications;
+    private final Collection<IndicationDto> indications;
 
     protected IndicationSetDto(final Builder _builder)
     {
@@ -46,7 +46,7 @@ public class IndicationSetDto
         name = _builder.name;
         description = _builder.description;
         indications = _builder.indications == null ? Collections.emptySet()
-                        : Collections.unmodifiableSet(_builder.indications);
+                        : Collections.unmodifiableCollection(_builder.indications);
         required = _builder.required;
         multiple = _builder.multiple;
         imageOid = _builder.imageOid;
@@ -77,7 +77,7 @@ public class IndicationSetDto
         return imageOid;
     }
 
-    public Set<IndicationDto> getIndications()
+    public Collection<IndicationDto> getIndications()
     {
         return indications;
     }
@@ -108,7 +108,7 @@ public class IndicationSetDto
 
         private String name;
         private String description;
-        private Set<IndicationDto> indications;
+        private Collection<IndicationDto> indications;
         private boolean required;
         private boolean multiple;
         private String imageOid;
@@ -125,7 +125,7 @@ public class IndicationSetDto
             return this;
         }
 
-        public Builder withIndications(final Set<IndicationDto> _indications)
+        public Builder withIndications(final Collection<IndicationDto> _indications)
         {
             indications = _indications;
             return this;

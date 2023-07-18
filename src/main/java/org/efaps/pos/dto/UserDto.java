@@ -1,7 +1,7 @@
 package org.efaps.pos.dto;
 
+import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -22,9 +22,9 @@ public class UserDto
 
     private final String surName;
 
-    private final Set<Roles> roles;
+    private final Collection<Roles> roles;
 
-    private final Set<String> workspaceOids;
+    private final Collection<String> workspaceOids;
 
     private final boolean visible;
 
@@ -36,9 +36,9 @@ public class UserDto
         employeeOid = _builder.employeeOid;
         firstName = _builder.firstName;
         surName = _builder.surName;
-        roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableSet(_builder.roles);
+        roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableCollection(_builder.roles);
         workspaceOids = _builder.workspaceOids == null ? Collections.emptySet()
-                        : Collections.unmodifiableSet(_builder.workspaceOids);
+                        : Collections.unmodifiableCollection(_builder.workspaceOids);
         visible = _builder.visible;
     }
 
@@ -67,12 +67,12 @@ public class UserDto
         return surName;
     }
 
-    public Set<Roles> getRoles()
+    public Collection<Roles> getRoles()
     {
         return roles;
     }
 
-    public Set<String> getWorkspaceOids()
+    public Collection<String> getWorkspaceOids()
     {
         return workspaceOids;
     }
@@ -117,9 +117,9 @@ public class UserDto
 
         private String surName;
 
-        private Set<Roles> roles;
+        private Collection<Roles> roles;
 
-        private Set<String> workspaceOids;
+        private Collection<String> workspaceOids;
 
         private boolean visible;
 
@@ -153,13 +153,13 @@ public class UserDto
             return this;
         }
 
-        public Builder withRoles(final Set<Roles> _roles)
+        public Builder withRoles(final Collection<Roles> _roles)
         {
             roles = _roles;
             return this;
         }
 
-        public Builder withWorkspaceOids(final Set<String> _workspaceOids)
+        public Builder withWorkspaceOids(final Collection<String> _workspaceOids)
         {
             workspaceOids = _workspaceOids;
             return this;

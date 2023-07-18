@@ -16,7 +16,7 @@
  */
 package org.efaps.pos.dto;
 
-import java.util.Set;
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -50,13 +50,13 @@ public class ReceiptDto
         extends AbstractPayableDocumentDto.Builder<Builder, ReceiptDto>
     {
 
-        public Builder withItems(final Set<DocItemDto> _items)
+        public Builder withItems(final Collection<DocItemDto> _items)
         {
             setItems(_items);
             return this;
         }
 
-        public Builder withPayments(final Set<PaymentDto> _payments)
+        public Builder withPayments(final Collection<PaymentDto> _payments)
         {
             setPayments(_payments);
             return this;

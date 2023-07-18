@@ -18,7 +18,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.Collection;
 
 public abstract class AbstractDocItemDto
     extends AbstractObjectDto
@@ -34,7 +34,7 @@ public abstract class AbstractDocItemDto
     private final BigDecimal crossPrice;
     private final Currency currency;
     private final BigDecimal exchangeRate;
-    private final Set<TaxEntryDto> taxes;
+    private final Collection<TaxEntryDto> taxes;
     private final String remark;
 
     protected AbstractDocItemDto(final Builder<?, ?> _builder)
@@ -94,7 +94,7 @@ public abstract class AbstractDocItemDto
         return crossPrice;
     }
 
-    public Set<TaxEntryDto> getTaxes()
+    public Collection<TaxEntryDto> getTaxes()
     {
         return taxes;
     }
@@ -147,7 +147,7 @@ public abstract class AbstractDocItemDto
         private BigDecimal crossPrice;
         private Currency currency;
         private BigDecimal exchangeRate;
-        private Set<TaxEntryDto> taxes;
+        private Collection<TaxEntryDto> taxes;
         private String remark;
 
         @SuppressWarnings("unchecked")
@@ -221,7 +221,7 @@ public abstract class AbstractDocItemDto
         }
 
         @SuppressWarnings("unchecked")
-        public S withTaxes(final Set<TaxEntryDto> _taxes)
+        public S withTaxes(final Collection<TaxEntryDto> _taxes)
         {
             this.taxes = _taxes;
             return (S) this;

@@ -16,9 +16,8 @@
  */
 package org.efaps.pos.dto;
 
+import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -31,17 +30,17 @@ public class WorkspaceDto
 
     private final String name;
     private final String posOid;
-    private final Set<DocType> docTypes;
+    private final Collection<DocType> docTypes;
     private final SpotConfig spotConfig;
     private final int spotCount;
     private final String warehouseOid;
-    private final Set<PrintCmdDto> printCmds;
+    private final Collection<PrintCmdDto> printCmds;
     private final PosLayout posLayout;
-    private final Set<DiscountDto> discounts;
-    private final Set<CardDto> cards;
+    private final Collection<DiscountDto> discounts;
+    private final Collection<CardDto> cards;
     private final PosGridSize gridSize;
-    private final List<FloorDto> floors;
-    private final List<String> categoryOids;
+    private final Collection<FloorDto> floors;
+    private final Collection<String> categoryOids;
     private final int flags;
 
     public WorkspaceDto(final Builder _builder)
@@ -50,22 +49,22 @@ public class WorkspaceDto
         name = _builder.name;
         posOid = _builder.posOid;
         docTypes = _builder.docTypes == null ? Collections.emptySet()
-                        : Collections.unmodifiableSet(_builder.docTypes);
+                        : Collections.unmodifiableCollection(_builder.docTypes);
         spotConfig = _builder.spotConfig;
         warehouseOid = _builder.warehouseOid;
         printCmds = _builder.printCmds == null ? Collections.emptySet()
-                        : Collections.unmodifiableSet(_builder.printCmds);
+                        : Collections.unmodifiableCollection(_builder.printCmds);
         spotCount = _builder.spotCount;
         posLayout = _builder.posLayout;
         discounts = _builder.discounts == null ? Collections.emptySet()
-                        : Collections.unmodifiableSet(_builder.discounts);
+                        : Collections.unmodifiableCollection(_builder.discounts);
         cards = _builder.cards == null ? Collections.emptySet()
-                        : Collections.unmodifiableSet(_builder.cards);
+                        : Collections.unmodifiableCollection(_builder.cards);
         gridSize = _builder.gridSize;
         floors = _builder.floors == null ? Collections.emptyList()
-                        : Collections.unmodifiableList(_builder.floors);
+                        : Collections.unmodifiableCollection(_builder.floors);
         categoryOids = _builder.categoryOids == null ? Collections.emptyList()
-                        : Collections.unmodifiableList(_builder.categoryOids);
+                        : Collections.unmodifiableCollection(_builder.categoryOids);
         flags = _builder.flags;
     }
 
@@ -79,7 +78,7 @@ public class WorkspaceDto
         return posOid;
     }
 
-    public Set<DocType> getDocTypes()
+    public Collection<DocType> getDocTypes()
     {
         return docTypes;
     }
@@ -99,7 +98,7 @@ public class WorkspaceDto
         return warehouseOid;
     }
 
-    public Set<PrintCmdDto> getPrintCmds()
+    public Collection<PrintCmdDto> getPrintCmds()
     {
         return printCmds;
     }
@@ -109,12 +108,12 @@ public class WorkspaceDto
         return posLayout;
     }
 
-    public Set<DiscountDto> getDiscounts()
+    public Collection<DiscountDto> getDiscounts()
     {
         return discounts;
     }
 
-    public Set<CardDto> getCards()
+    public Collection<CardDto> getCards()
     {
         return cards;
     }
@@ -124,12 +123,12 @@ public class WorkspaceDto
         return gridSize;
     }
 
-    public List<FloorDto> getFloors()
+    public Collection<FloorDto> getFloors()
     {
         return floors;
     }
 
-    public List<String> getCategoryOids()
+    public Collection<String> getCategoryOids()
     {
         return categoryOids;
     }
@@ -174,16 +173,16 @@ public class WorkspaceDto
         private String warehouseOid;
         private String name;
         private String posOid;
-        private Set<DocType> docTypes;
+        private Collection<DocType> docTypes;
         private SpotConfig spotConfig;
         private int spotCount;
-        private Set<PrintCmdDto> printCmds;
+        private Collection<PrintCmdDto> printCmds;
         private PosLayout posLayout;
-        private Set<DiscountDto> discounts;
-        private Set<CardDto> cards;
+        private Collection<DiscountDto> discounts;
+        private Collection<CardDto> cards;
         private PosGridSize gridSize;
-        private List<FloorDto> floors;
-        private List<String> categoryOids;
+        private Collection<FloorDto> floors;
+        private Collection<String> categoryOids;
         private int flags;
 
         public Builder withName(final String _name)
@@ -198,7 +197,7 @@ public class WorkspaceDto
             return this;
         }
 
-        public Builder withDocTypes(final Set<DocType> _docTypes)
+        public Builder withDocTypes(final Collection<DocType> _docTypes)
         {
             docTypes = _docTypes;
             return this;
@@ -222,7 +221,7 @@ public class WorkspaceDto
             return this;
         }
 
-        public Builder withPrintCmds(final Set<PrintCmdDto> _printCmds)
+        public Builder withPrintCmds(final Collection<PrintCmdDto> _printCmds)
         {
             printCmds = _printCmds;
             return this;
@@ -234,13 +233,13 @@ public class WorkspaceDto
             return this;
         }
 
-        public Builder withDiscounts(final Set<DiscountDto> _discounts)
+        public Builder withDiscounts(final Collection<DiscountDto> _discounts)
         {
             discounts = _discounts;
             return this;
         }
 
-        public Builder withCards(final Set<CardDto> _cards)
+        public Builder withCards(final Collection<CardDto> _cards)
         {
             cards = _cards;
             return this;
@@ -252,13 +251,13 @@ public class WorkspaceDto
             return this;
         }
 
-        public Builder withFloors(final List<FloorDto> _floors)
+        public Builder withFloors(final Collection<FloorDto> _floors)
         {
             floors = _floors;
             return this;
         }
 
-        public Builder withCategoryOids(final List<String> _categoryOids)
+        public Builder withCategoryOids(final Collection<String> _categoryOids)
         {
             categoryOids = _categoryOids;
             return this;

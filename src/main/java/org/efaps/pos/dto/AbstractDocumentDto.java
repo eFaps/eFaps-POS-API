@@ -19,9 +19,9 @@ package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
 
 public abstract class AbstractDocumentDto
     extends AbstractObjectDto
@@ -29,7 +29,7 @@ public abstract class AbstractDocumentDto
 
     private final String id;
     private final String number;
-    private final Set<? extends AbstractDocItemDto> items;
+    private final Collection<? extends AbstractDocItemDto> items;
     private final DocStatus status;
     private final LocalDate date;
     private final Currency currency;
@@ -37,11 +37,11 @@ public abstract class AbstractDocumentDto
     private final BigDecimal crossTotal;
     private final BigDecimal exchangeRate;
     private final BigDecimal payableAmount;
-    private final Set<TaxEntryDto> taxes;
+    private final Collection<TaxEntryDto> taxes;
     private final String contactOid;
     private final String workspaceOid;
     private final String note;
-    private final Set<EmployeeRelationDto> employeeRelations;
+    private final Collection<EmployeeRelationDto> employeeRelations;
 
     protected AbstractDocumentDto(final Builder<?, ?> _builder)
     {
@@ -73,9 +73,9 @@ public abstract class AbstractDocumentDto
         return number;
     }
 
-    public Set<? extends AbstractDocItemDto> getItems()
+    public Collection<? extends AbstractDocItemDto> getItems()
     {
-        return Collections.unmodifiableSet(items);
+        return Collections.unmodifiableCollection(items);
     }
 
     public DocStatus getStatus()
@@ -108,9 +108,9 @@ public abstract class AbstractDocumentDto
         return payableAmount;
     }
 
-    public Set<TaxEntryDto> getTaxes()
+    public Collection<TaxEntryDto> getTaxes()
     {
-        return Collections.unmodifiableSet(taxes);
+        return Collections.unmodifiableCollection(taxes);
     }
 
     public String getContactOid()
@@ -133,9 +133,9 @@ public abstract class AbstractDocumentDto
         return exchangeRate;
     }
 
-    public Set<EmployeeRelationDto> getEmployeeRelations()
+    public Collection<EmployeeRelationDto> getEmployeeRelations()
     {
-        return employeeRelations;
+        return Collections.unmodifiableCollection(employeeRelations);
     }
 
     @Override
@@ -173,12 +173,12 @@ public abstract class AbstractDocumentDto
         private BigDecimal crossTotal;
         private BigDecimal exchangeRate;
         private BigDecimal payableAmount;
-        private Set<TaxEntryDto> taxes;
-        private Set<? extends AbstractDocItemDto> items = new HashSet<>();
+        private Collection<TaxEntryDto> taxes;
+        private Collection<? extends AbstractDocItemDto> items = new HashSet<>();
         private String contactOid;
         private String workspaceOid;
         private String note;
-        private Set<EmployeeRelationDto> employeeRelations;
+        private Collection<EmployeeRelationDto> employeeRelations;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -265,20 +265,20 @@ public abstract class AbstractDocumentDto
         }
 
         @SuppressWarnings("unchecked")
-        public S withTaxes(final Set<TaxEntryDto> _taxes)
+        public S withTaxes(final Collection<TaxEntryDto> _taxes)
         {
             this.taxes = _taxes;
             return (S) this;
         }
 
         @SuppressWarnings("unchecked")
-        public S withEmployeeRelations(final Set<EmployeeRelationDto> employeeRelations)
+        public S withEmployeeRelations(final Collection<EmployeeRelationDto> employeeRelations)
         {
             this.employeeRelations = employeeRelations;
             return (S) this;
         }
 
-        protected void setItems(final Set<? extends AbstractDocItemDto> _items)
+        protected void setItems(final Collection<? extends AbstractDocItemDto> _items)
         {
             this.items = _items;
         }

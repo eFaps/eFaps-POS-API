@@ -18,7 +18,7 @@
 package org.efaps.pos.interfaces;
 
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.Collection;
 
 import org.efaps.pos.dto.TaxEntryDto;
 
@@ -39,7 +39,7 @@ public interface IItem
 
     BigDecimal getNetPrice();
 
-    Set<TaxEntryDto> getTaxes();
+    Collection<TaxEntryDto> getTaxes();
 
     String getSku();
 

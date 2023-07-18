@@ -17,10 +17,10 @@
 
 package org.efaps.pos.interfaces;
 
-import java.util.Set;
+import java.util.Collection;
 
 public interface IReceipt
     extends IDocument
 {
-    Set<IReceiptItem> getReceiptItems();
+    Collection<IReceiptItem> getReceiptItems();
 }

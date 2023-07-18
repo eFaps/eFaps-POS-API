@@ -17,9 +17,9 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -38,15 +38,15 @@ public class ProductDto
     private final BigDecimal netPrice;
     private final BigDecimal crossPrice;
     private final Currency currency;
-    private final Set<Product2CategoryDto> categories;
-    private final Set<TaxDto> taxes;
+    private final Collection<Product2CategoryDto> categories;
+    private final Collection<TaxDto> taxes;
     private final String uoM;
     private final String uoMCode;
-    private final Set<ProductRelationDto> relations;
-    private final Set<IndicationSetDto> indicationSets;
-    private final Set<BarcodeDto> barcodes;
-    private final Set<BOMGroupConfigDto> bomGroupConfigs;
-    private final Set<ConfigurationBOMDto> configurationBOMs;
+    private final Collection<ProductRelationDto> relations;
+    private final Collection<IndicationSetDto> indicationSets;
+    private final Collection<BarcodeDto> barcodes;
+    private final Collection<BOMGroupConfigDto> bomGroupConfigs;
+    private final Collection<ConfigurationBOMDto> configurationBOMs;
 
     private ProductDto(final Builder _builder)
     {
@@ -111,14 +111,14 @@ public class ProductDto
         return currency;
     }
 
-    public Set<Product2CategoryDto> getCategories()
+    public Collection<Product2CategoryDto> getCategories()
     {
-        return Collections.unmodifiableSet(categories);
+        return Collections.unmodifiableCollection(categories);
     }
 
-    public Set<TaxDto> getTaxes()
+    public Collection<TaxDto> getTaxes()
     {
-        return Collections.unmodifiableSet(taxes);
+        return Collections.unmodifiableCollection(taxes);
     }
 
     public String getUoM()
@@ -131,27 +131,27 @@ public class ProductDto
         return uoMCode;
     }
 
-    public Set<ProductRelationDto> getRelations()
+    public Collection<ProductRelationDto> getRelations()
     {
         return relations;
     }
 
-    public Set<IndicationSetDto> getIndicationSets()
+    public Collection<IndicationSetDto> getIndicationSets()
     {
         return indicationSets;
     }
 
-    public Set<BarcodeDto> getBarcodes()
+    public Collection<BarcodeDto> getBarcodes()
     {
         return barcodes;
     }
 
-    public Set<BOMGroupConfigDto> getBomGroupConfigs()
+    public Collection<BOMGroupConfigDto> getBomGroupConfigs()
     {
         return bomGroupConfigs;
     }
 
-    public Set<ConfigurationBOMDto> getConfigurationBOMs()
+    public Collection<ConfigurationBOMDto> getConfigurationBOMs()
     {
         return configurationBOMs;
     }
@@ -199,15 +199,15 @@ public class ProductDto
         private BigDecimal netPrice;
         private BigDecimal crossPrice;
         private Currency currency;
-        private Set<Product2CategoryDto> categories;
-        private Set<TaxDto> taxes = new HashSet<>();
+        private Collection<Product2CategoryDto> categories;
+        private Collection<TaxDto> taxes = new HashSet<>();
         private String uoM;
         private String uoMCode;
-        private Set<ProductRelationDto> relations;
-        private Set<IndicationSetDto> indicationSets;
-        private Set<BarcodeDto> barcodes;
-        private Set<BOMGroupConfigDto> bomGroupConfigs;
-        private Set<ConfigurationBOMDto> configurationBOMs;
+        private Collection<ProductRelationDto> relations;
+        private Collection<IndicationSetDto> indicationSets;
+        private Collection<BarcodeDto> barcodes;
+        private Collection<BOMGroupConfigDto> bomGroupConfigs;
+        private Collection<ConfigurationBOMDto> configurationBOMs;
 
         public Builder withSKU(final String _sku)
         {
@@ -257,13 +257,13 @@ public class ProductDto
             return this;
         }
 
-        public Builder withCategories(final Set<Product2CategoryDto> _categories)
+        public Builder withCategories(final Collection<Product2CategoryDto> _categories)
         {
             categories = _categories;
             return this;
         }
 
-        public Builder withTaxes(final Set<TaxDto> _taxes)
+        public Builder withTaxes(final Collection<TaxDto> _taxes)
         {
             taxes = _taxes;
             return this;
@@ -281,31 +281,31 @@ public class ProductDto
             return this;
         }
 
-        public Builder withRelations(final Set<ProductRelationDto> _relations)
+        public Builder withRelations(final Collection<ProductRelationDto> _relations)
         {
             relations = _relations;
             return this;
         }
 
-        public Builder withIndicationSets(final Set<IndicationSetDto> _indicationSets)
+        public Builder withIndicationSets(final Collection<IndicationSetDto> _indicationSets)
         {
             indicationSets = _indicationSets;
             return this;
         }
 
-        public Builder withBarcodes(final Set<BarcodeDto> _barcodes)
+        public Builder withBarcodes(final Collection<BarcodeDto> _barcodes)
         {
             barcodes = _barcodes;
             return this;
         }
 
-        public Builder withBomGroupConfigs(final Set<BOMGroupConfigDto> bomGroupConfigs)
+        public Builder withBomGroupConfigs(final Collection<BOMGroupConfigDto> bomGroupConfigs)
         {
             this.bomGroupConfigs = bomGroupConfigs;
             return this;
         }
 
-        public Builder withConfigurationBOMs(final Set<ConfigurationBOMDto> configurationBOMs)
+        public Builder withConfigurationBOMs(final Collection<ConfigurationBOMDto> configurationBOMs)
         {
             this.configurationBOMs = configurationBOMs;
             return this;

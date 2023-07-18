@@ -16,7 +16,7 @@
  */
 package org.efaps.pos.dto;
 
-import java.util.Set;
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -67,7 +67,7 @@ public class OrderDto
             return this;
         }
 
-        public Builder withItems(final Set<DocItemDto> _items)
+        public Builder withItems(final Collection<DocItemDto> _items)
         {
             setItems(_items);
             return this;

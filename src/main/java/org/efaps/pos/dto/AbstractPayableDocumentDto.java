@@ -17,16 +17,16 @@
 
 package org.efaps.pos.dto;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
 
 public abstract class AbstractPayableDocumentDto
     extends AbstractDocumentDto
 {
     private final String balanceOid;
 
-    private final Set<PaymentDto> payments;
+    private final Collection<PaymentDto> payments;
 
     protected AbstractPayableDocumentDto(final Builder<?, ?> _builder)
     {
@@ -40,9 +40,9 @@ public abstract class AbstractPayableDocumentDto
         return balanceOid;
     }
 
-    public Set<PaymentDto> getPayments()
+    public Collection<PaymentDto> getPayments()
     {
-        return Collections.unmodifiableSet(payments);
+        return Collections.unmodifiableCollection(payments);
     }
 
     @Override
@@ -59,7 +59,7 @@ public abstract class AbstractPayableDocumentDto
         extends AbstractDocumentDto.Builder<S, T>
     {
         private String balanceOid;
-        private Set<PaymentDto> payments = new HashSet<>();
+        private Collection<PaymentDto> payments = new HashSet<>();
 
         @SuppressWarnings("unchecked")
         public S withBalanceOid(final String _balanceOid)
@@ -68,7 +68,7 @@ public abstract class AbstractPayableDocumentDto
             return (S) this;
         }
 
-        protected void setPayments(final Set<PaymentDto> _payments)
+        protected void setPayments(final Collection<PaymentDto> _payments)
         {
             this.payments = _payments;
         }

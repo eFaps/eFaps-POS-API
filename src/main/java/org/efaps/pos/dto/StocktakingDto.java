@@ -17,8 +17,8 @@
 package org.efaps.pos.dto;
 
 import java.time.OffsetDateTime;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -36,7 +36,7 @@ public class StocktakingDto
     private final OffsetDateTime startAt;
     private final OffsetDateTime endAt;
     private final StocktakingStatus status;
-    private final List<StocktakingEntryDto> entries;
+    private final Collection<StocktakingEntryDto> entries;
 
     private StocktakingDto(final Builder builder)
     {
@@ -80,7 +80,7 @@ public class StocktakingDto
         return status;
     }
 
-    public List<StocktakingEntryDto> getEntries()
+    public Collection<StocktakingEntryDto> getEntries()
     {
         return entries;
     }
@@ -116,7 +116,7 @@ public class StocktakingDto
         private OffsetDateTime startAt;
         private OffsetDateTime endAt;
         private StocktakingStatus status;
-        private List<StocktakingEntryDto> entries = Collections.emptyList();
+        private Collection<StocktakingEntryDto> entries = Collections.emptyList();
 
         private Builder()
         {
@@ -158,7 +158,7 @@ public class StocktakingDto
             return this;
         }
 
-        public Builder withEntries(List<StocktakingEntryDto> entries)
+        public Builder withEntries(Collection<StocktakingEntryDto> entries)
         {
             this.entries = entries;
             return this;

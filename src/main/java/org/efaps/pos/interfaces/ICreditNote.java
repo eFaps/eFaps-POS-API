@@ -17,12 +17,12 @@
 
 package org.efaps.pos.interfaces;
 
-import java.util.Set;
+import java.util.Collection;
 
 public interface ICreditNote
     extends IDocument
 {
-    Set<ICreditNoteItem> getCreditNoteItems();
+    Collection<ICreditNoteItem> getCreditNoteItems();
 
     IReference getReference();
 }

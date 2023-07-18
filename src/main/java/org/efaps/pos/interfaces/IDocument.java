@@ -19,7 +19,7 @@ package org.efaps.pos.interfaces;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.Collection;
 
 import org.efaps.pos.dto.ContactDto;
 import org.efaps.pos.dto.Currency;
@@ -39,7 +39,7 @@ public interface IDocument
 
     BigDecimal getPayableAmount();
 
-    Set<TaxEntryDto> getTaxes();
+    Collection<TaxEntryDto> getTaxes();
 
     Currency getCurrency();
 
