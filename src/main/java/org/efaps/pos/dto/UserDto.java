@@ -26,20 +26,24 @@ public class UserDto
 
     private final Collection<String> workspaceOids;
 
+    private final Collection<Permission> permissions;
+
     private final boolean visible;
 
-    private UserDto(final Builder _builder)
+    private UserDto(Builder builder)
     {
-        super(_builder);
-        username = _builder.username;
-        password = _builder.password;
-        employeeOid = _builder.employeeOid;
-        firstName = _builder.firstName;
-        surName = _builder.surName;
-        roles = _builder.roles == null ? Collections.emptySet() : Collections.unmodifiableCollection(_builder.roles);
-        workspaceOids = _builder.workspaceOids == null ? Collections.emptySet()
-                        : Collections.unmodifiableCollection(_builder.workspaceOids);
-        visible = _builder.visible;
+        super(builder);
+        username = builder.username;
+        password = builder.password;
+        employeeOid = builder.employeeOid;
+        firstName = builder.firstName;
+        surName = builder.surName;
+        visible = builder.visible;
+        roles = builder.roles == null ? Collections.emptySet() : Collections.unmodifiableCollection(builder.roles);
+        permissions = builder.permissions == null ? Collections.emptySet()
+                        : Collections.unmodifiableCollection(builder.permissions);
+        workspaceOids = builder.workspaceOids == null ? Collections.emptySet()
+                        : Collections.unmodifiableCollection(builder.workspaceOids);
     }
 
     public String getUsername()
@@ -77,6 +81,11 @@ public class UserDto
         return workspaceOids;
     }
 
+    public Collection<Permission> getPermissions()
+    {
+        return permissions;
+    }
+
     public boolean isVisible()
     {
         return visible;
@@ -92,6 +101,7 @@ public class UserDto
                         .append(", firstName=").append(firstName)
                         .append(", surName=").append(surName)
                         .append(", roles=").append(roles)
+                        .append(", permissions=").append(permissions)
                         .append(", workspaceOids=").append(workspaceOids)
                         .append(", visible=").append(visible)
                         .append("]").toString();
@@ -122,6 +132,8 @@ public class UserDto
         private Collection<String> workspaceOids;
 
         private boolean visible;
+
+        private Collection<Permission> permissions = Collections.emptyList();
 
         public Builder withUsername(final String _username)
         {
@@ -171,10 +183,17 @@ public class UserDto
             return this;
         }
 
+        public Builder withPermissions(Collection<Permission> permissions)
+        {
+            this.permissions = permissions;
+            return this;
+        }
+
         @Override
         public UserDto build()
         {
             return new UserDto(this);
         }
     }
+
 }
