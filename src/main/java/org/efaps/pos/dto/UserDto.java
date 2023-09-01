@@ -71,6 +71,7 @@ public class UserDto
         return surName;
     }
 
+    @Deprecated
     public Collection<Roles> getRoles()
     {
         return roles;
@@ -164,7 +165,7 @@ public class UserDto
             surName = _surName;
             return this;
         }
-
+        @Deprecated
         public Builder withRoles(final Collection<Roles> _roles)
         {
             roles = _roles;
