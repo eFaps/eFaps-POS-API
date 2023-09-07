@@ -36,6 +36,7 @@ public class LogEntryDto
 
     private final OffsetDateTime createdAt;
 
+
     private LogEntryDto(Builder builder)
     {
         this.ident = builder.ident;
@@ -65,6 +66,11 @@ public class LogEntryDto
         return level;
     }
 
+    public OffsetDateTime getCreatedAt()
+    {
+        return createdAt;
+    }
+
     @Override
     public String toString()
     {
@@ -74,6 +80,7 @@ public class LogEntryDto
                         .append(", key=").append(key)
                         .append(", value=").append(value)
                         .append(", level=").append(level)
+                        .append(", createdAt=").append(createdAt)
                         .append("]").toString();
     }
 
