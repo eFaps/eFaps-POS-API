@@ -1,5 +1,7 @@
 package org.efaps.pos.dto;
 
+import java.time.OffsetDateTime;
+
 /*
  * Copyright 2003 - 2023 The eFaps Team
  *
@@ -32,12 +34,15 @@ public class LogEntryDto
 
     private final LogLevel level;
 
+    private final OffsetDateTime createdAt;
+
     private LogEntryDto(Builder builder)
     {
         this.ident = builder.ident;
         this.key = builder.key;
         this.value = builder.value;
         this.level = builder.level;
+        this.createdAt = builder.createdAt;
     }
 
     public String getIdent()
@@ -85,6 +90,7 @@ public class LogEntryDto
         private String key;
         private String value;
         private LogLevel level;
+        private OffsetDateTime createdAt;
 
         private Builder()
         {
@@ -111,6 +117,12 @@ public class LogEntryDto
         public Builder withLevel(LogLevel level)
         {
             this.level = level;
+            return this;
+        }
+
+        public Builder withCreatedAt(OffsetDateTime createdAt)
+        {
+            this.createdAt = createdAt;
             return this;
         }
 
