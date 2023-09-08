@@ -1,6 +1,8 @@
 package org.efaps.pos.dto;
 
 import java.time.OffsetDateTime;
+import java.util.Collections;
+import java.util.Map;
 
 /*
  * Copyright 2003 - 2023 The eFaps Team
@@ -36,6 +38,7 @@ public class LogEntryDto
 
     private final OffsetDateTime createdAt;
 
+    private final Map<String, String> info;
 
     private LogEntryDto(Builder builder)
     {
@@ -44,6 +47,7 @@ public class LogEntryDto
         this.value = builder.value;
         this.level = builder.level;
         this.createdAt = builder.createdAt;
+        this.info = builder.info;
     }
 
     public String getIdent()
@@ -71,6 +75,11 @@ public class LogEntryDto
         return createdAt;
     }
 
+    public Map<String, String> getInfo()
+    {
+        return info;
+    }
+
     @Override
     public String toString()
     {
@@ -80,6 +89,7 @@ public class LogEntryDto
                         .append(", key=").append(key)
                         .append(", value=").append(value)
                         .append(", level=").append(level)
+                        .append(", info=").append(info)
                         .append(", createdAt=").append(createdAt)
                         .append("]").toString();
     }
@@ -89,7 +99,6 @@ public class LogEntryDto
         return new Builder();
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
@@ -98,6 +107,7 @@ public class LogEntryDto
         private String value;
         private LogLevel level;
         private OffsetDateTime createdAt;
+        private Map<String, String> info = Collections.emptyMap();
 
         private Builder()
         {
@@ -130,6 +140,12 @@ public class LogEntryDto
         public Builder withCreatedAt(OffsetDateTime createdAt)
         {
             this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder withInfo(Map<String, String> info)
+        {
+            this.info = info;
             return this;
         }
 
