@@ -19,10 +19,7 @@ package org.efaps.pos.dto;
 
 public enum LogLevel
 {
-    TRACE,
-    DEBUG,
     INFO,
     WARN,
-    ERROR,
-    FATAL
+    ERROR
 }
