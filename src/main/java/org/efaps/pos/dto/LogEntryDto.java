@@ -32,22 +32,22 @@ public class LogEntryDto
 
     private final String key;
 
-    private final String value;
+    private final String message;
 
     private final LogLevel level;
 
     private final OffsetDateTime createdAt;
 
-    private final Map<String, String> info;
+    private final Map<String, String> value;
 
     private LogEntryDto(Builder builder)
     {
         this.ident = builder.ident;
         this.key = builder.key;
-        this.value = builder.value;
+        this.message = builder.message;
         this.level = builder.level;
         this.createdAt = builder.createdAt;
-        this.info = builder.info;
+        this.value = builder.value;
     }
 
     public String getIdent()
@@ -60,9 +60,9 @@ public class LogEntryDto
         return key;
     }
 
-    public String getValue()
+    public String getMessage()
     {
-        return value;
+        return message;
     }
 
     public LogLevel getLevel()
@@ -75,9 +75,9 @@ public class LogEntryDto
         return createdAt;
     }
 
-    public Map<String, String> getInfo()
+    public Map<String, String> getValue()
     {
-        return info;
+        return value;
     }
 
     @Override
@@ -87,9 +87,9 @@ public class LogEntryDto
                         .append(super.toString())
                         .append(", ident=").append(ident)
                         .append(", key=").append(key)
-                        .append(", value=").append(value)
+                        .append(", message=").append(message)
                         .append(", level=").append(level)
-                        .append(", info=").append(info)
+                        .append(", value=").append(value)
                         .append(", createdAt=").append(createdAt)
                         .append("]").toString();
     }
@@ -104,10 +104,10 @@ public class LogEntryDto
 
         private String ident;
         private String key;
-        private String value;
+        private String message;
         private LogLevel level;
         private OffsetDateTime createdAt;
-        private Map<String, String> info = Collections.emptyMap();
+        private Map<String, String> value = Collections.emptyMap();
 
         private Builder()
         {
@@ -125,9 +125,9 @@ public class LogEntryDto
             return this;
         }
 
-        public Builder withValue(String value)
+        public Builder withMessage(String message)
         {
-            this.value = value;
+            this.message = message;
             return this;
         }
 
@@ -143,9 +143,9 @@ public class LogEntryDto
             return this;
         }
 
-        public Builder withInfo(Map<String, String> info)
+        public Builder withValue(Map<String, String> value)
         {
-            this.info = info;
+            this.value = value;
             return this;
         }
 
