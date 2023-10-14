@@ -27,12 +27,14 @@ public class GenerateDocDto
 {
 
     private final List<GenerateDocItemDto> items;
-    private final org.efaps.pos.dto.Currency currency;
+    private final Currency currency;
+    private final String contactOid;
 
     private GenerateDocDto(Builder builder)
     {
         this.items = builder.items;
         this.currency = builder.currency;
+        this.contactOid = builder.contactOid;
     }
 
     public List<GenerateDocItemDto> getItems()
@@ -40,9 +42,14 @@ public class GenerateDocDto
         return items;
     }
 
-    public org.efaps.pos.dto.Currency getCurrency()
+    public Currency getCurrency()
     {
         return currency;
+    }
+
+    public String getContactOid()
+    {
+        return contactOid;
     }
 
     @Override
@@ -52,6 +59,7 @@ public class GenerateDocDto
                         .append(super.toString())
                         .append(", currency=").append(currency)
                         .append(", items=").append(items)
+                        .append(", contactOid=").append(contactOid)
                         .append("]").toString();
     }
 
@@ -65,7 +73,8 @@ public class GenerateDocDto
     {
 
         private List<GenerateDocItemDto> items = Collections.emptyList();
-        private org.efaps.pos.dto.Currency currency;
+        private Currency currency;
+        private String contactOid;
 
         private Builder()
         {
@@ -77,9 +86,15 @@ public class GenerateDocDto
             return this;
         }
 
-        public Builder withCurrency(org.efaps.pos.dto.Currency currency)
+        public Builder withCurrency(Currency currency)
         {
             this.currency = currency;
+            return this;
+        }
+
+        public Builder withContactOid(String contactOid)
+        {
+            this.contactOid = contactOid;
             return this;
         }
 
