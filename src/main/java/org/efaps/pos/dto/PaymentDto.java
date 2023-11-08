@@ -42,6 +42,7 @@ public class PaymentDto
     private final String operationId;
     private final String info;
     private final String cardNumber;
+    private final String equipmentIdent;
 
     protected PaymentDto(final Builder _builder)
     {
@@ -59,6 +60,7 @@ public class PaymentDto
         operationId = _builder.operationId;
         info = _builder.info;
         cardNumber = _builder.cardNumber;
+        equipmentIdent = _builder.equipmentIdent;
     }
 
     public PaymentType getType()
@@ -116,6 +118,11 @@ public class PaymentDto
         return operationId;
     }
 
+    public String getEquipmentIdent()
+    {
+        return equipmentIdent;
+    }
+
     public String getInfo()
     {
         return info;
@@ -168,8 +175,9 @@ public class PaymentDto
         private String authorization;
         private OffsetDateTime operationDateTime;
         private String operationId;
-        private String info;
         private String cardNumber;
+        private String equipmentIdent;
+        private String info;
 
         public Builder withType(final PaymentType _type)
         {
@@ -216,6 +224,12 @@ public class PaymentDto
         public Builder withServiceProvider(final String serviceProvider)
         {
             this.serviceProvider = serviceProvider;
+            return this;
+        }
+
+        public Builder withEquipmentIdent(final String equipmentIdent)
+        {
+            this.equipmentIdent = equipmentIdent;
             return this;
         }
 
