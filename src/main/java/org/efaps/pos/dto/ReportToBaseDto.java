@@ -24,15 +24,32 @@ public class ReportToBaseDto
 {
 
     private final String version;
+    private final String instalationId;
 
-    private ReportToBaseDto(final Builder builder)
+    private ReportToBaseDto(Builder builder)
     {
         this.version = builder.version;
+        this.instalationId = builder.instalationId;
     }
 
     public String getVersion()
     {
         return version;
+    }
+
+    public String getInstalationId()
+    {
+        return instalationId;
+    }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append(super.toString())
+                        .append(", version=").append(version)
+                        .append(", instalationId=").append(instalationId)
+                        .append("]").toString();
     }
 
     public static Builder builder()
@@ -45,14 +62,21 @@ public class ReportToBaseDto
     {
 
         private String version;
+        private String instalationId;
 
         private Builder()
         {
         }
 
-        public Builder withVersion(final String version)
+        public Builder withVersion(String version)
         {
             this.version = version;
+            return this;
+        }
+
+        public Builder withInstalationId(String instalationId)
+        {
+            this.instalationId = instalationId;
             return this;
         }
 
