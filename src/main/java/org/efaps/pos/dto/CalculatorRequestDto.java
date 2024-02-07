@@ -1,5 +1,5 @@
 /*
- * Copyright 2003 - 2023 The eFaps Team
+ * Copyright © 2003 - 2024 The eFaps Team (-)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,38 +12,35 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
-
 package org.efaps.pos.dto;
 
-import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = CalculationDto.Builder.class)
-public class CalculationDto
+@JsonDeserialize(builder = CalculatorRequestDto.Builder.class)
+public class CalculatorRequestDto
 {
 
-    private final Collection<CalculationItemDto> items;
+    private final List<CalculatorPositionRequestDto> positions;
 
-    private CalculationDto(final Builder builder)
+    public List<CalculatorPositionRequestDto> getPositions()
     {
-        this.items = builder.items;
+        return positions;
     }
 
-    public Collection<CalculationItemDto> getItems()
+    private CalculatorRequestDto(Builder builder)
     {
-        return items;
+        this.positions = builder.positions;
     }
 
     @Override
     public String toString()
     {
         return new StringBuilder()
-                        .append("CalculationDto [items=").append(items)
+                        .append("CalculatorRequestDto [positions=").append(positions)
                         .append("]").toString();
     }
 
@@ -52,25 +49,24 @@ public class CalculationDto
         return new Builder();
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
-        private Collection<CalculationItemDto> items = Collections.emptyList();
+        private List<CalculatorPositionRequestDto> positions = Collections.emptyList();
 
         private Builder()
         {
         }
 
-        public Builder withItems(Collection<CalculationItemDto> items)
+        public Builder withPositions(List<CalculatorPositionRequestDto> positions)
         {
-            this.items = items;
+            this.positions = positions;
             return this;
         }
 
-        public CalculationDto build()
+        public CalculatorRequestDto build()
         {
-            return new CalculationDto(this);
+            return new CalculatorRequestDto(this);
         }
     }
 }

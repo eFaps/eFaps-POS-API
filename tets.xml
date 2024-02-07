@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright Â© 2003 - 2024 The eFaps Team (-)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
     xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -35,7 +52,7 @@
                         <ds:X509Data>
                             <ds:X509SubjectName>1.2.840.113549.1.9.1=#161b6163616c6465726f6e407275646f6c667265696d7361632e636f6d,CN=DANTE
                                 ANDRE CALDERON ARRIARAN,OU=44686304,OU=20266539321,OU=Validated by ZyTrust Sociedad
-                                Anónima,O=RUDOLF REIMSAC SOCIEDAD ANONIMA CERRADA,L=LIMA,C=PE</ds:X509SubjectName>
+                                Anï¿½nima,O=RUDOLF REIMSAC SOCIEDAD ANONIMA CERRADA,L=LIMA,C=PE</ds:X509SubjectName>
                             <ds:X509Certificate>MIIFoDCCBIigAwIBAgIKGE8oCQAAAAAa+DANBgkqhkiG9w0BAQsFADCBkjELMAkGA1UEBhMCQ0gx
                                 EDAOBgNVBAoTB1dJU2VLZXkxJjAkBgNVBAsTHUNvcHlyaWdodCAoYykgMjAxNiBXSVNlS2V5IFNB
                                 MRYwFAYDVQQLEw1JbnRlcm5hdGlvbmFsMTEwLwYDVQQDEyhXSVNlS2V5IENlcnRpZnlJRCBBZHZh
@@ -188,7 +205,7 @@
             </cac:TaxSubtotal>
         </cac:TaxTotal>
         <cac:Item>
-            <cbc:Description><![CDATA[RUCO-PUR SLR - Nº: 0302057.001-RD5637]]></cbc:Description>
+            <cbc:Description><![CDATA[RUCO-PUR SLR - Nï¿½: 0302057.001-RD5637]]></cbc:Description>
             <cac:SellersItemIdentification>
                 <cbc:ID>0302057.001</cbc:ID>
             </cac:SellersItemIdentification>
