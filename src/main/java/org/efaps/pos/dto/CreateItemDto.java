@@ -33,6 +33,12 @@ public class CreateItemDto
         this.productOid = builder.productOid;
     }
 
+    @Override
+    public String toString()
+    {
+        return "CreateItemDto [quantity=" + quantity + ", productOid=" + productOid + "]";
+    }
+
     public BigDecimal getQuantity()
     {
         return quantity;

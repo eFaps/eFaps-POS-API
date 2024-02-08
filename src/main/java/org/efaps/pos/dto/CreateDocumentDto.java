@@ -43,6 +43,12 @@ public class CreateDocumentDto
         return items;
     }
 
+    @Override
+    public String toString()
+    {
+        return "CreateDocumentDto [currency=" + currency + ", items=" + items + "]";
+    }
+
     public static Builder builder()
     {
         return new Builder();
