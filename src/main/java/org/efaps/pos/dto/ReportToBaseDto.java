@@ -15,6 +15,8 @@
  */
 package org.efaps.pos.dto;
 
+import java.time.OffsetDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -25,10 +27,13 @@ public class ReportToBaseDto
     private final String version;
     private final String instalationId;
 
+    private final OffsetDateTime createdAt;
+
     private ReportToBaseDto(Builder builder)
     {
         this.version = builder.version;
         this.instalationId = builder.instalationId;
+        this.createdAt = builder.createdAt;
     }
 
     public String getVersion()
@@ -41,6 +46,11 @@ public class ReportToBaseDto
         return instalationId;
     }
 
+    public OffsetDateTime getCreatedAt()
+    {
+        return createdAt;
+    }
+
     @Override
     public String toString()
     {
@@ -48,6 +58,7 @@ public class ReportToBaseDto
                         .append(super.toString())
                         .append(", version=").append(version)
                         .append(", instalationId=").append(instalationId)
+                        .append(", createdAt=").append(createdAt)
                         .append("]").toString();
     }
 
@@ -62,20 +73,27 @@ public class ReportToBaseDto
 
         private String version;
         private String instalationId;
+        private OffsetDateTime createdAt;
 
         private Builder()
         {
         }
 
-        public Builder withVersion(String version)
+        public Builder withVersion(final String version)
         {
             this.version = version;
             return this;
         }
 
-        public Builder withInstalationId(String instalationId)
+        public Builder withInstalationId(final String instalationId)
         {
             this.instalationId = instalationId;
+            return this;
+        }
+
+        public Builder withCreatedAt(final OffsetDateTime createdAt)
+        {
+            this.createdAt = createdAt;
             return this;
         }
 
