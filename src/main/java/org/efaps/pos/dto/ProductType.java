@@ -22,5 +22,7 @@ public enum ProductType
     SERVICE,
     TEXT,
     OTHER,
-    PARTLIST
+    PARTLIST,
+    BATCH,
+    INDIVIDUAL
 }
