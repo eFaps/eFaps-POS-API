@@ -46,29 +46,30 @@ public class ProductDto
     private final Collection<BarcodeDto> barcodes;
     private final Collection<BOMGroupConfigDto> bomGroupConfigs;
     private final Collection<ConfigurationBOMDto> configurationBOMs;
+    private final ProductIndividual individual;
 
-    private ProductDto(final Builder _builder)
+    private ProductDto(final Builder builder)
     {
-        super(_builder);
-        sku = _builder.sku;
-        type = _builder.type;
-        description = _builder.description;
-        note = _builder.note;
-        imageOid = _builder.imageOid;
-        netPrice = _builder.netPrice;
-        crossPrice = _builder.crossPrice;
-        currency = _builder.currency;
-        categories = _builder.categories == null ? Collections.emptySet() : _builder.categories;
-        taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
-        uoM = _builder.uoM;
-        uoMCode = _builder.uoMCode;
-        relations = _builder.relations == null ? Collections.emptySet() : _builder.relations;
-        indicationSets = _builder.indicationSets == null ? Collections.emptySet() : _builder.indicationSets;
-        barcodes = _builder.barcodes == null ? Collections.emptySet() : _builder.barcodes;
-        bomGroupConfigs = _builder.bomGroupConfigs == null ? Collections.emptySet() : _builder.bomGroupConfigs;
-        configurationBOMs = _builder.configurationBOMs == null ? Collections.emptySet() : _builder.configurationBOMs;
+        super(builder);
+        this.sku = builder.sku;
+        this.type = builder.type;
+        this.description = builder.description;
+        this.note = builder.note;
+        this.imageOid = builder.imageOid;
+        this.netPrice = builder.netPrice;
+        this.crossPrice = builder.crossPrice;
+        this.currency = builder.currency;
+        this.categories = builder.categories == null ? Collections.emptySet() : builder.categories;
+        this.taxes = builder.taxes == null ? Collections.emptySet() : builder.taxes;
+        this.uoM = builder.uoM;
+        this.uoMCode = builder.uoMCode;
+        this.relations = builder.relations == null ? Collections.emptySet() : builder.relations;
+        this.indicationSets = builder.indicationSets == null ? Collections.emptySet() : builder.indicationSets;
+        this.barcodes = builder.barcodes == null ? Collections.emptySet() : builder.barcodes;
+        this.bomGroupConfigs = builder.bomGroupConfigs == null ? Collections.emptySet() : builder.bomGroupConfigs;
+        this.configurationBOMs = builder.configurationBOMs == null ? Collections.emptySet() : builder.configurationBOMs;
+        this.individual = builder.individual;
     }
-
 
     public String getSku()
     {
@@ -155,6 +156,10 @@ public class ProductDto
         return configurationBOMs;
     }
 
+    public ProductIndividual getIndividual()
+    {
+        return individual;
+    }
 
     @Override
     public String toString()
@@ -177,6 +182,7 @@ public class ProductDto
                         .append(", barcodes=").append(barcodes)
                         .append(", bomGroupConfigs=").append(bomGroupConfigs)
                         .append(", configurationBOMs=").append(configurationBOMs)
+                        .append(", individual=").append(individual)
                         .append("]").toString();
     }
 
@@ -207,6 +213,7 @@ public class ProductDto
         private Collection<BarcodeDto> barcodes;
         private Collection<BOMGroupConfigDto> bomGroupConfigs;
         private Collection<ConfigurationBOMDto> configurationBOMs;
+        private ProductIndividual individual;
 
         public Builder withSKU(final String _sku)
         {
@@ -307,6 +314,12 @@ public class ProductDto
         public Builder withConfigurationBOMs(final Collection<ConfigurationBOMDto> configurationBOMs)
         {
             this.configurationBOMs = configurationBOMs;
+            return this;
+        }
+
+        public Builder withIndividual(final ProductIndividual individual)
+        {
+            this.individual = individual;
             return this;
         }
 

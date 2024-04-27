@@ -16,11 +16,9 @@
 package org.efaps.pos.dto;
 
 
-public enum ProductRelationType
+public enum ProductIndividual
 {
-    ALTERNATIVE,
-    SALESBOM,
-    BATCH,
+    NONE,
     INDIVIDUAL,
-    OTHER
+    BATCH;
 }
