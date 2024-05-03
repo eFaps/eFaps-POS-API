@@ -25,6 +25,7 @@ public abstract class AbstractDocItemDto
     private final Integer index;
     private final Integer parentIdx;
     private final String productOid;
+    private final String standInOid;
     private final BigDecimal quantity;
     private final BigDecimal netUnitPrice;
     private final BigDecimal crossUnitPrice;
@@ -41,6 +42,7 @@ public abstract class AbstractDocItemDto
         index = _builder.index;
         parentIdx = _builder.parentIdx;
         productOid = _builder.productOid;
+        standInOid = _builder.standInOid;
         quantity = _builder.quantity;
         netUnitPrice = _builder.netUnitPrice;
         crossUnitPrice = _builder.crossUnitPrice;
@@ -65,6 +67,11 @@ public abstract class AbstractDocItemDto
     public String getProductOid()
     {
         return productOid;
+    }
+
+    public String getStandInOid()
+    {
+        return standInOid;
     }
 
     public BigDecimal getQuantity()
@@ -138,6 +145,7 @@ public abstract class AbstractDocItemDto
         private Integer index;
         private Integer parentIdx;
         private String productOid;
+        private String standInOid;
         private BigDecimal quantity;
         private BigDecimal netUnitPrice;
         private BigDecimal crossUnitPrice;
@@ -166,6 +174,13 @@ public abstract class AbstractDocItemDto
         public S withProductOid(final String _productOid)
         {
             this.productOid = _productOid;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withStandInOid(final String standInOid)
+        {
+            this.standInOid = standInOid;
             return (S) this;
         }
 
