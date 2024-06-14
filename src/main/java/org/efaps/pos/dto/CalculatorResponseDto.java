@@ -19,7 +19,6 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = CalculatorResponseDto.Builder.class)
@@ -38,6 +37,8 @@ public class CalculatorResponseDto
 
     private final BigDecimal payableAmount;
 
+    private final PromoInfoDto promotionInfo;
+
     private CalculatorResponseDto(Builder builder)
     {
         this.netTotal = builder.netTotal;
@@ -46,6 +47,7 @@ public class CalculatorResponseDto
         this.taxes = builder.taxes;
         this.positions = builder.positions;
         this.payableAmount = builder.payableAmount;
+        this.promotionInfo = builder.promotionInfo;
     }
 
     public BigDecimal getNetTotal()
@@ -78,6 +80,11 @@ public class CalculatorResponseDto
         return payableAmount;
     }
 
+    public PromoInfoDto getPromotionInfo()
+    {
+        return promotionInfo;
+    }
+
     @Override
     public String toString()
     {
@@ -96,7 +103,6 @@ public class CalculatorResponseDto
         return new Builder();
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
@@ -106,6 +112,7 @@ public class CalculatorResponseDto
         private List<TaxEntryDto> taxes = Collections.emptyList();
         private List<CalculatorPositionResponseDto> positions = Collections.emptyList();
         private BigDecimal payableAmount;
+        private PromoInfoDto promotionInfo;
 
         private Builder()
         {
@@ -144,6 +151,12 @@ public class CalculatorResponseDto
         public Builder withPayableAmount(BigDecimal payableAmount)
         {
             this.payableAmount = payableAmount;
+            return this;
+        }
+
+        public Builder withPromotionInfo(PromoInfoDto promotionInfo)
+        {
+            this.promotionInfo = promotionInfo;
             return this;
         }
 
