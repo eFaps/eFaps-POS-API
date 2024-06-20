@@ -27,14 +27,12 @@ public class PromoInfoSyncDto
     private final String documentOid;
     private final PromoInfoDto promoInfo;
     private final List<String> promotions;
-    private final List<String> promotionOids;
 
     private PromoInfoSyncDto(Builder builder)
     {
         this.documentOid = builder.documentOid;
         this.promoInfo = builder.promoInfo;
         this.promotions = builder.promotions;
-        this.promotionOids = builder.promotionOids;
     }
 
     public String getDocumentOid()
@@ -52,11 +50,6 @@ public class PromoInfoSyncDto
         return promotions;
     }
 
-    public List<String> getPromotionOids()
-    {
-        return promotionOids;
-    }
-
     public static Builder builder()
     {
         return new Builder();
@@ -68,7 +61,6 @@ public class PromoInfoSyncDto
         private String documentOid;
         private PromoInfoDto promoInfo;
         private List<String> promotions = Collections.emptyList();
-        private List<String> promotionOids = Collections.emptyList();
 
         private Builder()
         {
@@ -89,12 +81,6 @@ public class PromoInfoSyncDto
         public Builder withPromotions(List<String> promotions)
         {
             this.promotions = promotions;
-            return this;
-        }
-
-        public Builder withPromotionOids(List<String> promotionOids)
-        {
-            this.promotionOids = promotionOids;
             return this;
         }
 
