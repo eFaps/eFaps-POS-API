@@ -24,11 +24,15 @@ public class PromoDetailDto
 {
 
     private final int index;
+
     private final BigDecimal netUnitDiscount;
+
     private final BigDecimal netDiscount;
+
     private final BigDecimal crossUnitDiscount;
 
     private final BigDecimal crossDiscount;
+
     private final String promotionOid;
 
     private PromoDetailDto(Builder builder)
