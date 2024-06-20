@@ -16,9 +16,9 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -26,22 +26,30 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class PromoInfoDto
 {
 
-    private final BigDecimal totalDiscount;
+    private final BigDecimal netTotalDiscount;
+
+    private final BigDecimal crossTotalDiscount;
 
     private final List<PromoDetailDto> details;
 
-    private final List<String> promotionOids;
+    private final Set<String> promotionOids;
 
     private PromoInfoDto(Builder builder)
     {
-        this.totalDiscount = builder.totalDiscount;
+        this.netTotalDiscount = builder.netTotalDiscount;
+        this.crossTotalDiscount = builder.crossTotalDiscount;
         this.details = builder.details;
         this.promotionOids = builder.promotionOids;
     }
 
-    public BigDecimal getTotalDiscount()
+    public BigDecimal getNetTotalDiscount()
     {
-        return totalDiscount;
+        return netTotalDiscount;
+    }
+
+    public BigDecimal getCrossTotalDiscount()
+    {
+        return crossTotalDiscount;
     }
 
     public List<PromoDetailDto> getDetails()
@@ -49,7 +57,7 @@ public class PromoInfoDto
         return details;
     }
 
-    public List<String> getPromotionOids()
+    public Set<String> getPromotionOids()
     {
         return promotionOids;
     }
@@ -59,7 +67,8 @@ public class PromoInfoDto
     {
         return new StringBuilder()
                         .append(super.toString())
-                        .append(", totalDiscount=").append(totalDiscount)
+                        .append(", netTotalDiscount=").append(netTotalDiscount)
+                        .append(", crossTotalDiscount=").append(crossTotalDiscount)
                         .append(", details=").append(details)
                         .append(", promotionOids=").append(promotionOids)
                         .append("]").toString();
@@ -73,17 +82,24 @@ public class PromoInfoDto
     public static final class Builder
     {
 
-        private BigDecimal totalDiscount;
+        private BigDecimal netTotalDiscount;
+        private BigDecimal crossTotalDiscount;
         private List<PromoDetailDto> details = Collections.emptyList();
-        private List<String> promotionOids = new ArrayList<>();
+        private Set<String> promotionOids = Collections.emptySet();
 
         private Builder()
         {
         }
 
-        public Builder withTotalDiscount(BigDecimal totalDiscount)
+        public Builder withNetTotalDiscount(BigDecimal netTotalDiscount)
         {
-            this.totalDiscount = totalDiscount;
+            this.netTotalDiscount = netTotalDiscount;
+            return this;
+        }
+
+        public Builder withCrossTotalDiscount(BigDecimal crossTotalDiscount)
+        {
+            this.crossTotalDiscount = crossTotalDiscount;
             return this;
         }
 
@@ -93,7 +109,7 @@ public class PromoInfoDto
             return this;
         }
 
-        public Builder withPromotionOids(List<String> promotionOids)
+        public Builder withPromotionOids(Set<String> promotionOids)
         {
             this.promotionOids = promotionOids;
             return this;

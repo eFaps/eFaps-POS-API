@@ -24,15 +24,20 @@ public class PromoDetailDto
 {
 
     private final int index;
+    private final BigDecimal netUnitDiscount;
+    private final BigDecimal netDiscount;
+    private final BigDecimal crossUnitDiscount;
 
-    private final BigDecimal discount;
-
+    private final BigDecimal crossDiscount;
     private final String promotionOid;
 
     private PromoDetailDto(Builder builder)
     {
         this.index = builder.index;
-        this.discount = builder.discount;
+        this.netUnitDiscount = builder.netUnitDiscount;
+        this.netDiscount = builder.netDiscount;
+        this.crossUnitDiscount = builder.crossUnitDiscount;
+        this.crossDiscount = builder.crossDiscount;
         this.promotionOid = builder.promotionOid;
     }
 
@@ -41,9 +46,26 @@ public class PromoDetailDto
         return index;
     }
 
-    public BigDecimal getDiscount()
+
+
+    public BigDecimal getNetUnitDiscount()
     {
-        return discount;
+        return netUnitDiscount;
+    }
+
+    public BigDecimal getNetDiscount()
+    {
+        return netDiscount;
+    }
+
+    public BigDecimal getCrossDiscount()
+    {
+        return crossDiscount;
+    }
+
+    public BigDecimal getCrossUnitDiscount()
+    {
+        return crossUnitDiscount;
     }
 
     public String getPromotionOid()
@@ -57,7 +79,10 @@ public class PromoDetailDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", index=").append(index)
-                        .append(", discount=").append(discount)
+                        .append(", netUnitDiscount=").append(netUnitDiscount)
+                        .append(", netDiscount=").append(netDiscount)
+                        .append(", crossUnitDiscount=").append(crossUnitDiscount)
+                        .append(", crossDiscount=").append(crossDiscount)
                         .append(", promotionOid=").append(promotionOid)
                         .append("]").toString();
     }
@@ -71,7 +96,10 @@ public class PromoDetailDto
     {
 
         private int index;
-        private BigDecimal discount;
+        private BigDecimal netUnitDiscount;
+        private BigDecimal netDiscount;
+        private BigDecimal crossUnitDiscount;
+        private BigDecimal crossDiscount;
         private String promotionOid;
 
         private Builder()
@@ -84,9 +112,27 @@ public class PromoDetailDto
             return this;
         }
 
-        public Builder withDiscount(BigDecimal discount)
+        public Builder withNetUnitDiscount(BigDecimal netUnitDiscount)
         {
-            this.discount = discount;
+            this.netUnitDiscount = netUnitDiscount;
+            return this;
+        }
+
+        public Builder withNetDiscount(BigDecimal netDiscount)
+        {
+            this.netDiscount = netDiscount;
+            return this;
+        }
+
+        public Builder withCrossUnitDiscount(BigDecimal crossUnitDiscount)
+        {
+            this.crossUnitDiscount = crossUnitDiscount;
+            return this;
+        }
+
+        public Builder withCrossDiscount(BigDecimal crossDiscount)
+        {
+            this.crossDiscount = crossDiscount;
             return this;
         }
 
