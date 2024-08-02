@@ -86,7 +86,14 @@ public class ProductRelationDto
     @Override
     public int hashCode()
     {
-        return productOid.hashCode() + type.hashCode() + quantity.hashCode() + label.hashCode();
+        var hash = productOid.hashCode() + type.hashCode();
+        if (quantity != null) {
+            hash = hash + quantity.hashCode();
+        }
+        if (label != null) {
+            hash = hash + label.hashCode();
+        }
+        return hash;
     }
 
     public static Builder builder()
