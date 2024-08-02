@@ -16,6 +16,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -66,6 +67,26 @@ public class ProductRelationDto
         builder2.append("ProductRelationDto [label=").append(label).append(", productOid=").append(productOid)
                         .append(", quantity=").append(quantity).append(", type=").append(type).append("]");
         return builder2.toString();
+    }
+
+    @Override
+    public boolean equals(final Object obj)
+    {
+        if (obj != null && obj instanceof final ProductRelationDto dto) {
+            return Objects.equals(label, dto.getLabel())
+                            && Objects.equals(productOid, dto.getProductOid())
+                            && type.equals(dto.getType())
+                            && (quantity == null && dto.getQuantity() == null
+                                            || quantity != null && dto.getQuantity() != null
+                                                            && quantity.compareTo(dto.getQuantity()) == 0);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return productOid.hashCode() + type.hashCode() + quantity.hashCode() + label.hashCode();
     }
 
     public static Builder builder()
