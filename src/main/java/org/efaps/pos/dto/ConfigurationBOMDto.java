@@ -16,6 +16,8 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -28,9 +30,9 @@ public class ConfigurationBOMDto
     private final String toProductOid;
     private final String bomGroupOid;
     private final int position;
-
     private final BigDecimal quantity;
     private final String uoM;
+    private final List<BOMActionDto> actions;
 
     private ConfigurationBOMDto(Builder builder)
     {
@@ -40,6 +42,7 @@ public class ConfigurationBOMDto
         this.position = builder.position;
         this.quantity = builder.quantity;
         this.uoM = builder.uoM;
+        this.actions = builder.actions == null ? new ArrayList<>() : builder.actions;
     }
 
     public String getToProductOid()
@@ -67,6 +70,11 @@ public class ConfigurationBOMDto
         return uoM;
     }
 
+    public List<BOMActionDto> getActions()
+    {
+        return this.actions;
+    }
+
     @Override
     public String toString()
     {
@@ -77,6 +85,7 @@ public class ConfigurationBOMDto
                         .append(", position=").append(position)
                         .append(", quantity=").append(quantity)
                         .append(", uoM=").append(uoM)
+                        .append(", actions=").append(actions)
                         .append("]").toString();
     }
 
@@ -94,6 +103,7 @@ public class ConfigurationBOMDto
         private int position;
         private BigDecimal quantity;
         private String uoM;
+        private List<BOMActionDto> actions;
 
         private Builder()
         {
@@ -126,6 +136,12 @@ public class ConfigurationBOMDto
         public Builder withUoM(String uoM)
         {
             this.uoM = uoM;
+            return this;
+        }
+
+        public Builder withActions(List<BOMActionDto> actions)
+        {
+            this.actions = actions;
             return this;
         }
 

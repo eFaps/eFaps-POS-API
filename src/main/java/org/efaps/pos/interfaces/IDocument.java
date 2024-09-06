@@ -21,6 +21,7 @@ import java.util.Collection;
 
 import org.efaps.pos.dto.ContactDto;
 import org.efaps.pos.dto.Currency;
+import org.efaps.pos.dto.EmployeeRelationDto;
 import org.efaps.pos.dto.TaxEntryDto;
 
 public interface IDocument
@@ -43,4 +44,5 @@ public interface IDocument
 
     ContactDto getContact();
 
+    Collection<EmployeeRelationDto> getEmployeeRelations();
 }
