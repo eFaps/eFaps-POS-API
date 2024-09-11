@@ -28,6 +28,8 @@ public class FileDto
 
     private final String name;
     private final String description;
+    private final String fileName;
+
     private final Map<String, String> tags;
 
     protected FileDto(final Builder builder)
@@ -35,6 +37,7 @@ public class FileDto
         super(builder);
         this.name = builder.name;
         this.description = builder.description;
+        this.fileName = builder.fileName;
         this.tags = builder.tags;
     }
 
@@ -46,6 +49,11 @@ public class FileDto
     public String getDescription()
     {
         return description;
+    }
+
+    public String getFileName()
+    {
+        return fileName;
     }
 
     public Map<String, String> getTags()
@@ -76,6 +84,7 @@ public class FileDto
 
         private String name;
         private String description;
+        private String fileName;
         private Map<String, String> tags;
 
         public Builder withName(final String name)
@@ -87,6 +96,12 @@ public class FileDto
         public Builder withDescription(final String description)
         {
             this.description = description;
+            return this;
+        }
+
+        public Builder withFileName(final String fileName)
+        {
+            this.fileName = fileName;
             return this;
         }
 
