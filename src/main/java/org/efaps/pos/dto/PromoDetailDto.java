@@ -25,6 +25,10 @@ public class PromoDetailDto
 
     private final int index;
 
+    private final BigDecimal netUnitBase;
+
+    private final BigDecimal netBase;
+
     private final BigDecimal netUnitDiscount;
 
     private final BigDecimal netDiscount;
@@ -38,6 +42,8 @@ public class PromoDetailDto
     private PromoDetailDto(Builder builder)
     {
         this.index = builder.index;
+        this.netUnitBase = builder.netUnitBase;
+        this.netBase = builder.netBase;
         this.netUnitDiscount = builder.netUnitDiscount;
         this.netDiscount = builder.netDiscount;
         this.crossUnitDiscount = builder.crossUnitDiscount;
@@ -50,7 +56,15 @@ public class PromoDetailDto
         return index;
     }
 
+    public BigDecimal getNetUnitBase()
+    {
+        return netUnitBase;
+    }
 
+    public BigDecimal getNetBase()
+    {
+        return netBase;
+    }
 
     public BigDecimal getNetUnitDiscount()
     {
@@ -83,6 +97,8 @@ public class PromoDetailDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", index=").append(index)
+                        .append(", netUnitBase=").append(netUnitBase)
+                        .append(", netBase=").append(netBase)
                         .append(", netUnitDiscount=").append(netUnitDiscount)
                         .append(", netDiscount=").append(netDiscount)
                         .append(", crossUnitDiscount=").append(crossUnitDiscount)
@@ -100,6 +116,8 @@ public class PromoDetailDto
     {
 
         private int index;
+        private BigDecimal netUnitBase;
+        private BigDecimal netBase;
         private BigDecimal netUnitDiscount;
         private BigDecimal netDiscount;
         private BigDecimal crossUnitDiscount;
@@ -110,9 +128,23 @@ public class PromoDetailDto
         {
         }
 
+
         public Builder withIndex(int index)
         {
             this.index = index;
+            return this;
+        }
+
+
+        public Builder withNetUnitBase(BigDecimal netUnitBase)
+        {
+            this.netUnitBase = netUnitBase;
+            return this;
+        }
+
+        public Builder withNetBase(BigDecimal netBase)
+        {
+            this.netBase = netBase;
             return this;
         }
 
