@@ -26,24 +26,32 @@ public class CategoryDto
 
     private final String name;
 
+    private final String description;
+
     private final int weight;
 
     private final String imageOid;
 
     private final String parentOid;
 
-    public CategoryDto(final Builder _builder)
+    public CategoryDto(final Builder builder)
     {
-        super(_builder);
-        name = _builder.name;
-        weight = _builder.weight;
-        imageOid = _builder.imageOid;
-        parentOid = _builder.parentOid;
+        super(builder);
+        name = builder.name;
+        description = builder.description;
+        weight = builder.weight;
+        imageOid = builder.imageOid;
+        parentOid = builder.parentOid;
     }
 
     public String getName()
     {
         return name;
+    }
+
+    public String getDescription()
+    {
+        return description;
     }
 
     public int getWeight()
@@ -67,6 +75,7 @@ public class CategoryDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", name=").append(name)
+                        .append(", description=").append(description)
                         .append(", weight=").append(weight)
                         .append(", imageOid=").append(imageOid)
                         .append(", parentOid=").append(parentOid)
@@ -84,6 +93,7 @@ public class CategoryDto
     {
 
         private String name;
+        private String description;
         private int weight = 0;
         private String imageOid;
         private String parentOid;
@@ -91,6 +101,12 @@ public class CategoryDto
         public Builder withName(final String _name)
         {
             name = _name;
+            return this;
+        }
+
+        public Builder withDescription(final String description)
+        {
+            this.description = description;
             return this;
         }
 
