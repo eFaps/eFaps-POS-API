@@ -28,15 +28,23 @@ public class OrderDto
 
     private final String payableOid;
 
-    public OrderDto(final Builder _builder)
+    private final String orderOptionKey;
+
+    public OrderDto(final Builder builder)
     {
-        super(_builder);
-        payableOid = _builder.payableOid;
+        super(builder);
+        this.payableOid = builder.payableOid;
+        this.orderOptionKey = builder.orderOptionKey;
     }
 
     public String getPayableOid()
     {
         return payableOid;
+    }
+
+    public String getOrderOptionKey()
+    {
+        return orderOptionKey;
     }
 
     @Override
@@ -45,6 +53,7 @@ public class OrderDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", payableOid=").append(payableOid)
+                        .append(", orderOptionKey=").append(orderOptionKey)
                         .append("]").toString();
     }
 
@@ -60,9 +69,17 @@ public class OrderDto
 
         private String payableOid;
 
-        public Builder withPayableOid(final String _payableOid)
+        private String orderOptionKey;
+
+        public Builder withPayableOid(final String payableOid)
         {
-            payableOid = _payableOid;
+            this.payableOid = payableOid;
+            return this;
+        }
+
+        public Builder withOrderOptionKey(final String orderOptionKey)
+        {
+            this.orderOptionKey = orderOptionKey;
             return this;
         }
 
