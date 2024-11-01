@@ -28,10 +28,14 @@ public class CalculatorPositionRequestDto
 
     private final String productOid;
 
+    private final String bomOid;
+
+
     private CalculatorPositionRequestDto(final Builder builder)
     {
         this.quantity = builder.quantity;
         this.productOid = builder.productOid;
+        this.bomOid = builder.bomOid;
     }
 
     public String getProductOid()
@@ -44,12 +48,18 @@ public class CalculatorPositionRequestDto
         return quantity;
     }
 
+    public String getBomOid()
+    {
+        return bomOid;
+    }
+
     @Override
     public String toString()
     {
         return new StringBuilder()
                         .append("CalculatorPositionRequestDto [quantity=").append(quantity)
                         .append(", productOid=").append(productOid)
+                        .append(", bomOid=").append(bomOid)
                         .append("]").toString();
     }
 
@@ -64,6 +74,7 @@ public class CalculatorPositionRequestDto
 
         private BigDecimal quantity;
         private String productOid;
+        private String bomOid;
 
         private Builder()
         {
@@ -78,6 +89,12 @@ public class CalculatorPositionRequestDto
         public Builder withProductOid(String productOid)
         {
             this.productOid = productOid;
+            return this;
+        }
+
+        public Builder withBomOid(String bomOid)
+        {
+            this.bomOid = bomOid;
             return this;
         }
 
