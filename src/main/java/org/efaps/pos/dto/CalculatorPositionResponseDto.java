@@ -26,6 +26,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class CalculatorPositionResponseDto
 {
 
+    private final Integer index;
+
+    private final Integer parentIdx;
+
     private final BigDecimal quantity;
 
     private final String productOid;
@@ -42,8 +46,12 @@ public class CalculatorPositionResponseDto
 
     private final BigDecimal crossPrice;
 
+    private final String bomOid;
+
     private CalculatorPositionResponseDto(Builder builder)
     {
+        this.index = builder.index;
+        this.parentIdx = builder.parentIdx;
         this.quantity = builder.quantity;
         this.productOid = builder.productOid;
         this.netUnitPrice = builder.netUnitPrice;
@@ -52,6 +60,22 @@ public class CalculatorPositionResponseDto
         this.taxAmount = builder.taxAmount;
         this.crossUnitPrice = builder.crossUnitPrice;
         this.crossPrice = builder.crossPrice;
+        this.bomOid = builder.bomOid;
+    }
+
+    public Integer getIndex()
+    {
+        return index;
+    }
+
+    public Integer getParentIdx()
+    {
+        return parentIdx;
+    }
+
+    public String getBomOid()
+    {
+        return bomOid;
     }
 
     public BigDecimal getQuantity()
@@ -94,6 +118,25 @@ public class CalculatorPositionResponseDto
         return crossPrice;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder()
+                        .append("CalculatorPositionRequestDto [")
+                        .append(", index=").append(index)
+                        .append(", parentIdx=").append(parentIdx)
+                        .append("  quantity=").append(quantity)
+                        .append(", productOid=").append(productOid)
+                        .append(", netUnitPrice=").append(netUnitPrice)
+                        .append(", netPrice=").append(netPrice)
+                        .append(", taxes=").append(taxes)
+                        .append(", taxAmount=").append(taxAmount)
+                        .append(", crossUnitPrice=").append(crossUnitPrice)
+                        .append(", crossPrice=").append(crossPrice)
+                        .append(", bomOid=").append(bomOid)
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -103,6 +146,8 @@ public class CalculatorPositionResponseDto
     public static final class Builder
     {
 
+        private Integer index;
+        private Integer parentIdx;
         private BigDecimal quantity;
         private String productOid;
         private BigDecimal netUnitPrice;
@@ -111,9 +156,22 @@ public class CalculatorPositionResponseDto
         private BigDecimal taxAmount;
         private BigDecimal crossUnitPrice;
         private BigDecimal crossPrice;
+        private String bomOid;
 
         private Builder()
         {
+        }
+
+        public Builder withIndex(Integer index)
+        {
+            this.index = index;
+            return this;
+        }
+
+        public Builder withParentIdx(Integer parentIdx)
+        {
+            this.parentIdx = parentIdx;
+            return this;
         }
 
         public Builder withQuantity(BigDecimal quantity)
@@ -161,6 +219,12 @@ public class CalculatorPositionResponseDto
         public Builder withCrossPrice(BigDecimal crossPrice)
         {
             this.crossPrice = crossPrice;
+            return this;
+        }
+
+        public Builder withBomOid(String bomOid)
+        {
+            this.bomOid = bomOid;
             return this;
         }
 
