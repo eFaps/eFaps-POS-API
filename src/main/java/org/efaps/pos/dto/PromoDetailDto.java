@@ -16,6 +16,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -37,7 +38,7 @@ public class PromoDetailDto
 
     private final BigDecimal crossDiscount;
 
-    private final String promotionOid;
+    private final List<String> promotionOids;
 
     private PromoDetailDto(Builder builder)
     {
@@ -48,7 +49,7 @@ public class PromoDetailDto
         this.netDiscount = builder.netDiscount;
         this.crossUnitDiscount = builder.crossUnitDiscount;
         this.crossDiscount = builder.crossDiscount;
-        this.promotionOid = builder.promotionOid;
+        this.promotionOids = builder.promotionOids;
     }
 
     public int getIndex()
@@ -86,9 +87,9 @@ public class PromoDetailDto
         return crossUnitDiscount;
     }
 
-    public String getPromotionOid()
+    public List<String> getPromotionOids()
     {
-        return promotionOid;
+        return promotionOids;
     }
 
     @Override
@@ -103,7 +104,7 @@ public class PromoDetailDto
                         .append(", netDiscount=").append(netDiscount)
                         .append(", crossUnitDiscount=").append(crossUnitDiscount)
                         .append(", crossDiscount=").append(crossDiscount)
-                        .append(", promotionOid=").append(promotionOid)
+                        .append(", promotionOids=").append(promotionOids)
                         .append("]").toString();
     }
 
@@ -122,7 +123,7 @@ public class PromoDetailDto
         private BigDecimal netDiscount;
         private BigDecimal crossUnitDiscount;
         private BigDecimal crossDiscount;
-        private String promotionOid;
+        private List<String> promotionOids;
 
         private Builder()
         {
@@ -172,9 +173,9 @@ public class PromoDetailDto
             return this;
         }
 
-        public Builder withPromotionOid(String promotionOid)
+        public Builder withPromotionOids(List<String> promotionOids)
         {
-            this.promotionOid = promotionOid;
+            this.promotionOids = promotionOids;
             return this;
         }
 
