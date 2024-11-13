@@ -15,6 +15,8 @@
  */
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -27,8 +29,9 @@ public class BOMGroupConfigDto
     private final String name;
     private final String description;
     private final int weight;
-
     private final int flags;
+    private final BigDecimal minQuantity;
+    private final BigDecimal maxQuantity;
 
     private BOMGroupConfigDto(Builder builder)
     {
@@ -38,6 +41,8 @@ public class BOMGroupConfigDto
         this.description = builder.description;
         this.weight = builder.weight;
         this.flags = builder.flags;
+        this.minQuantity = builder.minQuantity;
+        this.maxQuantity = builder.maxQuantity;
     }
 
     public String getProductOid()
@@ -64,6 +69,18 @@ public class BOMGroupConfigDto
     {
         return flags;
     }
+
+    public BigDecimal getMinQuantity()
+    {
+        return minQuantity;
+    }
+
+
+    public BigDecimal getMaxQuantity()
+    {
+        return maxQuantity;
+    }
+
 
     @Override
     public String toString()
@@ -92,6 +109,8 @@ public class BOMGroupConfigDto
         private String description;
         private int weight;
         private int flags;
+        private BigDecimal minQuantity;
+        private BigDecimal maxQuantity;
 
         public Builder withProductOid(String productOid)
         {
@@ -120,6 +139,18 @@ public class BOMGroupConfigDto
         public Builder withWeight(Integer weight)
         {
             this.weight = weight == null ? 0 : weight;
+            return this;
+        }
+
+        public Builder withMinQuantity(BigDecimal minQuantity)
+        {
+            this.minQuantity = minQuantity;
+            return this;
+        }
+
+        public Builder withMaxQuantity(BigDecimal maxQuantity)
+        {
+            this.maxQuantity = maxQuantity;
             return this;
         }
 
