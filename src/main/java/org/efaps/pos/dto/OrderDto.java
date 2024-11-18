@@ -30,12 +30,16 @@ public class OrderDto
 
     private final String orderOptionKey;
 
+    private final String shoutout;
+
     public OrderDto(final Builder builder)
     {
         super(builder);
         this.payableOid = builder.payableOid;
         this.orderOptionKey = builder.orderOptionKey;
+        this.shoutout = builder.shoutout;
     }
+
 
     public String getPayableOid()
     {
@@ -47,6 +51,12 @@ public class OrderDto
         return orderOptionKey;
     }
 
+    public String getShoutout()
+    {
+        return shoutout;
+    }
+
+
     @Override
     public String toString()
     {
@@ -54,6 +64,7 @@ public class OrderDto
                         .append(super.toString())
                         .append(", payableOid=").append(payableOid)
                         .append(", orderOptionKey=").append(orderOptionKey)
+                        .append(", shoutout=").append(shoutout)
                         .append("]").toString();
     }
 
@@ -71,6 +82,8 @@ public class OrderDto
 
         private String orderOptionKey;
 
+        private String shoutout;
+
         public Builder withPayableOid(final String payableOid)
         {
             this.payableOid = payableOid;
@@ -80,6 +93,12 @@ public class OrderDto
         public Builder withOrderOptionKey(final String orderOptionKey)
         {
             this.orderOptionKey = orderOptionKey;
+            return this;
+        }
+
+        public Builder withShoutout(final String shoutout)
+        {
+            this.shoutout = shoutout;
             return this;
         }
 
