@@ -35,23 +35,26 @@ public abstract class AbstractDocItemDto
     private final BigDecimal exchangeRate;
     private final Collection<TaxEntryDto> taxes;
     private final String remark;
+    private final String bomOid;
 
-    protected AbstractDocItemDto(final Builder<?, ?> _builder)
+
+    protected AbstractDocItemDto(final Builder<?, ?> builder)
     {
-        super(_builder);
-        index = _builder.index;
-        parentIdx = _builder.parentIdx;
-        productOid = _builder.productOid;
-        standInOid = _builder.standInOid;
-        quantity = _builder.quantity;
-        netUnitPrice = _builder.netUnitPrice;
-        crossUnitPrice = _builder.crossUnitPrice;
-        netPrice = _builder.netPrice;
-        crossPrice = _builder.crossPrice;
-        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
-        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
-        taxes = _builder.taxes;
-        remark = _builder.remark;
+        super(builder);
+        index = builder.index;
+        parentIdx = builder.parentIdx;
+        productOid = builder.productOid;
+        standInOid = builder.standInOid;
+        quantity = builder.quantity;
+        netUnitPrice = builder.netUnitPrice;
+        crossUnitPrice = builder.crossUnitPrice;
+        netPrice = builder.netPrice;
+        crossPrice = builder.crossPrice;
+        currency = builder.currency == null ? Currency.PEN : builder.currency;
+        exchangeRate = builder.exchangeRate == null ? BigDecimal.ONE : builder.exchangeRate;
+        taxes = builder.taxes;
+        remark = builder.remark;
+        bomOid = builder.bomOid;
     }
 
     public Integer getIndex()
@@ -119,6 +122,11 @@ public abstract class AbstractDocItemDto
         return exchangeRate;
     }
 
+    public String getBomOid()
+    {
+        return bomOid;
+    }
+
     @Override
     public String toString()
     {
@@ -127,6 +135,7 @@ public abstract class AbstractDocItemDto
                         .append(", index=").append(index)
                         .append(", parentIdx=").append(parentIdx)
                         .append(", productOid=").append(productOid)
+                        .append(", standInOid=").append(standInOid)
                         .append(", quantity=").append(quantity)
                         .append(", netUnitPrice=").append(netUnitPrice)
                         .append(", crossUnitPrice=").append(crossUnitPrice)
@@ -135,7 +144,9 @@ public abstract class AbstractDocItemDto
                         .append(", currency=").append(currency)
                         .append(", exchangeRate=").append(exchangeRate)
                         .append(", taxes=").append(taxes)
-                        .append(", remark=").append(remark).toString();
+                        .append(", remark=").append(remark)
+                        .append(", bomOid=").append(bomOid)
+                        .toString();
     }
 
     public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
@@ -155,6 +166,7 @@ public abstract class AbstractDocItemDto
         private BigDecimal exchangeRate;
         private Collection<TaxEntryDto> taxes;
         private String remark;
+        private String bomOid;
 
         @SuppressWarnings("unchecked")
         public S withIndex(final Integer _index)
@@ -244,6 +256,13 @@ public abstract class AbstractDocItemDto
         public S withRemark(final String _remark)
         {
             this.remark = _remark;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withBomOid(final String bomOid)
+        {
+            this.bomOid = bomOid;
             return (S) this;
         }
     }
