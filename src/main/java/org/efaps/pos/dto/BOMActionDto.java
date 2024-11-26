@@ -17,7 +17,6 @@ package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -28,12 +27,14 @@ public class BOMActionDto
 {
 
     private final BOMActionType type;
-    private final BigDecimal amount;
+    private final BigDecimal netAmount;
+    private final BigDecimal crossAmount;
 
     private BOMActionDto(Builder builder)
     {
         this.type = builder.type;
-        this.amount = builder.amount;
+        this.netAmount = builder.netAmount;
+        this.crossAmount = builder.crossAmount;
     }
 
     public BOMActionType getType()
@@ -41,10 +42,17 @@ public class BOMActionDto
         return type;
     }
 
-    public BigDecimal getAmount()
+    public BigDecimal getNetAmount()
     {
-        return amount;
+        return netAmount;
     }
+
+
+    public BigDecimal getCrossAmount()
+    {
+        return crossAmount;
+    }
+
 
     @Override
     public String toString()
@@ -52,7 +60,8 @@ public class BOMActionDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", type=").append(type)
-                        .append(", amount=").append(amount)
+                        .append(", netAmount=").append(netAmount)
+                        .append(", crossAmount=").append(crossAmount)
                         .toString();
     }
 
@@ -61,12 +70,12 @@ public class BOMActionDto
         return new Builder();
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
         private BOMActionType type;
-        private BigDecimal amount;
+        private BigDecimal netAmount;
+        private BigDecimal crossAmount;
 
         private Builder()
         {
@@ -78,9 +87,15 @@ public class BOMActionDto
             return this;
         }
 
-        public Builder withAmount(BigDecimal amount)
+        public Builder withNetAmount(BigDecimal netAmount)
         {
-            this.amount = amount;
+            this.netAmount = netAmount;
+            return this;
+        }
+
+        public Builder withCrossAmount(BigDecimal crossAmount)
+        {
+            this.crossAmount = crossAmount;
             return this;
         }
 
