@@ -29,8 +29,9 @@ public class ContactDto
     private final IdentificationType idType;
     private final String idNumber;
     private final String email;
-    private final String firstName;
-    private final String lastName;
+    private final String forename;
+    private final String firstLastName;
+    private final String secondLastName;
 
     private ContactDto(final Builder builder)
     {
@@ -40,8 +41,9 @@ public class ContactDto
         idType = builder.idType;
         idNumber = builder.idNumber;
         email = builder.email;
-        firstName = builder.firstName;
-        lastName = builder.lastName;
+        forename = builder.forename;
+        firstLastName = builder.firstLastName;
+        secondLastName = builder.secondLastName;
     }
 
     public String getId()
@@ -69,14 +71,19 @@ public class ContactDto
         return email;
     }
 
-    public String getFirstName()
+    public String getForename()
     {
-        return firstName;
+        return forename;
     }
 
-    public String getLastName()
+    public String getFirstLastName()
     {
-        return lastName;
+        return firstLastName;
+    }
+
+    public String getSecondLastName()
+    {
+        return secondLastName;
     }
 
     @Override
@@ -89,8 +96,9 @@ public class ContactDto
                         .append(", idType=").append(idType)
                         .append(", idNumber=").append(idNumber)
                         .append(", email=").append(email)
-                        .append(", firstName=").append(firstName)
-                        .append(", lastName=").append(lastName)
+                        .append(", forename=").append(forename)
+                        .append(", firstLastName=").append(firstLastName)
+                        .append(", secondLastName=").append(secondLastName)
                         .append("]").toString();
     }
 
@@ -109,8 +117,9 @@ public class ContactDto
         private IdentificationType idType;
         private String idNumber;
         private String email;
-        private String firstName;
-        private String lastName;
+        private String forename;
+        private String firstLastName;
+        private String secondLastName;
 
         public Builder withId(final String _id)
         {
@@ -142,15 +151,21 @@ public class ContactDto
             return this;
         }
 
-        public Builder withFirstName(final String firstName)
+        public Builder withForename(final String forename)
         {
-            this.firstName = firstName;
+            this.forename = forename;
             return this;
         }
 
-        public Builder withLastName(final String lastName)
+        public Builder withFirstLastName(final String firstLastName)
         {
-            this.lastName = lastName;
+            this.firstLastName = firstLastName;
+            return this;
+        }
+
+        public Builder withSecondLastName(final String secondLastName)
+        {
+            this.secondLastName = secondLastName;
             return this;
         }
 
