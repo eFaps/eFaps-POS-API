@@ -29,15 +29,19 @@ public class ContactDto
     private final IdentificationType idType;
     private final String idNumber;
     private final String email;
+    private final String firstName;
+    private final String lastName;
 
-    private ContactDto(final Builder _builder)
+    private ContactDto(final Builder builder)
     {
-        super(_builder);
-        id = _builder.id;
-        name = _builder.name;
-        idType = _builder.idType;
-        idNumber = _builder.idNumber;
-        email = _builder.email;
+        super(builder);
+        id = builder.id;
+        name = builder.name;
+        idType = builder.idType;
+        idNumber = builder.idNumber;
+        email = builder.email;
+        firstName = builder.firstName;
+        lastName = builder.lastName;
     }
 
     public String getId()
@@ -64,6 +68,17 @@ public class ContactDto
     {
         return email;
     }
+
+    public String getFirstName()
+    {
+        return firstName;
+    }
+
+    public String getLastName()
+    {
+        return lastName;
+    }
+
     @Override
     public String toString()
     {
@@ -74,8 +89,11 @@ public class ContactDto
                         .append(", idType=").append(idType)
                         .append(", idNumber=").append(idNumber)
                         .append(", email=").append(email)
+                        .append(", firstName=").append(firstName)
+                        .append(", lastName=").append(lastName)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
@@ -91,6 +109,8 @@ public class ContactDto
         private IdentificationType idType;
         private String idNumber;
         private String email;
+        private String firstName;
+        private String lastName;
 
         public Builder withId(final String _id)
         {
@@ -119,6 +139,18 @@ public class ContactDto
         public Builder withEmail(final String _email)
         {
             email = _email;
+            return this;
+        }
+
+        public Builder withFirstName(final String firstName)
+        {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder withLastName(final String lastName)
+        {
+            this.lastName = lastName;
             return this;
         }
 
