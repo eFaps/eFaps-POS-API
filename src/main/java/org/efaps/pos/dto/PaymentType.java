@@ -22,5 +22,6 @@ public enum PaymentType
     FREE,
     CARD,
     CHANGE,
-    ELECTRONIC;
+    ELECTRONIC,
+    LOYALTY_POINTS;
 }
