@@ -51,7 +51,7 @@ public class WarehouseDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, WarehouseDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String name;
@@ -62,7 +62,7 @@ public class WarehouseDto
             return this;
         }
 
-        @Override
+
         public WarehouseDto build()
         {
             return new WarehouseDto(this);

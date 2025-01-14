@@ -130,7 +130,7 @@ public class UserDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, UserDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String username;
@@ -205,7 +205,7 @@ public class UserDto
             return this;
         }
 
-        @Override
+
         public UserDto build()
         {
             return new UserDto(this);

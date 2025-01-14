@@ -46,7 +46,7 @@ public class TicketDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractPayableDocumentDto.Builder<Builder, TicketDto>
+        extends AbstractPayableDocumentDto.Builder<Builder>
     {
 
         public Builder withItems(final Collection<DocItemDto> _items)
@@ -55,13 +55,13 @@ public class TicketDto
             return this;
         }
 
-        public Builder withPayments(final Collection<PaymentDto> _payments)
+        public Builder withPayments(final Collection<IPaymentDto> payments)
         {
-            setPayments(_payments);
+            setPayments(payments);
             return this;
         }
 
-        @Override
+
         public TicketDto build()
         {
             return new TicketDto(this);

@@ -111,7 +111,7 @@ public class PosDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, PosDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String name;
@@ -171,7 +171,7 @@ public class PosDto
             return this;
         }
 
-        @Override
+
         public PosDto build()
         {
             return new PosDto(this);

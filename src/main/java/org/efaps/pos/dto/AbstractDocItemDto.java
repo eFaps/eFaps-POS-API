@@ -38,7 +38,7 @@ public abstract class AbstractDocItemDto
     private final String bomOid;
 
 
-    protected AbstractDocItemDto(final Builder<?, ?> builder)
+    protected AbstractDocItemDto(final Builder<?> builder)
     {
         super(builder);
         index = builder.index;
@@ -149,8 +149,8 @@ public abstract class AbstractDocItemDto
                         .toString();
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
-        extends AbstractObjectDto.Builder<S, T>
+    public static abstract class Builder<S extends Builder<S>>
+        extends AbstractObjectDto.Builder<S>
     {
 
         private Integer index;

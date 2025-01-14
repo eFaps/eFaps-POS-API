@@ -38,7 +38,7 @@ public class RecieptDtoTest
             .withNumber(number)
             .withStatus(DocStatus.OPEN)
             .withItems(Collections.singleton(DocItemDto.builder().build()))
-            .withPayments(Collections.singleton(PaymentDto.builder().build()))
+            .withPayments(Collections.singleton(new PaymentCashDto.Builder().build()))
             .withNetTotal(netTotal)
             .withCrossTotal(crossTotal)
             .withTaxes(Collections.singleton(TaxEntryDto.builder().build()))

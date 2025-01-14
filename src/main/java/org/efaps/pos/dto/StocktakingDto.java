@@ -106,7 +106,7 @@ public class StocktakingDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, StocktakingDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String number;
@@ -163,7 +163,7 @@ public class StocktakingDto
             return this;
         }
 
-        @Override
+
         public StocktakingDto build()
         {
             return new StocktakingDto(this);

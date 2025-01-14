@@ -79,7 +79,7 @@ public class FileDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Builder
-        extends AbstractObjectDto.Builder<Builder, FileDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String name;
@@ -111,7 +111,6 @@ public class FileDto
             return this;
         }
 
-        @Override
         public FileDto build()
         {
             return new FileDto(this);

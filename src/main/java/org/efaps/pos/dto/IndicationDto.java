@@ -68,7 +68,7 @@ public class IndicationDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, IndicationDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String value;
@@ -93,7 +93,7 @@ public class IndicationDto
             return this;
         }
 
-        @Override
+
         public IndicationDto build()
         {
             return new IndicationDto(this);

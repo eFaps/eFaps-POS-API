@@ -23,9 +23,9 @@ public abstract class AbstractObjectDto
 
     private final String oid;
 
-    protected AbstractObjectDto(final Builder<?, ?> _builder)
+    protected AbstractObjectDto(final Builder<?> builder)
     {
-        oid = _builder.oid;
+        this.oid = builder.oid;
     }
 
     public String getOid()
@@ -40,7 +40,7 @@ public abstract class AbstractObjectDto
                         .append(" [oid=").append(oid).toString();
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
+    public static abstract class Builder<S extends Builder<S>>
     {
 
         private String oid;
@@ -51,8 +51,6 @@ public abstract class AbstractObjectDto
             this.oid = _oid;
             return (S) this;
         }
-
-        public abstract T build();
     }
 
 }

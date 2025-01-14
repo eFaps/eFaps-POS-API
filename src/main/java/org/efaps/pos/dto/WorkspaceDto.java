@@ -166,7 +166,7 @@ public class WorkspaceDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, WorkspaceDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String warehouseOid;
@@ -268,7 +268,7 @@ public class WorkspaceDto
             return this;
         }
 
-        @Override
+
         public WorkspaceDto build()
         {
             return new WorkspaceDto(this);

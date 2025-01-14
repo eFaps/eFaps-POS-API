@@ -75,7 +75,7 @@ public class OrderDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Builder
-        extends AbstractDocumentDto.Builder<Builder, OrderDto>
+        extends AbstractDocumentDto.Builder<Builder>
     {
 
         private String payableOid;
@@ -108,7 +108,6 @@ public class OrderDto
             return this;
         }
 
-        @Override
         public OrderDto build()
         {
             return new OrderDto(this);

@@ -109,7 +109,7 @@ public class ContactDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, ContactDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String id;
@@ -169,8 +169,7 @@ public class ContactDto
             return this;
         }
 
-        @Override
-        public ContactDto build()
+         public ContactDto build()
         {
             return new ContactDto(this);
         }

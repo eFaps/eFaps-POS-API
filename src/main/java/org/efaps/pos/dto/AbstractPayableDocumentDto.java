@@ -24,9 +24,9 @@ public abstract class AbstractPayableDocumentDto
 {
     private final String balanceOid;
 
-    private final Collection<PaymentDto> payments;
+    private final Collection<IPaymentDto> payments;
 
-    protected AbstractPayableDocumentDto(final Builder<?, ?> _builder)
+    protected AbstractPayableDocumentDto(final Builder<?> _builder)
     {
         super(_builder);
         balanceOid =  _builder.balanceOid;
@@ -38,7 +38,7 @@ public abstract class AbstractPayableDocumentDto
         return balanceOid;
     }
 
-    public Collection<PaymentDto> getPayments()
+    public Collection<IPaymentDto> getPayments()
     {
         return Collections.unmodifiableCollection(payments);
     }
@@ -53,11 +53,11 @@ public abstract class AbstractPayableDocumentDto
                         .append("]").toString();
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractDocumentDto>
-        extends AbstractDocumentDto.Builder<S, T>
+    public static abstract class Builder<S extends Builder<S>>
+        extends AbstractDocumentDto.Builder<S>
     {
         private String balanceOid;
-        private Collection<PaymentDto> payments = new HashSet<>();
+        private Collection<IPaymentDto> payments = new HashSet<>();
 
         @SuppressWarnings("unchecked")
         public S withBalanceOid(final String _balanceOid)
@@ -66,9 +66,9 @@ public abstract class AbstractPayableDocumentDto
             return (S) this;
         }
 
-        protected void setPayments(final Collection<PaymentDto> _payments)
+        protected void setPayments(final Collection<IPaymentDto> payments)
         {
-            this.payments = _payments;
+            this.payments = payments;
         }
     }
 }

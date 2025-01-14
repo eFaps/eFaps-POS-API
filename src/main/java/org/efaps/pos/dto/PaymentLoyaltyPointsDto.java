@@ -15,72 +15,59 @@
  */
 package org.efaps.pos.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(builder = PrinterDto.Builder.class)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class PrinterDto
-    extends AbstractObjectDto
+@JsonDeserialize(builder = PaymentLoyaltyPointsDto.Builder.class)
+@JsonInclude(Include.NON_NULL)
+public class PaymentLoyaltyPointsDto
+    extends PaymentLoyaltyPointsAbstractDto
+    implements IPaymentDto
 {
 
-    private final String name;
-    private final PrinterType type;
+    private final PaymentType type;
 
-    private PrinterDto(final Builder _builder)
+    protected PaymentLoyaltyPointsDto(final Builder builder)
     {
-        super(_builder);
-        name = _builder.name;
-        type = _builder.type;
+        super(builder);
+        this.type = builder.type;
     }
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public PrinterType getType()
+    @Override
+    public PaymentType getType()
     {
         return type;
     }
+
     @Override
     public String toString()
     {
         return new StringBuilder()
                         .append(super.toString())
-                        .append(", name=").append(name)
                         .append(", type=").append(type)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Builder
-        extends AbstractObjectDto.Builder<Builder>
+    public static class Builder
+        extends PaymentLoyaltyPointsAbstractDto.Builder<Builder>
     {
 
-        private String name;
-        private PrinterType type;
+        private final PaymentType type = PaymentType.LOYALTY_POINTS;
 
-        public Builder withName(final String _name)
+        public Builder withType(PaymentType type)
         {
-            name = _name;
             return this;
         }
 
-        public Builder withType(final PrinterType _type)
+        public PaymentLoyaltyPointsDto build()
         {
-            type = _type;
-            return this;
-        }
-
-
-        public PrinterDto build()
-        {
-            return new PrinterDto(this);
+            return new PaymentLoyaltyPointsDto(this);
         }
     }
 }

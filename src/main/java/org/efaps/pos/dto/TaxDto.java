@@ -111,7 +111,7 @@ public class TaxDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, TaxDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String key;
@@ -171,7 +171,7 @@ public class TaxDto
             return this;
         }
 
-        @Override
+
         public TaxDto build()
         {
             return new TaxDto(this);

@@ -55,7 +55,7 @@ public class CreditNoteDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractPayableDocumentDto.Builder<Builder, CreditNoteDto>
+        extends AbstractPayableDocumentDto.Builder<Builder>
     {
 
         private String sourceDocOid;
@@ -66,9 +66,9 @@ public class CreditNoteDto
             return this;
         }
 
-        public Builder withPayments(final Collection<PaymentDto> _payments)
+        public Builder withPayments(final Collection<IPaymentDto> payments)
         {
-            setPayments(_payments);
+            setPayments(payments);
             return this;
         }
 
@@ -77,7 +77,6 @@ public class CreditNoteDto
             return this;
         }
 
-        @Override
         public CreditNoteDto build()
         {
             return new CreditNoteDto(this);

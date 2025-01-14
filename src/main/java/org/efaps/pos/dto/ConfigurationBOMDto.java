@@ -104,7 +104,7 @@ public class ConfigurationBOMDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, ConfigurationBOMDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
         private String toProductOid;
         private String bomGroupOid;
@@ -160,7 +160,6 @@ public class ConfigurationBOMDto
             return this;
         }
 
-        @Override
         public ConfigurationBOMDto build()
         {
             return new ConfigurationBOMDto(this);

@@ -89,7 +89,7 @@ public class CategoryDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, CategoryDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String name;
@@ -128,7 +128,6 @@ public class CategoryDto
             return this;
         }
 
-        @Override
         public CategoryDto build()
         {
             return new CategoryDto(this);

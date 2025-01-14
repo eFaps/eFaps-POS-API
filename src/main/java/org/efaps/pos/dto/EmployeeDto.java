@@ -58,7 +58,7 @@ public class EmployeeDto
     }
 
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, EmployeeDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String firstName;
@@ -80,7 +80,6 @@ public class EmployeeDto
             return this;
         }
 
-        @Override
         public EmployeeDto build()
         {
             return new EmployeeDto(this);

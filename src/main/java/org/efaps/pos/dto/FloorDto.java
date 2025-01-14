@@ -74,7 +74,7 @@ public class FloorDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Builder
-        extends AbstractObjectDto.Builder<Builder, FloorDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String name;
@@ -99,7 +99,6 @@ public class FloorDto
             return this;
         }
 
-        @Override
         public FloorDto build()
         {
             return new FloorDto(this);

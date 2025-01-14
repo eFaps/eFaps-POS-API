@@ -103,7 +103,7 @@ public class BalanceDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, BalanceDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String id;
@@ -156,7 +156,6 @@ public class BalanceDto
             return this;
         }
 
-        @Override
         public BalanceDto build()
         {
             return new BalanceDto(this);

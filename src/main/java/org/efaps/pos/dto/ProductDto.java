@@ -193,7 +193,7 @@ public class ProductDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, ProductDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String sku;
@@ -323,7 +323,7 @@ public class ProductDto
             return this;
         }
 
-        @Override
+
         public ProductDto build()
         {
             return new ProductDto(this);

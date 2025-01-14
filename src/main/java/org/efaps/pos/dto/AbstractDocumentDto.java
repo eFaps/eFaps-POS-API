@@ -41,7 +41,7 @@ public abstract class AbstractDocumentDto
     private final String note;
     private final Collection<EmployeeRelationDto> employeeRelations;
 
-    protected AbstractDocumentDto(final Builder<?, ?> _builder)
+    protected AbstractDocumentDto(final Builder<?> _builder)
     {
         super(_builder);
         id = _builder.id;
@@ -158,8 +158,8 @@ public abstract class AbstractDocumentDto
                         .toString();
     }
 
-    public static abstract class Builder<S extends Builder<S, T>, T extends AbstractObjectDto>
-        extends AbstractObjectDto.Builder<S, T>
+    public static abstract class Builder<S extends Builder<S>>
+        extends AbstractObjectDto.Builder<S>
     {
 
         private String id;

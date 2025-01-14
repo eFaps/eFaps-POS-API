@@ -44,10 +44,9 @@ public class DocItemDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractDocItemDto.Builder<Builder, DocItemDto>
+        extends AbstractDocItemDto.Builder<Builder>
     {
 
-        @Override
         public DocItemDto build()
         {
             return new DocItemDto(this);

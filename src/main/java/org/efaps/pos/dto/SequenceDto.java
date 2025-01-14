@@ -59,7 +59,7 @@ public class SequenceDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
-        extends AbstractObjectDto.Builder<Builder, SequenceDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private long seq;
@@ -78,7 +78,7 @@ public class SequenceDto
             return this;
         }
 
-        @Override
+
         public SequenceDto build()
         {
             return new SequenceDto(this);

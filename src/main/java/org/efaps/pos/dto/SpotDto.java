@@ -52,7 +52,7 @@ public class SpotDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Builder
-        extends AbstractObjectDto.Builder<Builder, SpotDto>
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         private String label;
@@ -63,7 +63,7 @@ public class SpotDto
             return this;
         }
 
-        @Override
+
         public SpotDto build()
         {
             return new SpotDto(this);
