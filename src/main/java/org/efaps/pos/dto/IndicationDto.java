@@ -27,13 +27,17 @@ public class IndicationDto
     private final String value;
     private final String description;
     private final String imageOid;
+    private final boolean defaultSelected;
+    private final int weight;
 
-    protected IndicationDto(final Builder _builder)
+    protected IndicationDto(final Builder builder)
     {
-        super(_builder);
-        value = _builder.value;
-        description = _builder.description;
-        imageOid = _builder.imageOid;
+        super(builder);
+        value = builder.value;
+        description = builder.description;
+        imageOid = builder.imageOid;
+        defaultSelected = builder.defaultSelected;
+        weight = builder.weight;
     }
 
     public String getValue()
@@ -51,6 +55,16 @@ public class IndicationDto
         return imageOid;
     }
 
+    public boolean isDefaultSelected()
+    {
+        return defaultSelected;
+    }
+
+    public int getWeight()
+    {
+        return weight;
+    }
+
     @Override
     public String toString()
     {
@@ -59,8 +73,11 @@ public class IndicationDto
                         .append(", value=").append(value)
                         .append(", description=").append(description)
                         .append(", imageOid=").append(imageOid)
+                        .append(", defaultSelected=").append(defaultSelected)
+                        .append(", weight=").append(weight)
                         .append("]").toString();
     }
+
     public static Builder builder()
     {
         return new Builder();
@@ -74,25 +91,38 @@ public class IndicationDto
         private String value;
         private String description;
         private String imageOid;
+        private boolean defaultSelected;
+        private int weight;
 
-        public Builder withValue(final String _value)
+        public Builder withValue(final String value)
         {
-            value = _value;
+            this.value = value;
             return this;
         }
 
-        public Builder withDescription(final String _description)
+        public Builder withDescription(final String description)
         {
-            description = _description;
+            this.description = description;
             return this;
         }
 
-        public Builder withImageOid(final String _imageOid)
+        public Builder withImageOid(final String imageOid)
         {
-            imageOid = _imageOid;
+            this.imageOid = imageOid;
             return this;
         }
 
+        public Builder withDefaultSelected(final boolean defaultSelected)
+        {
+            this.defaultSelected = defaultSelected;
+            return this;
+        }
+
+        public Builder withWeight(final int weight)
+        {
+            this.weight = weight;
+            return this;
+        }
 
         public IndicationDto build()
         {
