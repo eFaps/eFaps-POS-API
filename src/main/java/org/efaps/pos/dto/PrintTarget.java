@@ -21,5 +21,7 @@ public enum PrintTarget
     PRELIMINARY,
     TICKET,
     COPY,
-    BALANCE
+    BALANCE,
+    BALANCE_DETAILED,
+    SALESREPORT
 }
