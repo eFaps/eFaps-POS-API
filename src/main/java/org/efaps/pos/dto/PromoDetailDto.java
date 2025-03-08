@@ -16,7 +16,6 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -24,7 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class PromoDetailDto
 {
 
-    private final int index;
+    private final int positionIndex;
 
     private final BigDecimal netUnitBase;
 
@@ -38,23 +37,23 @@ public class PromoDetailDto
 
     private final BigDecimal crossDiscount;
 
-    private final List<String> promotionOids;
+    private final String promotionOid;
 
     private PromoDetailDto(Builder builder)
     {
-        this.index = builder.index;
+        this.positionIndex = builder.positionIndex;
         this.netUnitBase = builder.netUnitBase;
         this.netBase = builder.netBase;
         this.netUnitDiscount = builder.netUnitDiscount;
         this.netDiscount = builder.netDiscount;
         this.crossUnitDiscount = builder.crossUnitDiscount;
         this.crossDiscount = builder.crossDiscount;
-        this.promotionOids = builder.promotionOids;
+        this.promotionOid = builder.promotionOid;
     }
 
-    public int getIndex()
+    public int getPositionIndex()
     {
-        return index;
+        return positionIndex;
     }
 
     public BigDecimal getNetUnitBase()
@@ -87,9 +86,9 @@ public class PromoDetailDto
         return crossUnitDiscount;
     }
 
-    public List<String> getPromotionOids()
+    public String getPromotionOid()
     {
-        return promotionOids;
+        return promotionOid;
     }
 
     @Override
@@ -97,14 +96,14 @@ public class PromoDetailDto
     {
         return new StringBuilder()
                         .append(super.toString())
-                        .append(", index=").append(index)
+                        .append(", positionIndex=").append(positionIndex)
                         .append(", netUnitBase=").append(netUnitBase)
                         .append(", netBase=").append(netBase)
                         .append(", netUnitDiscount=").append(netUnitDiscount)
                         .append(", netDiscount=").append(netDiscount)
                         .append(", crossUnitDiscount=").append(crossUnitDiscount)
                         .append(", crossDiscount=").append(crossDiscount)
-                        .append(", promotionOids=").append(promotionOids)
+                        .append(", promotionOid=").append(promotionOid)
                         .append("]").toString();
     }
 
@@ -116,26 +115,24 @@ public class PromoDetailDto
     public static final class Builder
     {
 
-        private int index;
+        private int positionIndex;
         private BigDecimal netUnitBase;
         private BigDecimal netBase;
         private BigDecimal netUnitDiscount;
         private BigDecimal netDiscount;
         private BigDecimal crossUnitDiscount;
         private BigDecimal crossDiscount;
-        private List<String> promotionOids;
+        private String promotionOid;
 
         private Builder()
         {
         }
 
-
-        public Builder withIndex(int index)
+        public Builder withPositionIndex(int positionIndex)
         {
-            this.index = index;
+            this.positionIndex = positionIndex;
             return this;
         }
-
 
         public Builder withNetUnitBase(BigDecimal netUnitBase)
         {
@@ -173,9 +170,9 @@ public class PromoDetailDto
             return this;
         }
 
-        public Builder withPromotionOids(List<String> promotionOids)
+        public Builder withPromotionOid(String promotionOid)
         {
-            this.promotionOids = promotionOids;
+            this.promotionOid = promotionOid;
             return this;
         }
 
