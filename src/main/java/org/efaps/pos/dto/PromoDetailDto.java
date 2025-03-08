@@ -197,4 +197,5 @@ public class PromoDetailDto
             return new PromoDetailDto(this);
         }
     }
+
 }
