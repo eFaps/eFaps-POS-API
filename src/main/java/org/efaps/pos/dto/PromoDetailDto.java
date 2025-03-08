@@ -16,6 +16,8 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -49,6 +51,18 @@ public class PromoDetailDto
         this.crossUnitDiscount = builder.crossUnitDiscount;
         this.crossDiscount = builder.crossDiscount;
         this.promotionOid = builder.promotionOid;
+    }
+
+    @Deprecated
+    public int getIndex()
+    {
+        return getPositionIndex();
+    }
+
+    @Deprecated
+    public List<String> getPromotionOids()
+    {
+        return promotionOid == null ? Collections.emptyList() : Collections.singletonList(promotionOid);
     }
 
     public int getPositionIndex()
