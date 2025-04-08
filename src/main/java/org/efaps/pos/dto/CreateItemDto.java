@@ -27,16 +27,21 @@ public class CreateItemDto
 
     private final String productOid;
 
+    private final BigDecimal netUnitPrice;
+
     private CreateItemDto(Builder builder)
     {
         this.quantity = builder.quantity;
         this.productOid = builder.productOid;
+        this.netUnitPrice = builder.netUnitPrice;
     }
 
     @Override
     public String toString()
     {
-        return "CreateItemDto [quantity=" + quantity + ", productOid=" + productOid + "]";
+        return "CreateItemDto [quantity=" + quantity
+                        + ", productOid=" + productOid
+                        + ", netUnitPrice=" + netUnitPrice + "]";
     }
 
     public BigDecimal getQuantity()
@@ -49,6 +54,11 @@ public class CreateItemDto
         return productOid;
     }
 
+    public BigDecimal getNetUnitPrice()
+    {
+        return netUnitPrice;
+    }
+
     public static Builder builder()
     {
         return new Builder();
@@ -59,6 +69,7 @@ public class CreateItemDto
 
         private BigDecimal quantity;
         private String productOid;
+        private BigDecimal netUnitPrice;
 
         private Builder()
         {
@@ -73,6 +84,12 @@ public class CreateItemDto
         public Builder withProductOid(String productOid)
         {
             this.productOid = productOid;
+            return this;
+        }
+
+        public Builder withNetUnitPrice(BigDecimal netUnitPrice)
+        {
+            this.netUnitPrice = netUnitPrice;
             return this;
         }
 

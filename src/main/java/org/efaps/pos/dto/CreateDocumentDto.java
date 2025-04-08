@@ -23,14 +23,31 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize(builder = CreateDocumentDto.Builder.class)
 public class CreateDocumentDto
 {
+
     private final Currency currency;
+
+    private final String note;
+
+    private final String contactOid;
 
     private final List<CreateItemDto> items;
 
     private CreateDocumentDto(Builder builder)
     {
         this.currency = builder.currency;
+        this.note = builder.note;
+        this.contactOid = builder.contactOid;
         this.items = builder.items;
+    }
+
+    public String getNote()
+    {
+        return note;
+    }
+
+    public String getContactOid()
+    {
+        return contactOid;
     }
 
     public Currency getCurrency()
@@ -46,7 +63,10 @@ public class CreateDocumentDto
     @Override
     public String toString()
     {
-        return "CreateDocumentDto [currency=" + currency + ", items=" + items + "]";
+        return "CreateDocumentDto [currency=" + currency
+                        + ", note = "+ note
+                        + ", contactOid = "+ contactOid
+                        + ", items=" + items + "]";
     }
 
     public static Builder builder()
@@ -58,6 +78,8 @@ public class CreateDocumentDto
     {
 
         private Currency currency;
+        private String note;
+        private String contactOid;
         private List<CreateItemDto> items = Collections.emptyList();
 
         private Builder()
@@ -67,6 +89,18 @@ public class CreateDocumentDto
         public Builder withCurrency(Currency currency)
         {
             this.currency = currency;
+            return this;
+        }
+
+        public Builder withNote(String note)
+        {
+            this.note = note;
+            return this;
+        }
+
+        public Builder withContactOid(String contactOid)
+        {
+            this.contactOid = contactOid;
             return this;
         }
 
