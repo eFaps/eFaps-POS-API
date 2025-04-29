@@ -20,5 +20,6 @@ public enum Permission
 {
     ADMIN, //Access to admin page
     COLLECT, // is a cashier e.g. can emit invoice/receipt and collect the money
-    ORDER // can emit Orders
+    ORDER, // can emit Orders,
+    CREDITNOTE,// can emit CreditNote
 }
