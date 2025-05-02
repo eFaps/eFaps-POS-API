@@ -26,14 +26,22 @@ public class CalculatorRequestDto
 
     private final List<CalculatorPositionRequestDto> positions;
 
+    private final String sourceDocIdent;
+
+    private CalculatorRequestDto(Builder builder)
+    {
+        this.positions = builder.positions;
+        this.sourceDocIdent = builder.sourceDocIdent;
+    }
+
     public List<CalculatorPositionRequestDto> getPositions()
     {
         return positions;
     }
 
-    private CalculatorRequestDto(Builder builder)
+    public String getSourceDocIdent()
     {
-        this.positions = builder.positions;
+        return sourceDocIdent;
     }
 
     @Override
@@ -53,6 +61,7 @@ public class CalculatorRequestDto
     {
 
         private List<CalculatorPositionRequestDto> positions = Collections.emptyList();
+        private String sourceDocIdent;
 
         private Builder()
         {
@@ -61,6 +70,12 @@ public class CalculatorRequestDto
         public Builder withPositions(List<CalculatorPositionRequestDto> positions)
         {
             this.positions = positions;
+            return this;
+        }
+
+        public Builder withSourceDocIdent(String sourceDocIdent)
+        {
+            this.sourceDocIdent = sourceDocIdent;
             return this;
         }
 
