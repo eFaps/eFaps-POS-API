@@ -18,5 +18,7 @@ package org.efaps.pos.dto;
 
 public enum CashEntryType
 {
-    OPENING
+    OPENING,
+    WITHDRAWAL,
+    DEPOSIT
 }
