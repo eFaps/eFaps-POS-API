@@ -34,5 +34,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         })
 public interface IPaymentDto
 {
+    int getIndex();
     PaymentType getType();
 }

@@ -23,6 +23,7 @@ public abstract class PaymentAbstractDto
     implements IPaymentDto
 {
 
+    private final int index;
     private final BigDecimal amount;
     private final Currency currency;
     private final BigDecimal exchangeRate;
@@ -32,11 +33,18 @@ public abstract class PaymentAbstractDto
     protected PaymentAbstractDto(final Builder<?> builder)
     {
         super(builder);
+        index = builder.index;
         amount = builder.amount;
         currency = builder.currency == null ? Currency.PEN : builder.currency;
         exchangeRate = builder.exchangeRate == null ? BigDecimal.ONE : builder.exchangeRate;
         info = builder.info;
         operationDateTime = builder.operationDateTime;
+    }
+
+    @Override
+    public int getIndex()
+    {
+        return this.index;
     }
 
     public BigDecimal getAmount()
@@ -81,11 +89,19 @@ public abstract class PaymentAbstractDto
         extends AbstractObjectDto.Builder<S>
     {
 
+        private int index;
         private BigDecimal amount;
         private Currency currency;
         private BigDecimal exchangeRate;
         private String info;
         private OffsetDateTime operationDateTime;
+
+        @SuppressWarnings("unchecked")
+        public S withIndex(final int index)
+        {
+            this.index = index;
+            return (S) this;
+        }
 
         @SuppressWarnings("unchecked")
         public S withAmount(final BigDecimal amount)
@@ -114,6 +130,7 @@ public abstract class PaymentAbstractDto
             this.info = info;
             return (S) this;
         }
+
         @SuppressWarnings("unchecked")
         public S withOperationDateTime(final OffsetDateTime operationDateTime)
         {
