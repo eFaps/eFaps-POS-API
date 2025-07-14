@@ -15,8 +15,6 @@
  */
 package org.efaps.pos.dto;
 
-import java.time.OffsetDateTime;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -34,8 +32,6 @@ public class CategoryDto
 
     private final String imageOid;
 
-    private final OffsetDateTime imageModifiedAt;
-
     private final String parentOid;
 
     public CategoryDto(final Builder builder)
@@ -45,7 +41,6 @@ public class CategoryDto
         description = builder.description;
         weight = builder.weight;
         imageOid = builder.imageOid;
-        imageModifiedAt = builder.imageModifiedAt;
         parentOid = builder.parentOid;
     }
 
@@ -67,11 +62,6 @@ public class CategoryDto
     public String getImageOid()
     {
         return imageOid;
-    }
-
-    public OffsetDateTime getImageModifiedAt()
-    {
-        return imageModifiedAt;
     }
 
     public String getParentOid()
@@ -106,7 +96,6 @@ public class CategoryDto
         private String description;
         private int weight = 0;
         private String imageOid;
-        private OffsetDateTime imageModifiedAt;
         private String parentOid;
 
         public Builder withName(final String _name)
@@ -130,12 +119,6 @@ public class CategoryDto
         public Builder withImageOid(final String _imageOid)
         {
             imageOid = _imageOid;
-            return this;
-        }
-
-        public Builder withImageModifiedAt(final OffsetDateTime imageModifiedAt)
-        {
-            this.imageModifiedAt = imageModifiedAt;
             return this;
         }
 
