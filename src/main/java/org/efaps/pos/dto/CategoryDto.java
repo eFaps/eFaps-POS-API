@@ -28,6 +28,8 @@ public class CategoryDto
 
     private final String description;
 
+    private final String label;
+
     private final int weight;
 
     private final String imageOid;
@@ -39,6 +41,7 @@ public class CategoryDto
         super(builder);
         name = builder.name;
         description = builder.description;
+        label = builder.label;
         weight = builder.weight;
         imageOid = builder.imageOid;
         parentOid = builder.parentOid;
@@ -52,6 +55,11 @@ public class CategoryDto
     public String getDescription()
     {
         return description;
+    }
+
+    public String getLabel()
+    {
+        return label;
     }
 
     public int getWeight()
@@ -76,6 +84,7 @@ public class CategoryDto
                         .append(super.toString())
                         .append(", name=").append(name)
                         .append(", description=").append(description)
+                        .append(", label=").append(label)
                         .append(", weight=").append(weight)
                         .append(", imageOid=").append(imageOid)
                         .append(", parentOid=").append(parentOid)
@@ -94,6 +103,7 @@ public class CategoryDto
 
         private String name;
         private String description;
+        private String label;
         private int weight = 0;
         private String imageOid;
         private String parentOid;
@@ -107,6 +117,12 @@ public class CategoryDto
         public Builder withDescription(final String description)
         {
             this.description = description;
+            return this;
+        }
+
+        public Builder withLabel(final String label)
+        {
+            this.label = label;
             return this;
         }
 
