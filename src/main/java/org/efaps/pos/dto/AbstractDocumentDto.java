@@ -40,6 +40,7 @@ public abstract class AbstractDocumentDto
     private final String workspaceOid;
     private final String note;
     private final Collection<EmployeeRelationDto> employeeRelations;
+    private final PromoInfoDto promotionInfo;
 
     protected AbstractDocumentDto(final Builder<?> _builder)
     {
@@ -59,6 +60,7 @@ public abstract class AbstractDocumentDto
         workspaceOid = _builder.workspaceOid;
         note = _builder.note;
         employeeRelations = _builder.employeeRelations  == null ? Collections.emptySet() : _builder.employeeRelations;
+        promotionInfo = _builder.promotionInfo;
     }
 
     public String getId()
@@ -136,6 +138,11 @@ public abstract class AbstractDocumentDto
         return Collections.unmodifiableCollection(employeeRelations);
     }
 
+    public PromoInfoDto getPromotionInfo()
+    {
+        return promotionInfo;
+    }
+
     @Override
     public String toString()
     {
@@ -155,6 +162,7 @@ public abstract class AbstractDocumentDto
                         .append(", workspaceOid=").append(workspaceOid)
                         .append(", note=").append(note)
                         .append(", employeeRelations=").append(employeeRelations)
+                        .append(", promotionInfo=").append(promotionInfo)
                         .toString();
     }
 
@@ -177,6 +185,7 @@ public abstract class AbstractDocumentDto
         private String workspaceOid;
         private String note;
         private Collection<EmployeeRelationDto> employeeRelations;
+        private PromoInfoDto promotionInfo;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -273,6 +282,13 @@ public abstract class AbstractDocumentDto
         public S withEmployeeRelations(final Collection<EmployeeRelationDto> employeeRelations)
         {
             this.employeeRelations = employeeRelations;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withPromotionInfo(final PromoInfoDto promotionInfo)
+        {
+            this.promotionInfo = promotionInfo;
             return (S) this;
         }
 
