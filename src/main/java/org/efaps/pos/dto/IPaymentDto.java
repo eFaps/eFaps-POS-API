@@ -31,6 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
             @JsonSubTypes.Type(value = PaymentElectronicDto.class, name = "ELECTRONIC"),
             @JsonSubTypes.Type(value = PaymentFreeDto.class, name = "FREE"),
             @JsonSubTypes.Type(value = PaymentLoyaltyPointsDto.class, name = "LOYALTY_POINTS"),
+            @JsonSubTypes.Type(value = PaymentRedeemCreditNoteDto.class, name = "REDEEM_CREDITNOTE"),
         })
 public interface IPaymentDto
 {

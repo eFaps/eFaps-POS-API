@@ -23,5 +23,6 @@ public enum PaymentType
     CARD,
     CHANGE,
     ELECTRONIC,
-    LOYALTY_POINTS;
+    LOYALTY_POINTS,
+    REDEEM_CREDITNOTE;
 }
