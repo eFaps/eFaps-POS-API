@@ -22,4 +22,5 @@ public enum Permission
     COLLECT, // is a cashier e.g. can emit invoice/receipt and collect the money
     ORDER, // can emit Orders,
     CREDITNOTE,// can emit CreditNote
+    REDEEM_CREDITNOTE, // can redeem a CreditNote
 }
