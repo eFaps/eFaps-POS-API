@@ -20,6 +20,10 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public abstract class AbstractDocumentDto
     extends AbstractObjectDto
@@ -41,26 +45,28 @@ public abstract class AbstractDocumentDto
     private final String note;
     private final Collection<EmployeeRelationDto> employeeRelations;
     private final PromoInfoDto promotionInfo;
+    private final Map<String, Object> extension;
 
-    protected AbstractDocumentDto(final Builder<?> _builder)
+    protected AbstractDocumentDto(final Builder<?> builder)
     {
-        super(_builder);
-        id = _builder.id;
-        number = _builder.number;
-        items = _builder.items == null ? Collections.emptySet() : _builder.items;
-        status = _builder.status;
-        date = _builder.date;
-        netTotal = _builder.netTotal;
-        crossTotal = _builder.crossTotal;
-        payableAmount = _builder.payableAmount;
-        currency = _builder.currency == null ? Currency.PEN : _builder.currency;
-        exchangeRate = _builder.exchangeRate == null ? BigDecimal.ONE : _builder.exchangeRate;
-        taxes = _builder.taxes == null ? Collections.emptySet() : _builder.taxes;
-        contactOid = _builder.contactOid;
-        workspaceOid = _builder.workspaceOid;
-        note = _builder.note;
-        employeeRelations = _builder.employeeRelations  == null ? Collections.emptySet() : _builder.employeeRelations;
-        promotionInfo = _builder.promotionInfo;
+        super(builder);
+        id = builder.id;
+        number = builder.number;
+        items = builder.items == null ? Collections.emptySet() : builder.items;
+        status = builder.status;
+        date = builder.date;
+        netTotal = builder.netTotal;
+        crossTotal = builder.crossTotal;
+        payableAmount = builder.payableAmount;
+        currency = builder.currency == null ? Currency.PEN : builder.currency;
+        exchangeRate = builder.exchangeRate == null ? BigDecimal.ONE : builder.exchangeRate;
+        taxes = builder.taxes == null ? Collections.emptySet() : builder.taxes;
+        contactOid = builder.contactOid;
+        workspaceOid = builder.workspaceOid;
+        note = builder.note;
+        employeeRelations = builder.employeeRelations  == null ? Collections.emptySet() : builder.employeeRelations;
+        promotionInfo = builder.promotionInfo;
+        extension = builder.extension;
     }
 
     public String getId()
@@ -143,6 +149,12 @@ public abstract class AbstractDocumentDto
         return promotionInfo;
     }
 
+    @JsonInclude(value = Include.NON_NULL)
+    public Map<String, Object> getExtension()
+    {
+        return extension;
+    }
+
     @Override
     public String toString()
     {
@@ -163,6 +175,7 @@ public abstract class AbstractDocumentDto
                         .append(", note=").append(note)
                         .append(", employeeRelations=").append(employeeRelations)
                         .append(", promotionInfo=").append(promotionInfo)
+                        .append(", extension=").append(extension)
                         .toString();
     }
 
@@ -186,6 +199,7 @@ public abstract class AbstractDocumentDto
         private String note;
         private Collection<EmployeeRelationDto> employeeRelations;
         private PromoInfoDto promotionInfo;
+        private Map<String, Object> extension;
 
         @SuppressWarnings("unchecked")
         public S withId(final String _id)
@@ -295,6 +309,13 @@ public abstract class AbstractDocumentDto
         protected void setItems(final Collection<? extends AbstractDocItemDto> _items)
         {
             this.items = _items;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withExtension(final Map<String, Object> extension)
+        {
+            this.extension = extension;
+            return (S) this;
         }
     }
 }
