@@ -15,6 +15,8 @@
  */
 package org.efaps.pos.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -23,19 +25,25 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class LoyaltyPointsBalanceDto
 {
 
-    private final String contactOid;
+    private final ContactDto contact;
 
     private final Integer points;
 
+    private final BigDecimal equivalentAmount;
+
+    private final Currency equivalentCurrency;
+
     private LoyaltyPointsBalanceDto(Builder builder)
     {
-        this.contactOid = builder.contactOid;
+        this.contact = builder.contact;
         this.points = builder.points;
+        this.equivalentAmount = builder.equivalentAmount;
+        this.equivalentCurrency = builder.equivalentCurrency;
     }
 
-    public String getContactOid()
+    public ContactDto getContact()
     {
-        return contactOid;
+        return contact;
     }
 
     public Integer getPoints()
@@ -43,13 +51,25 @@ public class LoyaltyPointsBalanceDto
         return points;
     }
 
+    public BigDecimal getEquivalentAmount()
+    {
+        return equivalentAmount;
+    }
+
+    public Currency getEquivalentCurrency()
+    {
+        return equivalentCurrency;
+    }
+
     @Override
     public String toString()
     {
         return new StringBuilder()
                         .append(super.toString())
-                        .append(", contactOid=").append(contactOid)
                         .append(", points=").append(points)
+                        .append(", equivalentAmount=").append(equivalentAmount)
+                        .append(", equivalentCurrency=").append(equivalentCurrency)
+                        .append(", contact=").append(contact)
                         .append("]").toString();
     }
 
@@ -58,26 +78,39 @@ public class LoyaltyPointsBalanceDto
         return new Builder();
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
-        private String contactOid;
+        private ContactDto contact;
         private Integer points;
+        private BigDecimal equivalentAmount;
+        private Currency equivalentCurrency;
 
         private Builder()
         {
         }
 
-        public Builder withContactOid(String contactOid)
+        public Builder withContact(ContactDto contact)
         {
-            this.contactOid = contactOid;
+            this.contact = contact;
             return this;
         }
 
         public Builder withPoints(Integer points)
         {
             this.points = points;
+            return this;
+        }
+
+        public Builder withEquivalentAmount(BigDecimal equivalentAmount)
+        {
+            this.equivalentAmount = equivalentAmount;
+            return this;
+        }
+
+        public Builder withEquivalentCurrency(Currency equivalentCurrency)
+        {
+            this.equivalentCurrency = equivalentCurrency;
             return this;
         }
 
