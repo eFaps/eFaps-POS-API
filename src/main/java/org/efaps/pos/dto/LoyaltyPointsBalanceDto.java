@@ -15,6 +15,11 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder = LoyaltyPointsBalanceDto.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LoyaltyPointsBalanceDto
 {
 
@@ -53,6 +58,7 @@ public class LoyaltyPointsBalanceDto
         return new Builder();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
 
