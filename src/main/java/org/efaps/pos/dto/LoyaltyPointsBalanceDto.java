@@ -37,7 +37,7 @@ public class LoyaltyPointsBalanceDto
 
     private final Currency equivalentCurrency;
 
-    private final Map<String, Object> additionalInfo;
+    private final Map<String, Object> extend;
 
     private LoyaltyPointsBalanceDto(Builder builder)
     {
@@ -45,7 +45,7 @@ public class LoyaltyPointsBalanceDto
         this.points = builder.points;
         this.equivalentAmount = builder.equivalentAmount;
         this.equivalentCurrency = builder.equivalentCurrency;
-        this.additionalInfo = builder.additionalInfo;
+        this.extend = builder.extend;
     }
 
     public ContactDto getContact()
@@ -69,9 +69,9 @@ public class LoyaltyPointsBalanceDto
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    public Map<String, Object> getAdditionalInfo()
+    public Map<String, Object> getExtend()
     {
-        return additionalInfo;
+        return extend;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class LoyaltyPointsBalanceDto
                         .append(", equivalentAmount=").append(equivalentAmount)
                         .append(", equivalentCurrency=").append(equivalentCurrency)
                         .append(", contact=").append(contact)
-                        .append(", additionalInfo=").append(additionalInfo)
+                        .append(", extend=").append(extend)
                         .append("]").toString();
     }
 
@@ -99,7 +99,7 @@ public class LoyaltyPointsBalanceDto
         private Integer points;
         private BigDecimal equivalentAmount;
         private Currency equivalentCurrency;
-        private Map<String, Object> additionalInfo = Collections.emptyMap();
+        private Map<String, Object> extend = Collections.emptyMap();
 
         private Builder()
         {
@@ -129,9 +129,9 @@ public class LoyaltyPointsBalanceDto
             return this;
         }
 
-        public Builder withAdditionalInfo(Map<String, Object> additionalInfo)
+        public Builder withExtend(Map<String, Object> extend)
         {
-            this.additionalInfo = additionalInfo;
+            this.extend = extend;
             return this;
         }
 
