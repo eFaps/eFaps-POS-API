@@ -16,8 +16,12 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = LoyaltyPointsBalanceDto.Builder.class)
@@ -33,12 +37,15 @@ public class LoyaltyPointsBalanceDto
 
     private final Currency equivalentCurrency;
 
+    private final Map<String, Object> additionalInfo;
+
     private LoyaltyPointsBalanceDto(Builder builder)
     {
         this.contact = builder.contact;
         this.points = builder.points;
         this.equivalentAmount = builder.equivalentAmount;
         this.equivalentCurrency = builder.equivalentCurrency;
+        this.additionalInfo = builder.additionalInfo;
     }
 
     public ContactDto getContact()
@@ -61,6 +68,12 @@ public class LoyaltyPointsBalanceDto
         return equivalentCurrency;
     }
 
+    @JsonInclude(Include.NON_EMPTY)
+    public Map<String, Object> getAdditionalInfo()
+    {
+        return additionalInfo;
+    }
+
     @Override
     public String toString()
     {
@@ -70,6 +83,7 @@ public class LoyaltyPointsBalanceDto
                         .append(", equivalentAmount=").append(equivalentAmount)
                         .append(", equivalentCurrency=").append(equivalentCurrency)
                         .append(", contact=").append(contact)
+                        .append(", additionalInfo=").append(additionalInfo)
                         .append("]").toString();
     }
 
@@ -85,6 +99,7 @@ public class LoyaltyPointsBalanceDto
         private Integer points;
         private BigDecimal equivalentAmount;
         private Currency equivalentCurrency;
+        private Map<String, Object> additionalInfo = Collections.emptyMap();
 
         private Builder()
         {
@@ -111,6 +126,12 @@ public class LoyaltyPointsBalanceDto
         public Builder withEquivalentCurrency(Currency equivalentCurrency)
         {
             this.equivalentCurrency = equivalentCurrency;
+            return this;
+        }
+
+        public Builder withAdditionalInfo(Map<String, Object> additionalInfo)
+        {
+            this.additionalInfo = additionalInfo;
             return this;
         }
 
