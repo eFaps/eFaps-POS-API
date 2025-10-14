@@ -39,6 +39,9 @@ public class CalculatorResponseDto
 
     private final PromoInfoDto promotionInfo;
 
+    private final List<LoyaltyInfoDto> loyaltyInfos;
+
+
     private CalculatorResponseDto(Builder builder)
     {
         this.netTotal = builder.netTotal;
@@ -48,6 +51,7 @@ public class CalculatorResponseDto
         this.positions = builder.positions;
         this.payableAmount = builder.payableAmount;
         this.promotionInfo = builder.promotionInfo;
+        this.loyaltyInfos = builder.loyaltyInfos;
     }
 
     public BigDecimal getNetTotal()
@@ -85,6 +89,11 @@ public class CalculatorResponseDto
         return promotionInfo;
     }
 
+    public List<LoyaltyInfoDto> getLoyaltyInfos()
+    {
+        return loyaltyInfos;
+    }
+
     @Override
     public String toString()
     {
@@ -95,6 +104,8 @@ public class CalculatorResponseDto
                         .append(", taxes=").append(taxes)
                         .append(", positions=").append(positions)
                         .append(", payableAmount=").append(payableAmount)
+                        .append(", promotionInfo=").append(promotionInfo)
+                        .append(", loyaltyInfos=").append(loyaltyInfos)
                         .append("]").toString();
     }
 
@@ -113,6 +124,7 @@ public class CalculatorResponseDto
         private List<CalculatorPositionResponseDto> positions = Collections.emptyList();
         private BigDecimal payableAmount;
         private PromoInfoDto promotionInfo;
+        private List<LoyaltyInfoDto> loyaltyInfos = Collections.emptyList();
 
         private Builder()
         {
@@ -157,6 +169,12 @@ public class CalculatorResponseDto
         public Builder withPromotionInfo(PromoInfoDto promotionInfo)
         {
             this.promotionInfo = promotionInfo;
+            return this;
+        }
+
+        public Builder withLoyaltyInfos(List<LoyaltyInfoDto> loyaltyInfos)
+        {
+            this.loyaltyInfos = loyaltyInfos;
             return this;
         }
 

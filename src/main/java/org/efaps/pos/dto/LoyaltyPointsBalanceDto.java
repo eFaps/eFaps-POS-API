@@ -29,6 +29,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class LoyaltyPointsBalanceDto
 {
 
+    private final String programKey;
+
     private final ContactDto contact;
 
     private final Integer points;
@@ -41,11 +43,17 @@ public class LoyaltyPointsBalanceDto
 
     private LoyaltyPointsBalanceDto(Builder builder)
     {
+        this.programKey = builder.programKey;
         this.contact = builder.contact;
         this.points = builder.points;
         this.equivalentAmount = builder.equivalentAmount;
         this.equivalentCurrency = builder.equivalentCurrency;
         this.extend = builder.extend;
+    }
+
+    public String getProgramKey()
+    {
+        return programKey;
     }
 
     public ContactDto getContact()
@@ -79,6 +87,7 @@ public class LoyaltyPointsBalanceDto
     {
         return new StringBuilder()
                         .append(super.toString())
+                        .append(", programKey=").append(programKey)
                         .append(", points=").append(points)
                         .append(", equivalentAmount=").append(equivalentAmount)
                         .append(", equivalentCurrency=").append(equivalentCurrency)
@@ -94,7 +103,7 @@ public class LoyaltyPointsBalanceDto
 
     public static final class Builder
     {
-
+        private String programKey;
         private ContactDto contact;
         private Integer points;
         private BigDecimal equivalentAmount;
@@ -103,6 +112,12 @@ public class LoyaltyPointsBalanceDto
 
         private Builder()
         {
+        }
+
+        public Builder withProgramKey(String programKey)
+        {
+            this.programKey = programKey;
+            return this;
         }
 
         public Builder withContact(ContactDto contact)

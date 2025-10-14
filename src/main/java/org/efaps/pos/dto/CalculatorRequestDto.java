@@ -28,10 +28,17 @@ public class CalculatorRequestDto
 
     private final String sourceDocIdent;
 
+    private final boolean evaluateLoyalty;
+
+    private final String contactOid;
+
+
     private CalculatorRequestDto(Builder builder)
     {
         this.positions = builder.positions;
         this.sourceDocIdent = builder.sourceDocIdent;
+        this.evaluateLoyalty = builder.evaluateLoyalty;
+        this.contactOid = builder.contactOid;
     }
 
     public List<CalculatorPositionRequestDto> getPositions()
@@ -44,11 +51,25 @@ public class CalculatorRequestDto
         return sourceDocIdent;
     }
 
+    public boolean isEvaluateLoyalty()
+    {
+        return evaluateLoyalty;
+    }
+
+    public String getContactOid()
+    {
+        return contactOid;
+    }
+
     @Override
     public String toString()
     {
         return new StringBuilder()
-                        .append("CalculatorRequestDto [positions=").append(positions)
+                        .append("CalculatorRequestDto [")
+                        .append("sourceDocIdent=").append(sourceDocIdent)
+                        .append(", evaluateLoyalty=").append(evaluateLoyalty)
+                        .append(", contactOid=").append(contactOid)
+                        .append(", positions=").append(positions)
                         .append("]").toString();
     }
 
@@ -62,6 +83,8 @@ public class CalculatorRequestDto
 
         private List<CalculatorPositionRequestDto> positions = Collections.emptyList();
         private String sourceDocIdent;
+        private boolean evaluateLoyalty;
+        private String contactOid;
 
         private Builder()
         {
@@ -76,6 +99,18 @@ public class CalculatorRequestDto
         public Builder withSourceDocIdent(String sourceDocIdent)
         {
             this.sourceDocIdent = sourceDocIdent;
+            return this;
+        }
+
+        public Builder withEvaluateLoyalty(boolean evaluateLoyalty)
+        {
+            this.evaluateLoyalty = evaluateLoyalty;
+            return this;
+        }
+
+        public Builder withContactOid(String contactOid)
+        {
+            this.contactOid = contactOid;
             return this;
         }
 
