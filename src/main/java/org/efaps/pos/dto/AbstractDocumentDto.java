@@ -41,6 +41,7 @@ public abstract class AbstractDocumentDto
     private final BigDecimal payableAmount;
     private final Collection<TaxEntryDto> taxes;
     private final String contactOid;
+    private final String loyaltyContactOid;
     private final String workspaceOid;
     private final String note;
     private final Collection<EmployeeRelationDto> employeeRelations;
@@ -62,9 +63,10 @@ public abstract class AbstractDocumentDto
         exchangeRate = builder.exchangeRate == null ? BigDecimal.ONE : builder.exchangeRate;
         taxes = builder.taxes == null ? Collections.emptySet() : builder.taxes;
         contactOid = builder.contactOid;
+        loyaltyContactOid = builder.loyaltyContactOid;
         workspaceOid = builder.workspaceOid;
         note = builder.note;
-        employeeRelations = builder.employeeRelations  == null ? Collections.emptySet() : builder.employeeRelations;
+        employeeRelations = builder.employeeRelations == null ? Collections.emptySet() : builder.employeeRelations;
         promotionInfo = builder.promotionInfo;
         extension = builder.extension;
     }
@@ -122,6 +124,11 @@ public abstract class AbstractDocumentDto
     public String getContactOid()
     {
         return contactOid;
+    }
+
+    public String getLoyaltyContactOid()
+    {
+        return loyaltyContactOid;
     }
 
     public String getWorkspaceOid()
@@ -195,6 +202,7 @@ public abstract class AbstractDocumentDto
         private Collection<TaxEntryDto> taxes;
         private Collection<? extends AbstractDocItemDto> items = new HashSet<>();
         private String contactOid;
+        private String loyaltyContactOid;
         private String workspaceOid;
         private String note;
         private Collection<EmployeeRelationDto> employeeRelations;
@@ -268,6 +276,13 @@ public abstract class AbstractDocumentDto
         public S withContactOid(final String _contactOid)
         {
             this.contactOid = _contactOid;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S withLoyaltyContactOid(final String loyaltyContactOid)
+        {
+            this.loyaltyContactOid = loyaltyContactOid;
             return (S) this;
         }
 
