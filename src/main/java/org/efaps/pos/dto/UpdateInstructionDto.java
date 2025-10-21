@@ -47,6 +47,16 @@ public class UpdateInstructionDto
         return expand;
     }
 
+    @Override
+    public String toString()
+    {
+        return new StringBuilder().append(this.getClass().getName())
+                        .append(" [fileOid=").append(fileOid)
+                        .append(", targetPath=").append(targetPath)
+                        .append(", expand=").append(expand)
+                        .append("]").toString();
+    }
+
     public static Builder builder()
     {
         return new Builder();

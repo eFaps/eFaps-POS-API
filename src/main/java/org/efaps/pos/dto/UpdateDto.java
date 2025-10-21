@@ -20,13 +20,12 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-
 @JsonDeserialize(builder = UpdateDto.Builder.class)
 public class UpdateDto
 {
+
     private final String version;
     private final List<UpdateInstructionDto> instructions;
-
 
     private UpdateDto(Builder builder)
     {
@@ -39,17 +38,24 @@ public class UpdateDto
         return version;
     }
 
-
     public List<UpdateInstructionDto> getInstructions()
     {
         return instructions;
+    }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuilder().append(this.getClass().getName())
+                        .append(" [version=").append(version)
+                        .append(", instructions=").append(instructions)
+                        .append("]").toString();
     }
 
     public static Builder builder()
     {
         return new Builder();
     }
-
 
     public static final class Builder
     {
