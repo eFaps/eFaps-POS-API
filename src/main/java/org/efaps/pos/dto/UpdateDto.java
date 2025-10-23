@@ -26,16 +26,23 @@ public class UpdateDto
 
     private final String version;
     private final List<UpdateInstructionDto> instructions;
+    private final String targetFolder;
 
     private UpdateDto(Builder builder)
     {
         this.version = builder.version;
+        this.targetFolder = builder.targetFolder;
         this.instructions = builder.instructions;
     }
 
     public String getVersion()
     {
         return version;
+    }
+
+    public String getTargetFolder()
+    {
+        return targetFolder;
     }
 
     public List<UpdateInstructionDto> getInstructions()
@@ -48,6 +55,7 @@ public class UpdateDto
     {
         return new StringBuilder().append(this.getClass().getName())
                         .append(" [version=").append(version)
+                        .append(", targetFolder=").append(targetFolder)
                         .append(", instructions=").append(instructions)
                         .append("]").toString();
     }
@@ -62,6 +70,7 @@ public class UpdateDto
 
         private String version;
         private List<UpdateInstructionDto> instructions = Collections.emptyList();
+        private String targetFolder;
 
         private Builder()
         {
@@ -70,6 +79,12 @@ public class UpdateDto
         public Builder withVersion(String version)
         {
             this.version = version;
+            return this;
+        }
+
+        public Builder withTargetFolder(String targetFolder)
+        {
+            this.targetFolder = targetFolder;
             return this;
         }
 
