@@ -16,6 +16,10 @@
 package org.efaps.pos.dto;
 
 import java.time.OffsetDateTime;
+import java.util.Collections;
+import java.util.Map;
+
+import javax.annotation.processing.Generated;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -26,14 +30,16 @@ public class ReportToBaseDto
 
     private final String version;
     private final String instalationId;
-
     private final OffsetDateTime createdAt;
+    private final Map<String, Object> details;
 
+    @Generated("SparkTools")
     private ReportToBaseDto(Builder builder)
     {
         this.version = builder.version;
         this.instalationId = builder.instalationId;
         this.createdAt = builder.createdAt;
+        this.details = builder.details;
     }
 
     public String getVersion()
@@ -51,6 +57,11 @@ public class ReportToBaseDto
         return createdAt;
     }
 
+    public Map<String, Object> getDetails()
+    {
+        return details;
+    }
+
     @Override
     public String toString()
     {
@@ -59,14 +70,17 @@ public class ReportToBaseDto
                         .append(", version=").append(version)
                         .append(", instalationId=").append(instalationId)
                         .append(", createdAt=").append(createdAt)
+                        .append(", details=").append(details)
                         .append("]").toString();
     }
 
+    @Generated("SparkTools")
     public static Builder builder()
     {
         return new Builder();
     }
 
+    @Generated("SparkTools")
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
     {
@@ -74,26 +88,33 @@ public class ReportToBaseDto
         private String version;
         private String instalationId;
         private OffsetDateTime createdAt;
+        private Map<String, Object> details = Collections.emptyMap();
 
         private Builder()
         {
         }
 
-        public Builder withVersion(final String version)
+        public Builder withVersion(String version)
         {
             this.version = version;
             return this;
         }
 
-        public Builder withInstalationId(final String instalationId)
+        public Builder withInstalationId(String instalationId)
         {
             this.instalationId = instalationId;
             return this;
         }
 
-        public Builder withCreatedAt(final OffsetDateTime createdAt)
+        public Builder withCreatedAt(OffsetDateTime createdAt)
         {
             this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder withDetails(Map<String, Object> details)
+        {
+            this.details = details;
             return this;
         }
 
