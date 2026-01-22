@@ -23,5 +23,6 @@ public enum PrintTarget
     COPY,
     BALANCE,
     BALANCE_DETAILED,
-    SALESREPORT
+    SALESREPORT,
+    CASHENTRIES
 }
