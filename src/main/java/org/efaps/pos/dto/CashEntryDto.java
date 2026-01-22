@@ -29,6 +29,7 @@ public class CashEntryDto
     private final CashEntryType entryType;
     private final BigDecimal amount;
     private final Currency currency;
+    private final String description;
 
     private CashEntryDto(final Builder builder)
     {
@@ -36,6 +37,7 @@ public class CashEntryDto
         entryType = builder.entryType;
         amount = builder.amount;
         currency = builder.currency;
+        description = builder.description;
     }
 
     public String getBalanceOid()
@@ -56,6 +58,11 @@ public class CashEntryDto
     public Currency getCurrency()
     {
         return currency;
+    }
+
+    public String getDescription()
+    {
+        return description;
     }
 
     @Override
@@ -82,6 +89,7 @@ public class CashEntryDto
         private CashEntryType entryType;
         private BigDecimal amount;
         private Currency currency;
+        private String description;
 
         public Builder withBalanceOid(final String balanceOid)
         {
@@ -104,6 +112,12 @@ public class CashEntryDto
         public Builder withCurrency(final Currency currency)
         {
             this.currency = currency;
+            return this;
+        }
+
+        public Builder withDescription(final String description)
+        {
+            this.description = description;
             return this;
         }
 
