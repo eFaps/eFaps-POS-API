@@ -17,7 +17,7 @@ package org.efaps.pos.dto;
 
 import java.time.OffsetDateTime;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = StoreStatus.Builder.class)
 public class StoreStatus
@@ -65,20 +65,14 @@ public class StoreStatus
     }
 
     public static final class Builder
+        extends AbstractObjectDto.Builder<Builder>
     {
 
-        private String oid;
         private boolean existing;
         private OffsetDateTime modifiedAt;
 
         private Builder()
         {
-        }
-
-        public Builder withOid(String oid)
-        {
-            this.oid = oid;
-            return this;
         }
 
         public Builder withExisting(boolean existing)

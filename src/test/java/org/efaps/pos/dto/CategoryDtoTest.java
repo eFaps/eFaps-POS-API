@@ -27,7 +27,7 @@ public class CategoryDtoTest
         final String name = "This is the name of this object";
 
         final CategoryDto dto = CategoryDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withName(name)
             .build();
 

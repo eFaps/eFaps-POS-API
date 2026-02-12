@@ -43,12 +43,12 @@ public abstract class AbstractObjectDto
     public static abstract class Builder<S extends Builder<S>>
     {
 
-        private String oid;
+        String oid;
 
         @SuppressWarnings("unchecked")
-        public S withOID(final String _oid)
+        public S withOid(final String oid)
         {
-            this.oid = _oid;
+            this.oid = oid;
             return (S) this;
         }
     }

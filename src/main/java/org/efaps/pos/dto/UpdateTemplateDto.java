@@ -17,7 +17,7 @@ package org.efaps.pos.dto;
 
 import javax.annotation.processing.Generated;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = UpdateTemplateDto.Builder.class)
 public class UpdateTemplateDto

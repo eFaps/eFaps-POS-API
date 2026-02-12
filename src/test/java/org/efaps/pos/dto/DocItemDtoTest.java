@@ -36,7 +36,7 @@ public class DocItemDtoTest
         final BigDecimal quantity = new BigDecimal("10");
 
         final DocItemDto dto = DocItemDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withCrossPrice(crossPrice)
             .withCrossUnitPrice(crossUnitPrice)
             .withNetPrice(netPrice)

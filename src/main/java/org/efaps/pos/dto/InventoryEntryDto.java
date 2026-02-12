@@ -18,7 +18,8 @@ package org.efaps.pos.dto;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = InventoryEntryDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -75,18 +76,12 @@ public class InventoryEntryDto
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder
+        extends AbstractObjectDto.Builder<Builder>
     {
 
         public String productOid;
         public String warehouseOid;
         public BigDecimal quantity;
-        private String oid;
-
-        public Builder withOID(final String _oid)
-        {
-            oid = _oid;
-            return this;
-        }
 
         public Builder withQuantity(final BigDecimal _quantity)
         {

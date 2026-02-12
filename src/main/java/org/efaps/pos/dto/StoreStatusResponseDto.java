@@ -17,7 +17,7 @@ package org.efaps.pos.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = StoreStatusResponseDto.Builder.class)
 public class StoreStatusResponseDto

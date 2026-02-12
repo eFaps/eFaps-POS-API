@@ -34,7 +34,7 @@ public class OrderDtoTest
 
         final OrderDto dto = OrderDto.builder()
             .withId(id)
-            .withOID(oid)
+            .withOid(oid)
             .withNumber(number)
             .withStatus(DocStatus.OPEN)
             .withItems(Collections.singleton(DocItemDto.builder().build()))

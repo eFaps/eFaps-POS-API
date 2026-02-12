@@ -30,7 +30,7 @@ public class TaxDtoTest
         final BigDecimal percent = new BigDecimal("18");
 
         final TaxDto dto = TaxDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withName(name)
             .withPercent(percent)
             .build();

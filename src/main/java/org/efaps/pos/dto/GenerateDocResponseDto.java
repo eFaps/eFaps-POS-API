@@ -17,7 +17,7 @@ package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = GenerateDocResponseDto.Builder.class)
 public class GenerateDocResponseDto
@@ -66,20 +66,13 @@ public class GenerateDocResponseDto
     }
 
     public static final class Builder
+        extends AbstractObjectDto.Builder<Builder>
     {
-
-        private String oid;
         private Currency currency;
         private BigDecimal payableAmount;
 
         private Builder()
         {
-        }
-
-        public Builder withOid(String oid)
-        {
-            this.oid = oid;
-            return this;
         }
 
         public Builder withCurrency(Currency currency)

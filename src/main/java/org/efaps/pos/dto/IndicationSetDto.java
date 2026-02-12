@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = IndicationSetDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)

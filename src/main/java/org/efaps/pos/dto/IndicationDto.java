@@ -16,7 +16,7 @@
 package org.efaps.pos.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = IndicationDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)

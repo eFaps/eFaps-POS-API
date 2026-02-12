@@ -25,26 +25,21 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;;
+import tools.jackson.databind.ObjectMapper;
+
 
 
 public class SerializationTest
 {
 
-
     private ObjectMapper getObjectMapper() {
         final var objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         return objectMapper;
     }
 
     private PaymentCashDto getPaymentCashDto() {
         return  new PaymentCashDto.Builder()
-                        .withOID("123.456")
+                        .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
                         .withExchangeRate(BigDecimal.ONE)
@@ -54,7 +49,7 @@ public class SerializationTest
 
     private PaymentLoyaltyPointsDto getPaymentLoyaltyPointsDto() {
         return PaymentLoyaltyPointsDto.builder()
-                        .withOID("123.456")
+                        .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
                         .withExchangeRate(BigDecimal.ONE)
@@ -63,7 +58,7 @@ public class SerializationTest
 
     private PaymentElectronicDto getPaymentElectronicDto() {
         return  PaymentElectronicDto.builder()
-                        .withOID("123.456")
+                        .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
                         .withExchangeRate(BigDecimal.ONE)
@@ -80,7 +75,7 @@ public class SerializationTest
     }
 
     @Test
-    public void testPaymentCash() throws JsonProcessingException {
+    public void testPaymentCash()  {
 
         final var dto = getPaymentCashDto();
         final var objectMapper =  getObjectMapper();
@@ -99,7 +94,7 @@ public class SerializationTest
     }
 
     @Test
-    public void testPaymentLoyaltyPoints() throws JsonProcessingException {
+    public void testPaymentLoyaltyPoints() {
 
         final var dto = getPaymentLoyaltyPointsDto();
         final var objectMapper =  getObjectMapper();
@@ -118,7 +113,7 @@ public class SerializationTest
     }
 
     @Test
-    public void testPaymentElectronics() throws JsonProcessingException {
+    public void testPaymentElectronics() {
 
         final var dto = getPaymentElectronicDto();
 
@@ -139,11 +134,11 @@ public class SerializationTest
 
 
     @Test
-    public void testDocument() throws JsonProcessingException {
+    public void testDocument() {
 
         final ReceiptDto dto = ReceiptDto.builder()
                         .withId("absgctagd")
-                        .withOID("123.15")
+                        .withOid("123.15")
                         .withNumber("001-001651")
                         .withStatus(DocStatus.OPEN)
                         .withItems(Collections.singleton(DocItemDto.builder().build()))
