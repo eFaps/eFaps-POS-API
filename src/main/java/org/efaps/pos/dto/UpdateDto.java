@@ -26,6 +26,8 @@ public class UpdateDto
 
     private final String version;
     private final List<UpdateInstructionDto> instructions;
+    private final List<UpdateTemplateDto> templates;
+
     private final String targetFolder;
 
     private UpdateDto(Builder builder)
@@ -33,6 +35,7 @@ public class UpdateDto
         this.version = builder.version;
         this.targetFolder = builder.targetFolder;
         this.instructions = builder.instructions;
+        this.templates = builder.templates;
     }
 
     public String getVersion()
@@ -50,6 +53,11 @@ public class UpdateDto
         return instructions;
     }
 
+    public List<UpdateTemplateDto> getTemplates()
+    {
+        return templates;
+    }
+
     @Override
     public String toString()
     {
@@ -57,6 +65,7 @@ public class UpdateDto
                         .append(" [version=").append(version)
                         .append(", targetFolder=").append(targetFolder)
                         .append(", instructions=").append(instructions)
+                        .append(", templates=").append(templates)
                         .append("]").toString();
     }
 
@@ -70,6 +79,7 @@ public class UpdateDto
 
         private String version;
         private List<UpdateInstructionDto> instructions = Collections.emptyList();
+        private List<UpdateTemplateDto> templates = Collections.emptyList();
         private String targetFolder;
 
         private Builder()
@@ -91,6 +101,12 @@ public class UpdateDto
         public Builder withInstructions(List<UpdateInstructionDto> instructions)
         {
             this.instructions = instructions;
+            return this;
+        }
+
+        public Builder withTemplates(List<UpdateTemplateDto> templates)
+        {
+            this.templates = templates;
             return this;
         }
 
