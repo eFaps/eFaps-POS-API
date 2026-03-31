@@ -43,7 +43,7 @@ public class ProductDtoTest
             .withCategories(categories)
             .withCrossPrice(crossPrice)
             .withNetPrice(netPrice)
-            .withSKU(sku)
+            .withSku(sku)
             .withTaxes(taxes)
             .build();
 
