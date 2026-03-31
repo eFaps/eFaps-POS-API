@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = ProductDto.Builder.class)
@@ -215,7 +216,7 @@ public class ProductDto
         private Collection<ConfigurationBOMDto> configurationBOMs;
         private ProductIndividual individual;
 
-        public Builder withSKU(final String _sku)
+        public Builder withSku(final String _sku)
         {
             sku = _sku;
             return this;
