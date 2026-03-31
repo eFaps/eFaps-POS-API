@@ -21,8 +21,9 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import tools.jackson.databind.annotation.JsonDeserialize;
+
 
 @JsonDeserialize(builder = ProductDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
