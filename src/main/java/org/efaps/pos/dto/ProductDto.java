@@ -217,6 +217,13 @@ public class ProductDto
         private Collection<ConfigurationBOMDto> configurationBOMs;
         private ProductIndividual individual;
 
+        @Deprecated
+        public Builder withSKU(final String _sku)
+        {
+            sku = _sku;
+            return this;
+        }
+
         public Builder withSku(final String _sku)
         {
             sku = _sku;
