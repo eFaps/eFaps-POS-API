@@ -49,6 +49,7 @@ public class ProductDto
     private final Collection<BOMGroupConfigDto> bomGroupConfigs;
     private final Collection<ConfigurationBOMDto> configurationBOMs;
     private final ProductIndividual individual;
+    private final ProductStatus status;
 
     private ProductDto(final Builder builder)
     {
@@ -71,6 +72,7 @@ public class ProductDto
         this.bomGroupConfigs = builder.bomGroupConfigs == null ? Collections.emptySet() : builder.bomGroupConfigs;
         this.configurationBOMs = builder.configurationBOMs == null ? Collections.emptySet() : builder.configurationBOMs;
         this.individual = builder.individual;
+        this.status = builder.status;
     }
 
     public String getSku()
@@ -163,6 +165,11 @@ public class ProductDto
         return individual;
     }
 
+    public ProductStatus getStatus()
+    {
+        return status;
+    }
+
     @Override
     public String toString()
     {
@@ -185,6 +192,7 @@ public class ProductDto
                         .append(", bomGroupConfigs=").append(bomGroupConfigs)
                         .append(", configurationBOMs=").append(configurationBOMs)
                         .append(", individual=").append(individual)
+                        .append(", status=").append(status)
                         .append("]").toString();
     }
 
@@ -216,6 +224,7 @@ public class ProductDto
         private Collection<BOMGroupConfigDto> bomGroupConfigs;
         private Collection<ConfigurationBOMDto> configurationBOMs;
         private ProductIndividual individual;
+        private ProductStatus status;
 
         @Deprecated
         public Builder withSKU(final String _sku)
@@ -332,6 +341,11 @@ public class ProductDto
             return this;
         }
 
+        public Builder withStatus(final ProductStatus status)
+        {
+            this.status = status;
+            return this;
+        }
 
         public ProductDto build()
         {
