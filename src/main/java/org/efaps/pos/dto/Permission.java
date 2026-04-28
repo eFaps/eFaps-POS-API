@@ -23,4 +23,7 @@ public enum Permission
     ORDER, // can emit Orders,
     CREDITNOTE,// can emit CreditNote
     REDEEM_CREDITNOTE, // can redeem a CreditNote
+    IGNORE_PRODUCTSTATUS, // has access to all products independent of their state
+    OVERWRITE_STOCK, // can overwrite the stock verification
+
 }
