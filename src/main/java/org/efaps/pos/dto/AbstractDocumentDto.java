@@ -22,11 +22,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 
+import org.efaps.pos.interfaces.IExtendable;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public abstract class AbstractDocumentDto
     extends AbstractObjectDto
+    implements IExtendable
 {
 
     private final String id;

@@ -19,8 +19,13 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
+
+import org.efaps.pos.interfaces.IExtendable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 
@@ -29,6 +34,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductDto
     extends AbstractObjectDto
+    implements IExtendable
 {
 
     private final String sku;
@@ -50,6 +56,7 @@ public class ProductDto
     private final Collection<ConfigurationBOMDto> configurationBOMs;
     private final ProductIndividual individual;
     private final ProductStatus status;
+    private final Map<String, Object> extension;
 
     private ProductDto(final Builder builder)
     {
@@ -73,6 +80,7 @@ public class ProductDto
         this.configurationBOMs = builder.configurationBOMs == null ? Collections.emptySet() : builder.configurationBOMs;
         this.individual = builder.individual;
         this.status = builder.status;
+        this.extension = builder.extension;
     }
 
     public String getSku()
@@ -170,6 +178,13 @@ public class ProductDto
         return status;
     }
 
+    @JsonInclude(value = Include.NON_NULL)
+    @Override
+    public Map<String, Object> getExtension()
+    {
+        return null;
+    }
+
     @Override
     public String toString()
     {
@@ -193,6 +208,7 @@ public class ProductDto
                         .append(", configurationBOMs=").append(configurationBOMs)
                         .append(", individual=").append(individual)
                         .append(", status=").append(status)
+                        .append(", extension=").append(extension)
                         .append("]").toString();
     }
 
@@ -225,6 +241,7 @@ public class ProductDto
         private Collection<ConfigurationBOMDto> configurationBOMs;
         private ProductIndividual individual;
         private ProductStatus status;
+        private Map<String, Object> extension;
 
         @Deprecated
         public Builder withSKU(final String _sku)
@@ -347,9 +364,16 @@ public class ProductDto
             return this;
         }
 
+        public Builder withExtension(final Map<String, Object> extension)
+        {
+            this.extension = extension;
+            return  this;
+        }
+
         public ProductDto build()
         {
             return new ProductDto(this);
         }
     }
+
 }
