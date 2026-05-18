@@ -25,5 +25,5 @@ public enum Permission
     REDEEM_CREDITNOTE, // can redeem a CreditNote
     IGNORE_PRODUCTSTATUS, // has access to all products independent of their state
     OVERWRITE_STOCK, // can overwrite the stock verification
-
+    ADMIN_SYNC, // can initialize a manual sync
 }
