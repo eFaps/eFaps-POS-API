@@ -181,7 +181,7 @@ public class ProductDto
     @Override
     public Map<String, Object> getExtension()
     {
-        return null;
+        return extension;
     }
 
     @Override
