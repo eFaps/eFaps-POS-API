@@ -26,9 +26,8 @@ import org.efaps.pos.interfaces.IExtendable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = ProductDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -367,7 +366,7 @@ public class ProductDto
         public Builder withExtension(final Map<String, Object> extension)
         {
             this.extension = extension;
-            return  this;
+            return this;
         }
 
         public ProductDto build()
