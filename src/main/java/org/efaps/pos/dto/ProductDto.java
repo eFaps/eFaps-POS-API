@@ -26,8 +26,7 @@ import org.efaps.pos.interfaces.IExtendable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import tools.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = ProductDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
