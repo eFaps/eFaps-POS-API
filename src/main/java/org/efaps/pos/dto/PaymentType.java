@@ -24,5 +24,6 @@ public enum PaymentType
     CHANGE,
     ELECTRONIC,
     LOYALTY_POINTS,
+    LOYALTY_VOUCHER,
     REDEEM_CREDITNOTE;
 }
