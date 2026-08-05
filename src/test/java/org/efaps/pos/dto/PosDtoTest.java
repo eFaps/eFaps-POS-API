@@ -29,7 +29,7 @@ public class PosDtoTest
         final String defaultContactOid = "5512.23";
 
         final PosDto dto = PosDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withName(name)
             .withCurrency(currency)
             .withDefaultContactOid(defaultContactOid)

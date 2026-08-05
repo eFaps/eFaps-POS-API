@@ -44,7 +44,7 @@ public class SerializationTest
 
     private PaymentCashDto getPaymentCashDto() {
         return  new PaymentCashDto.Builder()
-                        .withOID("123.456")
+                        .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
                         .withExchangeRate(BigDecimal.ONE)
@@ -54,7 +54,7 @@ public class SerializationTest
 
     private PaymentLoyaltyPointsDto getPaymentLoyaltyPointsDto() {
         return PaymentLoyaltyPointsDto.builder()
-                        .withOID("123.456")
+                        .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
                         .withExchangeRate(BigDecimal.ONE)
@@ -63,7 +63,7 @@ public class SerializationTest
 
     private PaymentElectronicDto getPaymentElectronicDto() {
         return  PaymentElectronicDto.builder()
-                        .withOID("123.456")
+                        .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
                         .withExchangeRate(BigDecimal.ONE)
@@ -143,7 +143,7 @@ public class SerializationTest
 
         final ReceiptDto dto = ReceiptDto.builder()
                         .withId("absgctagd")
-                        .withOID("123.15")
+                        .withOid("123.15")
                         .withNumber("001-001651")
                         .withStatus(DocStatus.OPEN)
                         .withItems(Collections.singleton(DocItemDto.builder().build()))

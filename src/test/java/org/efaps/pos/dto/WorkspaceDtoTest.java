@@ -28,7 +28,7 @@ public class WorkspaceDtoTest
         final String posOid = "555.516";
 
         final WorkspaceDto dto = WorkspaceDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withName(name)
             .withPosOid(posOid)
             .build();

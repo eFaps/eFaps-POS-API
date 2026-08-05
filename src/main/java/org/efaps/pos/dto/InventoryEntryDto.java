@@ -94,7 +94,7 @@ public class InventoryEntryDto
         private String oid;
         private OffsetDateTime updatedAt;
 
-        public Builder withOID(final String oid)
+        public Builder withOid(final String oid)
         {
             this.oid = oid;
             return this;

@@ -37,7 +37,7 @@ public class ProductDtoTest
         final Set<TaxDto> taxes = Collections.singleton(TaxDto.builder().build());
 
         final ProductDto dto = ProductDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withDescription(description)
             .withImageOid(imageOid)
             .withCategories(categories)

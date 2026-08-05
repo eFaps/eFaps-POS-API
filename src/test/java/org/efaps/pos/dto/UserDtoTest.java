@@ -34,7 +34,7 @@ public class UserDtoTest
         final String username = "Username";
         final Set<Roles> roles = Collections.singleton(Roles.ADMIN);
         final UserDto dto = UserDto.builder()
-            .withOID(oid)
+            .withOid(oid)
             .withFirstName(firstName)
             .withPassword(password)
             .withRoles(roles)

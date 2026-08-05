@@ -46,7 +46,7 @@ public abstract class AbstractObjectDto
         private String oid;
 
         @SuppressWarnings("unchecked")
-        public S withOID(final String _oid)
+        public S withOid(final String _oid)
         {
             this.oid = _oid;
             return (S) this;
