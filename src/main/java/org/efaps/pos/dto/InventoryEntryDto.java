@@ -25,9 +25,9 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize(builder = InventoryEntryDto.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class InventoryEntryDto
+    extends AbstractObjectDto
 {
 
-    private final String oid;
     private final BigDecimal quantity;
     private final String warehouseOid;
     private final String productOid;
@@ -35,16 +35,11 @@ public class InventoryEntryDto
 
     private InventoryEntryDto(final Builder builder)
     {
-        oid = builder.oid;
+        super(builder);
         quantity = builder.quantity;
         warehouseOid = builder.warehouseOid;
         productOid = builder.productOid;
         updatedAt = builder.updatedAt;
-    }
-
-    public String getOid()
-    {
-        return oid;
     }
 
     public BigDecimal getQuantity()
@@ -70,14 +65,14 @@ public class InventoryEntryDto
     @Override
     public String toString()
     {
-        final StringBuilder builder2 = new StringBuilder();
-        builder2.append("InventoryEntryDto [oid=").append(oid)
+        return new StringBuilder()
+                        .append(super.toString())
                         .append(", quantity=").append(quantity)
                         .append(", warehouseOid=").append(warehouseOid)
                         .append(", productOid=").append(productOid)
                         .append(", updatedAt=").append(updatedAt)
-                        .append("]");
-        return builder2.toString();
+                        .append("]")
+                        .toString();
     }
 
     public static Builder builder()
@@ -93,14 +88,7 @@ public class InventoryEntryDto
         private String productOid;
         private String warehouseOid;
         private BigDecimal quantity;
-        private String oid;
         private OffsetDateTime updatedAt;
-
-        public Builder withOid(final String oid)
-        {
-            this.oid = oid;
-            return this;
-        }
 
         public Builder withQuantity(final BigDecimal quantity)
         {

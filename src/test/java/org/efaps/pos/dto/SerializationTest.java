@@ -18,6 +18,7 @@ package org.efaps.pos.dto;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Collections;
@@ -28,17 +29,18 @@ import org.testng.annotations.Test;
 import tools.jackson.databind.ObjectMapper;
 
 
-
 public class SerializationTest
 {
 
-    private ObjectMapper getObjectMapper() {
+    private ObjectMapper getObjectMapper()
+    {
         final var objectMapper = new ObjectMapper();
         return objectMapper;
     }
 
-    private PaymentCashDto getPaymentCashDto() {
-        return  new PaymentCashDto.Builder()
+    private PaymentCashDto getPaymentCashDto()
+    {
+        return new PaymentCashDto.Builder()
                         .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
@@ -46,8 +48,8 @@ public class SerializationTest
                         .build();
     }
 
-
-    private PaymentLoyaltyPointsDto getPaymentLoyaltyPointsDto() {
+    private PaymentLoyaltyPointsDto getPaymentLoyaltyPointsDto()
+    {
         return PaymentLoyaltyPointsDto.builder()
                         .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
@@ -56,8 +58,9 @@ public class SerializationTest
                         .build();
     }
 
-    private PaymentElectronicDto getPaymentElectronicDto() {
-        return  PaymentElectronicDto.builder()
+    private PaymentElectronicDto getPaymentElectronicDto()
+    {
+        return PaymentElectronicDto.builder()
                         .withOid("123.456")
                         .withAmount(new BigDecimal("12.56"))
                         .withCurrency(Currency.PEN)
@@ -75,10 +78,11 @@ public class SerializationTest
     }
 
     @Test
-    public void testPaymentCash()  {
+    public void testPaymentCash()
+    {
 
         final var dto = getPaymentCashDto();
-        final var objectMapper =  getObjectMapper();
+        final var objectMapper = getObjectMapper();
         final var json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
         System.out.println(json);
         final var payment = objectMapper.readValue(json, IPaymentDto.class);
@@ -94,10 +98,11 @@ public class SerializationTest
     }
 
     @Test
-    public void testPaymentLoyaltyPoints() {
+    public void testPaymentLoyaltyPoints()
+    {
 
         final var dto = getPaymentLoyaltyPointsDto();
-        final var objectMapper =  getObjectMapper();
+        final var objectMapper = getObjectMapper();
         final var json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
         System.out.println(json);
         final var payment = objectMapper.readValue(json, IPaymentDto.class);
@@ -113,11 +118,12 @@ public class SerializationTest
     }
 
     @Test
-    public void testPaymentElectronics() {
+    public void testPaymentElectronics()
+    {
 
         final var dto = getPaymentElectronicDto();
 
-        final var objectMapper =  getObjectMapper();
+        final var objectMapper = getObjectMapper();
         final var json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
         System.out.println(json);
         final var payment = objectMapper.readValue(json, IPaymentDto.class);
@@ -132,9 +138,9 @@ public class SerializationTest
         assertEquals(paymentDto.getExchangeRate(), paymentDto.getExchangeRate());
     }
 
-
     @Test
-    public void testDocument() {
+    public void testDocument()
+    {
 
         final ReceiptDto dto = ReceiptDto.builder()
                         .withId("absgctagd")
@@ -142,16 +148,43 @@ public class SerializationTest
                         .withNumber("001-001651")
                         .withStatus(DocStatus.OPEN)
                         .withItems(Collections.singleton(DocItemDto.builder().build()))
-                        .withPayments(List.of(getPaymentElectronicDto(), getPaymentCashDto(), getPaymentLoyaltyPointsDto()))
+                        .withPayments(List.of(getPaymentElectronicDto(), getPaymentCashDto(),
+                                        getPaymentLoyaltyPointsDto()))
                         .withNetTotal(new BigDecimal("11.2"))
                         .withCrossTotal(new BigDecimal("13.41"))
                         .withTaxes(Collections.singleton(TaxEntryDto.builder().build()))
                         .build();
-        final var objectMapper =  getObjectMapper();
+        final var objectMapper = getObjectMapper();
         final var json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
         System.out.println(json);
         final var receiptDto = objectMapper.readValue(json, ReceiptDto.class);
         System.out.println(receiptDto);
+    }
+
+    @Test
+    public void testFile()
+        throws IOException
+    {
+        final var is = getClass().getClassLoader().getResourceAsStream("file.json");
+        final var objectMapper = getObjectMapper();
+        final var file = objectMapper.readValue(is, FileDto.class);
+        assertEquals(file.getOid(), "123.15");
+        assertEquals(file.getName(), "a Name");
+        assertEquals(file.getDescription(), "An image");
+        assertEquals(file.getFileName(), "filename.jpg");
+    }
+
+    @Test
+    public void testFile2()
+        throws IOException
+    {
+        final var is = getClass().getClassLoader().getResourceAsStream("file2.json");
+        final var objectMapper = getObjectMapper();
+        final var file = objectMapper.readValue(is, FileDto.class);
+        assertEquals(file.getOid(), "123.15");
+        assertEquals(file.getName(), "a Name");
+        assertEquals(file.getDescription(), "An image");
+        assertEquals(file.getFileName(), "filename.jpg");
     }
 
 }

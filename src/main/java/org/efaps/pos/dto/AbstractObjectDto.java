@@ -15,6 +15,8 @@
  */
 package org.efaps.pos.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 /**
  * The Class AbstractDto.
  */
@@ -46,7 +48,7 @@ public abstract class AbstractObjectDto
         String oid;
 
         @SuppressWarnings("unchecked")
-
+        @JsonAlias({ "OID" })
         public S withOid(final String oid)
         {
             this.oid = oid;

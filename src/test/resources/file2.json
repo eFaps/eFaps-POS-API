@@ -1,0 +1,6 @@
+{
+  "OID" : "123.15",
+  "name" : "a Name",
+  "description" : "An image",
+  "fileName": "filename.jpg"
+}
