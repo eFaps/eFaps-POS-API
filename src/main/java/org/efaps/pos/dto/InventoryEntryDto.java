@@ -16,6 +16,7 @@
 package org.efaps.pos.dto;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -29,13 +30,15 @@ public class InventoryEntryDto
     private final BigDecimal quantity;
     private final String warehouseOid;
     private final String productOid;
+    private final OffsetDateTime updatedAt;
 
-    private InventoryEntryDto(final Builder _builder)
+    private InventoryEntryDto(final Builder builder)
     {
-        oid = _builder.oid;
-        quantity = _builder.quantity;
-        warehouseOid = _builder.warehouseOid;
-        productOid = _builder.productOid;
+        oid = builder.oid;
+        quantity = builder.quantity;
+        warehouseOid = builder.warehouseOid;
+        productOid = builder.productOid;
+        updatedAt = builder.updatedAt;
     }
 
     public String getOid()
@@ -58,12 +61,20 @@ public class InventoryEntryDto
         return productOid;
     }
 
+    public OffsetDateTime getUpdatedAt()
+    {
+        return updatedAt;
+    }
+
     @Override
     public String toString()
     {
         final StringBuilder builder2 = new StringBuilder();
-        builder2.append("InventoryEntryDto [oid=").append(oid).append(", quantity=").append(quantity)
-                        .append(", warehouseOid=").append(warehouseOid).append(", productOid=").append(productOid)
+        builder2.append("InventoryEntryDto [oid=").append(oid)
+                        .append(", quantity=").append(quantity)
+                        .append(", warehouseOid=").append(warehouseOid)
+                        .append(", productOid=").append(productOid)
+                        .append(", updatedAt=").append(updatedAt)
                         .append("]");
         return builder2.toString();
     }
@@ -77,32 +88,39 @@ public class InventoryEntryDto
     public static final class Builder
     {
 
-        public String productOid;
-        public String warehouseOid;
-        public BigDecimal quantity;
+        private String productOid;
+        private String warehouseOid;
+        private BigDecimal quantity;
         private String oid;
+        private OffsetDateTime updatedAt;
 
-        public Builder withOID(final String _oid)
+        public Builder withOID(final String oid)
         {
-            oid = _oid;
+            this.oid = oid;
             return this;
         }
 
-        public Builder withQuantity(final BigDecimal _quantity)
+        public Builder withQuantity(final BigDecimal quantity)
         {
-            quantity = _quantity;
+            this.quantity = quantity;
             return this;
         }
 
-        public Builder withProductOid(final String _productOid)
+        public Builder withProductOid(final String productOid)
         {
-            productOid = _productOid;
+            this.productOid = productOid;
             return this;
         }
 
-        public Builder withWarehouseOid(final String _warehouseOid)
+        public Builder withWarehouseOid(final String warehouseOid)
         {
-            warehouseOid = _warehouseOid;
+            this.warehouseOid = warehouseOid;
+            return this;
+        }
+
+        public Builder withUpdatedAt(final OffsetDateTime updatedAt)
+        {
+            this.updatedAt = updatedAt;
             return this;
         }
 
