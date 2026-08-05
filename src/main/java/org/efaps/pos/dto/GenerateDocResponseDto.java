@@ -20,23 +20,17 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = GenerateDocResponseDto.Builder.class)
-public class GenerateDocResponseDto
+public class GenerateDocResponseDto extends AbstractObjectDto
 {
 
-    private final String oid;
     private final Currency currency;
     private final BigDecimal payableAmount;
 
     private GenerateDocResponseDto(Builder builder)
     {
-        this.oid = builder.oid;
+        super(builder);
         this.currency = builder.currency;
         this.payableAmount = builder.payableAmount;
-    }
-
-    public String getOid()
-    {
-        return oid;
     }
 
     public Currency getCurrency()
@@ -54,7 +48,6 @@ public class GenerateDocResponseDto
     {
         return new StringBuilder()
                         .append(super.toString())
-                        .append(", oid=").append(oid)
                         .append(", currency=").append(currency)
                         .append(", payableAmount=").append(payableAmount)
                         .append("]").toString();
@@ -65,21 +58,14 @@ public class GenerateDocResponseDto
         return new Builder();
     }
 
-    public static final class Builder
+    public static final class Builder extends AbstractObjectDto.Builder<Builder>
     {
 
-        private String oid;
         private Currency currency;
         private BigDecimal payableAmount;
 
         private Builder()
         {
-        }
-
-        public Builder withOid(String oid)
-        {
-            this.oid = oid;
-            return this;
         }
 
         public Builder withCurrency(Currency currency)

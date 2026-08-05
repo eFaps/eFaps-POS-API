@@ -20,23 +20,17 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(builder = StoreStatus.Builder.class)
-public class StoreStatus
+public class StoreStatus extends AbstractObjectDto
 {
 
-    private final String oid;
     private final boolean existing;
     private final OffsetDateTime modifiedAt;
 
     private StoreStatus(Builder builder)
     {
-        this.oid = builder.oid;
+        super(builder);
         this.existing = builder.existing;
         this.modifiedAt = builder.modifiedAt;
-    }
-
-    public String getOid()
-    {
-        return oid;
     }
 
     public boolean isExisting()
@@ -53,7 +47,7 @@ public class StoreStatus
     public String toString()
     {
         return new StringBuilder()
-                        .append("oid=").append(oid)
+                        .append(super.toString())
                         .append(", existing=").append(existing)
                         .append(", modifiedAt=").append(modifiedAt)
                         .toString();
@@ -64,21 +58,14 @@ public class StoreStatus
         return new Builder();
     }
 
-    public static final class Builder
+    public static final class Builder extends AbstractObjectDto.Builder<Builder>
     {
 
-        private String oid;
         private boolean existing;
         private OffsetDateTime modifiedAt;
 
         private Builder()
         {
-        }
-
-        public Builder withOid(String oid)
-        {
-            this.oid = oid;
-            return this;
         }
 
         public Builder withExisting(boolean existing)
