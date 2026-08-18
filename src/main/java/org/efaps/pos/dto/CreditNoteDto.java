@@ -28,15 +28,23 @@ public class CreditNoteDto
 
     private final String sourceDocOid;
 
-    public CreditNoteDto(final Builder _builder)
+    private final String creditReason;
+
+    public CreditNoteDto(final Builder builder)
     {
-        super(_builder);
-        sourceDocOid = _builder.sourceDocOid;
+        super(builder);
+        sourceDocOid = builder.sourceDocOid;
+        creditReason = builder.creditReason;
     }
 
     public String getSourceDocOid()
     {
         return sourceDocOid;
+    }
+
+    public String getCreditReason()
+    {
+        return creditReason;
     }
 
     @Override
@@ -45,6 +53,7 @@ public class CreditNoteDto
         return new StringBuilder()
                         .append(super.toString())
                         .append(", sourceDocOid=").append(sourceDocOid)
+                        .append(", creditReason=").append(creditReason)
                         .append("]").toString();
     }
 
@@ -60,6 +69,8 @@ public class CreditNoteDto
 
         private String sourceDocOid;
 
+        private String creditReason;
+
         public Builder withItems(final Collection<DocItemDto> _items)
         {
             setItems(_items);
@@ -72,8 +83,15 @@ public class CreditNoteDto
             return this;
         }
 
-        public Builder withSourceDocOid( final String _sourceDocOid) {
-            sourceDocOid = _sourceDocOid;
+        public Builder withSourceDocOid(final String sourceDocOid)
+        {
+            this.sourceDocOid = sourceDocOid;
+            return this;
+        }
+
+        public Builder withCreditReason(final String creditReason)
+        {
+            this.creditReason = creditReason;
             return this;
         }
 
