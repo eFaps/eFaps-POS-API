@@ -15,6 +15,7 @@
  */
 package org.efaps.pos.dto;
 
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,8 +30,8 @@ public class FileDto
     private final String name;
     private final String description;
     private final String fileName;
-
     private final Map<String, String> tags;
+    private final List<FileProductEntryDto> products;
 
     protected FileDto(final Builder builder)
     {
@@ -39,6 +40,7 @@ public class FileDto
         this.description = builder.description;
         this.fileName = builder.fileName;
         this.tags = builder.tags;
+        this.products = builder.products;
     }
 
     public String getName()
@@ -61,6 +63,11 @@ public class FileDto
         return tags;
     }
 
+    public List<FileProductEntryDto> getProducts()
+    {
+        return products;
+    }
+
     @Override
     public String toString()
     {
@@ -69,6 +76,7 @@ public class FileDto
                         .append(", name=").append(name)
                         .append(", description=").append(description)
                         .append(", tags=").append(tags)
+                        .append(", products=").append(products)
                         .append("]").toString();
     }
 
@@ -86,6 +94,7 @@ public class FileDto
         private String description;
         private String fileName;
         private Map<String, String> tags;
+        private List<FileProductEntryDto> products;
 
         public Builder withName(final String name)
         {
@@ -108,6 +117,12 @@ public class FileDto
         public Builder withTags(final Map<String, String> tags)
         {
             this.tags = tags;
+            return this;
+        }
+
+        public Builder withProducts(List<FileProductEntryDto> products)
+        {
+            this.products = products;
             return this;
         }
 
